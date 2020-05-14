@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="HealthClinic.Layouts.AppointmentDoctor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HealthClinic.Layouts"
+             mc:Ignorable="d" 
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"  
+             Background="#FF303030"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             
+             d:DesignHeight="380" d:DesignWidth="480">
+    <Grid x:Name="AppointmentDoctorGrid">
+        <Grid Background="#FF292929">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Izaberite doktora:" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="20" />
+
+            <ComboBox Grid.Row="1" Grid.Column="0" Height="80" Width="450" Margin="0 0 0 130" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FF362F66" FontFamily="Century Gothic" FontSize="20">
+                <ComboBoxItem Background="#FF362F66" BorderBrush="#FF362F66" Foreground="#FF362F66">
+                    <TextBlock Text="Dr. Pera Perić" FontFamily="Century Gothic" Foreground="White"/>
+                </ComboBoxItem>
+                <ComboBoxItem Background="#FF362F66" BorderBrush="#FF362F66" Foreground="#FF362F66">
+                    <TextBlock Text="Dr. Ivan Ivanović" FontFamily="Century Gothic" Foreground="White"/>
+                </ComboBoxItem>
+                <ComboBoxItem Background="#FF362F66" BorderBrush="#FF362F66" Foreground="#FF362F66">
+                    <TextBlock Text="Dr. Marko Marković" FontFamily="Century Gothic" Foreground="White"/>
+                </ComboBoxItem>
+
+            </ComboBox>
+            <!--<ComboBox Grid.Row="2" Grid.Column="0" Height="80" Width="450" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 20 0 0" Background="#FF362F66"/>-->
+        </Grid>
+    </Grid>
+</UserControl>
