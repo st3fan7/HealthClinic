@@ -1,0 +1,64 @@
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\bin\Debug\HealthClinic.exe.config
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\bin\Debug\HealthClinic.exe
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\bin\Debug\HealthClinic.pdb
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\bin\Debug\MaterialDesignColors.dll
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\HealthClinic.csprojAssemblyReference.cache
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\MainWindow.g.cs
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\App.g.cs
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\HealthClinic_MarkupCompile.cache
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\HealthClinic_MarkupCompile.lref
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\App.baml
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\MainWindow.baml
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\HealthClinic.g.resources
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\HealthClinic.Properties.Resources.resources
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\HealthClinic.csproj.GenerateResource.cache
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\HealthClinic.csproj.CoreCompileInputs.cache
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\HealthClinic.csproj.CopyComplete
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\HealthClinic.exe
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\HealthClinic.pdb
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\Login.g.cs
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\Login.baml
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\UserControlPocetna.g.cs
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\UserControlPocetna.baml
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\UserControlPregled.g.cs
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\UserControlPregled.baml
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\DijalogIzmenaDijagnoze.g.cs
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\DijalogIzmenaDijagnoze.baml
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\UserControlPacijenti.g.cs
+C:\Users\Stefan\Desktop\HCI\WPF\HealthClinic\HealthClinic\obj\Debug\UserControlPacijenti.baml
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\bin\Debug\HealthClinic.exe.config
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\bin\Debug\HealthClinic.exe
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\bin\Debug\HealthClinic.pdb
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\bin\Debug\MaterialDesignColors.dll
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\HealthClinic.csprojAssemblyReference.cache
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\DijalogIzmenaDijagnoze.g.cs
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\MainWindow.g.cs
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\Login.g.cs
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\UserControlPacijenti.g.cs
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\UserControlPocetna.g.cs
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\UserControlPregled.g.cs
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\App.g.cs
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\HealthClinic_MarkupCompile.cache
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\HealthClinic_MarkupCompile.lref
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\App.baml
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\DijalogIzmenaDijagnoze.baml
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\MainWindow.baml
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\Login.baml
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\UserControlPacijenti.baml
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\UserControlPocetna.baml
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\UserControlPregled.baml
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\HealthClinic.g.resources
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\HealthClinic.Properties.Resources.resources
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\HealthClinic.csproj.GenerateResource.cache
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\HealthClinic.csproj.CoreCompileInputs.cache
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\HealthClinic.csproj.CopyComplete
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\HealthClinic.exe
+C:\Users\Stefan\Desktop\HealthClinicOriginal\HealthClinic\HCI\Lekar - Stefan Arađanin\HealthClinic\HealthClinic\obj\Debug\HealthClinic.pdb
