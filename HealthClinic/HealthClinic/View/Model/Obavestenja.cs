@@ -10,7 +10,7 @@ namespace HealthClinic.Model
     class Obavestenja : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
+        // PROBA
         protected virtual void OnPropertyChanged(string name)
         {
             if (PropertyChanged != null)
