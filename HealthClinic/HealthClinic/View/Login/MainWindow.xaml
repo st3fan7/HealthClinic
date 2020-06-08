@@ -1,0 +1,195 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthClinic"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="HealthClinic.MainWindow"
+        mc:Ignorable="d"
+        xmlns:language="clr-namespace:HealthClinic.Properties.Languages"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="32"
+        TextElement.FontFamily="Helvatic"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource ResourceKey=MaterialDesignFont}"
+        Title="MainWindow" Height="750" Width="430" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
+    <Grid x:Name="GridMain"  Background="#FFC5D4E3">
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="297*"/>
+                <RowDefinition Height="398*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Background="#FF8CA8BF"
+                    Height="55" 
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Right"
+                    Width="430">
+
+                <Grid  Width="430" Height="55">
+                    <Button  x:Name="btnClose"
+                         Click="btnClose_Click"
+                         Background="{x:Null}"
+                         BorderBrush="{x:Null}"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Center"
+                         Margin="0,0,1,3" 
+                         Width="70"
+                         Height="55"  >
+                        <materialDesign:PackIcon Kind="Close"
+                                            Height="35"
+                                            Width="35"
+                                            Foreground="#FF1A1C1E"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"  />
+                    </Button>
+
+                    <Label Content="{x:Static language:Language.logging_in}" 
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       Width="350" 
+                       Height="55"
+                       FontFamily="Helvatic"/>
+                </Grid>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1"
+                    VerticalAlignment="Center"
+                    Height="208"
+                    Margin="0,47,0,42">
+                <TextBlock Text="Health Clinic"
+                       FontSize="40"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold" 
+                       FontFamily="Helvatic"/>
+                <materialDesign:PackIcon Kind="UserCircle"
+                                     Width="140" Height="140"
+                                     HorizontalAlignment="Center" 
+                                     Margin="0,30,0,0"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" >
+
+                <StackPanel Orientation="Horizontal" Height="107">
+                    <TextBox  
+                        x:Name="usernameTextBox"
+                    BorderThickness="2"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    Height="60"
+                    FontSize="28"
+                    materialDesign:HintAssist.Hint="{x:Static language:Language.enterUsername}" 
+                    IsEnabled="{Binding Path=IsChecked, ElementName=NameBox}" 
+                     Margin="55,-30,55,0"   
+                    FontFamily="Helvatic"
+                    CaretBrush="#FF131619" Background="#FFB9C8D6" Width="321" TextChanged="usernameTextBox_TextChanged"  />
+                    <TextBox Text="{x:Static language:Language.textWarningUsernameInMainW}" 
+                            x:Name="textWarningUsername"
+                            Visibility="{Binding myVisibility}"
+                            TextWrapping="Wrap"
+                            AcceptsReturn="True"
+                            IsReadOnly="True"                          
+                            BorderBrush="{x:Null}"
+                            Background="{x:Null}"
+                            CaretBrush="{x:Null}"
+                            SelectionBrush="{x:Null}"
+                            FontSize="28"
+                            FontFamily="Helvatic"
+                            HorizontalAlignment="Center"
+                            VerticalContentAlignment="Top"                     
+                            TextAlignment="Center"
+                            Width="344"
+                            Margin="-430,70,0,-25"
+                            Foreground="Red"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Height="123">
+                    <PasswordBox
+                        x:Name="passwordTextBox"
+                    BorderThickness="2"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    Height="60"
+                    FontSize="28"
+                    VerticalAlignment="Top"
+                    IsEnabled="{Binding Path=IsChecked, ElementName=PasswordBox}"
+                    materialDesign:HintAssist.Hint="{x:Static language:Language.enterPassword2}" 
+                    Margin="55,10,55,0"
+                    FontFamily="Helvatic"
+                    CaretBrush="#FF131619" 
+                    Background="#FFB9C8D6" 
+                    Width="321"
+                    PasswordChanged="passwordTextBox_PasswordChanged"/>
+                    <TextBox Text="{x:Static language:Language.textWarningPasswordInMainW}" 
+                            x:Name="textWarningPassword"
+                            Visibility="{Binding myVisibility}"
+                            TextWrapping="Wrap"
+                            AcceptsReturn="True"
+                            IsReadOnly="True"                          
+                            BorderBrush="{x:Null}"
+                            Background="{x:Null}"
+                            CaretBrush="{x:Null}"
+                            SelectionBrush="{x:Null}"
+                            FontSize="28"
+                            FontFamily="Helvatic"
+                            HorizontalAlignment="Center"
+                            VerticalContentAlignment="Top"                     
+                            TextAlignment="Center"
+                            Width="323"
+                            Margin="-430,70,0,-25"
+                            Foreground="Red"/>
+                </StackPanel>
+
+                <Button Name="loginBtn"
+                    Content="{x:Static language:Language.logIn}" 
+                    Height="56"
+                    FontSize="28" Background="#FF8CA8BF"
+                    BorderBrush="#DD000000"
+                    Foreground="#DD000000"
+                    Margin="131,20,131,0"
+                    FontWeight="Normal"
+                    FontFamily="Helvatic"
+                    HorizontalAlignment="Right"
+                    Width="168"
+                    Click="loginBtn_Click"/>
+
+                <Button x:Name="forgotPasswordBtn" 
+                    FontSize="20"
+                    Width="auto"
+                    Height="auto" 
+                    HorizontalAlignment="Left" 
+                    BorderBrush="{x:Null}" 
+                    Foreground="#FF2D75B0" 
+                    Margin="17,30,0,0" 
+                    Background="{x:Null}" 
+                    FontFamily="Helvatic" 
+                    Click="forgotPasswordBtn_Click">
+                    <TextBlock Text="{x:Static language:Language.forgotPassword}"  TextDecorations="Underline" />
+                </Button>
+
+                <Button BorderBrush="{x:Null}"
+                    Background="{x:Null}"
+                    x:Name="register"
+                    FontSize="20"
+                    Width="auto"
+                    Height="auto" 
+                    HorizontalAlignment="Right"
+                    Foreground="#FF2D75B0"
+                    Margin="0,-33,17,0"
+                    FontFamily="Helvatic">
+                    <TextBlock Text="{x:Static language:Language.registration}" TextDecorations="Underline" />
+                </Button>
+
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="accommodation" xml:space="preserve">
+    <value>Accommodation</value>
+  </data>
+  <data name="accommodationInformation" xml:space="preserve">
+    <value>Accommodation information</value>
+  </data>
+  <data name="accountChange" xml:space="preserve">
+    <value>Account change</value>
+  </data>
+  <data name="accountDeactivation" xml:space="preserve">
+    <value>Account deactivation</value>
+  </data>
+  <data name="accountManipulation" xml:space="preserve">
+    <value>Account manipulation</value>
+  </data>
+  <data name="accountReview" xml:space="preserve">
+    <value>Account review</value>
+  </data>
+  <data name="add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="addingLanguage" xml:space="preserve">
+    <value>Adding language</value>
+  </data>
+  <data name="addingTheme" xml:space="preserve">
+    <value>Adding theme</value>
+  </data>
+  <data name="addLanguage" xml:space="preserve">
+    <value>Add new language</value>
+  </data>
+  <data name="addNewTheme" xml:space="preserve">
+    <value>Add new theme</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>Address:</value>
+  </data>
+  <data name="anotherTextInCancelingTerm" xml:space="preserve">
+    <value>Are you sure you want to                   cancel the appointment?</value>
+  </data>
+  <data name="anotherTextInDataModInRecRoom" xml:space="preserve">
+    <value>Change data which you want:</value>
+  </data>
+  <data name="back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="backToLogIn" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="basicData" xml:space="preserve">
+    <value>Basic data:</value>
+  </data>
+  <data name="byDoctors" xml:space="preserve">
+    <value>By doctors</value>
+  </data>
+  <data name="byRooms" xml:space="preserve">
+    <value>By rooms</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="canceling" xml:space="preserve">
+    <value>Canceling</value>
+  </data>
+  <data name="change" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="changeAccount" xml:space="preserve">
+    <value>Change account</value>
+  </data>
+  <data name="changeLang" xml:space="preserve">
+    <value>Change language</value>
+  </data>
+  <data name="changeLanguage" xml:space="preserve">
+    <value>Change language</value>
+  </data>
+  <data name="changePatientData" xml:space="preserve">
+    <value>Change patient data:</value>
+  </data>
+  <data name="changeTheme" xml:space="preserve">
+    <value>Change theme</value>
+  </data>
+  <data name="changeYourData" xml:space="preserve">
+    <value>Change your data:</value>
+  </data>
+  <data name="changingTheme" xml:space="preserve">
+    <value>Changing theme</value>
+  </data>
+  <data name="checkOutDate" xml:space="preserve">
+    <value>Checkout date:</value>
+  </data>
+  <data name="chooseD" xml:space="preserve">
+    <value>Choose date</value>
+  </data>
+  <data name="chooseDate" xml:space="preserve">
+    <value>Choose date</value>
+  </data>
+  <data name="chooseDoc" xml:space="preserve">
+    <value>Choose doctor</value>
+  </data>
+  <data name="chooseDoctor" xml:space="preserve">
+    <value>Choose doctor:</value>
+  </data>
+  <data name="chooseLanguage" xml:space="preserve">
+    <value>Choose language for app:</value>
+  </data>
+  <data name="chooseR" xml:space="preserve">
+    <value>Choose room</value>
+  </data>
+  <data name="chooseRoom" xml:space="preserve">
+    <value>Choose room:</value>
+  </data>
+  <data name="chooseThemeForApp" xml:space="preserve">
+    <value>Choose theme for app:</value>
+  </data>
+  <data name="confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="confirmationOfIdentity" xml:space="preserve">
+    <value>Confirmation of identity</value>
+  </data>
+  <data name="create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="createAccount" xml:space="preserve">
+    <value>Create account</value>
+  </data>
+  <data name="creatingAnAccount1" xml:space="preserve">
+    <value>Creating an account 1</value>
+  </data>
+  <data name="creatingAnAccount2" xml:space="preserve">
+    <value>Creating an account 2</value>
+  </data>
+  <data name="darkTheme" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="dataModification" xml:space="preserve">
+    <value>Data modification</value>
+  </data>
+  <data name="date" xml:space="preserve">
+    <value>Date:</value>
+  </data>
+  <data name="dateOfBirth" xml:space="preserve">
+    <value>Date of birth:</value>
+  </data>
+  <data name="deactivateAccount" xml:space="preserve">
+    <value>Deactivate account</value>
+  </data>
+  <data name="displayType" xml:space="preserve">
+    <value>Display type</value>
+  </data>
+  <data name="doctor" xml:space="preserve">
+    <value>Doctor:</value>
+  </data>
+  <data name="doctorsSpecialist" xml:space="preserve">
+    <value>Doctors specialist</value>
+  </data>
+  <data name="doctorsTerm" xml:space="preserve">
+    <value>Doctor's terms</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Email address:</value>
+  </data>
+  <data name="endTime" xml:space="preserve">
+    <value>End time:</value>
+  </data>
+  <data name="english" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="enterAddress" xml:space="preserve">
+    <value>Enter address</value>
+  </data>
+  <data name="enterData" xml:space="preserve">
+    <value>Enter data</value>
+  </data>
+  <data name="enterEmail" xml:space="preserve">
+    <value>Enter email</value>
+  </data>
+  <data name="enterJMBG" xml:space="preserve">
+    <value>Enter ID</value>
+  </data>
+  <data name="enterName" xml:space="preserve">
+    <value>Enter name</value>
+  </data>
+  <data name="enterPassword" xml:space="preserve">
+    <value>Enter password</value>
+  </data>
+  <data name="enterPassword2" xml:space="preserve">
+    <value>Enter password</value>
+  </data>
+  <data name="enterPhone" xml:space="preserve">
+    <value>Enter phone number</value>
+  </data>
+  <data name="enterPlaceOfBirth" xml:space="preserve">
+    <value>Enter place of birth</value>
+  </data>
+  <data name="enterState" xml:space="preserve">
+    <value>Enter state</value>
+  </data>
+  <data name="enterSurname" xml:space="preserve">
+    <value>Enter surname</value>
+  </data>
+  <data name="enterUsername" xml:space="preserve">
+    <value>Enter username</value>
+  </data>
+  <data name="examinations" xml:space="preserve">
+    <value>Examinations</value>
+  </data>
+  <data name="exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="fillDataForCreatingAccount" xml:space="preserve">
+    <value>Fill in the data for creating an                     account for the patient:</value>
+  </data>
+  <data name="forgotPassword" xml:space="preserve">
+    <value>Forgot password?</value>
+  </data>
+  <data name="forgotPasswordTitle" xml:space="preserve">
+    <value>Forgot password</value>
+  </data>
+  <data name="freeDoctor" xml:space="preserve">
+    <value>Free doctors:</value>
+  </data>
+  <data name="freeRoom" xml:space="preserve">
+    <value>Free rooms:</value>
+  </data>
+  <data name="freeTime" xml:space="preserve">
+    <value>Free time:</value>
+  </data>
+  <data name="generalPractitioner" xml:space="preserve">
+    <value>General practitioner</value>
+  </data>
+  <data name="generate" xml:space="preserve">
+    <value>Generate</value>
+  </data>
+  <data name="giveUp" xml:space="preserve">
+    <value>Give up</value>
+  </data>
+  <data name="guestAccount" xml:space="preserve">
+    <value>Guest account</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="inputPasswordInMainW" xml:space="preserve">
+    <value>Enter password</value>
+  </data>
+  <data name="inputPatientJMBG" xml:space="preserve">
+    <value>Patinet JMBG</value>
+  </data>
+  <data name="inputTextUsernameOrJMBG" xml:space="preserve">
+    <value>Username or ID</value>
+  </data>
+  <data name="inputUsernameInMainW" xml:space="preserve">
+    <value>Enter username</value>
+  </data>
+  <data name="jmbg" xml:space="preserve">
+    <value>ID:</value>
+  </data>
+  <data name="lightTheme" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="logging in" xml:space="preserve">
+    <value>Logging in</value>
+  </data>
+  <data name="logIn" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="myAccount" xml:space="preserve">
+    <value>My account</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="nameAndSurname" xml:space="preserve">
+    <value>Name and surname</value>
+  </data>
+  <data name="next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="notification" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="notificationInLogIn" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="operations" xml:space="preserve">
+    <value>Surgeries</value>
+  </data>
+  <data name="optionManipulation" xml:space="preserve">
+    <value>Manipulation option</value>
+  </data>
+  <data name="otherData" xml:space="preserve">
+    <value>Other data</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="patient" xml:space="preserve">
+    <value>Patient:</value>
+  </data>
+  <data name="patientName" xml:space="preserve">
+    <value>Patient's name</value>
+  </data>
+  <data name="patients" xml:space="preserve">
+    <value>Patients</value>
+  </data>
+  <data name="patientValidation" xml:space="preserve">
+    <value>Patient validation</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Mobile phone:</value>
+  </data>
+  <data name="place" xml:space="preserve">
+    <value>Place</value>
+  </data>
+  <data name="placeOfBirth" xml:space="preserve">
+    <value>Place of birth:</value>
+  </data>
+  <data name="reception" xml:space="preserve">
+    <value>Reception:</value>
+  </data>
+  <data name="recovery" xml:space="preserve">
+    <value>Recovery</value>
+  </data>
+  <data name="registration" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="relocate" xml:space="preserve">
+    <value>Relocate</value>
+  </data>
+  <data name="relocation" xml:space="preserve">
+    <value>Relocation</value>
+  </data>
+  <data name="report" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="reviewAccount" xml:space="preserve">
+    <value>Review account</value>
+  </data>
+  <data name="reviewNotification" xml:space="preserve">
+    <value>Review notifications:</value>
+  </data>
+  <data name="room" xml:space="preserve">
+    <value>Room:</value>
+  </data>
+  <data name="roomsForExaminations" xml:space="preserve">
+    <value>Rooms for examinations</value>
+  </data>
+  <data name="roomsForRecovery" xml:space="preserve">
+    <value>Rooms for recovery</value>
+  </data>
+  <data name="roomsForSurgeries" xml:space="preserve">
+    <value>Rooms for surgeries</value>
+  </data>
+  <data name="schedule" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
+  <data name="scheduling" xml:space="preserve">
+    <value>Scheduling</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="searchBtn" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="searchResult" xml:space="preserve">
+    <value>Search result</value>
+  </data>
+  <data name="serbian" xml:space="preserve">
+    <value>Serbian</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="setUp" xml:space="preserve">
+    <value>Set up</value>
+  </data>
+  <data name="signOut" xml:space="preserve">
+    <value>Checkout:</value>
+  </data>
+  <data name="signOutFromApp" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
+  <data name="startTime" xml:space="preserve">
+    <value>Start time:</value>
+  </data>
+  <data name="state" xml:space="preserve">
+    <value>State:</value>
+  </data>
+  <data name="surname" xml:space="preserve">
+    <value>Surname:</value>
+  </data>
+  <data name="termTime" xml:space="preserve">
+    <value>Term time</value>
+  </data>
+  <data name="text1GuestAccount" xml:space="preserve">
+    <value>You entered:</value>
+  </data>
+  <data name="text1InNotificationForPassword" xml:space="preserve">
+    <value>Request for changing password was successfully sent!</value>
+  </data>
+  <data name="text1InRelocation" xml:space="preserve">
+    <value>Term which be moved:</value>
+  </data>
+  <data name="text2GuestAccount" xml:space="preserve">
+    <value>The data entered is not in the system, create a guest account:</value>
+  </data>
+  <data name="text2InAddNewLanguage" xml:space="preserve">
+    <value>Additional languages currently does not exist!</value>
+  </data>
+  <data name="text2InAddNewTheme" xml:space="preserve">
+    <value>Additional themes currently does not exsist!</value>
+  </data>
+  <data name="text2InNotificationForPassword" xml:space="preserve">
+    <value>We will deliver the password to your email address which you filled in when you creating the account.</value>
+  </data>
+  <data name="text2InRelocation" xml:space="preserve">
+    <value>Select the date which you want to relocate term:</value>
+  </data>
+  <data name="text2InScheduleTerm" xml:space="preserve">
+    <value>Select the required data:</value>
+  </data>
+  <data name="text2InSearchInOthersRoom" xml:space="preserve">
+    <value>NOTE: No fields are required!</value>
+  </data>
+  <data name="textInAccomodationPatient" xml:space="preserve">
+    <value>Is this the patient which you want to accomodate? If it is,                         click "Yes" to accommodate</value>
+  </data>
+  <data name="textInAccountManipulation" xml:space="preserve">
+    <value>Enter the username or jmbg of the patient whose account you want to manipulate:</value>
+  </data>
+  <data name="textInAddNewLanguage" xml:space="preserve">
+    <value>Select the language which you want to add:</value>
+  </data>
+  <data name="textInAddNewTheme" xml:space="preserve">
+    <value>Select the theme which you want to add:</value>
+  </data>
+  <data name="textInCancelingTerm" xml:space="preserve">
+    <value>Appointment which be canceled:</value>
+  </data>
+  <data name="textInConfirmPatientIdentity" xml:space="preserve">
+    <value>Is this the patient you                     want to schedule an appointment?</value>
+  </data>
+  <data name="textInConfirmPatientIdentityInManipulation" xml:space="preserve">
+    <value>Is this the patient whose                    account you want                          to manipulate?</value>
+  </data>
+  <data name="textInConfirmPatientIdentityInTransformation" xml:space="preserve">
+    <value>Is this the patient whose                           guest account you want                          to transform?</value>
+  </data>
+  <data name="textInCreatePatientAccount2" xml:space="preserve">
+    <value>Complete the creation of the                          patient account by filling                          remaining data:</value>
+  </data>
+  <data name="textInDataModInRecRoom" xml:space="preserve">
+    <value>Appointment information:</value>
+  </data>
+  <data name="textInDeactivationPatientAccount" xml:space="preserve">
+    <value>Are you sure you want to                       deactivate account?</value>
+  </data>
+  <data name="textInDisplayType" xml:space="preserve">
+    <value>Mark how do you want to display appointments:</value>
+  </data>
+  <data name="textInFillDataForTransformation" xml:space="preserve">
+    <value>Enter additional information to                           transform the guest account                          into a real account:</value>
+  </data>
+  <data name="textInHome" xml:space="preserve">
+    <value>Welcome, Ana. What do you want to do today?</value>
+  </data>
+  <data name="textInManipulationOptForSecAcc" xml:space="preserve">
+    <value>What would you like to do?</value>
+  </data>
+  <data name="textInManipulationOptions" xml:space="preserve">
+    <value>Choose one of the offered                          account manipulation options:</value>
+  </data>
+  <data name="textInPatients" xml:space="preserve">
+    <value>Choose an operation                      over patient:</value>
+  </data>
+  <data name="textInPatientvalidation" xml:space="preserve">
+    <value>Enter username or patient's ID  to verify that if it exists in the system:</value>
+  </data>
+  <data name="textInPatientValidationForRecovery" xml:space="preserve">
+    <value>Enter username or patient's ID  to put patient in the recovery room:</value>
+  </data>
+  <data name="textInReloaction2" xml:space="preserve">
+    <value>Choose time for new term:</value>
+  </data>
+  <data name="textInReloactionTerm3" xml:space="preserve">
+    <value>Choose room and doctor for new term:</value>
+  </data>
+  <data name="textInReport" xml:space="preserve">
+    <value>Select any day of the week                          on which you want to generate the weekly report by clicking on:</value>
+  </data>
+  <data name="textInSchedule" xml:space="preserve">
+    <value>Select a date to view the appointment by clicking on the calendar:</value>
+  </data>
+  <data name="textInScheduleTerm" xml:space="preserve">
+    <value>Term for scheduling:</value>
+  </data>
+  <data name="textInSearchInOthersRoom" xml:space="preserve">
+    <value>The search parameters are:</value>
+  </data>
+  <data name="textInSettings" xml:space="preserve">
+    <value>Select operation in settings:</value>
+  </data>
+  <data name="textInTransformationGuestAccount" xml:space="preserve">
+    <value>Enter the JMBG of the patient whose guest account you want                           to transform:</value>
+  </data>
+  <data name="textInTypeOfDoctors" xml:space="preserve">
+    <value>Mark the type of doctor which you want to see:</value>
+  </data>
+  <data name="textInTypeOfRoom" xml:space="preserve">
+    <value>Mark the type of room which you want to see:</value>
+  </data>
+  <data name="textInUserControlForgotPassword" xml:space="preserve">
+    <value>Enter your username to reset the password:</value>
+  </data>
+  <data name="textInViewPatientAccount" xml:space="preserve">
+    <value>Basic informations:</value>
+  </data>
+  <data name="textWarningPasswordInMainW" xml:space="preserve">
+    <value>Invalid password!</value>
+  </data>
+  <data name="textWarningUsernameInMainW" xml:space="preserve">
+    <value>Invalid username!</value>
+  </data>
+  <data name="time" xml:space="preserve">
+    <value>Time:</value>
+  </data>
+  <data name="transform" xml:space="preserve">
+    <value>Transform</value>
+  </data>
+  <data name="transformation" xml:space="preserve">
+    <value>Transformation</value>
+  </data>
+  <data name="transformGuest" xml:space="preserve">
+    <value>Transform guest</value>
+  </data>
+  <data name="typeOfDoctor" xml:space="preserve">
+    <value>Type of doctors</value>
+  </data>
+  <data name="typeOfRooms" xml:space="preserve">
+    <value>Type of rooms</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Username:</value>
+  </data>
+  <data name="viewAccount" xml:space="preserve">
+    <value>View account</value>
+  </data>
+  <data name="warningTextInReport" xml:space="preserve">
+    <value>You have to choose a date!</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+</root>

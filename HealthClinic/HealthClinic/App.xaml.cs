@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -25,6 +26,13 @@ namespace HealthClinic
         private const string CSV_DELIMITER = ";";
 
         private const string DATETIME_FORMAT = "dd.MM.yyyy.";
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            var languageCode = HealthClinic.Properties.Settings.Default.languageCode;
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(languageCode);
+            base.OnStartup(e);
+        }
 
         public App()
         {

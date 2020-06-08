@@ -1,0 +1,394 @@
+﻿<UserControl x:Class="HealthClinic.View.SearchResult"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HealthClinic.View"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                          xmlns:language="clr-namespace:HealthClinic.Properties.Languages"
+             mc:Ignorable="d"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="32"
+            TextElement.FontFamily="Helvatic"
+            TextOptions.TextFormattingMode="Ideal"
+            TextOptions.TextRenderingMode="Auto"
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource ResourceKey=MaterialDesignFont}"
+             d:DesignHeight="750" d:DesignWidth="430" Loaded="UserControl_Loaded" >
+
+    <UserControl.Resources>
+        <Style TargetType="{x:Type DataGridRow}" x:Key="dgs1">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Foreground" Value="#FF49535B"/>
+                    <Setter Property="Background" Value="Green" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid  x:Name="GridRecoveryRooms" Background="#FFC5D4E3">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="170"/>
+                <RowDefinition Height="55*"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="55"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackPanel Grid.Row="0" Grid.ColumnSpan="5"
+                    Background="#FF8CA8BF"
+                    Height="55" 
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Right"
+                    Width="430">
+
+                <Grid  Width="430" Height="55">
+
+                    <Label Content="{x:Static language:Language.searchResult}" 
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center" 
+                       Height="55"
+                       Margin="94,0,66,0"
+                       FontFamily="Helvatic"/>
+                    <Button Name="backBtn"
+                    HorizontalAlignment="Left"
+                    Width="140"
+                    Height="56"
+                    FontSize="28"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Foreground="#DD000000"
+                    Margin="0,0,0,-1" Click="backBtn_Click" >
+                        <DockPanel Width="140" Margin="-15,0,0,0">
+                            <materialDesign:PackIcon Kind="ChevronLeft"
+                                             Width="33"
+                                             Height="47"
+                                             Margin="1,0,0,0"
+                                             HorizontalAlignment="Left"/>
+                            <Label Padding="0" 
+                               Content="{x:Static language:Language.back}" 
+                               FontSize="20" 
+                               FontFamily="Helvatic"
+                               HorizontalContentAlignment="Left"
+                               VerticalContentAlignment="Center"
+                               Width="86"
+                               Margin="0,0,30,0"/>
+                        </DockPanel>
+                    </Button>
+
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="5">
+                <Label x:Name="dateLabel"
+                        Height="50"
+                       Width="390"
+                       FontSize="28"
+                       FontFamily="Helvatic"
+                       HorizontalAlignment="Center"
+                       VerticalContentAlignment="Center"                     
+                       HorizontalContentAlignment="Center"/>
+
+
+
+                <Label x:Name="l2"
+                       Content="{x:Static language:Language.room}" 
+                        Height="30"
+                       Width="117"
+                       FontSize="22"
+                       FontFamily="Helvatic"
+                       HorizontalAlignment="Left"
+                       VerticalContentAlignment="Center"                     
+                       HorizontalContentAlignment="Left"
+                       Margin="60, 30,0,-20"/>
+                <Label x:Name="l3"
+                       Content="{x:Static language:Language.reception}" 
+                        Height="33"
+                       Width="117"
+                       FontSize="22"
+                       FontFamily="Helvatic"
+                       HorizontalAlignment="Left"
+                       VerticalContentAlignment="Center"                     
+                       HorizontalContentAlignment="Left"
+                       Margin="60,-120,0,-20"/>
+                <Label x:Name="l4"
+                       Content="{x:Static language:Language.signOut}" 
+                        Height="43"
+                       Width="117"
+                       FontSize="22"
+                       FontFamily="Helvatic"
+                       HorizontalAlignment="Left"
+                       VerticalContentAlignment="Center"                     
+                       HorizontalContentAlignment="Left"
+                       Margin="60,-60,0,-20"/>
+                <Label x:Name="l1"
+                   Content="{x:Static language:Language.patient}" 
+                Height="33"
+                Width="117"
+                FontSize="22"
+                FontFamily="Helvatic"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center"                     
+                HorizontalContentAlignment="Left"
+                Margin="60,15,0,90"/>
+                <Label x:Name="l21"
+                Height="32"
+                Width="225"
+                FontSize="22"
+                FontFamily="Helvatic"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center"                     
+                HorizontalContentAlignment="Left"
+                Margin="186,-376,0,0"/>
+                <Label x:Name="l22"
+                Height="32"
+                Width="226"
+                FontSize="22"
+                FontFamily="Helvatic"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center"                     
+                HorizontalContentAlignment="Left"
+                Margin="185,-326,0,0"/>
+                <Label x:Name="l23"
+                Height="32"
+                Width="225"
+                FontSize="22"
+                FontFamily="Helvatic"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center"                     
+                HorizontalContentAlignment="Left"
+                Margin="186,-276,0,0"/>
+                <Label x:Name="l24"
+                Height="32"
+                Width="227"
+                FontSize="22"
+                FontFamily="Helvatic"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center"                     
+                HorizontalContentAlignment="Left"
+                Margin="185,-226,0,0"/>
+
+
+                
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="5">
+                <DataGrid ItemsSource="{Binding theList}" 
+                          RowStyle="{StaticResource dgs1 }"
+                          Name="dgTerms" HorizontalScrollBarVisibility="Auto" 
+                          BorderThickness="2" 
+                          Height="425" 
+                          Width="400" 
+                          IsReadOnly="True"
+                          AutoGenerateColumns="False"
+                          HeadersVisibility="None" 
+                          RowDetailsVisibilityMode="Visible"
+                          Background="#FF8CA8BF" 
+                          BorderBrush="Black" 
+                          Margin="0,-30,0,0" 
+                          IsSynchronizedWithCurrentItem="True" 
+                          ScrollViewer.CanContentScroll="True" 
+                          ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="dgTerms_SelectionChanged">
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Header="Name" Width="*" Visibility="Collapsed" />
+
+                    </DataGrid.Columns>
+                    <DataGrid.RowDetailsTemplate>
+                        <DataTemplate >
+
+                            <DockPanel Background="#FF8CA8BF" >
+                                <RadioButton DockPanel.Dock="Left" Margin="15,20,0,0" GroupName="myGroup"/>
+                                <Grid Margin="10,10,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Text="{x:Static language:Language.reception}"   FontWeight="Bold" FontSize="20" FontFamily="Helvatic" Margin="15,0,0,0" />
+                                    <TextBlock Text="{Binding Prijem}" Grid.Column="1" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
+                                    <TextBlock Text="{x:Static language:Language.signOut}"   FontWeight="Bold" Grid.Row="1" FontSize="20" FontFamily="Helvatic" Margin="15,0,0,0"/>
+                                    <TextBlock Text="{Binding Odjava}" Grid.Column="1" Grid.Row="1" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
+                                    <TextBlock Text="{x:Static language:Language.room}"   FontWeight="Bold" Grid.Row="2" FontSize="20" FontFamily="Helvatic" Margin="15,0,0,0"/>
+                                    <TextBlock Text="{Binding Sala}" Grid.Column="1" Grid.Row="2" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
+                                    <TextBlock Text="{x:Static language:Language.patient}"   FontWeight="Bold" Grid.Row="3" FontSize="20" FontFamily="Helvatic" Margin="15,0,0,0"/>
+                                    <TextBlock Text="{Binding Pacijent}" Grid.Column="1" Grid.Row="3" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
+                                    <TextBlock Text="Status: " FontWeight="Bold" Grid.Row="4" FontSize="20" FontFamily="Helvatic" Margin="15,0,0,0"/>
+                                    <TextBlock Text="{Binding Status}" Grid.Column="1" Grid.Row="4" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
+                                </Grid>
+                            </DockPanel>
+
+                        </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
+                </DataGrid>
+
+
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="5">
+                <Button  x:Name="btnAccommodate"
+                         Content="{x:Static language:Language.place}" 
+                         Background="#FF8CA8BF"
+                         BorderBrush="Black"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Center"
+                         Margin="40,15,10,3" 
+                         Width="147"
+                         Height="40"
+                         Foreground="#FF020207"
+                         FontSize="28"
+                         FontFamily="Helvatic" Click="btnAccommodate_Click"/>
+                <Button  x:Name="btnChange"
+                         Content="{x:Static language:Language.change}" 
+                         Background="#FF8CA8BF"
+                         BorderBrush="Black"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Center"
+                         Margin="0,-42,40,3" 
+                         Width="147"
+                         Height="40"
+                         Foreground="#FF020207"
+                         FontSize="28"
+                         FontFamily="Helvatic" Click="btnChange_Click"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="0">
+                <Button Name="settingsBtn2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="86"
+                    Height="55"
+                    FontSize="28"
+                    Foreground="#DD000000"
+                    Margin="0,0,0,0"
+                    Background="#FF8CA8BF"
+                        Click="settingsBtn2_Click">
+
+                    <DockPanel Width="86"
+                               Height="55"
+                               HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="Settings"
+                                             Width="84"
+                                             Height="45"
+                                             Margin="0,0,0,0"
+                                             HorizontalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="1">
+                <Button Name="scheduleBtn2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="86"
+                    Height="55"
+                    FontSize="28"
+                    Foreground="#DD000000"
+                    Margin="0,0,0,0"
+                    Background="#FF526A7E"
+                    Click="scheduleBtn2_Click">
+                    <DockPanel Width="86"
+                               Height="55"
+                               HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="Calendar"
+                                             Width="84"
+                                             Height="45"
+                                             Margin="0,0,0,0"
+                                             HorizontalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="2">
+                <Button Name="homeBtn2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="86"
+                    Height="55"
+                    FontSize="28"
+                    Foreground="#DD000000"
+                    Margin="0,0,0,0"
+                    Background="#FF8CA8BF"
+                    Click="homeBtn2_Click">
+                    <DockPanel Width="86"
+                               Height="55"
+                               HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="Home"
+                                             Width="84"
+                                             Height="45"
+                                             Margin="0,0,0,0"
+                                             HorizontalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="3">
+                <Button Name="patienstBtn2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="86"
+                    Height="55"
+                    FontSize="28"
+                    Foreground="#DD000000"
+                    Margin="0,0,0,0"
+                    Background="#FF8CA8BF"
+                        Click="patienstBtn2_Click">
+                    <DockPanel Width="86"
+                               Height="55"
+                               HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="UserGroup"
+                                             Width="84"
+                                             Height="45"
+                                             Margin="0,0,0,0"
+                                             HorizontalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="4">
+                <Button Name="reportBtn2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="86"
+                    Height="55"
+                    FontSize="28"
+                    Foreground="#DD000000"
+                    Margin="0,0,0,0"
+                    Background="#FF8CA8BF"
+                        Click="reportBtn2_Click">
+                    <DockPanel Width="86"
+                               Height="55"
+                               HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="FileDocumentBox"
+                                             Width="84"
+                                             Height="45"
+                                             Margin="0,0,0,0"
+                                             HorizontalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

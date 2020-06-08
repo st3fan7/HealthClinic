@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="accommodation" xml:space="preserve">
+    <value>Smeštanje</value>
+  </data>
+  <data name="accommodationInformation" xml:space="preserve">
+    <value>Informacije o smeštanju</value>
+  </data>
+  <data name="accountChange" xml:space="preserve">
+    <value>Izmena naloga</value>
+  </data>
+  <data name="accountDeactivation" xml:space="preserve">
+    <value>Deaktivacija naloga</value>
+  </data>
+  <data name="accountManipulation" xml:space="preserve">
+    <value>Manipulacija nalogom</value>
+  </data>
+  <data name="accountReview" xml:space="preserve">
+    <value>Pregled naloga</value>
+  </data>
+  <data name="add" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="addingLanguage" xml:space="preserve">
+    <value>Dodavanje jezika</value>
+  </data>
+  <data name="addingTheme" xml:space="preserve">
+    <value>Dodavanje teme</value>
+  </data>
+  <data name="addLanguage" xml:space="preserve">
+    <value>Dodaj novi jezik</value>
+  </data>
+  <data name="addNewTheme" xml:space="preserve">
+    <value>Dodaj novu temu</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>Adresa:</value>
+  </data>
+  <data name="anotherTextInCancelingTerm" xml:space="preserve">
+    <value>Da li ste sigurni da želite da                      otkažete termin?</value>
+  </data>
+  <data name="anotherTextInDataModInRecRoom" xml:space="preserve">
+    <value>Izmenite podatake koje želite:</value>
+  </data>
+  <data name="back" xml:space="preserve">
+    <value>Nazad</value>
+  </data>
+  <data name="backToLogIn" xml:space="preserve">
+    <value>Prijava</value>
+  </data>
+  <data name="basicData" xml:space="preserve">
+    <value>Osnovi podaci:</value>
+  </data>
+  <data name="byDoctors" xml:space="preserve">
+    <value>Po lekarima</value>
+  </data>
+  <data name="byRooms" xml:space="preserve">
+    <value>Po sobama</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Otkaži</value>
+  </data>
+  <data name="canceling" xml:space="preserve">
+    <value>Otkazivanje</value>
+  </data>
+  <data name="change" xml:space="preserve">
+    <value>Izmeni</value>
+  </data>
+  <data name="changeAccount" xml:space="preserve">
+    <value>Izmeni nalog</value>
+  </data>
+  <data name="changeLang" xml:space="preserve">
+    <value>Promeni jezik</value>
+  </data>
+  <data name="changeLanguage" xml:space="preserve">
+    <value>Promena jezika</value>
+  </data>
+  <data name="changePatientData" xml:space="preserve">
+    <value>Izmenite podatke o pacijentu:</value>
+  </data>
+  <data name="changeTheme" xml:space="preserve">
+    <value>Promeni temu</value>
+  </data>
+  <data name="changeYourData" xml:space="preserve">
+    <value>Izmenite svoje podatke:</value>
+  </data>
+  <data name="changingTheme" xml:space="preserve">
+    <value>Promena teme</value>
+  </data>
+  <data name="checkOutDate" xml:space="preserve">
+    <value>Datum odjave:</value>
+  </data>
+  <data name="chooseD" xml:space="preserve">
+    <value>Izaberi datum</value>
+  </data>
+  <data name="chooseDate" xml:space="preserve">
+    <value>Izaberite datum</value>
+  </data>
+  <data name="chooseDoc" xml:space="preserve">
+    <value>Izaberi doktora</value>
+  </data>
+  <data name="chooseDoctor" xml:space="preserve">
+    <value>Izaberite lekara:</value>
+  </data>
+  <data name="chooseLanguage" xml:space="preserve">
+    <value>Izaberite jezik aplikacije:</value>
+  </data>
+  <data name="chooseR" xml:space="preserve">
+    <value>Izaberite sobu</value>
+  </data>
+  <data name="chooseRoom" xml:space="preserve">
+    <value>Izaberite salu:</value>
+  </data>
+  <data name="chooseThemeForApp" xml:space="preserve">
+    <value>Izaberite temu aplikacije:</value>
+  </data>
+  <data name="confirm" xml:space="preserve">
+    <value>Potvrdi</value>
+  </data>
+  <data name="confirmationOfIdentity" xml:space="preserve">
+    <value>Potvrda identiteta</value>
+  </data>
+  <data name="create" xml:space="preserve">
+    <value>Kreiraj</value>
+  </data>
+  <data name="createAccount" xml:space="preserve">
+    <value>Kreiraj nalog</value>
+  </data>
+  <data name="creatingAnAccount1" xml:space="preserve">
+    <value>Kreiranje naloga 1</value>
+  </data>
+  <data name="creatingAnAccount2" xml:space="preserve">
+    <value>Kreiranje naloga 2</value>
+  </data>
+  <data name="darkTheme" xml:space="preserve">
+    <value>Tamna</value>
+  </data>
+  <data name="dataModification" xml:space="preserve">
+    <value>Izmena podataka</value>
+  </data>
+  <data name="date" xml:space="preserve">
+    <value>Datum:</value>
+  </data>
+  <data name="dateOfBirth" xml:space="preserve">
+    <value>Datum rođenja:</value>
+  </data>
+  <data name="deactivateAccount" xml:space="preserve">
+    <value>Deaktiviraj nalog</value>
+  </data>
+  <data name="displayType" xml:space="preserve">
+    <value>Vrsta prikaza:</value>
+  </data>
+  <data name="doctor" xml:space="preserve">
+    <value>Lekar:</value>
+  </data>
+  <data name="doctorsSpecialist" xml:space="preserve">
+    <value>Lekari specijalisti</value>
+  </data>
+  <data name="doctorsTerm" xml:space="preserve">
+    <value>Termini lekara</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>E-mail adresa:</value>
+  </data>
+  <data name="endTime" xml:space="preserve">
+    <value>Vreme završetka:</value>
+  </data>
+  <data name="english" xml:space="preserve">
+    <value>Engleski</value>
+  </data>
+  <data name="enterAddress" xml:space="preserve">
+    <value>Unesite adresu</value>
+  </data>
+  <data name="enterData" xml:space="preserve">
+    <value>Unos podataka</value>
+  </data>
+  <data name="enterEmail" xml:space="preserve">
+    <value>Unesite e-mail adresu</value>
+  </data>
+  <data name="enterJMBG" xml:space="preserve">
+    <value>Unesite JMBG</value>
+  </data>
+  <data name="enterName" xml:space="preserve">
+    <value>Unesite ime</value>
+  </data>
+  <data name="enterPassword" xml:space="preserve">
+    <value>Unesite inicijalnu šifru</value>
+  </data>
+  <data name="enterPassword2" xml:space="preserve">
+    <value>Unesite lozinku</value>
+  </data>
+  <data name="enterPhone" xml:space="preserve">
+    <value>Unesite kontakt tel.</value>
+  </data>
+  <data name="enterPlaceOfBirth" xml:space="preserve">
+    <value>Unesite mesto rođenja</value>
+  </data>
+  <data name="enterState" xml:space="preserve">
+    <value>Unesite državu</value>
+  </data>
+  <data name="enterSurname" xml:space="preserve">
+    <value>Unesite prezime</value>
+  </data>
+  <data name="enterUsername" xml:space="preserve">
+    <value>Unesite korisničko ime</value>
+  </data>
+  <data name="examinations" xml:space="preserve">
+    <value>Pregledi</value>
+  </data>
+  <data name="exit" xml:space="preserve">
+    <value>Izlazak</value>
+  </data>
+  <data name="fillDataForCreatingAccount" xml:space="preserve">
+    <value>Popunite podatke za kreiranje                          naloga pacijentu:</value>
+  </data>
+  <data name="forgotPassword" xml:space="preserve">
+    <value>Zaboravljena lozinka?</value>
+  </data>
+  <data name="forgotPasswordTitle" xml:space="preserve">
+    <value>Zaboravljena lozinka</value>
+  </data>
+  <data name="freeDoctor" xml:space="preserve">
+    <value>Slobodni lekari:</value>
+  </data>
+  <data name="freeRoom" xml:space="preserve">
+    <value>Slobodne sale:</value>
+  </data>
+  <data name="freeTime" xml:space="preserve">
+    <value>Slobodno vreme:</value>
+  </data>
+  <data name="generalPractitioner" xml:space="preserve">
+    <value>Lekari opšte prakse</value>
+  </data>
+  <data name="generate" xml:space="preserve">
+    <value>Izgeneriši</value>
+  </data>
+  <data name="giveUp" xml:space="preserve">
+    <value>Odustani</value>
+  </data>
+  <data name="guestAccount" xml:space="preserve">
+    <value>Gostujući nalog</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>Početna</value>
+  </data>
+  <data name="inputPasswordInMainW" xml:space="preserve">
+    <value>Unesite lozinku</value>
+  </data>
+  <data name="inputPatientJMBG" xml:space="preserve">
+    <value>JMBG pacijenta</value>
+  </data>
+  <data name="inputTextUsernameOrJMBG" xml:space="preserve">
+    <value>Korisničko ime ili JMBG</value>
+  </data>
+  <data name="inputUsernameInMainW" xml:space="preserve">
+    <value>Unesite korisničko ime</value>
+  </data>
+  <data name="jmbg" xml:space="preserve">
+    <value>JMBG:</value>
+  </data>
+  <data name="lightTheme" xml:space="preserve">
+    <value>Svetla</value>
+  </data>
+  <data name="logging in" xml:space="preserve">
+    <value>Prijavljivanje</value>
+  </data>
+  <data name="logIn" xml:space="preserve">
+    <value>Prijavi se</value>
+  </data>
+  <data name="myAccount" xml:space="preserve">
+    <value>Moj nalog</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Ime:</value>
+  </data>
+  <data name="nameAndSurname" xml:space="preserve">
+    <value>Ime i prezime</value>
+  </data>
+  <data name="next" xml:space="preserve">
+    <value>Dalje</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>Ne</value>
+  </data>
+  <data name="notification" xml:space="preserve">
+    <value>Obaveštenja</value>
+  </data>
+  <data name="notificationInLogIn" xml:space="preserve">
+    <value>Obaveštenje</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>U redu</value>
+  </data>
+  <data name="operations" xml:space="preserve">
+    <value>Operacije</value>
+  </data>
+  <data name="optionManipulation" xml:space="preserve">
+    <value>Opcije manipulacije</value>
+  </data>
+  <data name="otherData" xml:space="preserve">
+    <value>Ostali podaci</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Šifra:</value>
+  </data>
+  <data name="patient" xml:space="preserve">
+    <value>Pacijent:</value>
+  </data>
+  <data name="patientName" xml:space="preserve">
+    <value>Ime pacijenta</value>
+  </data>
+  <data name="patients" xml:space="preserve">
+    <value>Pacijenti</value>
+  </data>
+  <data name="patientValidation" xml:space="preserve">
+    <value>Validacija pacijenta</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Kontakt telefon:</value>
+  </data>
+  <data name="place" xml:space="preserve">
+    <value>Smesti</value>
+  </data>
+  <data name="placeOfBirth" xml:space="preserve">
+    <value>Mesto rođenja:</value>
+  </data>
+  <data name="reception" xml:space="preserve">
+    <value>Prijem:</value>
+  </data>
+  <data name="recovery" xml:space="preserve">
+    <value>Oporavak</value>
+  </data>
+  <data name="registration" xml:space="preserve">
+    <value>Registruj se</value>
+  </data>
+  <data name="relocate" xml:space="preserve">
+    <value>Premesti</value>
+  </data>
+  <data name="relocation" xml:space="preserve">
+    <value>Premeštanje</value>
+  </data>
+  <data name="report" xml:space="preserve">
+    <value>Izveštaj</value>
+  </data>
+  <data name="reviewAccount" xml:space="preserve">
+    <value>Pregled naloga</value>
+  </data>
+  <data name="reviewNotification" xml:space="preserve">
+    <value>Pregled obaveštenja:</value>
+  </data>
+  <data name="room" xml:space="preserve">
+    <value>Sala:    </value>
+  </data>
+  <data name="roomsForExaminations" xml:space="preserve">
+    <value>Sale za preglede</value>
+  </data>
+  <data name="roomsForRecovery" xml:space="preserve">
+    <value>Sale za oporavak</value>
+  </data>
+  <data name="roomsForSurgeries" xml:space="preserve">
+    <value>Sale za operacije</value>
+  </data>
+  <data name="schedule" xml:space="preserve">
+    <value>Raspored</value>
+  </data>
+  <data name="scheduling" xml:space="preserve">
+    <value>Zakazivanje</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Pretraga</value>
+  </data>
+  <data name="searchBtn" xml:space="preserve">
+    <value>Pretraži</value>
+  </data>
+  <data name="searchResult" xml:space="preserve">
+    <value>Rezultat pretrage</value>
+  </data>
+  <data name="serbian" xml:space="preserve">
+    <value>Srpski</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>Podešavanja</value>
+  </data>
+  <data name="setUp" xml:space="preserve">
+    <value>Zakaži</value>
+  </data>
+  <data name="signOut" xml:space="preserve">
+    <value>Odjava:</value>
+  </data>
+  <data name="signOutFromApp" xml:space="preserve">
+    <value>Odjavi se</value>
+  </data>
+  <data name="startTime" xml:space="preserve">
+    <value>Vreme početka:</value>
+  </data>
+  <data name="state" xml:space="preserve">
+    <value>Država:</value>
+  </data>
+  <data name="surname" xml:space="preserve">
+    <value>Prezime:</value>
+  </data>
+  <data name="termTime" xml:space="preserve">
+    <value>Vreme termina</value>
+  </data>
+  <data name="text1GuestAccount" xml:space="preserve">
+    <value>Uneli ste:</value>
+  </data>
+  <data name="text1InNotificationForPassword" xml:space="preserve">
+    <value>Zahtev za promenu lozinke je uspešno poslat!</value>
+  </data>
+  <data name="text1InRelocation" xml:space="preserve">
+    <value>Termin koji se premešta:</value>
+  </data>
+  <data name="text2GuestAccount" xml:space="preserve">
+    <value>Uneti podatak nije u sistemu,                      napravite gostujući nalog:</value>
+  </data>
+  <data name="text2InAddNewLanguage" xml:space="preserve">
+    <value>Dodatni jezici trenutno ne postoje!</value>
+  </data>
+  <data name="text2InAddNewTheme" xml:space="preserve">
+    <value>Dodatne teme trenutno ne postoje!</value>
+  </data>
+  <data name="text2InNotificationForPassword" xml:space="preserve">
+    <value>Dostavićemo Vam lozinku na email adresu koju ste popunili pri kreiranju naloga.</value>
+  </data>
+  <data name="text2InRelocation" xml:space="preserve">
+    <value>Izaberite datum u koji želite                      da premestite termin:</value>
+  </data>
+  <data name="text2InScheduleTerm" xml:space="preserve">
+    <value>Izaberite potrebne podatke:</value>
+  </data>
+  <data name="text2InSearchInOthersRoom" xml:space="preserve">
+    <value>NAPOMENA: Nijedno polje nije obavezno!</value>
+  </data>
+  <data name="textInAccomodationPatient" xml:space="preserve">
+    <value>Da li je ovo pacijent kojeg                           želite da smestite? Ako jeste,                          kliknite "Da" za smeštanje</value>
+  </data>
+  <data name="textInAccountManipulation" xml:space="preserve">
+    <value>Unesite korisničko ime ili jmbg pacijenta čijim nalogom želite da manipulišete:</value>
+  </data>
+  <data name="textInAddNewLanguage" xml:space="preserve">
+    <value>Označite jezik koji želite da                           dodate:</value>
+  </data>
+  <data name="textInAddNewTheme" xml:space="preserve">
+    <value>Označite temu koju želite da                           dodate:</value>
+  </data>
+  <data name="textInCancelingTerm" xml:space="preserve">
+    <value>Termin koji se otkazuje:</value>
+  </data>
+  <data name="textInConfirmPatientIdentity" xml:space="preserve">
+    <value>Da li je ovo pacijent kome                      želite da zakažete termin?</value>
+  </data>
+  <data name="textInConfirmPatientIdentityInManipulation" xml:space="preserve">
+    <value>Da li je ovo pacijent čijim                      nalogom želite da                          manipulišete?</value>
+  </data>
+  <data name="textInConfirmPatientIdentityInTransformation" xml:space="preserve">
+    <value>Da li je ovo pacijent čiji                           gostujući nalog želite da                          transformišete?</value>
+  </data>
+  <data name="textInCreatePatientAccount2" xml:space="preserve">
+    <value>Dovršite kreiranje naloga                          pacijentu popunjavanjem                          preostalih podataka:</value>
+  </data>
+  <data name="textInDataModInRecRoom" xml:space="preserve">
+    <value>Informacije o terminu:</value>
+  </data>
+  <data name="textInDeactivationPatientAccount" xml:space="preserve">
+    <value>Da li ste sigurni da želite da                          deaktivirate nalog?</value>
+  </data>
+  <data name="textInDisplayType" xml:space="preserve">
+    <value>Označite po čemu želite da                      prikažete termine:</value>
+  </data>
+  <data name="textInFillDataForTransformation" xml:space="preserve">
+    <value>Unesite dodatne podatke za                           transformaciju gostujućeg                           naloga u pravi nalog:</value>
+  </data>
+  <data name="textInHome" xml:space="preserve">
+    <value>Dobrodošli, Ana.                      Šta želite danas da uradite?</value>
+  </data>
+  <data name="textInManipulationOptForSecAcc" xml:space="preserve">
+    <value>Šta želite da uradite?</value>
+  </data>
+  <data name="textInManipulationOptions" xml:space="preserve">
+    <value>Izaberite jednu od ponuđenih                          opcija manipulacije nalogom:</value>
+  </data>
+  <data name="textInPatients" xml:space="preserve">
+    <value>Izaberite operaciju nad                           pacijentima:</value>
+  </data>
+  <data name="textInPatientvalidation" xml:space="preserve">
+    <value>Unesite korisničko ime ili                      JMBG pacijenta kako bi                      proverili da li postoji u                      sisutemu:</value>
+  </data>
+  <data name="textInPatientValidationForRecovery" xml:space="preserve">
+    <value>Unesite korisničko ime ili                      JMBG pacijenta kojeg želite                      da smestite u salu za                      oporavak:</value>
+  </data>
+  <data name="textInReloaction2" xml:space="preserve">
+    <value>Izaberite vreme za novi                      termin:</value>
+  </data>
+  <data name="textInReloactionTerm3" xml:space="preserve">
+    <value>Izaberite salu i lekara za novi                      termin:</value>
+  </data>
+  <data name="textInReport" xml:space="preserve">
+    <value>Izaberite bilo koji dan iz nedelje                          u kojoj želite da izgnerišete                           nedeljni izveštaj, klikom na:</value>
+  </data>
+  <data name="textInSchedule" xml:space="preserve">
+    <value>Izaberite datum za pregled                      termina klikom na kalendar:</value>
+  </data>
+  <data name="textInScheduleTerm" xml:space="preserve">
+    <value>Termin koji se zakazuje:</value>
+  </data>
+  <data name="textInSearchInOthersRoom" xml:space="preserve">
+    <value>Parametri po kojima možete                          da vršite pretragu su:</value>
+  </data>
+  <data name="textInSettings" xml:space="preserve">
+    <value>Izaberite operaciju u podešavanjima:</value>
+  </data>
+  <data name="textInTransformationGuestAccount" xml:space="preserve">
+    <value>Unesite JMBG pacijenta čiji                           gostujući nalog želite da                           transformišete:</value>
+  </data>
+  <data name="textInTypeOfDoctors" xml:space="preserve">
+    <value>Označite tip doktora za koje želite da vidite termine:</value>
+  </data>
+  <data name="textInTypeOfRoom" xml:space="preserve">
+    <value>Označite tip sala koje želite                      da vidite:</value>
+  </data>
+  <data name="textInUserControlForgotPassword" xml:space="preserve">
+    <value>Unesite Vaše korisničko ime za vraćanje lozinke:</value>
+  </data>
+  <data name="textInViewPatientAccount" xml:space="preserve">
+    <value>Osnovni podaci:</value>
+  </data>
+  <data name="textWarningPasswordInMainW" xml:space="preserve">
+    <value>Neispravna lozinka!</value>
+  </data>
+  <data name="textWarningUsernameInMainW" xml:space="preserve">
+    <value>Neispravno korisničko ime!</value>
+  </data>
+  <data name="time" xml:space="preserve">
+    <value>Vreme:</value>
+  </data>
+  <data name="transform" xml:space="preserve">
+    <value>Transformiši</value>
+  </data>
+  <data name="transformation" xml:space="preserve">
+    <value>Transformacija</value>
+  </data>
+  <data name="transformGuest" xml:space="preserve">
+    <value>Transformiši gostujući</value>
+  </data>
+  <data name="typeOfDoctor" xml:space="preserve">
+    <value>Vrste doktora</value>
+  </data>
+  <data name="typeOfRooms" xml:space="preserve">
+    <value>Tipovi sala</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Korisničko ime:</value>
+  </data>
+  <data name="viewAccount" xml:space="preserve">
+    <value>Pogledaj nalog</value>
+  </data>
+  <data name="warningTextInReport" xml:space="preserve">
+    <value>Morate da izaberete datum!</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>Da</value>
+  </data>
+</root>
