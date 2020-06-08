@@ -66,7 +66,7 @@ namespace Repository.Csv
 
         private ID GetMaxId(IEnumerable<E> entities)
         {
-            return entities.Count() == 0 ? default : entities.Max(entity => entity.GetId()); // Update VS to version 7.1
+            return entities.Count() == 0 ? default : entities.Max(entity => entity.GetId()); // VERSION 7.1
         }
 
     }
