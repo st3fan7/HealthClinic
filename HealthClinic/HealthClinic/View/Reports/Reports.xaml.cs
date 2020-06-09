@@ -10,19 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HealthClinic
+namespace HealthClinic.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Reports.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Reports : Window
     {
-        public MainWindow()
+        public Reports()
         {
             InitializeComponent();
+            firstInput.Focus();
+            firstInput.SelectAll();
+        }
+
+        private void Button_Click_PocetnaStrana(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

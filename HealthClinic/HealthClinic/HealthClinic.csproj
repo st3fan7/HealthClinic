@@ -154,10 +154,124 @@
     <Compile Include="Service\UsersServices\SpetialitationService.cs" />
     <Compile Include="Service\UsersServices\UserService.cs" />
     <Compile Include="Service\UsersServices\WorkingTimeForDoctorService.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <Compile Include="View\Account\Account.xaml.cs">
+      <DependentUpon>Account.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Account\ForgottenPassword.xaml.cs">
+      <DependentUpon>ForgottenPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Account\PasswordReset.xaml.cs">
+      <DependentUpon>PasswordReset.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Account\UpdateAccount.xaml.cs">
+      <DependentUpon>UpdateAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Help.xaml.cs">
+      <DependentUpon>Help.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Model\Medicament.cs" />
+    <Compile Include="View\ReloacationEquipment\RelocationEquipment.xaml.cs">
+      <DependentUpon>RelocationEquipment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReloacationEquipment\RelocationEquipmentFromRoom.xaml.cs">
+      <DependentUpon>RelocationEquipmentFromRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReloacationEquipment\RelocationEquipmentFromWarehouse.xaml.cs">
+      <DependentUpon>RelocationEquipmentFromWarehouse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Renovation\Renovation.xaml.cs">
+      <DependentUpon>Renovation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Renovation\RoomOccupancy.xaml.cs">
+      <DependentUpon>RoomOccupancy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\Reports.xaml.cs">
+      <DependentUpon>Reports.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rooms\AddRoom.xaml.cs">
+      <DependentUpon>AddRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rooms\DeterminateTypeOfRoom.xaml.cs">
+      <DependentUpon>DeterminateTypeOfRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rooms\RemoveRoom.xaml.cs">
+      <DependentUpon>RemoveRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rooms\Rooms.xaml.cs">
+      <DependentUpon>Rooms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Warehouse\AddEquipment.xaml.cs">
+      <DependentUpon>AddEquipment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Warehouse\AddMedicament.xaml.cs">
+      <DependentUpon>AddMedicament.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Warehouse\AddNewEquipment.xaml.cs">
+      <DependentUpon>AddNewEquipment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Warehouse\AddNewMedicament.xaml.cs">
+      <DependentUpon>AddNewMedicament.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Warehouse\Equipment.xaml.cs">
+      <DependentUpon>Equipment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Warehouse\Medicaments.xaml.cs">
+      <DependentUpon>Medicaments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Warehouse\RemoveEquipment.xaml.cs">
+      <DependentUpon>RemoveEquipment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Warehouse\RemoveMedicament.xaml.cs">
+      <DependentUpon>RemoveMedicament.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Warehouse\Warehouse.xaml.cs">
+      <DependentUpon>Warehouse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkingTimeForDoctors\ChangeWorkinTimeForDoctor.xaml.cs">
+      <DependentUpon>ChangeWorkinTimeForDoctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkingTimeForDoctors\WorkingTimeForDoctors.xaml.cs">
+      <DependentUpon>WorkingTimeForDoctors.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkPeople\CreateDoctorAccount.xaml.cs">
+      <DependentUpon>CreateDoctorAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkPeople\CreateSecretaryAccount.xaml.cs">
+      <DependentUpon>CreateSecretaryAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkPeople\DeleteDoctorAccount.xaml.cs">
+      <DependentUpon>DeleteDoctorAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkPeople\DeleteSecretaryAccount.xaml.cs">
+      <DependentUpon>DeleteSecretaryAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkPeople\DoctorAccounts.xaml.cs">
+      <DependentUpon>DoctorAccounts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkPeople\SecretaryAccounts.xaml.cs">
+      <DependentUpon>SecretaryAccounts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkPeople\UpdateDoctorAccount.xaml.cs">
+      <DependentUpon>UpdateDoctorAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkPeople\UpdateDoctorAccountFirst.xaml.cs">
+      <DependentUpon>UpdateDoctorAccountFirst.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkPeople\UpdateSecretaryAccount.xaml.cs">
+      <DependentUpon>UpdateSecretaryAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkPeople\UpdateSecretaryAccountFirst.xaml.cs">
+      <DependentUpon>UpdateSecretaryAccountFirst.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkPeople\WorkPeople.xaml.cs">
+      <DependentUpon>WorkPeople.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -182,10 +296,162 @@
     <Compile Include="Controller\UsersControlers\SpetialitationController.cs" />
     <Compile Include="Controller\UsersControlers\UserController.cs" />
     <Compile Include="Controller\UsersControlers\WorkingTimeForDoctorController.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="View\Account\Account.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Account\ForgottenPassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Account\PasswordReset.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Account\UpdateAccount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Help.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Home.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ReloacationEquipment\RelocationEquipment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ReloacationEquipment\RelocationEquipmentFromRoom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ReloacationEquipment\RelocationEquipmentFromWarehouse.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Renovation\Renovation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Renovation\RoomOccupancy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Reports\Reports.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Rooms\AddRoom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Rooms\DeterminateTypeOfRoom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Rooms\RemoveRoom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Rooms\Rooms.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Warehouse\AddEquipment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Warehouse\AddMedicament.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Warehouse\AddNewEquipment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Warehouse\AddNewMedicament.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Warehouse\Equipment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Warehouse\Medicaments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Warehouse\RemoveEquipment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Warehouse\RemoveMedicament.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Warehouse\Warehouse.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WorkingTimeForDoctors\ChangeWorkinTimeForDoctor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WorkingTimeForDoctors\WorkingTimeForDoctors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WorkPeople\CreateDoctorAccount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WorkPeople\CreateSecretaryAccount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WorkPeople\DeleteDoctorAccount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WorkPeople\DeleteSecretaryAccount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WorkPeople\DoctorAccounts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WorkPeople\SecretaryAccounts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WorkPeople\UpdateDoctorAccount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WorkPeople\UpdateDoctorAccountFirst.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WorkPeople\UpdateSecretaryAccount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WorkPeople\UpdateSecretaryAccountFirst.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WorkPeople\WorkPeople.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\AllActors\Blog.cs" />
