@@ -28,7 +28,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid  x:Name="GridSurgeryRooms" Background="#FFC5D4E3">
+    <Grid  x:Name="GridSurgeryRooms" Background="{DynamicResource color}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="55"/>

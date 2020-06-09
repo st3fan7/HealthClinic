@@ -15,7 +15,7 @@
             Background="{DynamicResource MaterialDesignPaper}"
             FontFamily="{DynamicResource ResourceKey=MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="430">
-    <Grid  x:Name="GridDataModification" Background="#FFC5D4E3">
+    <Grid  x:Name="GridDataModification" Background="{DynamicResource color}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="55"/>
@@ -315,7 +315,7 @@
                             TextAlignment="Center"
                             Width="390"
                             Margin="20,26,20,10"
-                            Foreground="Red"/>
+                            Foreground="#FF761616" FontWeight="Bold"/>
                 
             </StackPanel>
 

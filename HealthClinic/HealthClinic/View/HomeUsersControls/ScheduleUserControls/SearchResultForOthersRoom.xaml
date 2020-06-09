@@ -27,7 +27,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid  x:Name="GridSearchResultForOthersRooms" Background="#FFC5D4E3">
+    <Grid  x:Name="GridSearchResultForOthersRooms" Background="{DynamicResource color}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="55"/>

@@ -77,13 +77,7 @@ namespace HealthClinic.View
                 Properties.Settings.Default.languageCode = "en-US";
             Properties.Settings.Default.Save();
 
-            Process.Start(Process.GetCurrentProcess().MainModule.FileName);
-            Application.Current.Shutdown();
-
-            //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
-            //Application.Current.Shutdown();
-
-
+            ((App)Application.Current).changeLanguage();
 
             GridChangeLanguage.Children.Clear();
             UserControl usc = new Settings();

@@ -16,7 +16,7 @@
             Background="{DynamicResource MaterialDesignPaper}"
             FontFamily="{DynamicResource ResourceKey=MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="430">
-    <Grid x:Name="GridChangeTheme" Background="#FFC5D4E3">
+    <Grid x:Name="GridChangeTheme" Background="{DynamicResource color}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="55"/>
@@ -123,15 +123,16 @@
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.ColumnSpan="5">
-                <RadioButton x:Name="one"
+                <RadioButton x:Name="firstRadioButton"
                              IsChecked="True"
                          GroupName="myGroup"
-                         
+                         Background="Black"
                          Margin="42,15,50,0"
                          Content="{x:Static language:Language.lightTheme}" 
                          FontFamily="Helvatic"
                          FontSize="28"  />
-                <RadioButton x:Name="two"
+                <RadioButton x:Name="secondRadioButton"
+                             Background="Black"
                          GroupName="myGroup" 
                          IsChecked="{Binding Path=ModeArray[1], Mode=TwoWay}"
                          Margin="42,10,50,0" 

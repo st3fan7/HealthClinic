@@ -31,7 +31,45 @@ namespace HealthClinic
         {
             var languageCode = HealthClinic.Properties.Settings.Default.languageCode;
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(languageCode);
+
+            var themeCode = HealthClinic.Properties.Settings.Default.themeCode;
+            ResourceDictionary dic = new ResourceDictionary();
+
+            switch (themeCode)
+            {
+                case "light":
+                    dic.Source = new Uri("..\\Properties\\Themes\\LightTheme.xaml", UriKind.Relative);
+                    break;
+                case "dark":
+                    dic.Source = new Uri("..\\Properties\\Themes\\DarkTheme.xaml", UriKind.Relative);
+                    break;
+            }
+            this.Resources.MergedDictionaries.Add(dic);
+
             base.OnStartup(e);
+        }
+
+        public void changeLanguage()
+        {
+            var languageCode = HealthClinic.Properties.Settings.Default.languageCode;
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(languageCode);
+        }
+
+        public void changeTheme()
+        {
+            var themeCode = HealthClinic.Properties.Settings.Default.themeCode;
+            ResourceDictionary dic = new ResourceDictionary();
+
+            switch (themeCode)
+            {
+                case "light":
+                    dic.Source = new Uri("..\\Properties\\Themes\\LightTheme.xaml", UriKind.Relative);
+                    break;
+                case "dark":
+                    dic.Source = new Uri("..\\Properties\\Themes\\DarkTheme.xaml", UriKind.Relative);
+                    break;
+            }
+            this.Resources.MergedDictionaries.Add(dic);
         }
 
         public App()

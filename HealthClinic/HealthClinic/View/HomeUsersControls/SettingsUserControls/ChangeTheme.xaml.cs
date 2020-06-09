@@ -70,9 +70,19 @@ namespace HealthClinic.View
 
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
         {
-            GridChangeTheme.Children.Clear();
-            UserControl usc = new Settings();
-            GridChangeTheme.Children.Add(usc);
+            if (firstRadioButton.IsChecked == true)
+            {
+                Properties.Settings.Default.themeCode = "light";
+            }
+            else
+            {
+                Properties.Settings.Default.themeCode = "dark";
+            }
+
+
+            Properties.Settings.Default.Save();
+            ((App)Application.Current).changeTheme();
+
         }
         private void addThemeBtn_Click(object sender, RoutedEventArgs e)
         {

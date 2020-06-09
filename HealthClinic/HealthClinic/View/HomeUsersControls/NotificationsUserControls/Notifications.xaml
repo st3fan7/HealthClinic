@@ -27,7 +27,7 @@ xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         </Style>
     </UserControl.Resources>
 
-    <Grid  x:Name="GridNotifications" Background="#FFC5D4E3">
+    <Grid  x:Name="GridNotifications" Background="{DynamicResource color}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="55"/>

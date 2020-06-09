@@ -17,7 +17,7 @@
             FontFamily="{DynamicResource ResourceKey=MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="430">
 
-    <Grid x:Name="GridPatients" Background="#FFC5D4E3">
+    <Grid x:Name="GridPatients" Background="{DynamicResource color}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="55"/>

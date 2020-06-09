@@ -34,5 +34,17 @@ namespace HealthClinic.Properties {
                 this["languageCode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string themeCode {
+            get {
+                return ((string)(this["themeCode"]));
+            }
+            set {
+                this["themeCode"] = value;
+            }
+        }
     }
 }

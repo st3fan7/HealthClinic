@@ -16,7 +16,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource ResourceKey=MaterialDesignFont}"
         Title="MainWindow" Height="750" Width="430" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
-    <Grid x:Name="GridMain"  Background="#FFC5D4E3">
+    <Grid x:Name="GridMain" Background="{DynamicResource color}">
         <Grid>
 
             <Grid.RowDefinitions>
@@ -106,9 +106,9 @@
                             HorizontalAlignment="Center"
                             VerticalContentAlignment="Top"                     
                             TextAlignment="Center"
-                            Width="344"
+                            Width="376"
                             Margin="-430,70,0,-25"
-                            Foreground="Red"/>
+                            Foreground="#FF761616" FontWeight="Bold" />
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Height="123">
@@ -143,9 +143,9 @@
                             HorizontalAlignment="Center"
                             VerticalContentAlignment="Top"                     
                             TextAlignment="Center"
-                            Width="323"
+                            Width="373"
                             Margin="-430,70,0,-25"
-                            Foreground="Red"/>
+                            Foreground="#FF761616" FontWeight="Bold" />
                 </StackPanel>
 
                 <Button Name="loginBtn"
@@ -172,7 +172,7 @@
                     Background="{x:Null}" 
                     FontFamily="Helvatic" 
                     Click="forgotPasswordBtn_Click">
-                    <TextBlock Text="{x:Static language:Language.forgotPassword}"  TextDecorations="Underline" />
+                    <TextBlock Text="{x:Static language:Language.forgotPassword}"  TextDecorations="Underline" Foreground="#FF000102" />
                 </Button>
 
                 <Button BorderBrush="{x:Null}"
@@ -185,7 +185,7 @@
                     Foreground="#FF2D75B0"
                     Margin="0,-33,17,0"
                     FontFamily="Helvatic">
-                    <TextBlock Text="{x:Static language:Language.registration}" TextDecorations="Underline" />
+                    <TextBlock Text="{x:Static language:Language.registration}" TextDecorations="Underline" Foreground="Black" />
                 </Button>
 
             </StackPanel>
