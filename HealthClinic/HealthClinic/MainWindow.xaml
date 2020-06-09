@@ -4,9 +4,176 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HealthClinic"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="HealthClinic" Height="650" Width="1280" MinHeight="650" MinWidth="1280" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Storyboard x:Key="TBOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridTB">
+                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="TBClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridTB">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenTB">
+            <BeginStoryboard Storyboard="{StaticResource TBOpen}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseTB">
+            <BeginStoryboard Storyboard="{StaticResource TBClose}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid Background="Bisque">
+        <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="560" MinWidth="1010" Height="Auto" Width="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35">
+
+                </RowDefinition>
+                <RowDefinition>
+
+                </RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="1" Grid.Row="1" x:Name="GridMain" >
+
+            </Grid>
+
+        </Grid>
+        <StatusBar VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="20"  DockPanel.Dock="Bottom" >
+            <StatusBarItem DockPanel.Dock="Right">
+                <Button Height="16" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="2" Foreground="Black" FontSize="8" Background="{x:Null}">
+                    <StackPanel>
+                        <TextBlock Text="Jezik" Width="29" Height="9" FontSize="7.5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6,0,0,0"> 
+                            
+                        </TextBlock>
+                    </StackPanel>
+                </Button>
+            </StatusBarItem>
+            <StatusBarItem DockPanel.Dock="Right">
+                <materialDesign:PackIcon Kind="Planet"/>
+            </StatusBarItem>
+            <!-- Fill last child is true by default -->
+            <StatusBarItem>
+            </StatusBarItem>
+        </StatusBar>
+        <Grid Height="35" VerticalAlignment="Top" Background="#FFCAFFD4" Margin="70,0,0,0">
+            <DockPanel  VerticalAlignment="Top" Height="35" Margin="0,0,0,0" >
+                <Menu DockPanel.Dock="Top"  Background="#FFCAFFD4" Height="auto" Margin="0,0,1,0">
+                    <MenuItem Header="_Prikaži" BorderBrush="#FF030000" BorderThickness="1" Height="35" FontWeight="Bold" Width="200" >
+
+                        <MenuItem x:Name="menuPocetna" Header="_Početna" InputGestureText="Ctrl+P" Click="MenuPocetna_Click" >
+                        </MenuItem>
+                        <MenuItem x:Name="menuPacijenti" Header="P_acijenti" InputGestureText="Ctrl+A" Click="MenuPacijenti_Click">
+                        </MenuItem>
+                        <MenuItem x:Name="menuPregled" Header="P_regled" InputGestureText="Ctrl+R" Click="MenuPregled_Click" >
+                        </MenuItem>
+                        <MenuItem x:Name="menuLekValidacija" Header="_Lek za validaciju" InputGestureText="Ctrl+L" Click="MenuValidacijaLeka_Click"/>
+                        <MenuItem x:Name="menuZdravstveniKarton" Header="_Zdravstveni karton" InputGestureText="Ctrl+Z" />
+                    </MenuItem>
+                    <MenuItem Header="_Zakaži" Height="35"  BorderBrush="#FF030000" BorderThickness="1" FontWeight="Bold" Width="200" >
+                        <MenuItem x:Name="menuZakaziPregled" Header="_Pregled" InputGestureText="Ctrl+P" Click="MenuZakaziPregled_Click"/>
+                        <MenuItem x:Name="menuOperacija" Header="_Operacija" InputGestureText="Ctrl+O" Click="MenuOperacija_Click"/>
+                        <MenuItem x:Name="menuUput" Header="_Uput" InputGestureText="Ctrl+U" Click="MenuUput_Click"/>
+                        <MenuItem x:Name="menuBolnickoLecenje" Header="_Bolničko lečenje"  InputGestureText="Ctrl+B" Click="MenuBolnickoLecenje_Click"/>
+                       
+                    </MenuItem>
+                    <MenuItem Header="_Obaveštenja" Height="35"  BorderBrush="#FF030000" BorderThickness="1" FontWeight="Bold" Width="204" Click="MenuItemObavestenja_Click"/>
+                    <MenuItem Header="_Blog" Height="35"  BorderBrush="#FF030000" BorderThickness="1" FontWeight="Bold" Width="200"/>
+                    <MenuItem Header="_Pomoć" Height="35"  BorderBrush="#FF030000" BorderThickness="1" FontWeight="Bold" Width="200"/>
+                    <MenuItem Header="_Nalog" Height="35"  BorderBrush="#FF030000" BorderThickness="1" FontWeight="Bold" Width="190" Click="MenuItemNalog_Click"/>
+
+                </Menu>
+
+
+            </DockPanel>
+
+
+        </Grid>
+        <Grid x:Name="GridTB" Width="70" HorizontalAlignment="Left" Background="#FFCAFFD4" Margin="0,0,0,0.4">
+
+            <StackPanel>
+                <Grid Height="120" Background="#FFCAFFD4">
+                    <Button x:Name="ButtonCloseTB" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseTB_Click">
+                        <materialDesign:PackIcon Kind="ArrowLeft" Foreground="Black" Width="25" Height="25"/>
+                    </Button>
+                    <Button x:Name="ButtonOpenTB" Width="69" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenTB_Click" Margin="0,0,1.4,0">
+                        <materialDesign:PackIcon Kind="Menu" Foreground="Black" Width="25" Height="25"/>
+                    </Button>
+                    <StackPanel Height="63" VerticalAlignment="Bottom" Margin="0,10,0,18">
+                        <materialDesign:PackIcon Kind="HospitalBuilding" Height="63" Width="70" Foreground="#FF090707" Background="#FFCAFFD4" Margin="63,5,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+                <ListView Foreground="black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" Height="426" Margin="0,0,0.4,0">
+                    <ListViewItem Height="60" x:Name="ItemPocetna">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Home" Width="25" Height="25" VerticalAlignment="Center" Margin="10"/>
+                            <TextBlock Text="Početna" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" x:Name="ItemPacijenti">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Users" Width="25" Height="25" VerticalAlignment="Center"  Margin="10"/>
+                            <TextBlock Text="Pacijenti" VerticalAlignment="Center" Margin="20 8.5"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" x:Name="ItemPregled">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="MedicalBag" Width="25" Height="25" VerticalAlignment="Center"  Margin="10"/>
+                            <TextBlock Text="Pregled" VerticalAlignment="Center" Margin="20 8.5"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" x:Name="ItemValidacijaLeka">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="HealthPotion" Width="25" Height="25" VerticalAlignment="Center"  Margin="10"/>
+                            <TextBlock Text="Validacija leka" VerticalAlignment="Center" Margin="20 8.5"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" x:Name="ItemOdjava">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Logout" Width="25" Height="24" VerticalAlignment="Center"  Margin="10" />
+                            <TextBlock Text="Odjava" VerticalAlignment="Center" Margin="20 8.5"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <!--ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Bell" Width="25" Height="25" VerticalAlignment="Center"  Margin="10"/>
+                                <TextBlock Text="Obeveštenja" VerticalAlignment="Center" Margin="20 8.5"/>
+                            </StackPanel>
+                        </-->
+                    <!--ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Book" Width="25" Height="25" VerticalAlignment="Center"  Margin="10"/>
+                                <TextBlock Text="Blog" VerticalAlignment="Center" Margin="20 8.5"/>
+                            </StackPanel>
+                        </-->
+                    <!--ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Help" Width="25" Height="20" VerticalAlignment="Center"  Margin="10"/>
+                                <TextBlock Text="Pomoć" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </-->
+                    <!--ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Doctor" Width="25" Height="22" VerticalAlignment="Center" Margin="10"/>
+                                <TextBlock Text="Nalog" VerticalAlignment="Center" Margin="20 8.5"/>
+                            </StackPanel>
+                        </-->
+                </ListView>
+            </StackPanel>
+
+        </Grid>
+
     </Grid>
 </Window>

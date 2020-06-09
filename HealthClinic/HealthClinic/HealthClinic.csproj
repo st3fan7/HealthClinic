@@ -65,6 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Repository\BlogNotificationRepository\ArticleRepository.cs" />
     <Compile Include="Repository\BlogNotificationRepository\IArticleRepository.cs" />
     <Compile Include="Repository\BlogNotificationRepository\INotificationRepository.cs" />
@@ -154,6 +157,53 @@
     <Compile Include="Service\UsersServices\SpetialitationService.cs" />
     <Compile Include="Service\UsersServices\UserService.cs" />
     <Compile Include="Service\UsersServices\WorkingTimeForDoctorService.cs" />
+    <Compile Include="View\DijalogBolnickoLecenje.xaml.cs">
+      <DependentUpon>DijalogBolnickoLecenje.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DijalogIzdavanjeUputa.xaml.cs">
+      <DependentUpon>DijalogIzdavanjeUputa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DijalogIzmenaAlergije.xaml.cs">
+      <DependentUpon>DijalogIzmenaAlergije.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DijalogIzmenaDijagnoze.xaml.cs">
+      <DependentUpon>DijalogIzmenaDijagnoze.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DijalogLekoviUklinici.xaml.cs">
+      <DependentUpon>DijalogLekoviUklinici.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DijalogObavestenja.xaml.cs">
+      <DependentUpon>DijalogObavestenja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DijalogZakazivanjeOperacije.xaml.cs">
+      <DependentUpon>DijalogZakazivanjeOperacije.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DijalogZakazivanjePregleda.xaml.cs">
+      <DependentUpon>DijalogZakazivanjePregleda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Entiteti\Pacijent.cs" />
+    <Compile Include="View\UserControlIzdavanjeRecepta.xaml.cs">
+      <DependentUpon>UserControlIzdavanjeRecepta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControlNalog.xaml.cs">
+      <DependentUpon>UserControlNalog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControlPacijenti.xaml.cs">
+      <DependentUpon>UserControlPacijenti.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControlPocetna.xaml.cs">
+      <DependentUpon>UserControlPocetna.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControlPregled.xaml.cs">
+      <DependentUpon>UserControlPregled.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControlValidacijaLeka.xaml.cs">
+      <DependentUpon>UserControlValidacijaLeka.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -186,6 +236,62 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\DijalogBolnickoLecenje.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DijalogIzdavanjeUputa.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DijalogIzmenaAlergije.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DijalogIzmenaDijagnoze.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DijalogLekoviUklinici.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DijalogObavestenja.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DijalogZakazivanjeOperacije.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DijalogZakazivanjePregleda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControlIzdavanjeRecepta.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControlNalog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControlPacijenti.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControlPocetna.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControlPregled.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControlValidacijaLeka.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\AllActors\Blog.cs" />
