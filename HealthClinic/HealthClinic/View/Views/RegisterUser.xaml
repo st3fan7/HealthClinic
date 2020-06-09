@@ -1,0 +1,149 @@
+﻿<UserControl x:Class="HealthClinic.Views.RegisterUser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HealthClinic.Views"
+             mc:Ignorable="d" 
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"  
+             Background="#FF303030"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid x:Name="RegisterUserGrid">
+        <Grid Background="#FF292929">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="HealthClinic" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0" FontFamily="Century Gothic" FontSize="36" />
+
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Registracija" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="23" FontFamily="Century Gothic" />
+        <Button x:Name="RegistrujSeButton" Grid.Row="1" Grid.Column="1" Height="50" Margin="220 0 10 0" Background="#FF362F66" BorderBrush="#FF3C3B45" Click="RegistrujSeButton_Click">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Register" Height="30" Width="30" />
+                <TextBlock Text=" Registruj se" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="20"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="RegistracijaBackButton" Grid.Row="1" Grid.Column="1" Height="50" Width="60" HorizontalAlignment="Left" Margin="140,10,0,10" Background="#FF362F66" BorderBrush="#FF3C3B45" Click="RegistracijaBackButton_Click">
+            <materialDesign:PackIcon Kind="ArrowLeft" Height="40" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Button>
+
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Korisničko ime" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Height="25" Margin="0 0 10 0"
+                        Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                        VerticalAlignment="Center"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        IsEnabled="{Binding Path=IsChecked, 
+                        ElementName=MaterialDesignFilledTextFieldTextBoxEnabledComboBox}"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Lozinka" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Height="25" Margin="0 0 10 0"
+                        Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                        VerticalAlignment="Center"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        IsEnabled="{Binding Path=IsChecked, 
+                        ElementName=MaterialDesignFilledTextFieldTextBoxEnabledComboBox}"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Ime" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Height="25" Margin="0 0 10 0"
+                        Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                        VerticalAlignment="Center"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        IsEnabled="{Binding Path=IsChecked, 
+                        ElementName=MaterialDesignFilledTextFieldTextBoxEnabledComboBox}"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Prezime" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Height="25" Margin="0 0 10 0"
+                        Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                        VerticalAlignment="Center"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        IsEnabled="{Binding Path=IsChecked, 
+                        ElementName=MaterialDesignFilledTextFieldTextBoxEnabledComboBox}"/>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="JMBG" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Height="25" Margin="0 0 10 0"
+                        Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                        VerticalAlignment="Center"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        IsEnabled="{Binding Path=IsChecked, 
+                        ElementName=MaterialDesignFilledTextFieldTextBoxEnabledComboBox}"/>
+
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="Datum rođenja" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Height="25" Margin="0 0 10 0"
+                        Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                        VerticalAlignment="Center"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        IsEnabled="{Binding Path=IsChecked, 
+                        ElementName=MaterialDesignFilledTextFieldTextBoxEnabledComboBox}"/>
+
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Mesto rođenja" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+        <TextBox Grid.Row="8" Grid.Column="1" Height="25" Margin="0 0 10 0"
+                        Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                        VerticalAlignment="Center"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        IsEnabled="{Binding Path=IsChecked, 
+                        ElementName=MaterialDesignFilledTextFieldTextBoxEnabledComboBox}"/>
+
+        <TextBlock Grid.Row="9" Grid.Column="0" Text="Adresa stanovanja" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+        <TextBox Grid.Row="9" Grid.Column="1" Height="25" Margin="0 0 10 0"
+                        Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                        VerticalAlignment="Center"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        IsEnabled="{Binding Path=IsChecked, 
+                        ElementName=MaterialDesignFilledTextFieldTextBoxEnabledComboBox}"/>
+
+        <TextBlock Grid.Row="10" Grid.Column="0" Text="Broj telefona" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+        <TextBox Grid.Row="10" Grid.Column="1" Height="25" Margin="0 0 10 0"
+                        Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                        VerticalAlignment="Center"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        IsEnabled="{Binding Path=IsChecked, 
+                        ElementName=MaterialDesignFilledTextFieldTextBoxEnabledComboBox}"/>
+
+        <TextBlock Grid.Row="11" Grid.Column="0" Text="E-mail adresa" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+        <TextBox Grid.Row="11" Grid.Column="1" Height="25" Margin="0 0 10 0"
+                        Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                        VerticalAlignment="Center"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        IsEnabled="{Binding Path=IsChecked, 
+                        ElementName=MaterialDesignFilledTextFieldTextBoxEnabledComboBox}"/>
+
+            </Grid>
+        </Grid>
+</UserControl>

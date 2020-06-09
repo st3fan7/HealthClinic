@@ -13,31 +13,30 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HealthClinic
+namespace HealthClinic.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RegisterUser.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegisterUser : UserControl
     {
-        public MainWindow()
+        public RegisterUser()
         {
             InitializeComponent();
-            
         }
 
-        private void Prijava_Click(object sender, RoutedEventArgs e)
+        private void RegistracijaBackButton_Click(object sender, RoutedEventArgs e)
         {
-            MainGrid.Children.Clear();
-            UserControl usc = new Views.Login();
-            MainGrid.Children.Add(usc);
+            RegisterUserGrid.Children.Clear();
+            Window window = new MainWindow();
+            //RegisterUserGrid = window;
         }
 
         private void RegistrujSeButton_Click(object sender, RoutedEventArgs e)
         {
-            MainGrid.Children.Clear();
-            UserControl usc = new Views.RegisterUser();
-            MainGrid.Children.Add(usc);
+            RegisterUserGrid.Children.Clear();
+            UserControl usc = new Login();
+            RegisterUserGrid.Children.Add(usc);
         }
     }
 }

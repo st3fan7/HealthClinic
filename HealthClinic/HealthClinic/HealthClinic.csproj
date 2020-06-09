@@ -154,6 +154,138 @@
     <Compile Include="Service\UsersServices\SpetialitationService.cs" />
     <Compile Include="Service\UsersServices\UserService.cs" />
     <Compile Include="Service\UsersServices\WorkingTimeForDoctorService.cs" />
+    <Compile Include="View\Dialogs\CancelAppointmentConfirmDialog.xaml.cs">
+      <DependentUpon>CancelAppointmentConfirmDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialogs\CancelAppointmentQuestionDialog.xaml.cs">
+      <DependentUpon>CancelAppointmentQuestionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialogs\ChangeProfileConfirmDialog.xaml.cs">
+      <DependentUpon>ChangeProfileConfirmDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialogs\ExitSurveyQuestionDialog.xaml.cs">
+      <DependentUpon>ExitSurveyQuestionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialogs\LogoutQuestionDialog.xaml.cs">
+      <DependentUpon>LogoutQuestionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialogs\NewAppointmentConfirmDialog.xaml.cs">
+      <DependentUpon>NewAppointmentConfirmDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialogs\NewAppointmentQuestionDialog.xaml.cs">
+      <DependentUpon>NewAppointmentQuestionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialogs\SendSurveyConfirmDialog.xaml.cs">
+      <DependentUpon>SendSurveyConfirmDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialogs\SendSurveyQuestionDialog.xaml.cs">
+      <DependentUpon>SendSurveyQuestionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\AppointmentCalendar.xaml.cs">
+      <DependentUpon>AppointmentCalendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\AppointmentDoctor.xaml.cs">
+      <DependentUpon>AppointmentDoctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\AppointmentRecommendation.xaml.cs">
+      <DependentUpon>AppointmentRecommendation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\AppointmentSelectMode.xaml.cs">
+      <DependentUpon>AppointmentSelectMode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\AppointmentsFound.xaml.cs">
+      <DependentUpon>AppointmentsFound.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\AppointmentTerms.xaml.cs">
+      <DependentUpon>AppointmentTerms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\Blog.xaml.cs">
+      <DependentUpon>Blog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\BlogArticle.xaml.cs">
+      <DependentUpon>BlogArticle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\ChangeUserProfile.xaml.cs">
+      <DependentUpon>ChangeUserProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\MedicalRecord.xaml.cs">
+      <DependentUpon>MedicalRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\MyAppointments.xaml.cs">
+      <DependentUpon>MyAppointments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\NotificationInfo.xaml.cs">
+      <DependentUpon>NotificationInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\Notifications.xaml.cs">
+      <DependentUpon>Notifications.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\SchedulingAppointments.xaml.cs">
+      <DependentUpon>SchedulingAppointments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\Survey.xaml.cs">
+      <DependentUpon>Survey.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\SurveyQuestion.xaml.cs">
+      <DependentUpon>SurveyQuestion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\SurveyQuestionsBase.xaml.cs">
+      <DependentUpon>SurveyQuestionsBase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\TherapyReport.xaml.cs">
+      <DependentUpon>TherapyReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\TreatmentHistory.xaml.cs">
+      <DependentUpon>TreatmentHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layouts\UserProfile.xaml.cs">
+      <DependentUpon>UserProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Model\Appointments.cs" />
+    <Compile Include="View\Model\Term.cs" />
+    <Compile Include="View\Validation\ValidationLogin.cs" />
+    <Compile Include="View\Views\ChangeProfile.xaml.cs">
+      <DependentUpon>ChangeProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Views\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Views\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Views\MainBlog.xaml.cs">
+      <DependentUpon>MainBlog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Views\MainMedicalRecord.xaml.cs">
+      <DependentUpon>MainMedicalRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Views\MainNewAppointment.xaml.cs">
+      <DependentUpon>MainNewAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Views\MainReviewAppointments.xaml.cs">
+      <DependentUpon>MainReviewAppointments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Views\MainSurvey.xaml.cs">
+      <DependentUpon>MainSurvey.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Views\MainTherapyCalendar.xaml.cs">
+      <DependentUpon>MainTherapyCalendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Views\MainUserControl.xaml.cs">
+      <DependentUpon>MainUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Views\NewPasswordConfirm.xaml.cs">
+      <DependentUpon>NewPasswordConfirm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Views\NewPasswordRequest.xaml.cs">
+      <DependentUpon>NewPasswordRequest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Views\Profile.xaml.cs">
+      <DependentUpon>Profile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Views\RegisterUser.xaml.cs">
+      <DependentUpon>RegisterUser.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -186,6 +318,178 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Dialogs\CancelAppointmentConfirmDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Dialogs\CancelAppointmentQuestionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Dialogs\ChangeProfileConfirmDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Dialogs\ExitSurveyQuestionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Dialogs\LogoutQuestionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Dialogs\NewAppointmentConfirmDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Dialogs\NewAppointmentQuestionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Dialogs\SendSurveyConfirmDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Dialogs\SendSurveyQuestionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\AppointmentCalendar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\AppointmentDoctor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\AppointmentRecommendation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\AppointmentSelectMode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\AppointmentsFound.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\AppointmentTerms.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\Blog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\BlogArticle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\ChangeUserProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\MedicalRecord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\MyAppointments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\NotificationInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\Notifications.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\SchedulingAppointments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\Survey.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\SurveyQuestion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\SurveyQuestionsBase.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\TherapyReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\TreatmentHistory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Layouts\UserProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Views\ChangeProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Views\Home.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Views\Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Views\MainBlog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Views\MainMedicalRecord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Views\MainNewAppointment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Views\MainReviewAppointments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Views\MainSurvey.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Views\MainTherapyCalendar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Views\MainUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Views\NewPasswordConfirm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Views\NewPasswordRequest.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Views\Profile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Views\RegisterUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\AllActors\Blog.cs" />

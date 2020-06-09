@@ -1,0 +1,141 @@
+﻿<UserControl x:Class="HealthClinic.Views.Home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HealthClinic.Views"
+             mc:Ignorable="d" 
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"  
+             Background="#FF303030"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid x:Name="HomeGrid">
+        <Grid Background="#FF292929">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Pregled i izmena naloga, odajava -->
+            <Button x:Name="ProfileButton" Grid.Row="0"  Grid.Column="0" Margin="10" Height="50" Background="#FF362F66" BorderBrush="#FF3C3B45" Click="ProfileButton_Click">
+                <!--Background="#FF423499"-->
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Account" Height="30" Width="30"/>
+                    <TextBlock VerticalAlignment="Center" Text="Ime Prezime" FontFamily="Century Gothic"/>
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Row="0" Grid.Column="2" Margin="10" Height="50" 
+                Background="#FF362F66" BorderBrush="#FF3C3B45" Click="Button_Click">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AccountEdit" Height="30" Width="30" />
+                    <TextBlock VerticalAlignment="Center" Text="Izmena naloga" 
+                           FontFamily="Century Gothic"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="SignOutButton" Grid.Row="0" Grid.Column="3" Margin="10" Height="50" Background="#FF362F66" BorderBrush="#FF3C3B45" Click="SignOutButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Logout" Height="30" Width="30" />
+                    <TextBlock VerticalAlignment="Center" Text="Odjavi se" FontFamily="Century Gothic"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="BlogButton" Grid.Row="1" Grid.Column="2" Margin="10" Height="50" Background="#FF362F66" BorderBrush="#FF3C3B45" Click="BlogButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="ScriptTextOutline" Height="30" Width="30" />
+                    <TextBlock VerticalAlignment="Center" Text="Blog" FontFamily="Century Gothic"/>
+                </StackPanel>
+            </Button>
+            
+            
+            <!-- Tekst i demo dugme-->
+            <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="Dobrodosli u HealthClinic! " FontSize="20" Margin="10" VerticalAlignment="Center" FontFamily="Century Gothic" FontWeight="Bold"/>
+            <Button Grid.Row="1" Grid.Column="3" Height="50" Margin="10" Background="#FF362F66" BorderBrush="#FF3C3B45">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="PlayCircle" Height="30" Width="30" />
+                    <TextBlock VerticalAlignment="Center" Text="Demo" FontFamily="Century Gothic"/>
+                </StackPanel>
+            </Button>
+
+            <!-- Dugmici za funkcionalnosti -->
+            <Grid Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Obavestenja-->
+                <Button Grid.Row="0" Grid.Column="0"  Height ="Auto" Margin="10" Background="#FF362F66" BorderBrush="#FF3C3B45" Click="Obavestenja_Click1">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="NotificationsActive" Height="30" Width="30"/>
+                        <TextBlock VerticalAlignment="Center" Text="Obaveštenja" FontFamily="Century Gothic" FontSize="20" FontWeight="Normal" />
+                    </StackPanel>
+                </Button>
+
+                <!--Zakazivanje termina-->
+                <Button Grid.Row="0" Grid.Column="1" Height ="Auto" Margin="10" Background="#FF362F66" BorderBrush="#FF3C3B45" Click="ZakaziTermin_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="CalendarPlus" Height="30" Width="30"/>
+                        <TextBlock VerticalAlignment="Center" Text="Zakaži termin" FontFamily="Century Gothic" FontSize="20"/>
+                    </StackPanel>
+                </Button>
+
+                <!--Terapija-->
+                <Button x:Name="TerapijaButton" Grid.Row="0" Grid.Column="2" Height ="Auto" Margin="10" Background="#FF362F66" BorderBrush="#FF3C3B45" Click="TerapijaButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Medicine" Height="30" Width="30" />
+                        <TextBlock VerticalAlignment="Center" Text="Terapija" FontFamily="Century Gothic" FontSize="20"/>
+                    </StackPanel>
+                </Button>
+
+                <!--Moji termini-->
+                <Button x:Name="MojiTerminiButton" Grid.Row="1" Grid.Column="0" Height ="Auto" Margin="10" Background="#FF362F66" BorderBrush="#FF3C3B45" Click="MojiTerminiButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="CalendarAlert" Height="30" Width="30"/>
+                        <TextBlock VerticalAlignment="Center" Text="Moji termini" FontFamily="Century Gothic" FontSize="20"/>
+                    </StackPanel>
+                </Button>
+
+                <!--Ankete-->
+                <Button x:Name="AnketeButton" Grid.Row="1" Grid.Column="1" Height ="Auto" Margin="10" Background="#FF362F66" BorderBrush="#FF3C3B45" Click="AnketeButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="FileQuestion" Height="30" Width="30" />
+                        <TextBlock VerticalAlignment="Center" Text="Ankete" FontFamily="Century Gothic" FontSize="20"/>
+                    </StackPanel>
+                </Button>
+
+                <!--Moj karton-->
+                <Button x:Name="MojKartonButton" Grid.Row="1" Grid.Column="2" Height ="Auto" Margin="10" Background="#FF362F66" BorderBrush="#FF3C3B45" Click="MojKartonButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="FileDocumentOutline" Height="30" Width="30" />
+                        <TextBlock VerticalAlignment="Center" Text="Moj karton" FontFamily="Century Gothic" FontSize="20"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</UserControl>
