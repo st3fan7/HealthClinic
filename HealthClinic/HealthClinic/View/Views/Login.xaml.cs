@@ -21,7 +21,7 @@ namespace HealthClinic.Views
     /// </summary>
     public partial class Login : UserControl, INotifyPropertyChanged
     {
-
+        // PROBAA
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Login()
