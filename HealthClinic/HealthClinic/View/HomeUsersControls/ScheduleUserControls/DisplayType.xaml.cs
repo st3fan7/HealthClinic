@@ -21,12 +21,13 @@ namespace HealthClinic.View
     /// </summary>
     public partial class DisplayType : UserControl
     {
-        
+        public static string date = "";
         public DisplayType(string selectedDate)
         {
             InitializeComponent();
             dateLabel.Content = selectedDate;
             firstRadioButton.IsChecked = true;
+            date = selectedDate;
         }
 
 

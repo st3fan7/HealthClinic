@@ -20,10 +20,12 @@ namespace HealthClinic.View
     /// </summary>
     public partial class Patient : UserControl
     {
+
         public Patient()
         {
             InitializeComponent();
         }
+
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {

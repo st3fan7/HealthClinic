@@ -17,30 +17,30 @@
              d:DesignHeight="750" d:DesignWidth="430">
     <Grid  x:Name="GridRelocationTerm2" Background="{DynamicResource color}">
         <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="55"/>
-            <RowDefinition Height="220"/>
-            <RowDefinition Height="55*"/>
-            <RowDefinition Height="90"/>
-            <RowDefinition Height="55"/>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="220"/>
+                <RowDefinition Height="55*"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="55"/>
+            </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="86"/>
-            <ColumnDefinition Width="86"/>
-            <ColumnDefinition Width="86"/>
-            <ColumnDefinition Width="86"/>
-            <ColumnDefinition Width="86"/>
-        </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+            </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="5"
+            <StackPanel Grid.Row="0" Grid.ColumnSpan="5"
                     Background="#FF8CA8BF"
                     Height="55" 
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Right"
                     Width="430">
 
-            <Grid  Width="430" Height="55">
+                <Grid  Width="430" Height="55">
 
                     <Label Content="{x:Static language:Language.termTime}"
                        HorizontalContentAlignment="Center"
@@ -48,7 +48,7 @@
                        Height="55"
                        Margin="103,0,85,0"
                        FontFamily="Helvatic"/>
-                <Button Name="backBtn"
+                    <Button Name="backBtn"
                     HorizontalAlignment="Left"
                     Width="140"
                     Height="56"
@@ -58,13 +58,13 @@
                     Foreground="#DD000000"
                     Margin="0,0,0,-1"  
                     Click="backBtn_Click">
-                    <DockPanel Width="140" Margin="-15,0,0,0">
-                        <materialDesign:PackIcon Kind="ChevronLeft"
+                        <DockPanel Width="140" Margin="-15,0,0,0">
+                            <materialDesign:PackIcon Kind="ChevronLeft"
                                              Width="33"
                                              Height="47"
                                              Margin="1,0,0,0"
                                              HorizontalAlignment="Left"/>
-                        <Label Padding="0" 
+                            <Label Padding="0" 
                                Content="{x:Static language:Language.back}"
                                FontSize="20" 
                                FontFamily="Helvatic"
@@ -72,15 +72,15 @@
                                VerticalContentAlignment="Center"
                                Width="86"
                                Margin="0,0,30,0"/>
-                    </DockPanel>
-                </Button>
+                        </DockPanel>
+                    </Button>
 
 
-            </Grid>
-        </StackPanel>
+                </Grid>
+            </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="5">
-            <Label x:Name="dateLabel"
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="5">
+                <Label x:Name="dateLabel"
                         Height="50"
                        Width="390"
                        FontSize="28"
@@ -104,16 +104,16 @@
                        Height="68"
                        Width="390"
                        Margin="20,-5,20,0">
-            </TextBox>
+                </TextBox>
 
-            <Border BorderThickness="2"
+                <Border BorderThickness="2"
                     Width="400" 
                    Height="120" 
                     Background="#FF8CA8BF" 
                     BorderBrush="Black"
                     Margin="0,-20,0,0"/>
 
-            <Label x:Name="l2"
+                <Label x:Name="l2"
                        Content="{x:Static language:Language.room}"
                         Height="30"
                        Width="117"
@@ -123,7 +123,7 @@
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Left"
                        Margin="60,-180,0,-20"/>
-            <Label x:Name="l3"
+                <Label x:Name="l3"
                        Content="{x:Static language:Language.doctor}"
                         Height="33"
                        Width="117"
@@ -133,7 +133,7 @@
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Left"
                        Margin="60,-120,0,-20"/>
-            <Label x:Name="l4"
+                <Label x:Name="l4"
                        Content="{x:Static language:Language.patient}"
                         Height="43"
                        Width="117"
@@ -144,13 +144,13 @@
                        HorizontalContentAlignment="Left"
                        Margin="60,-60,0,-20"/>
 
-            <materialDesign:PackIcon Kind="InfoCircleOutline"
+                <materialDesign:PackIcon Kind="InfoCircleOutline"
                                              Width="50"
                                              Height="50"
                                              Margin="0,-82,35,0"
                                              HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5">
-            </materialDesign:PackIcon>
-            <Label x:Name="l1"
+                </materialDesign:PackIcon>
+                <Label x:Name="l1"
                    Content="{x:Static language:Language.time}"
                 Height="33"
                 Width="117"
@@ -160,7 +160,7 @@
                 VerticalContentAlignment="Center"                     
                 HorizontalContentAlignment="Left"
                 Margin="60,-125,0,90"/>
-            <Label x:Name="timeLabel"
+                <Label x:Name="timeLabel"
                 Height="40"
                 Width="161"
                 FontSize="24"
@@ -169,7 +169,7 @@
                 VerticalContentAlignment="Center"                     
                 HorizontalContentAlignment="Left"
                 Margin="162,-206,0,0"/>
-            <Label x:Name="roomLabel"
+                <Label x:Name="roomLabel"
                 Height="39"
                 Width="162"
                 FontSize="24"
@@ -178,7 +178,7 @@
                 VerticalContentAlignment="Center"                     
                 HorizontalContentAlignment="Left"
                 Margin="162,-155,0,0"/>
-            <Label x:Name="doctorLabel"
+                <Label x:Name="doctorLabel"
                 Height="38"
                 Width="160"
                 FontSize="24"
@@ -187,7 +187,7 @@
                 VerticalContentAlignment="Center"                     
                 HorizontalContentAlignment="Left"
                 Margin="163,-100,0,0"/>
-            <Label x:Name="patientLabel"
+                <Label x:Name="patientLabel"
                 Height="39"
                 Width="158"
                 FontSize="24"
@@ -197,9 +197,9 @@
                 HorizontalContentAlignment="Left"
                 Margin="164,-45,0,0"/>
 
-        </StackPanel>
+            </StackPanel>
 
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="5">
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="5">
                 <TextBox Text="{x:Static language:Language.textInReloaction2}"
                        TextWrapping="Wrap"
                        IsReadOnly="True"    
@@ -212,7 +212,7 @@
                        Height="86"
                        Width="430"
                        Margin="0,0,0,70"/>
-            <Label x:Name="label1"
+                <Label x:Name="label1"
                 Content="{x:Static language:Language.freeTime}"
                 Height="40"
                 Width="195"
@@ -223,7 +223,8 @@
                 HorizontalContentAlignment="Left"
                 Margin="20,-40,0,0"/>
 
-            <ComboBox BorderThickness="1"
+                <ComboBox BorderThickness="1"
+                      x:Name="cmbx"
                     materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}"
                     Margin="190,-40,0,0"
                     Width="180"
@@ -234,26 +235,109 @@
                     BorderBrush="#FF020207" 
                     Background="#FF8CA8BF" 
                     OpacityMask="#FFC5D4E3"
-                      Height="42" >
-                <ComboBoxItem IsSelected="True" 
+                      Height="42"  MaxDropDownHeight="160" 
+                          SelectionChanged="cmbx_SelectionChanged" >
+                    <ComboBoxItem 
                               HorizontalContentAlignment="Center"
                               x:Name="item11">
-                    10:00 - 10:30
-                </ComboBoxItem>
-                <ComboBoxItem HorizontalContentAlignment="Center"
+                        08:00 - 08:30
+                    </ComboBoxItem>
+                    <ComboBoxItem HorizontalContentAlignment="Center"
                               x:Name="item12">
-                    11:00 - 11:30
-                </ComboBoxItem>
-                <ComboBoxItem  HorizontalContentAlignment="Center"
-                               x:Name="item13">
-                    12:00 - 12:30
-                </ComboBoxItem>
-            </ComboBox>
+                        08:30 - 09:00
+                    </ComboBoxItem>
+                    <ComboBoxItem 
+                              HorizontalContentAlignment="Center"
+                              x:Name="item13">
+                        09:00 - 09:30
+                    </ComboBoxItem>
+                    <ComboBoxItem HorizontalContentAlignment="Center"
+                              x:Name="item14">
+                        09:30 - 10:00
+                    </ComboBoxItem>
+                    <ComboBoxItem  HorizontalContentAlignment="Center"
+                               x:Name="item15">
+                        10:00 - 10:30
+                    </ComboBoxItem>
+                    <ComboBoxItem 
+                              HorizontalContentAlignment="Center"
+                              x:Name="item16">
+                        10:30 - 11:00
+                    </ComboBoxItem>
+                    <ComboBoxItem HorizontalContentAlignment="Center"
+                              x:Name="item17">
+                        11:00 - 11:30
+                    </ComboBoxItem>
+                    <ComboBoxItem  HorizontalContentAlignment="Center"
+                               x:Name="item18">
+                        11:30 - 12:00
+                    </ComboBoxItem>
+                    <ComboBoxItem  HorizontalContentAlignment="Center"
+                               x:Name="item19">
+                        12:00 - 12:30
+                    </ComboBoxItem>
+                    <ComboBoxItem 
+                              HorizontalContentAlignment="Center"
+                              x:Name="item111">
+                        12:30 - 13:00
+                    </ComboBoxItem>
+                    <ComboBoxItem HorizontalContentAlignment="Center"
+                              x:Name="item112">
+                        13:00 - 13:30
+                    </ComboBoxItem>
+                    <ComboBoxItem 
+                              HorizontalContentAlignment="Center"
+                              x:Name="item113">
+                        13:30 - 14:00
+                    </ComboBoxItem>
+                    <ComboBoxItem HorizontalContentAlignment="Center"
+                              x:Name="item114">
+                        14:00 - 14:30
+                    </ComboBoxItem>
+                    <ComboBoxItem  HorizontalContentAlignment="Center"
+                               x:Name="item115">
+                        14:30 - 15:00
+                    </ComboBoxItem>
+                    <ComboBoxItem 
+                              HorizontalContentAlignment="Center"
+                              x:Name="item116">
+                        15:00 - 15:30
+                    </ComboBoxItem>
+                    <ComboBoxItem HorizontalContentAlignment="Center"
+                              x:Name="item117">
+                        15:30 - 16:00
+                    </ComboBoxItem>
+                    <ComboBoxItem  HorizontalContentAlignment="Center"
+                               x:Name="item118">
+                        16:00 - 16:30
+                    </ComboBoxItem>
+                    <ComboBoxItem  HorizontalContentAlignment="Center"
+                               x:Name="item119">
+                        16:30 - 17:00
+                    </ComboBoxItem>
+                </ComboBox>
+                <TextBox Text="{x:Static language:Language.textWarningInRelocationTerm2}" 
+                            x:Name="textWarning"
+                            Visibility="{Binding myVisibility}"
+                            TextWrapping="Wrap"
+                            AcceptsReturn="True"
+                            IsReadOnly="True"                          
+                            BorderBrush="{x:Null}"
+                            Background="{x:Null}"
+                            CaretBrush="{x:Null}"
+                            SelectionBrush="{x:Null}"
+                            FontSize="28"
+                            FontFamily="Helvatic"
+                            HorizontalAlignment="Center"
+                            VerticalContentAlignment="Top"                     
+                            TextAlignment="Center"
+                            Width="416"
+                            Margin="5,96,9,10"
+                            Foreground="#FF761616" FontWeight="Bold"/>
+            </StackPanel >
 
-        </StackPanel >
-
-        <StackPanel Grid.Row="3" Grid.ColumnSpan="5">
-            <Button x:Name="nextBtn"
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="5">
+                <Button x:Name="nextBtn"
                     Content="{x:Static language:Language.next}"
                     HorizontalAlignment="Center"
                     Width="168"
@@ -267,10 +351,10 @@
                     FontFamily="Helvatic"
                     Click="nextBtn_Click"/>
 
-        </StackPanel>
+            </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="0">
-            <Button Name="settingsBtn2"
+            <StackPanel Grid.Row="4" Grid.Column="0">
+                <Button Name="settingsBtn2"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Width="86"
@@ -281,20 +365,20 @@
                     Background="#FF8CA8BF"
                     Click="settingsBtn2_Click">
 
-                <DockPanel Width="86"
+                    <DockPanel Width="86"
                                Height="55"
                                HorizontalAlignment="Center">
-                    <materialDesign:PackIcon Kind="Settings"
+                        <materialDesign:PackIcon Kind="Settings"
                                              Width="84"
                                              Height="45"
                                              Margin="0,0,0,0"
                                              HorizontalAlignment="Center"/>
-                </DockPanel>
-            </Button>
-        </StackPanel>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="1">
-            <Button Name="scheduleBtn2"
+            <StackPanel Grid.Row="4" Grid.Column="1">
+                <Button Name="scheduleBtn2"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Width="86"
@@ -304,20 +388,20 @@
                     Margin="0,0,0,0"
                     Background="#FF526A7E"
                     Click="scheduleBtn2_Click">
-                <DockPanel Width="86"
+                    <DockPanel Width="86"
                                Height="55"
                                HorizontalAlignment="Center">
-                    <materialDesign:PackIcon Kind="Calendar"
+                        <materialDesign:PackIcon Kind="Calendar"
                                              Width="84"
                                              Height="45"
                                              Margin="0,0,0,0"
                                              HorizontalAlignment="Center"/>
-                </DockPanel>
-            </Button>
-        </StackPanel>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="2">
-            <Button Name="homeBtn2"
+            <StackPanel Grid.Row="4" Grid.Column="2">
+                <Button Name="homeBtn2"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Width="86"
@@ -327,20 +411,20 @@
                     Margin="0,0,0,0"
                     Background="#FF8CA8BF"
                     Click="homeBtn2_Click">
-                <DockPanel Width="86"
+                    <DockPanel Width="86"
                                Height="55"
                                HorizontalAlignment="Center">
-                    <materialDesign:PackIcon Kind="Home"
+                        <materialDesign:PackIcon Kind="Home"
                                              Width="84"
                                              Height="45"
                                              Margin="0,0,0,0"
                                              HorizontalAlignment="Center"/>
-                </DockPanel>
-            </Button>
-        </StackPanel>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="3">
-            <Button Name="patienstBtn2"
+            <StackPanel Grid.Row="4" Grid.Column="3">
+                <Button Name="patienstBtn2"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Width="86"
@@ -350,20 +434,20 @@
                     Margin="0,0,0,0"
                     Background="#FF8CA8BF"
                     Click="patienstBtn2_Click">
-                <DockPanel Width="86"
+                    <DockPanel Width="86"
                                Height="55"
                                HorizontalAlignment="Center">
-                    <materialDesign:PackIcon Kind="UserGroup"
+                        <materialDesign:PackIcon Kind="UserGroup"
                                              Width="84"
                                              Height="45"
                                              Margin="0,0,0,0"
                                              HorizontalAlignment="Center"/>
-                </DockPanel>
-            </Button>
-        </StackPanel>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="4">
-            <Button Name="reportBtn2"
+            <StackPanel Grid.Row="4" Grid.Column="4">
+                <Button Name="reportBtn2"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Width="86"
@@ -373,17 +457,17 @@
                     Margin="0,0,0,0"
                     Background="#FF8CA8BF"
                     Click="reportBtn2_Click">
-                <DockPanel Width="86"
+                    <DockPanel Width="86"
                                Height="55"
                                HorizontalAlignment="Center">
-                    <materialDesign:PackIcon Kind="FileDocumentBox"
+                        <materialDesign:PackIcon Kind="FileDocumentBox"
                                              Width="84"
                                              Height="45"
                                              Margin="0,0,0,0"
                                              HorizontalAlignment="Center"/>
-                </DockPanel>
-            </Button>
-        </StackPanel>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
         </Grid>
     </Grid>
 </UserControl>

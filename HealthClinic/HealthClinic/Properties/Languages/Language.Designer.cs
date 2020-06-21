@@ -349,7 +349,7 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Izaberi doktora.
+        ///   Looks up a localized string similar to Izaberite doktora.
         /// </summary>
         public static string chooseDoc {
             get {
@@ -399,6 +399,15 @@ namespace HealthClinic.Properties.Languages {
         public static string chooseThemeForApp {
             get {
                 return ResourceManager.GetString("chooseThemeForApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Izaberite vreme.
+        /// </summary>
+        public static string chooseTime {
+            get {
+                return ResourceManager.GetString("chooseTime", resourceCulture);
             }
         }
         
@@ -538,7 +547,7 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to E-mail adresa:.
+        ///   Looks up a localized string similar to Mejl adresa:.
         /// </summary>
         public static string email {
             get {
@@ -583,7 +592,7 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unesite e-mail adresu.
+        ///   Looks up a localized string similar to Unesite mejl.
         /// </summary>
         public static string enterEmail {
             get {
@@ -606,6 +615,15 @@ namespace HealthClinic.Properties.Languages {
         public static string enterName {
             get {
                 return ResourceManager.GetString("enterName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pretražite termine.
+        /// </summary>
+        public static string enterParametarForSearch {
+            get {
+                return ResourceManager.GetString("enterParametarForSearch", resourceCulture);
             }
         }
         
@@ -844,6 +862,24 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Učitavanje.
+        /// </summary>
+        public static string loading {
+            get {
+                return ResourceManager.GetString("loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Učitavanje....
+        /// </summary>
+        public static string loading2 {
+            get {
+                return ResourceManager.GetString("loading2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Prijavljivanje.
         /// </summary>
         public static string logging_in {
@@ -979,6 +1015,15 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Već postoji pacijent za uneti JMBG ili korisničko ime!.
+        /// </summary>
+        public static string patientExists {
+            get {
+                return ResourceManager.GetString("patientExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ime pacijenta.
         /// </summary>
         public static string patientName {
@@ -1006,7 +1051,7 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kontakt telefon:.
+        ///   Looks up a localized string similar to Telefon:.
         /// </summary>
         public static string phone {
             get {
@@ -1105,7 +1150,7 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sala:    .
+        ///   Looks up a localized string similar to Sala:.
         /// </summary>
         public static string room {
             get {
@@ -1254,6 +1299,15 @@ namespace HealthClinic.Properties.Languages {
         public static string surname {
             get {
                 return ResourceManager.GetString("surname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zadatak:.
+        /// </summary>
+        public static string task {
+            get {
+                return ResourceManager.GetString("task", resourceCulture);
             }
         }
         
@@ -1483,6 +1537,15 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Da li želite da se odjavite?.
+        /// </summary>
+        public static string textInLogoutDialog {
+            get {
+                return ResourceManager.GetString("textInLogoutDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Šta želite da uradite?.
         /// </summary>
         public static string textInManipulationOptForSecAcc {
@@ -1510,7 +1573,7 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unesite korisničko ime ili                      JMBG pacijenta kako bi                      proverili da li postoji u                      sisutemu:.
+        ///   Looks up a localized string similar to Unesite korisničko ime ili                      JMBG pacijenta kako bi                      proverili da li postoji u                      sistemu:.
         /// </summary>
         public static string textInPatientvalidation {
             get {
@@ -1636,6 +1699,69 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Možete uneti samo slova i prvo slovo mora biti veliko!.
+        /// </summary>
+        public static string textWarning2InGuestAccout {
+            get {
+                return ResourceManager.GetString("textWarning2InGuestAccout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pacijent ne postoji!.
+        /// </summary>
+        public static string textWarning2InPatValForRec {
+            get {
+                return ResourceManager.GetString("textWarning2InPatValForRec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primer validne forme: 063/123-123.
+        /// </summary>
+        public static string textWarning3InGuestAccount {
+            get {
+                return ResourceManager.GetString("textWarning3InGuestAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JMBG mora da sadrži 13 brojeva!.
+        /// </summary>
+        public static string textWarning4InGuestAccount {
+            get {
+                return ResourceManager.GetString("textWarning4InGuestAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Morate popuniti sva polja!.
+        /// </summary>
+        public static string textWarningInGuestAccount {
+            get {
+                return ResourceManager.GetString("textWarningInGuestAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Morate popuniti ovo polje!.
+        /// </summary>
+        public static string textWarningInPatientValidation {
+            get {
+                return ResourceManager.GetString("textWarningInPatientValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selektovano vreme je zauzeto!.
+        /// </summary>
+        public static string textWarningInRelocationTerm2 {
+            get {
+                return ResourceManager.GetString("textWarningInRelocationTerm2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Neispravna lozinka!.
         /// </summary>
         public static string textWarningPasswordInMainW {
@@ -1717,6 +1843,15 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Korisničko ime je zauzeto!.
+        /// </summary>
+        public static string usernameAlreadyExsist {
+            get {
+                return ResourceManager.GetString("usernameAlreadyExsist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pogledaj nalog.
         /// </summary>
         public static string viewAccount {
@@ -1726,11 +1861,65 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nevalidna adresa!.
+        /// </summary>
+        public static string warningAddress {
+            get {
+                return ResourceManager.GetString("warningAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nevalidna mejl adresa!.
+        /// </summary>
+        public static string warningEmail {
+            get {
+                return ResourceManager.GetString("warningEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Šifra mora da sadrži najmanje 8 karaktera!.
+        /// </summary>
+        public static string warningForPassword {
+            get {
+                return ResourceManager.GetString("warningForPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JMBG mora sadržati 13 brojeva!.
+        /// </summary>
+        public static string warningJMBG {
+            get {
+                return ResourceManager.GetString("warningJMBG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prvo slovo mora biti veliko!.
+        /// </summary>
+        public static string warningState {
+            get {
+                return ResourceManager.GetString("warningState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Morate da izaberete datum!.
         /// </summary>
         public static string warningTextInReport {
             get {
                 return ResourceManager.GetString("warningTextInReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korisničko ime sadrži slova i brojeve!.
+        /// </summary>
+        public static string warningUsername {
+            get {
+                return ResourceManager.GetString("warningUsername", resourceCulture);
             }
         }
         

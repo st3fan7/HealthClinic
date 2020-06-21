@@ -224,6 +224,7 @@
                 Margin="20,-40,0,0"/>
 
                 <ComboBox BorderThickness="1"
+                          x:Name="cmbx1"
                     materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}"
                     Margin="190,-40,0,0"
                     Width="180"
@@ -234,20 +235,18 @@
                     BorderBrush="#FF020207" 
                     Background="#FF8CA8BF" 
                     OpacityMask="#FFC5D4E3"
-                      Height="42" >
-                    <ComboBoxItem IsSelected="True" 
+                      Height="42" 
+                          SelectionChanged="cmbx1_SelectionChanged">
+                   <!-- <ComboBoxItem IsSelected="True" 
                               HorizontalContentAlignment="Center"
                               x:Name="item11">
-                        A1
+                        O1
                     </ComboBoxItem>
                     <ComboBoxItem HorizontalContentAlignment="Center"
                               x:Name="item12">
-                        A2
+                        O2
                     </ComboBoxItem>
-                    <ComboBoxItem  HorizontalContentAlignment="Center"
-                               x:Name="item13">
-                        A3
-                    </ComboBoxItem>
+                    -->
                 </ComboBox>
 
                 <Label x:Name="label2"
@@ -262,6 +261,7 @@
                 Margin="20, 20,0,0"/>
 
                 <ComboBox BorderThickness="1"
+                          x:Name="cmbx2"
                     materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}"
                     Margin="190,-40,0,0"
                     Width="180"
@@ -272,20 +272,8 @@
                     BorderBrush="#FF020207" 
                     Background="#FF8CA8BF" 
                     OpacityMask="#FFC5D4E3"
-                      Height="42" >
-                    <ComboBoxItem IsSelected="True" 
-                              HorizontalContentAlignment="Center"
-                              x:Name="item21">
-                        Ana Anić
-                    </ComboBoxItem>
-                    <ComboBoxItem HorizontalContentAlignment="Center"
-                              x:Name="item22">
-                        Miša Kiš
-                    </ComboBoxItem>
-                    <ComboBoxItem  HorizontalContentAlignment="Center"
-                               x:Name="item23">
-                        Petar Petrović
-                    </ComboBoxItem>
+                      Height="42" 
+                          SelectionChanged="cmbx2_SelectionChanged">
                 </ComboBox>
 
             </StackPanel >

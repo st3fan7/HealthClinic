@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthClinic.View.Dialogues;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,24 @@ namespace HealthClinic.View
     /// </summary>
     public partial class ConfirmPatientIdentity : UserControl
     {
-        public ConfirmPatientIdentity()
+        //Pacijent pac = new Pacijent();
+        //Termin terminKojiSeZakazuje = new Termin();
+        private static List<String> doctorsFromCmbx = new List<String>();
+        public ConfirmPatientIdentity(string selectedDate, List<String> doctors)
         {
             InitializeComponent();
+            //terminKojiSeZakazuje = term;
+            dateLabel.Content = selectedDate;
+            //nameLabel2.Content = pacijent.Name;
+            //lastNameLabel2.Content = pacijent.Surname;
+            //jmbgLabel2.Content = pacijent.Id;
+            
+            //if(!pacijent.Username.Equals(""))
+            //{
+            //    usernameLabel2.Content = pacijent.Username;
+            //}
+            //pac = pacijent;
+            doctorsFromCmbx = doctors;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -67,7 +83,9 @@ namespace HealthClinic.View
 
         private void yesBtn_Click(object sender, RoutedEventArgs e)
         {
-            // nisam povezao ovo, ovo se otvara ukoliko pacijent već ima nalog
+
+            UserControl usc = new ScheduleTerm(dateLabel.Content.ToString(),doctorsFromCmbx);
+            (this.Parent as Panel).Children.Add(usc);
         }
 
         private void noBtn_Click(object sender, RoutedEventArgs e)

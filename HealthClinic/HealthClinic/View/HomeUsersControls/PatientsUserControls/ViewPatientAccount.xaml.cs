@@ -23,6 +23,24 @@ namespace HealthClinic.View
         public ViewPatientAccount()
         {
             InitializeComponent();
+            //pacijent = p;
+            //if (p.GuestAccount == false)
+            //{
+            //    usernameLabel.Content = p.Username;
+            //    passwordLabel.Content = p.Password;
+            //    dateOfBirthLabel.Content = p.DateOfBirth;
+            //    placeOfBirthLabel.Content = p.PlaceOfBirth;
+            //    countryLabel.Content = p.Country;
+            //}
+            
+            
+            //nameLabel.Content = p.Name;
+            //lastNameLabel.Content = p.Surname;
+            //jmbgLabel.Content = p.Id;
+            //addressLabel.Content = p.Address;
+            //phoneLabel.Content = p.MobilePhone;
+            //emailLabel.Content = p.Email;
+
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)

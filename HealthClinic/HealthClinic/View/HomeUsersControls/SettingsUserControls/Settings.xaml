@@ -94,9 +94,9 @@
                        HorizontalAlignment="Center"
                        VerticalContentAlignment="Top"                     
                        TextAlignment="Center"
-                       Height="71"
+                       Height="85"
                        Width="390"
-                       Margin="20,60,20,70">
+                       Margin="20,50,20,70">
                 </TextBox>
 
             </StackPanel>

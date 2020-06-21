@@ -20,9 +20,19 @@ namespace HealthClinic.View
     /// </summary>
     public partial class ConfirmPatientIdentityInManipulation : UserControl
     {
+        //Pacijent pac = new Pacijent();
         public ConfirmPatientIdentityInManipulation()
         {
             InitializeComponent();
+            //nameLabel2.Content = pacijent.Name;
+            //lastNameLabel2.Content = pacijent.Surname;
+            //jmbgLabel2.Content = pacijent.Id;
+
+            //if (!pacijent.Username.Equals(""))
+            //{
+            //    usernameLabel2.Content = pacijent.Username;
+            //}
+            //pac = pacijent;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthClinic.View.Dialogues;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,24 +21,66 @@ namespace HealthClinic.View
     /// </summary>
     public partial class DataModificationInRecoveryRoom : UserControl
     {
+        //Oporavak oporavakKojegMenjam = new Oporavak();
+        //private List<Sobe> sobe = new List<Sobe>();
+        
         public DataModificationInRecoveryRoom(string selectedDate)
         {
             InitializeComponent();
             dateLabel.Content = selectedDate;
-            datePickerSchedule.DisplayDateStart = DateTime.Now;
+            String odDatuma = selectedDate;
+            datePickerSchedule.DisplayDateStart = DateTime.Parse(odDatuma);
             textWarning.Visibility = textWarningHidden;
+            //oporavakKojegMenjam = oporavak;
+            //receptionLabel.Content = oporavak.Prijem;
+            //checkoutLabel.Content = oporavak.Odjava;
+            //roomLabel.Content = oporavak.Sala;
+            //patientLabel.Content = oporavak.Pacijent;
+
+            //List<String> sobeKojimaSePuni = new List<String>();
+            //foreach(Sobe s in Loading.sobeZaOporavak)
+            //{
+            //    sobeKojimaSePuni.Add(s.Soba);
+            //}
+
+            //Console.WriteLine("Sobe koje punim, ima ih: " + sobeKojimaSePuni.Count);
+            //sobe.Clear();
+            //foreach (String r in sobeKojimaSePuni)
+            //{
+            //    sobe.Add(new Sobe() { Soba = r });
+            //}
+
+
+            //cmbx.ItemsSource = sobe;
+            //cmbx.DisplayMemberPath = "Soba";
+
         }
 
         private void changeBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (datePickerSchedule.SelectedDate != null)
-            {
-                (this.Parent as Panel).Children.RemoveRange(1, 6);
-            }
-            else
-            {
-                textWarning.Visibility = textWarningVisible;
-            }
+                
+
+            //foreach (Oporavak o in Loading.oporavci)
+            //{
+            //    if (o == oporavakKojegMenjam)
+            //    {
+            //        Console.WriteLine("isti je");
+            //        if (datePickerSchedule.Text.Length != 0)
+            //        {
+            //            Console.WriteLine("razlicito je od 0");
+            //            o.Odjava = datePickerSchedule.Text;
+            //        }
+
+            //        if (cmbx.Text.Length != 0)
+            //        {
+            //            o.Sala = cmbx.Text;  
+            //        }
+
+            //        (this.Parent as Panel).Children.RemoveRange(1, 6);
+            //        return;
+            //    }
+            //}
+               
         }
 
 
@@ -95,18 +138,5 @@ namespace HealthClinic.View
             get { return Visibility.Visible; }
         }
 
-        private void datePickerSchedule_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (datePickerSchedule.SelectedDate != null)
-            {
-
-                textWarning.Visibility = textWarningHidden;
-            }
-            else
-            {
-                textWarning.Visibility = textWarningVisible;
-            }
-
-        }
     }
 }

@@ -22,14 +22,6 @@ namespace HealthClinic.View
     {
         public Settings()
         {
-            //ChangeLanguage cl = new ChangeLanguage();
-            //if(cl.firstRadioButton.IsChecked == true)
-            //{
-            //    Properties.Settings.Default.languageCode = "en-US";
-            //} else
-            //{
-            //    Properties.Settings.Default.languageCode = "sr-Latn-RS";
-            //}
             InitializeComponent();
         }
 

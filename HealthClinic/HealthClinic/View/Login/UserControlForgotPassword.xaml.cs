@@ -24,6 +24,7 @@ namespace HealthClinic
         public UserControlForgotPassword()
         {
             InitializeComponent();
+            textWarningUsername.Visibility = textWarningHidden;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -33,8 +34,43 @@ namespace HealthClinic
 
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
         {
-            UserControl usc = new NotificationForPassword();
-            (this.Parent as Panel).Children.Add(usc);
+            //foreach(Secretary secretary in MainWindow.secreatries)
+            //{
+            //    if (usernameTextBox.Text.Equals(secretary.Username))
+            //    {
+            //        textWarningUsername.Visibility = textWarningHidden;
+            //        UserControl usc = new NotificationForPassword();
+            //        (this.Parent as Panel).Children.Add(usc);
+            //    } else
+            //    {
+            //        var bc = new BrushConverter();
+            //        var thic = new ThicknessConverter();
+            //        textWarningUsername.Visibility = textWarningVisible;
+            //        usernameTextBox.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+            //        usernameTextBox.BorderThickness = (Thickness)thic.ConvertFrom("3");
+            //        confirmBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+            //        confirmBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
+            //    }
+            //}
+        }
+
+        private Visibility textWarningVisible
+        {
+            get { return Visibility.Visible; }
+        }
+        private Visibility textWarningHidden
+        {
+            get { return Visibility.Hidden; }
+        }
+
+        private void usernameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            textWarningUsername.Visibility = textWarningHidden;
+            usernameTextBox.BorderBrush = Brushes.Black;
+            var thic = new ThicknessConverter();
+            usernameTextBox.BorderThickness = (Thickness)thic.ConvertFrom("1");
+            confirmBtn.BorderBrush = Brushes.Black;
+            confirmBtn.BorderThickness = (Thickness)thic.ConvertFrom("1");
         }
     }
 }

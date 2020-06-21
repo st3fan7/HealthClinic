@@ -65,8 +65,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Properties\Languages\Language.Designer.cs" />
-    <Compile Include="Properties\Languages\Language.en.Designer.cs" />
+    <Compile Include="Properties\Languages\Language.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Language.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Languages\Language.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Language.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="Repository\BlogNotificationRepository\ArticleRepository.cs" />
     <Compile Include="Repository\BlogNotificationRepository\IArticleRepository.cs" />
     <Compile Include="Repository\BlogNotificationRepository\INotificationRepository.cs" />
@@ -180,6 +188,9 @@
     <Compile Include="Controller\UsersControlers\SpetialitationController.cs" />
     <Compile Include="Controller\UsersControlers\UserController.cs" />
     <Compile Include="Controller\UsersControlers\WorkingTimeForDoctorController.cs" />
+    <Compile Include="View\Dialogues\LogoutDialog.xaml.cs">
+      <DependentUpon>LogoutDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HomeUsersControls\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -276,24 +287,6 @@
     <Compile Include="View\HomeUsersControls\ScheduleUserControls\ScheduleTerm.xaml.cs">
       <DependentUpon>ScheduleTerm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\HomeUsersControls\ScheduleUserControls\SearchInOthersRoom.xaml.cs">
-      <DependentUpon>SearchInOthersRoom.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\HomeUsersControls\ScheduleUserControls\SearchInRecoveryRooms.xaml.cs">
-      <DependentUpon>SearchInRecoveryRooms.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\HomeUsersControls\ScheduleUserControls\SearchResult.xaml.cs">
-      <DependentUpon>SearchResult.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\HomeUsersControls\ScheduleUserControls\SearchResultForOthersRoom.xaml.cs">
-      <DependentUpon>SearchResultForOthersRoom.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\HomeUsersControls\ScheduleUserControls\StartTimeTerms.xaml.cs">
-      <DependentUpon>StartTimeTerms.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\HomeUsersControls\ScheduleUserControls\StartTimeView.xaml.cs">
-      <DependentUpon>StartTimeView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\HomeUsersControls\ScheduleUserControls\SurgeryRooms.xaml.cs">
       <DependentUpon>SurgeryRooms.xaml</DependentUpon>
     </Compile>
@@ -336,9 +329,6 @@
     <Compile Include="View\Login\UserControlForgotPassword.xaml.cs">
       <DependentUpon>UserControlForgotPassword.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Model\Obavestenja.cs" />
-    <Compile Include="View\Model\Oporavak.cs" />
-    <Compile Include="View\Model\Termin.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\AllActors\Blog.cs" />
@@ -399,8 +389,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Properties\Languages\Language.en.resx" />
-    <EmbeddedResource Include="Properties\Languages\Language.resx" />
+    <EmbeddedResource Include="Properties\Languages\Language.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Languages\Language.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -423,6 +419,10 @@
     <Page Include="Properties\Themes\LightTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Dialogues\LogoutDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\HomeUsersControls\Home.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -549,30 +549,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\HomeUsersControls\ScheduleUserControls\ScheduleTerm.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\HomeUsersControls\ScheduleUserControls\SearchInOthersRoom.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\HomeUsersControls\ScheduleUserControls\SearchInRecoveryRooms.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\HomeUsersControls\ScheduleUserControls\SearchResult.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\HomeUsersControls\ScheduleUserControls\SearchResultForOthersRoom.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\HomeUsersControls\ScheduleUserControls\StartTimeTerms.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\HomeUsersControls\ScheduleUserControls\StartTimeView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

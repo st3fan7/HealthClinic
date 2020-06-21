@@ -231,6 +231,9 @@
   <data name="chooseThemeForApp" xml:space="preserve">
     <value>Choose theme for app:</value>
   </data>
+  <data name="chooseTime" xml:space="preserve">
+    <value>Choose time</value>
+  </data>
   <data name="confirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
@@ -299,6 +302,9 @@
   </data>
   <data name="enterName" xml:space="preserve">
     <value>Enter name</value>
+  </data>
+  <data name="enterParametarForSearch" xml:space="preserve">
+    <value>Search terms</value>
   </data>
   <data name="enterPassword" xml:space="preserve">
     <value>Enter password</value>
@@ -378,6 +384,12 @@
   <data name="lightTheme" xml:space="preserve">
     <value>Light</value>
   </data>
+  <data name="loading" xml:space="preserve">
+    <value>Loading</value>
+  </data>
+  <data name="loading2" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
   <data name="logging in" xml:space="preserve">
     <value>Logging in</value>
   </data>
@@ -422,6 +434,9 @@
   </data>
   <data name="patient" xml:space="preserve">
     <value>Patient:</value>
+  </data>
+  <data name="patientExists" xml:space="preserve">
+    <value>Patient with entered username or id already exsist!</value>
   </data>
   <data name="patientName" xml:space="preserve">
     <value>Patient's name</value>
@@ -516,6 +531,9 @@
   <data name="surname" xml:space="preserve">
     <value>Surname:</value>
   </data>
+  <data name="task" xml:space="preserve">
+    <value>Task:</value>
+  </data>
   <data name="termTime" xml:space="preserve">
     <value>Term time</value>
   </data>
@@ -565,10 +583,10 @@
     <value>Appointment which be canceled:</value>
   </data>
   <data name="textInConfirmPatientIdentity" xml:space="preserve">
-    <value>Is this the patient you                     want to schedule an appointment?</value>
+    <value>Is this the patient which you                     want to schedule an appointment?</value>
   </data>
   <data name="textInConfirmPatientIdentityInManipulation" xml:space="preserve">
-    <value>Is this the patient whose                    account you want                          to manipulate?</value>
+    <value>Is this the patient whose                   account you want                          to manipulate?</value>
   </data>
   <data name="textInConfirmPatientIdentityInTransformation" xml:space="preserve">
     <value>Is this the patient whose                           guest account you want                          to transform?</value>
@@ -590,6 +608,9 @@
   </data>
   <data name="textInHome" xml:space="preserve">
     <value>Welcome, Ana. What do you want to do today?</value>
+  </data>
+  <data name="textInLogoutDialog" xml:space="preserve">
+    <value>Do you want to log out?</value>
   </data>
   <data name="textInManipulationOptForSecAcc" xml:space="preserve">
     <value>What would you like to do?</value>
@@ -642,6 +663,27 @@
   <data name="textInViewPatientAccount" xml:space="preserve">
     <value>Basic informations:</value>
   </data>
+  <data name="textWarning2InGuestAccout" xml:space="preserve">
+    <value>You can enter only letters and first letter must be uppercase!</value>
+  </data>
+  <data name="textWarning2InPatValForRec" xml:space="preserve">
+    <value>Patient does not exsist!</value>
+  </data>
+  <data name="textWarning3InGuestAccount" xml:space="preserve">
+    <value>Example of a valid form: 063/123-123</value>
+  </data>
+  <data name="textWarning4InGuestAccount" xml:space="preserve">
+    <value>Id must contain 13 numbers!</value>
+  </data>
+  <data name="textWarningInGuestAccount" xml:space="preserve">
+    <value>You have to fill out all fields!</value>
+  </data>
+  <data name="textWarningInPatientValidation" xml:space="preserve">
+    <value>You have to fill out this field!</value>
+  </data>
+  <data name="textWarningInRelocationTerm2" xml:space="preserve">
+    <value>Selected time is busy!</value>
+  </data>
   <data name="textWarningPasswordInMainW" xml:space="preserve">
     <value>Invalid password!</value>
   </data>
@@ -669,11 +711,32 @@
   <data name="username" xml:space="preserve">
     <value>Username:</value>
   </data>
+  <data name="usernameAlreadyExsist" xml:space="preserve">
+    <value>Username is taken!</value>
+  </data>
   <data name="viewAccount" xml:space="preserve">
     <value>View account</value>
   </data>
+  <data name="warningAddress" xml:space="preserve">
+    <value>Invalid address!</value>
+  </data>
+  <data name="warningEmail" xml:space="preserve">
+    <value>Invalid email!</value>
+  </data>
+  <data name="warningForPassword" xml:space="preserve">
+    <value>Password must contain at least 8 characters!</value>
+  </data>
+  <data name="warningJMBG" xml:space="preserve">
+    <value>ID must contain 13 numbers!</value>
+  </data>
+  <data name="warningState" xml:space="preserve">
+    <value>First letter must be uppercase!</value>
+  </data>
   <data name="warningTextInReport" xml:space="preserve">
     <value>You have to choose a date!</value>
+  </data>
+  <data name="warningUsername" xml:space="preserve">
+    <value>Username contain letters and numbers!</value>
   </data>
   <data name="yes" xml:space="preserve">
     <value>Yes</value>

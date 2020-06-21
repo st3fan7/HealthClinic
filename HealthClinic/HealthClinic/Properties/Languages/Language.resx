@@ -214,7 +214,7 @@
     <value>Izaberite datum</value>
   </data>
   <data name="chooseDoc" xml:space="preserve">
-    <value>Izaberi doktora</value>
+    <value>Izaberite doktora</value>
   </data>
   <data name="chooseDoctor" xml:space="preserve">
     <value>Izaberite lekara:</value>
@@ -230,6 +230,9 @@
   </data>
   <data name="chooseThemeForApp" xml:space="preserve">
     <value>Izaberite temu aplikacije:</value>
+  </data>
+  <data name="chooseTime" xml:space="preserve">
+    <value>Izaberite vreme</value>
   </data>
   <data name="confirm" xml:space="preserve">
     <value>Potvrdi</value>
@@ -277,7 +280,7 @@
     <value>Termini lekara</value>
   </data>
   <data name="email" xml:space="preserve">
-    <value>E-mail adresa:</value>
+    <value>Mejl adresa:</value>
   </data>
   <data name="endTime" xml:space="preserve">
     <value>Vreme završetka:</value>
@@ -292,13 +295,16 @@
     <value>Unos podataka</value>
   </data>
   <data name="enterEmail" xml:space="preserve">
-    <value>Unesite e-mail adresu</value>
+    <value>Unesite mejl</value>
   </data>
   <data name="enterJMBG" xml:space="preserve">
     <value>Unesite JMBG</value>
   </data>
   <data name="enterName" xml:space="preserve">
     <value>Unesite ime</value>
+  </data>
+  <data name="enterParametarForSearch" xml:space="preserve">
+    <value>Pretražite termine</value>
   </data>
   <data name="enterPassword" xml:space="preserve">
     <value>Unesite inicijalnu šifru</value>
@@ -378,6 +384,12 @@
   <data name="lightTheme" xml:space="preserve">
     <value>Svetla</value>
   </data>
+  <data name="loading" xml:space="preserve">
+    <value>Učitavanje</value>
+  </data>
+  <data name="loading2" xml:space="preserve">
+    <value>Učitavanje...</value>
+  </data>
   <data name="logging in" xml:space="preserve">
     <value>Prijavljivanje</value>
   </data>
@@ -423,6 +435,9 @@
   <data name="patient" xml:space="preserve">
     <value>Pacijent:</value>
   </data>
+  <data name="patientExists" xml:space="preserve">
+    <value>Već postoji pacijent za uneti JMBG ili korisničko ime!</value>
+  </data>
   <data name="patientName" xml:space="preserve">
     <value>Ime pacijenta</value>
   </data>
@@ -433,7 +448,7 @@
     <value>Validacija pacijenta</value>
   </data>
   <data name="phone" xml:space="preserve">
-    <value>Kontakt telefon:</value>
+    <value>Telefon:</value>
   </data>
   <data name="place" xml:space="preserve">
     <value>Smesti</value>
@@ -466,7 +481,7 @@
     <value>Pregled obaveštenja:</value>
   </data>
   <data name="room" xml:space="preserve">
-    <value>Sala:    </value>
+    <value>Sala:</value>
   </data>
   <data name="roomsForExaminations" xml:space="preserve">
     <value>Sale za preglede</value>
@@ -515,6 +530,9 @@
   </data>
   <data name="surname" xml:space="preserve">
     <value>Prezime:</value>
+  </data>
+  <data name="task" xml:space="preserve">
+    <value>Zadatak:</value>
   </data>
   <data name="termTime" xml:space="preserve">
     <value>Vreme termina</value>
@@ -591,6 +609,9 @@
   <data name="textInHome" xml:space="preserve">
     <value>Dobrodošli, Ana.                      Šta želite danas da uradite?</value>
   </data>
+  <data name="textInLogoutDialog" xml:space="preserve">
+    <value>Da li želite da se odjavite?</value>
+  </data>
   <data name="textInManipulationOptForSecAcc" xml:space="preserve">
     <value>Šta želite da uradite?</value>
   </data>
@@ -601,7 +622,7 @@
     <value>Izaberite operaciju nad                           pacijentima:</value>
   </data>
   <data name="textInPatientvalidation" xml:space="preserve">
-    <value>Unesite korisničko ime ili                      JMBG pacijenta kako bi                      proverili da li postoji u                      sisutemu:</value>
+    <value>Unesite korisničko ime ili                      JMBG pacijenta kako bi                      proverili da li postoji u                      sistemu:</value>
   </data>
   <data name="textInPatientValidationForRecovery" xml:space="preserve">
     <value>Unesite korisničko ime ili                      JMBG pacijenta kojeg želite                      da smestite u salu za                      oporavak:</value>
@@ -642,6 +663,27 @@
   <data name="textInViewPatientAccount" xml:space="preserve">
     <value>Osnovni podaci:</value>
   </data>
+  <data name="textWarning2InGuestAccout" xml:space="preserve">
+    <value>Možete uneti samo slova i prvo slovo mora biti veliko!</value>
+  </data>
+  <data name="textWarning2InPatValForRec" xml:space="preserve">
+    <value>Pacijent ne postoji!</value>
+  </data>
+  <data name="textWarning3InGuestAccount" xml:space="preserve">
+    <value>Primer validne forme: 063/123-123</value>
+  </data>
+  <data name="textWarning4InGuestAccount" xml:space="preserve">
+    <value>JMBG mora da sadrži 13 brojeva!</value>
+  </data>
+  <data name="textWarningInGuestAccount" xml:space="preserve">
+    <value>Morate popuniti sva polja!</value>
+  </data>
+  <data name="textWarningInPatientValidation" xml:space="preserve">
+    <value>Morate popuniti ovo polje!</value>
+  </data>
+  <data name="textWarningInRelocationTerm2" xml:space="preserve">
+    <value>Selektovano vreme je zauzeto!</value>
+  </data>
   <data name="textWarningPasswordInMainW" xml:space="preserve">
     <value>Neispravna lozinka!</value>
   </data>
@@ -669,11 +711,32 @@
   <data name="username" xml:space="preserve">
     <value>Korisničko ime:</value>
   </data>
+  <data name="usernameAlreadyExsist" xml:space="preserve">
+    <value>Korisničko ime je zauzeto!</value>
+  </data>
   <data name="viewAccount" xml:space="preserve">
     <value>Pogledaj nalog</value>
   </data>
+  <data name="warningAddress" xml:space="preserve">
+    <value>Nevalidna adresa!</value>
+  </data>
+  <data name="warningEmail" xml:space="preserve">
+    <value>Nevalidna mejl adresa!</value>
+  </data>
+  <data name="warningForPassword" xml:space="preserve">
+    <value>Šifra mora da sadrži najmanje 8 karaktera!</value>
+  </data>
+  <data name="warningJMBG" xml:space="preserve">
+    <value>JMBG mora sadržati 13 brojeva!</value>
+  </data>
+  <data name="warningState" xml:space="preserve">
+    <value>Prvo slovo mora biti veliko!</value>
+  </data>
   <data name="warningTextInReport" xml:space="preserve">
     <value>Morate da izaberete datum!</value>
+  </data>
+  <data name="warningUsername" xml:space="preserve">
+    <value>Korisničko ime sadrži slova i brojeve!</value>
   </data>
   <data name="yes" xml:space="preserve">
     <value>Da</value>

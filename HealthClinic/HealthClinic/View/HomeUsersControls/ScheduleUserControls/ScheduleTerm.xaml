@@ -20,8 +20,8 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="55"/>
-                <RowDefinition Height="220"/>
-                <RowDefinition Height="55*"/>
+                <RowDefinition Height="238"/>
+                <RowDefinition/>
                 <RowDefinition Height="90"/>
                 <RowDefinition Height="55"/>
             </Grid.RowDefinitions>
@@ -80,7 +80,7 @@
                 </Grid>
             </StackPanel>
 
-            <StackPanel Grid.Row="1" Grid.ColumnSpan="5">
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="5" Height="257" VerticalAlignment="Top" Grid.RowSpan="2">
                 <Label x:Name="dateLabel"
                         Height="50"
                        Width="390"
@@ -109,61 +109,109 @@
 
                 <Border BorderThickness="2"
                     Width="400" 
-                   Height="120" 
+                   Height="157" 
                     Background="#FF8CA8BF" 
                     BorderBrush="Black"
-                    Margin="0,-20,0,0"/>
+                    Margin="15,-20,15,0"/>
 
                 <Label x:Name="l2"
-                       Content="Status:"
-                        Height="30"
-                       Width="117"
+                       Content="{x:Static language:Language.task}" 
+                        Height="38"
+                       Width="116"
                        FontSize="24"
                        FontFamily="Helvatic"
                        HorizontalAlignment="Left"
                        VerticalContentAlignment="Center"                     
-                       HorizontalContentAlignment="Center"
-                       Margin="60,-100,0,-20"/>
+                       HorizontalContentAlignment="Right"
+                       Margin="26,-210,0,-20"/>
+                <Label x:Name="l3"
+                       Content="{x:Static language:Language.patient}"  
+                        Height="41"
+                       Width="116"
+                       FontSize="24"
+                       FontFamily="Helvatic"
+                       HorizontalAlignment="Left"
+                       VerticalContentAlignment="Center"                     
+                       HorizontalContentAlignment="Right"
+                       Margin="26,-135,0,-20"/>
+                <Label x:Name="l4"
+                       Content="{x:Static language:Language.room}"  
+                        Height="36"
+                       Width="116"
+                       FontSize="24"
+                       FontFamily="Helvatic"
+                       HorizontalAlignment="Left"
+                       VerticalContentAlignment="Center"                     
+                       HorizontalContentAlignment="Right"
+                       Margin="26,-65,0,-20"/>
+                <Label x:Name="l5"
+                       Content="{x:Static language:Language.doctor}"  
+                        Height="36"
+                       Width="116"
+                       FontSize="24"
+                       FontFamily="Helvatic"
+                       HorizontalAlignment="Left"
+                       VerticalContentAlignment="Center"                     
+                       HorizontalContentAlignment="Right"
+                       Margin="26,-65,0,-20"/>
 
                 <materialDesign:PackIcon Kind="InfoCircleOutline"
                                              Width="50"
                                              Height="50"
-                                             Margin="0,-82,35,0"
+                                             Margin="0,-102,35,0"
                                              HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5">
                 </materialDesign:PackIcon>
                 <Label x:Name="l1"
                    Content="{x:Static language:Language.time}"  
                 Height="39"
-                Width="117"
+                Width="115"
                 FontSize="24"
                 FontFamily="Helvatic"
                 HorizontalAlignment="Left"
                 VerticalContentAlignment="Center"                     
-                HorizontalContentAlignment="Center"
-                Margin="60,-90,0,90"/>
+                HorizontalContentAlignment="Right"
+                Margin="26,-180,0,90"/>
                 <Label x:Name="l11"
                 Height="39"
-                Width="117"
+                Width="194"
                 FontSize="24"
                 FontFamily="Helvatic"
                 HorizontalAlignment="Left"
                 VerticalContentAlignment="Center"                     
-                HorizontalContentAlignment="Center"
-                Margin="180,-219,0,0"/>
+                HorizontalContentAlignment="Left"
+                Margin="148,-269,0,0"/>
                 <Label x:Name="l22"
-                Height="39"
-                Width="117"
+                Height="41"
+                Width="194"
                 FontSize="24"
                 FontFamily="Helvatic"
                 HorizontalAlignment="Left"
                 VerticalContentAlignment="Center"                     
-                HorizontalContentAlignment="Center"
-                Margin="180,-160,0,0"/>
+                HorizontalContentAlignment="Left"
+                Margin="148,-190,0,0"/>
+                <Label x:Name="l33"
+                Height="36"
+                Width="194"
+                FontSize="24"
+                FontFamily="Helvatic"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center"                     
+                HorizontalContentAlignment="Left"
+                Margin="148,-115,0,0"/>
+                <Label x:Name="l44"
+                Height="36"
+                Width="194"
+                FontSize="24"
+                FontFamily="Helvatic"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center"                     
+                HorizontalContentAlignment="Left"
+                Margin="148,-45,0,0"/>
 
 
             </StackPanel>
 
-            <StackPanel Grid.Row="2" Grid.ColumnSpan="5">
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="5" Margin="0,19,2,0">
                 <Label x:Name="labelTitle"
                 Content="{x:Static language:Language.text2InScheduleTerm}" 
                 Height="39"
@@ -174,26 +222,6 @@
                 VerticalContentAlignment="Center"                     
                 HorizontalContentAlignment="Center"
                 Margin="0,20,0,0"/>
-                <Label x:Name="label1"
-                Content="{x:Static language:Language.startTime}" 
-                Height="39"
-                Width="220"
-                FontSize="24"
-                FontFamily="Helvatic"
-                HorizontalAlignment="Left"
-                VerticalContentAlignment="Center"                     
-                HorizontalContentAlignment="Left"
-                Margin="20,20,0,0"/>
-                <Label x:Name="label2"
-                Content="{x:Static language:Language.endTime}" 
-                Height="39"
-                Width="220"
-                FontSize="24"
-                FontFamily="Helvatic"
-                HorizontalAlignment="Left"
-                VerticalContentAlignment="Center"                     
-                HorizontalContentAlignment="Left"
-                Margin="20,10,0,0"/>
                 <Label x:Name="label3"
                 Content="{x:Static language:Language.freeDoctor}" 
                 Height="39"
@@ -203,21 +231,12 @@
                 HorizontalAlignment="Left"
                 VerticalContentAlignment="Center"                     
                 HorizontalContentAlignment="Left"
-                Margin="20,10,0,0"/>
-                <Label x:Name="label4"
-                Content="{x:Static language:Language.room}" 
-                Height="39"
-                Width="220"
-                FontSize="24"
-                FontFamily="Helvatic"
-                HorizontalAlignment="Left"
-                VerticalContentAlignment="Center"                     
-                HorizontalContentAlignment="Left"
-                Margin="20,10,0,0"/>
+                Margin="20,30,0,0"/>
                 <ComboBox BorderThickness="1"
+                          x:Name="cmbxDoctor"
                     materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}"
-                    Margin="232,-340,20,0"
-                    Width="178"
+                    Margin="210,-45,20,0"
+                    Width="198"
                     HorizontalContentAlignment="Center"
                     FontSize="24"
                     FontFamily="Helvatic"
@@ -225,63 +244,9 @@
                     BorderBrush="#FF020207" 
                     Background="#FF8CA8BF" 
                     OpacityMask="#FFC5D4E3"
-                      Height="42" >
-                    <ComboBoxItem IsSelected="True" 
-                              HorizontalContentAlignment="Center"
-                              x:Name="item11">
-                        10:00
-                    </ComboBoxItem>
-                    <ComboBoxItem HorizontalContentAlignment="Center"
-                              x:Name="item12">
-                        10:30
-                    </ComboBoxItem>
-                    <ComboBoxItem  HorizontalContentAlignment="Center"
-                               x:Name="item13">
-                        11:00
-                    </ComboBoxItem>
-                </ComboBox>
-
-                <ComboBox BorderThickness="1"
-                    materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}"
-                    Margin="232,-240,20,0"
-                    Width="178"
-                    HorizontalContentAlignment="Center"
-                    FontSize="24"
-                    FontFamily="Helvatic"
-                    HorizontalAlignment="Center" 
-                    BorderBrush="#FF020207" 
-                    Background="#FF8CA8BF" 
-                    OpacityMask="#FFC5D4E3"
-                      Height="42" >
-                    <ComboBoxItem IsSelected="True" 
-                              HorizontalContentAlignment="Center"
-                              x:Name="item21">
-                        10:30
-                    </ComboBoxItem>
-                    <ComboBoxItem HorizontalContentAlignment="Center"
-                              x:Name="item22">
-                        11:00
-                    </ComboBoxItem>
-                    <ComboBoxItem  HorizontalContentAlignment="Center"
-                               x:Name="item23">
-                        11:30
-                    </ComboBoxItem>
-
-                </ComboBox>
-
-                <ComboBox BorderThickness="1"
-                    materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}"
-                    Margin="232,-140,20,0"
-                    Width="178"
-                    HorizontalContentAlignment="Center"
-                    FontSize="24"
-                    FontFamily="Helvatic"
-                    HorizontalAlignment="Center" 
-                    BorderBrush="#FF020207" 
-                    Background="#FF8CA8BF" 
-                    OpacityMask="#FFC5D4E3"
-                      Height="42" >
-                    <ComboBoxItem IsSelected="True" 
+                      Height="44"
+                          SelectionChanged="cmbxDoctor_SelectionChanged">
+                    <!--<ComboBoxItem IsSelected="True" 
                               HorizontalContentAlignment="Center"
                               x:Name="item31">
                         Ana Anić
@@ -293,14 +258,15 @@
                     <ComboBoxItem  HorizontalContentAlignment="Center"
                                x:Name="item33">
                         Petar Perić
-                    </ComboBoxItem>
+                    </ComboBoxItem>-->
 
                 </ComboBox>
 
                 <ComboBox BorderThickness="1"
+                          x:Name="cmbxRoom"
                     materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}"
-                    Margin="232,-40,20,0"
-                    Width="178"
+                    Margin="210,-45,20,0"
+                    Width="198"
                     HorizontalContentAlignment="Center"
                     FontSize="24"
                     FontFamily="Helvatic"
@@ -308,22 +274,32 @@
                     BorderBrush="#FF020207" 
                     Background="#FF8CA8BF" 
                     OpacityMask="#FFC5D4E3"
-                      Height="42" >
-                    <ComboBoxItem IsSelected="True" 
+                      Height="44"
+                          SelectionChanged="cmbxRoom_SelectionChanged">
+                    <!--<ComboBoxItem IsSelected="True" 
                               HorizontalContentAlignment="Center"
                               x:Name="item41">
-                        A1
+                        O1
                     </ComboBoxItem>
                     <ComboBoxItem HorizontalContentAlignment="Center"
                               x:Name="item42">
-                        A2
-                    </ComboBoxItem>
-                    <ComboBoxItem  HorizontalContentAlignment="Center"
-                               x:Name="item43">
-                        A3
-                    </ComboBoxItem>
+                        O2
+                    </ComboBoxItem>-->
+
 
                 </ComboBox>
+                <Label x:Name="label4"
+                Content="{x:Static language:Language.room}" 
+                Height="40"
+                Width="182"
+                FontSize="24"
+                FontFamily="Helvatic"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center"                     
+                HorizontalContentAlignment="Left"
+                Margin="20,-40,0,0"/>
+
+
             </StackPanel>
 
             <StackPanel Grid.Row="3" Grid.ColumnSpan="5">

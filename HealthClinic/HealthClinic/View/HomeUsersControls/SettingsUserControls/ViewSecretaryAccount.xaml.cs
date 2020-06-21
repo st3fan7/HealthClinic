@@ -23,6 +23,19 @@ namespace HealthClinic.View
         public ViewSecretaryAccount()
         {
             InitializeComponent();
+
+            //Secretary secretary = MainWindow.secreatries.First();
+            //usernameLabel.Content = secretary.Username;
+            //passwordLabel.Content = secretary.Password;
+            //nameLabel.Content = secretary.Name;
+            //lastNameLabel.Content = secretary.Surname;
+            //jmbgLabel.Content = secretary.Id;
+            //dateOfBirthLabel.Content = secretary.DateOfBirth;
+            //placeOfBirthLabel.Content = secretary.PlaceOfBirth;
+            //countryLabel.Content = secretary.Country;
+            //addressLabel.Content = secretary.Address;
+            //phoneLabel.Content = secretary.MobilePhone;
+            //emailLabel.Content = secretary.Email;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)

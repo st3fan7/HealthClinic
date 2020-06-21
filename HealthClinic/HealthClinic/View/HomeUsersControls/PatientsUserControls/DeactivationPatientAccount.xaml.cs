@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthClinic.View.Dialogues;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,14 @@ namespace HealthClinic.View
         public DeactivationPatientAccount()
         {
             InitializeComponent();
+            //pacijent = p;
+            //nameLabel2.Content = p.Name;
+            //lastNameLabel2.Content = p.Surname;
+            //jmbgLabel2.Content = p.Id;
+            //if (p.GuestAccount == false)
+            //{
+            //    usernameLabel2.Content = p.Username;
+            //}
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -71,8 +80,20 @@ namespace HealthClinic.View
 
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
         {
+            //Pacijent pacijentZaBrisanje = new Pacijent();
+            //foreach(Pacijent p in Loading.pacijenti)
+            //{
+            //    if(p == pacijent)
+            //    {
+            //        pacijentZaBrisanje = p;
+            //        break;
+            //    }
+            //}
+
+            //Loading.pacijenti.Remove(pacijentZaBrisanje);
+
             GridDeactivationPatientAccount.Children.Clear();
-            UserControl usc = new ManipulationOptions();
+            UserControl usc = new Patient();
             GridDeactivationPatientAccount.Children.Add(usc);
         }
 

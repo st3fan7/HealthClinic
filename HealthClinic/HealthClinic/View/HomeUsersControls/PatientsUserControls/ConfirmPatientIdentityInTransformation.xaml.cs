@@ -20,9 +20,14 @@ namespace HealthClinic.View
     /// </summary>
     public partial class ConfirmPatientIdentityInTransformation : UserControl
     {
+
         public ConfirmPatientIdentityInTransformation()
         {
             InitializeComponent();
+            //pacijent = p;
+            //nameLabel2.Content = pacijent.Name;
+            //lastNameLabel2.Content = pacijent.Surname;
+            //jmbgLabel2.Content = pacijent.Id;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)

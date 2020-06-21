@@ -213,7 +213,7 @@
                     Margin="200,-780,0,0">
                     <Label x:Name="usernameLabel"
                        IsEnabled="False"
-                       Content="peki123"
+                       
                         Height="40"
                        Width="190"
                        FontSize="22"
@@ -231,7 +231,7 @@
                     Margin="200,-700,0,0">
                     <Label x:Name="passwordLabel"
                        IsEnabled="False"
-                       Content="**********"
+                      
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -249,7 +249,7 @@
                     Margin="200,-620,0,0">
                     <Label x:Name="nameLabel"
                        IsEnabled="False"
-                       Content="Petar"
+                       
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -267,7 +267,7 @@
                     Margin="200,-540,0,0">
                     <Label x:Name="lastNameLabel"
                        IsEnabled="False"
-                       Content="Petrović"
+                       
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -285,7 +285,7 @@
                     Margin="200,-460,0,0">
                     <Label x:Name="jmbgLabel"
                        IsEnabled="False"
-                       Content="1212994728745"
+                      
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -303,7 +303,7 @@
                     Margin="200,-380,0,0">
                     <Label x:Name="dateOfBirthLabel"
                        IsEnabled="False"
-                       Content="21/04/1972"
+                       
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -321,7 +321,7 @@
                     Margin="200,-300,0,0">
                     <Label x:Name="placeOfBirthLabel"
                        IsEnabled="False"
-                       Content="Niš, Srbija"
+                       
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -339,7 +339,7 @@
                     Margin="200,-220,0,0">
                     <Label x:Name="countryLabel"
                        IsEnabled="False"
-                       Content="Republika Srbija"
+                       
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -349,7 +349,7 @@
                        HorizontalContentAlignment="Center"
                        Margin="0,-50,0,-20"/>
                 </Border>
-                
+
                 <Border BorderThickness="1"
                     BorderBrush="#FF8CA8BF" 
                     Background="#FF8CA8BF"
@@ -358,15 +358,15 @@
                     Margin="200,-140,0,0">
                     <Label x:Name="addressLabel"
                        IsEnabled="False"
-                       Content="Niš, Pećka 1"
+                       
                         Height="40"
-                       Width="190"
+                       Width="207"
                        FontSize="24"
                        FontFamily="Helvatic"
                        HorizontalAlignment="Left"
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Center"
-                       Margin="0,-50,0,-20"/>
+                       Margin="-9,-35,-10,-5"/>
                 </Border>
                 <Border BorderThickness="1"
                     BorderBrush="#FF8CA8BF" 
@@ -376,7 +376,7 @@
                     Margin="200,-60,0,0">
                     <Label x:Name="phoneLabel"
                        IsEnabled="False"
-                       Content="066/159-951"
+                       
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -394,7 +394,7 @@
                     Margin="200,10,0,0">
                     <Label x:Name="emailLabel"
                        IsEnabled="False"
-                       Content="peki123@gmail.com"
+                       
                         Height="40"
                        Width="190"
                        FontSize="20"
@@ -405,7 +405,7 @@
                        Margin="0,-50,0,-20"/>
                 </Border>
 
-                
+
             </StackPanel>
 
             <StackPanel Grid.Row="3" Grid.ColumnSpan="5">

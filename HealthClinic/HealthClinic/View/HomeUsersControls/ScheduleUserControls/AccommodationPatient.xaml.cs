@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthClinic.View.Dialogues;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,19 @@ namespace HealthClinic.View
     /// </summary>
     public partial class AccommodationPatient : UserControl
     {
+        //Oporavak oporavakKojegMenjam = new Oporavak();
+        //Pacijent pacijentKojegZelimoDaSmestimoNaOporavak = new Pacijent();
         public AccommodationPatient(string selectedDate)
         {
             InitializeComponent();
             dateLabel.Content = selectedDate;
+            //oporavakKojegMenjam = oporavak;
+            //l11.Content = oporavak.Prijem;
+            //l22.Content = oporavak.Sala;
+            //pacijentKojegZelimoDaSmestimoNaOporavak = pacijent;
+            //nameLabel2.Content = pacijent.Name;
+            //lastNameLabel2.Content = pacijent.Surname;
+            //jmbgLabel2.Content = pacijent.Id;
         }
 
         private void homeBtn2_Click(object sender, RoutedEventArgs e)
@@ -68,6 +78,14 @@ namespace HealthClinic.View
 
         private void yesBtn_Click(object sender, RoutedEventArgs e)
         {
+            //foreach(Oporavak o in Loading.oporavci)
+            //{
+            //    if(o == oporavakKojegMenjam)
+            //    {
+            //        o.Pacijent = pacijentKojegZelimoDaSmestimoNaOporavak.Name + " " + pacijentKojegZelimoDaSmestimoNaOporavak.Surname;
+            //        o.Status = "Zauzet";
+            //    }
+            //}
             (this.Parent as Panel).Children.RemoveRange(1, 6);
         }
 

@@ -23,6 +23,7 @@ namespace HealthClinic.View
         public ManipulationOptions()
         {
             InitializeComponent();
+            //pacijent = pac;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)

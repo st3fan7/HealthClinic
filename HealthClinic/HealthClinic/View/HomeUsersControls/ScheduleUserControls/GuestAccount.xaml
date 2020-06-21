@@ -21,8 +21,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="55"/>
                 <RowDefinition Height="180"/>
-                <RowDefinition Height="54*"/>
-                <RowDefinition Height="140"/>
+                <RowDefinition/>
+                <RowDefinition Height="171"/>
                 <RowDefinition Height="55"/>
             </Grid.RowDefinitions>
 
@@ -90,23 +90,22 @@
                 <Label x:Name="label1"
                         Content="{x:Static language:Language.text1GuestAccount}"  
                         Height="50"
-                       Width="164"
+                       Width="168"
                        FontSize="28"
                        FontFamily="Helvatic"
                        HorizontalAlignment="Right"
                        VerticalContentAlignment="Center"                     
-                       HorizontalContentAlignment="Left" 
-                        Margin="0,-14,231,0"/>
+                       HorizontalContentAlignment="Right" 
+                        Margin="0,-14,248,0"/>
                 <Label x:Name="inputLabel"
-                        Content="1605235689"
                         Height="50"
-                       Width="211"
+                       Width="218"
                        FontSize="28"
                        FontFamily="Helvatic"
                        HorizontalAlignment="Right"
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Left" 
-                        Margin="0,-50,23,0"/>
+                        Margin="0,-50,19,0"/>
                 <TextBox Text="{x:Static language:Language.text2GuestAccount}"  
                        TextWrapping="Wrap"
                        IsReadOnly="True"    
@@ -131,7 +130,7 @@
                        HorizontalAlignment="Left"
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Left"
-                       Margin="30,20,0,-20"/>
+                       Margin="30,7,0,-20"/>
                 <Label x:Name="lastNameLabel"
                        Content="{x:Static language:Language.surname}"  
                         Height="40"
@@ -176,6 +175,7 @@
                        Margin=" 30,40,0,-20"/>
 
                 <TextBox  
+                    x:Name="nameInput"
                     BorderThickness="2"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -188,8 +188,10 @@
                     Margin="193,-410,6,50" 
                     FontFamily="Helvatic"
                     CaretBrush="#FF131619"
-                    Background="#FFB9C8D6"/>
+                    Background="#FFB9C8D6"
+                    TextChanged="nameInput_TextChanged"/>
                 <TextBox  
+                    x:Name="surnameInput"
                     BorderThickness="2"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -202,9 +204,11 @@
                     Margin="193,-300,6,50" 
                     FontFamily="Helvatic"
                     CaretBrush="#FF131619"
-                    Background="#FFB9C8D6"  />
+                    Background="#FFB9C8D6" 
+                    TextChanged="surnameInput_TextChanged"/>
 
-                <TextBox  
+                <TextBox 
+                    x:Name="idInput"
                     BorderThickness="2"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -217,8 +221,10 @@
                     Margin="193,-190,6,50" 
                     FontFamily="Helvatic"
                     CaretBrush="#FF131619"
-                    Background="#FFB9C8D6"  />
+                    Background="#FFB9C8D6" 
+                    TextChanged="idInput_TextChanged"/>
                 <TextBox  
+                    x:Name="addressInput"
                     BorderThickness="2"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -231,8 +237,10 @@
                     Margin="193,-85,6,50" 
                     FontFamily="Helvatic"
                     CaretBrush="#FF131619"
-                    Background="#FFB9C8D6" />
+                    Background="#FFB9C8D6"
+                    TextChanged="addressInput_TextChanged"/>
                 <TextBox  
+                    x:Name="mobileInput"
                     BorderThickness="2"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -245,11 +253,84 @@
                     Margin="193,-40,6,50" 
                     FontFamily="Helvatic"
                     CaretBrush="#FF131619"
-                    Background="#FFB9C8D6"  />
+                    Background="#FFB9C8D6" 
+                    TextChanged="mobileInput_TextChanged"/>
+
             </StackPanel>
 
             <StackPanel Grid.Row="3" Grid.ColumnSpan="5">
-
+                <TextBox Text="{x:Static language:Language.textWarningInGuestAccount}" 
+                            x:Name="textWarning"
+                            Visibility="{Binding myVisibility}"
+                            TextWrapping="Wrap"
+                            AcceptsReturn="True"
+                            IsReadOnly="True"                          
+                            BorderBrush="{x:Null}"
+                            Background="{x:Null}"
+                            CaretBrush="{x:Null}"
+                            SelectionBrush="{x:Null}"
+                            FontSize="28"
+                            FontFamily="Helvatic"
+                            HorizontalAlignment="Center"
+                            VerticalContentAlignment="Top"                     
+                            TextAlignment="Center"
+                            Width="406"
+                            Margin="10,10,14,0"
+                            Foreground="#FF761616" FontWeight="Bold"/>
+                <TextBox Text="{x:Static language:Language.textWarning2InGuestAccout}" 
+                            x:Name="textWarning2"
+                            Visibility="{Binding myVisibility}"
+                            TextWrapping="Wrap"
+                            AcceptsReturn="True"
+                            IsReadOnly="True"                          
+                            BorderBrush="{x:Null}"
+                            Background="{x:Null}"
+                            CaretBrush="{x:Null}"
+                            SelectionBrush="{x:Null}"
+                            FontSize="28"
+                            FontFamily="Helvatic"
+                            HorizontalAlignment="Center"
+                            VerticalContentAlignment="Top"                     
+                            TextAlignment="Center"
+                            Width="418"
+                            Margin="6,-50,6,0"
+                            Foreground="#FF761616" FontWeight="Bold" Height="71"/>
+                <TextBox Text="{x:Static language:Language.textWarning3InGuestAccount}" 
+                            x:Name="textWarning3"
+                            Visibility="{Binding myVisibility}"
+                            TextWrapping="Wrap"
+                            AcceptsReturn="True"
+                            IsReadOnly="True"                          
+                            BorderBrush="{x:Null}"
+                            Background="{x:Null}"
+                            CaretBrush="{x:Null}"
+                            SelectionBrush="{x:Null}"
+                            FontSize="28"
+                            FontFamily="Helvatic"
+                            HorizontalAlignment="Center"
+                            VerticalContentAlignment="Top"                     
+                            TextAlignment="Center"
+                            Width="418"
+                            Margin="6,-60,6,0"
+                            Foreground="#FF761616" FontWeight="Bold" Height="71"/>
+                <TextBox Text="{x:Static language:Language.textWarning4InGuestAccount}" 
+                            x:Name="textWarning4"
+                            Visibility="{Binding myVisibility}"
+                            TextWrapping="Wrap"
+                            AcceptsReturn="True"
+                            IsReadOnly="True"                          
+                            BorderBrush="{x:Null}"
+                            Background="{x:Null}"
+                            CaretBrush="{x:Null}"
+                            SelectionBrush="{x:Null}"
+                            FontSize="28"
+                            FontFamily="Helvatic"
+                            HorizontalAlignment="Center"
+                            VerticalContentAlignment="Top"                     
+                            TextAlignment="Center"
+                            Width="428"
+                            Margin="0,-70,2,0"
+                            Foreground="#FF761616" FontWeight="Bold" Height="77"/>
                 <Button x:Name="createBtn"
                     Content="{x:Static language:Language.create}"  
                     HorizontalAlignment="Center"
@@ -259,7 +340,7 @@
                     Background="#FF8CA8BF"
                     BorderBrush="#DD000000"
                     Foreground="#DD000000"
-                    Margin="0,50,0,0"
+                    Margin="0,0,0,0"
                     FontWeight="Normal"
                     FontFamily="Helvatic" Click="createBtn_Click"/>
             </StackPanel>

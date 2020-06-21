@@ -16,7 +16,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource ResourceKey=MaterialDesignFont}"
         Title="MainWindow" Height="750" Width="430" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
-    <Grid x:Name="GridMain" Background="{DynamicResource color}">
+    <Grid x:Name="GridMain" Background="{DynamicResource color}" >
         <Grid>
 
             <Grid.RowDefinitions>

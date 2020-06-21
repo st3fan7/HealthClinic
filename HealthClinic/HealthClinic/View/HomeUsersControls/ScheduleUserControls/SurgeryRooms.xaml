@@ -15,13 +15,13 @@
             TextOptions.TextRenderingMode="Auto"
             Background="{DynamicResource MaterialDesignPaper}"
             FontFamily="{DynamicResource ResourceKey=MaterialDesignFont}"
-             d:DesignHeight="750" d:DesignWidth="430" Loaded="UserControl_Loaded">
+             d:DesignHeight="750" d:DesignWidth="430">
 
     <UserControl.Resources>
         <Style TargetType="{x:Type DataGridRow}" x:Key="dgs1">
             <Style.Triggers>
                 <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Foreground" Value="#FF49535B"/>
+                    <Setter Property="Foreground" Value="#FF525C64"/>
                     <Setter Property="Background" Value="Green" />
                 </Trigger>
             </Style.Triggers>
@@ -87,7 +87,21 @@
                                Margin="0,0,30,0"/>
                         </DockPanel>
                     </Button>
-
+                    <TextBox  
+                    x:Name="searchTextBox"
+                    BorderThickness="2"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    FontSize="28"
+                    materialDesign:HintAssist.Hint="{x:Static language:Language.enterParametarForSearch}" 
+                    IsEnabled="{Binding IsChecked, ElementName=NameBox}" 
+                    Margin="-1,0,66,0" 
+                    FontFamily="Helvatic"
+                    CaretBrush="#FF131619" Background="#FFB9C8D6"
+                    
+                    KeyUp="searchTextBox_KeyUp"/>
                     <Button  x:Name="btnSearch"
                          Background="{x:Null}"
                          BorderBrush="{x:Null}"
@@ -95,8 +109,26 @@
                          VerticalAlignment="Center"
                          Margin="0,0,1,3" 
                          Width="70"
-                         Height="55" Click="btnSearch_Click"  >
+                         Height="55" Click="btnSearch_Click"
+                             >
                         <materialDesign:PackIcon Kind="Search"
+                                            Height="35"
+                                            Width="35"
+                                            Foreground="#FF1A1C1E"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"  />
+                    </Button>
+                    <Button  x:Name="btnClose"
+                         Click="btnClose_Click"
+                         Background="{x:Null}"
+                         BorderBrush="{x:Null}"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Center"
+                         Margin="0,0,1,3" 
+                         Width="70"
+                         Height="55" 
+                             >
+                        <materialDesign:PackIcon Kind="Close"
                                             Height="35"
                                             Width="35"
                                             Foreground="#FF1A1C1E"
@@ -115,6 +147,7 @@
                        HorizontalAlignment="Center"
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Center"/>
+
                 <TextBox Text="{x:Static language:Language.chooseRoom}" 
                     TextWrapping="Wrap"
                      AcceptsReturn="True"
@@ -131,6 +164,7 @@
                        Height="68"
                        Width="390"
                        Margin="20,-15,20,0">
+
                 </TextBox>
 
 
@@ -138,6 +172,7 @@
                 <ComboBox BorderThickness="1"
                     materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}"
                     Margin="140,-30,140,0"
+                          x:Name="cmbx"
                     Width="150"
                     FontSize="28"
                     FontFamily="Helvatic"
@@ -145,23 +180,16 @@
                     HorizontalAlignment="Center" 
                     BorderBrush="#FF020207" 
                     Background="#FF8CA8BF" 
-                    OpacityMask="#FFC5D4E3"  Height="42" >
+                    OpacityMask="#FFC5D4E3"  Height="42"
+                          SelectionChanged="cmbx_SelectionChanged">
                     <ComboBoxItem IsSelected="True" 
                               HorizontalContentAlignment="Center"
-                              x:Name="A1">
-                        A1
+                              x:Name="O1">
+                        O1
                     </ComboBoxItem>
                     <ComboBoxItem HorizontalContentAlignment="Center"
-                              x:Name="A2">
-                        A2
-                    </ComboBoxItem>
-                    <ComboBoxItem  HorizontalContentAlignment="Center"
-                               x:Name="A3">
-                        A3
-                    </ComboBoxItem>
-                    <ComboBoxItem  HorizontalContentAlignment="Center"
-                               x:Name="A4">
-                        A4
+                              x:Name="O2">
+                        O2
                     </ComboBoxItem>
                 </ComboBox>
 
@@ -181,7 +209,7 @@
                           Background="#FF8CA8BF" 
                           BorderBrush="Black" 
                           Margin="0,-30,0,0" 
-                          IsSynchronizedWithCurrentItem="True" 
+                         
                           ScrollViewer.CanContentScroll="True" 
                           ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="dgTerms_SelectionChanged">
                     <DataGrid.Columns >
@@ -192,7 +220,7 @@
 
                         <DataTemplate x:Name="myTemplate" >
                             <DockPanel Background="#FF8CA8BF" x:Name="myDock" >
-                                <RadioButton DockPanel.Dock="Left" Margin="15,20,0,0" GroupName="myGroup"/>
+                                
                                 <Grid Margin="10,10,0,0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
@@ -206,15 +234,15 @@
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
 
-                                    <TextBlock Text="{x:Static language:Language.time}"   FontWeight="Bold" FontSize="20" FontFamily="Helvatic" Margin="15,0,0,0" />
+                                    <TextBlock Text="{x:Static language:Language.time}"   FontWeight="Bold" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0" />
                                     <TextBlock Text="{Binding Vreme}" Grid.Column="1" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0" />
-                                    <TextBlock Text="{x:Static language:Language.room}"   FontWeight="Bold" Grid.Row="1" FontSize="20" FontFamily="Helvatic" Margin="15,0,0,0"/>
+                                    <TextBlock Text="{x:Static language:Language.room}"   FontWeight="Bold" Grid.Row="1" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0"/>
                                     <TextBlock Text="{Binding Sala}" Grid.Column="1" Grid.Row="1" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
-                                    <TextBlock Text="{x:Static language:Language.doctor}"   FontWeight="Bold" Grid.Row="2" FontSize="20" FontFamily="Helvatic" Margin="15,0,0,0"/>
+                                    <TextBlock Text="{x:Static language:Language.doctor}"   FontWeight="Bold" Grid.Row="2" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0"/>
                                     <TextBlock Text="{Binding Lekar}" Grid.Column="1" Grid.Row="2" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
-                                    <TextBlock Text="{x:Static language:Language.patient}"   FontWeight="Bold" Grid.Row="3" FontSize="20" FontFamily="Helvatic" Margin="15,0,0,0"/>
+                                    <TextBlock Text="{x:Static language:Language.patient}"   FontWeight="Bold" Grid.Row="3" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0"/>
                                     <TextBlock Text="{Binding Pacijent}" Grid.Column="1" Grid.Row="3" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
-                                    <TextBlock Text="Status: " FontWeight="Bold" Grid.Row="4" FontSize="20" FontFamily="Helvatic" Margin="15,0,0,0"/>
+                                    <TextBlock Text="Status: " FontWeight="Bold" Grid.Row="4" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0"/>
                                     <TextBlock Text="{Binding Status}" Grid.Column="1" Grid.Row="4" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
                                 </Grid>
                             </DockPanel>

@@ -101,6 +101,8 @@
 
                 <Viewbox HorizontalAlignment="Center" Width="178" Margin="147,0,105,0">
                     <DatePicker
+                        FirstDayOfWeek="Monday"
+                        Focusable='False'
                         SelectedDateChanged="datePickerSchedule_SelectedDateChanged"
                  x:Name="datePickerSchedule"
                 Width="231"

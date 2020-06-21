@@ -1,5 +1,4 @@
-﻿using HealthClinic.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +20,6 @@ namespace HealthClinic.View
     /// </summary>
     public partial class Notifications : UserControl
     {
-        List<Obavestenja> obavestenja = new List<Obavestenja>();
         public Notifications()
         {
             InitializeComponent();
@@ -29,10 +27,7 @@ namespace HealthClinic.View
 
         private void fillData()
         {
-            obavestenja.Add(new Obavestenja() { Obavestenje = "Sala A1 je na renoviranju do 10. aprila ovog meseca.", Posiljalac = "Upravnik", Datum = "7 apr"});
-            obavestenja.Add(new Obavestenja() { Obavestenje = "Sala A3 je na renoviranju do 23. aprila ovog meseca.", Posiljalac = "Upravnik", Datum = "6 apr" });
-            obavestenja.Add(new Obavestenja() { Obavestenje = "Sala B2 je na renoviranju do 14. aprila ovog meseca.", Posiljalac = "Upravnik", Datum = "6 apr" });
-            dgTerms.ItemsSource = obavestenja;
+            //dgTerms.ItemsSource = notifications;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

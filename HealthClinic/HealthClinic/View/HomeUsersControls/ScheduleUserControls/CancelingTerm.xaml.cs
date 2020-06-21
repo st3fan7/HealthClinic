@@ -1,4 +1,4 @@
-﻿using HealthClinic.Model;
+﻿using HealthClinic.View.Dialogues;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,14 +21,16 @@ namespace HealthClinic.View
     /// </summary>
     public partial class CancelingTerm : UserControl
     {
-        public CancelingTerm(string selectedDate, Termin term )
+        //public static Termin termForCanceling = new Termin();
+        public CancelingTerm(string selectedDate)
         {
             InitializeComponent();
             dateLabel.Content = selectedDate;
-            timeLabel.Content = term.Vreme;
-            roomLabel.Content = term.Sala;
-            doctorLabel.Content = term.Lekar;
-            patientLabel.Content = term.Pacijent;
+            //timeLabel.Content = term.Vreme;
+            //roomLabel.Content = term.Sala;
+            //doctorLabel.Content = term.Lekar;
+            //patientLabel.Content = term.Pacijent;
+            //termForCanceling = term;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -74,7 +76,22 @@ namespace HealthClinic.View
 
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
         {
-            (this.Parent as Panel).Children.RemoveRange(1, 6);
+
+            //foreach (Termin term in Loading.termini)
+            //{
+            //    if (term == termForCanceling)
+            //    {
+            //        term.Status = "Slobodan";
+            //        term.Pacijent = "";
+            //        if (term.StvaraSeKodDoktora == false)
+            //            term.Lekar = "";
+            //        else
+            //            term.Sala = "";
+
+                    (this.Parent as Panel).Children.RemoveRange(1, 6);
+            //        return;
+            //    }
+            //}
         }
 
         private void giveUpBtn_Click(object sender, RoutedEventArgs e)

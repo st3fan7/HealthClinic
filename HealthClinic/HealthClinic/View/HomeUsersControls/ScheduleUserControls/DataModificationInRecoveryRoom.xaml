@@ -19,8 +19,8 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="55"/>
-                <RowDefinition Height="220"/>
-                <RowDefinition Height="55*"/>
+                <RowDefinition Height="230"/>
+                <RowDefinition/>
                 <RowDefinition Height="130"/>
                 <RowDefinition Height="55"/>
             </Grid.RowDefinitions>
@@ -108,21 +108,21 @@
 
                 <Border BorderThickness="2"
                     Width="400" 
-                   Height="120" 
+                   Height="147" 
                     Background="#FF8CA8BF" 
                     BorderBrush="Black"
-                    Margin="0,-20,0,0"/>
+                    Margin="15,-20,15,0"/>
 
                 <Label x:Name="l2"
                        Content="{x:Static language:Language.signOut}"  
-                        Height="34"
+                        Height="37"
                        Width="117"
                        FontSize="24"
                        FontFamily="Helvatic"
                        HorizontalAlignment="Left"
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Left"
-                       Margin="60,-180,0,-20"/>
+                       Margin="60,-200,0,-20"/>
                 <Label x:Name="l3"
                        Content="{x:Static language:Language.room}"  
                         Height="33"
@@ -132,10 +132,10 @@
                        HorizontalAlignment="Left"
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Left"
-                       Margin="60,-120,0,-20"/>
+                       Margin="60,-130,0,-20"/>
                 <Label x:Name="l4"
                        Content="{x:Static language:Language.patient}"  
-                        Height="43"
+                        Height="35"
                        Width="117"
                        FontSize="24"
                        FontFamily="Helvatic"
@@ -152,50 +152,50 @@
                 </materialDesign:PackIcon>
                 <Label x:Name="l1"
                    Content="{x:Static language:Language.reception}"  
-                Height="33"
-                Width="117"
+                Height="37"
+                Width="120"
                 FontSize="24"
                 FontFamily="Helvatic"
                 HorizontalAlignment="Left"
                 VerticalContentAlignment="Center"                     
                 HorizontalContentAlignment="Left"
-                Margin="60,-125,0,90"/>
-                <Label x:Name="timeLabel"
-                Height="40"
-                Width="161"
+                Margin="60,-165,0,90"/>
+                <Label x:Name="receptionLabel"
+                Height="32"
+                Width="156"
                 FontSize="24"
                 FontFamily="Helvatic"
                 HorizontalAlignment="Left"
                 VerticalContentAlignment="Center"                     
                 HorizontalContentAlignment="Left"
-                Margin="162,-206,0,0"/>
-                <Label x:Name="roomLabel"
-                Height="39"
-                Width="162"
-                FontSize="24"
-                FontFamily="Helvatic"
-                HorizontalAlignment="Left"
-                VerticalContentAlignment="Center"                     
-                HorizontalContentAlignment="Left"
-                Margin="162,-155,0,0"/>
-                <Label x:Name="doctorLabel"
-                Height="38"
-                Width="160"
-                FontSize="24"
-                FontFamily="Helvatic"
-                HorizontalAlignment="Left"
-                VerticalContentAlignment="Center"                     
-                HorizontalContentAlignment="Left"
-                Margin="163,-100,0,0"/>
-                <Label x:Name="patientLabel"
-                Height="39"
+                Margin="182,-256,0,0"/>
+                <Label x:Name="checkoutLabel"
+                Height="36"
                 Width="158"
                 FontSize="24"
                 FontFamily="Helvatic"
                 HorizontalAlignment="Left"
                 VerticalContentAlignment="Center"                     
                 HorizontalContentAlignment="Left"
-                Margin="164,-45,0,0"/>
+                Margin="180,-175,0,0"/>
+                <Label x:Name="roomLabel"
+                Height="34"
+                Width="157"
+                FontSize="24"
+                FontFamily="Helvatic"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center"                     
+                HorizontalContentAlignment="Left"
+                Margin="181,-110,0,0"/>
+                <Label x:Name="patientLabel"
+                Height="36"
+                Width="175"
+                FontSize="24"
+                FontFamily="Helvatic"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center"                     
+                HorizontalContentAlignment="Left"
+                Margin="181,-45,0,0"/>
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.ColumnSpan="5">
@@ -239,7 +239,7 @@
 
                 <DatePicker  
                      FlowDirection="LeftToRight"
-                    
+                    Focusable='False'
                 CalendarStyle="{StaticResource MaterialDesignDatePickerCalendarPortrait}"
                     x:Name="datePickerSchedule"
                 FontSize="24"
@@ -248,7 +248,8 @@
                 materialDesign:HintAssist.Hint="{x:Static language:Language.chooseDate}"  
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
                 Background="#FF8CA8BF"
-                Margin="192,-50,71,0" Height="51" />
+                Margin="192,-50,47,0" Height="51"
+                   />
 
                 <!--<DatePicker FontSize="24"
                 FontFamily="Helvatic"
@@ -260,9 +261,10 @@
               CalendarStyle="{StaticResource DateTimeCalendar}"/>-->
 
                 <ComboBox BorderThickness="1"
+                          x:Name="cmbx"
                     materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}"
-                    Margin="190,30,72,0"
-                    Width="168"
+                    Margin="190,30,47,0"
+                    Width="193"
                     HorizontalContentAlignment="Center"
                     FontSize="24"
                     FontFamily="Helvatic"
@@ -271,7 +273,7 @@
                     Background="#FF8CA8BF" 
                     OpacityMask="#FFC5D4E3"
                       Height="42" >
-                    <ComboBoxItem IsSelected="True" 
+                    <!--<ComboBoxItem IsSelected="True" 
                               HorizontalContentAlignment="Center"
                               x:Name="item11">
                         O2
@@ -283,7 +285,7 @@
                     <ComboBoxItem  HorizontalContentAlignment="Center"
                                x:Name="item13">
                         O7
-                    </ComboBoxItem>
+                    </ComboBoxItem>-->
                 </ComboBox>
 
                 <Label x:Name="Label1"
@@ -316,7 +318,7 @@
                             Width="390"
                             Margin="20,26,20,10"
                             Foreground="#FF761616" FontWeight="Bold"/>
-                
+
             </StackPanel>
 
             <StackPanel Grid.Row="3" Grid.ColumnSpan="5">

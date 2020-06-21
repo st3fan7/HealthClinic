@@ -28,15 +28,13 @@ namespace HealthClinic.View
 
         private void logoutBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mw = new MainWindow();
-            mw.Show();
-            Window.GetWindow(this).Close();
+            GridHome.Children.Clear();
+            UserControl usc = new Dialogues.LogoutDialog();
+            GridHome.Children.Add(usc);
         }
 
         private void scheduleBtn_Click(object sender, RoutedEventArgs e)
         {
-            //UserControl usc = new Schedule();
-            //(this.Parent as Panel).Children.Add(usc);
 
             GridHome.Children.Clear();
             UserControl usc = new Schedule();
@@ -45,8 +43,6 @@ namespace HealthClinic.View
 
         private void patientsBtn_Click(object sender, RoutedEventArgs e)
         {
-            //UserControl usc = new Patient();
-            //(this.Parent as Panel).Children.Add(usc);
             GridHome.Children.Clear();
             UserControl usc = new Patient();
             GridHome.Children.Add(usc);
@@ -54,8 +50,6 @@ namespace HealthClinic.View
 
         private void patienstBtn2_Click(object sender, RoutedEventArgs e)
         {
-            //UserControl usc = new Patient();
-            //(this.Parent as Panel).Children.Add(usc);
 
             GridHome.Children.Clear();
             UserControl usc = new Patient();
@@ -64,9 +58,6 @@ namespace HealthClinic.View
 
         private void settingsBtn_Click(object sender, RoutedEventArgs e)
         {
-            //UserControl usc = new Settings();
-            //(this.Parent as Panel).Children.Add(usc);
-
             GridHome.Children.Clear();
             UserControl usc = new Settings();
             GridHome.Children.Add(usc);
@@ -74,8 +65,6 @@ namespace HealthClinic.View
 
         private void reportBtn_Click(object sender, RoutedEventArgs e)
         {
-            //UserControl usc = new Report();
-            //(this.Parent as Panel).Children.Add(usc);
 
             GridHome.Children.Clear();
             UserControl usc = new Report();
@@ -84,9 +73,6 @@ namespace HealthClinic.View
 
         private void btnNotification_Click(object sender, RoutedEventArgs e)
         {
-            //UserControl usc = new Notifications();
-            //(this.Parent as Panel).Children.Add(usc);
-
             GridHome.Children.Clear();
             UserControl usc = new Notifications();
             GridHome.Children.Add(usc);

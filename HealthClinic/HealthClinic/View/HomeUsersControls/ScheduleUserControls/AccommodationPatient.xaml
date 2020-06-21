@@ -116,13 +116,13 @@
                 <Label x:Name="l2"
                        Content="{x:Static language:Language.room}"  
                         Height="30"
-                       Width="117"
+                       Width="124"
                        FontSize="24"
                        FontFamily="Helvatic"
                        HorizontalAlignment="Left"
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Left"
-                       Margin="60,-100,0,-20"/>
+                       Margin="43,-100,0,-20"/>
 
                 <materialDesign:PackIcon Kind="InfoCircleOutline"
                                              Width="50"
@@ -133,16 +133,16 @@
                 <Label x:Name="l1"
                    Content="{x:Static language:Language.reception}" 
                 Height="39"
-                Width="118"
+                Width="124"
                 FontSize="24"
                 FontFamily="Helvatic"
                 HorizontalAlignment="Left"
                 VerticalContentAlignment="Center"                     
                 HorizontalContentAlignment="Left"
-                Margin="60,-90,0,90"/>
+                Margin="43,-100,0,90"/>
                 <Label x:Name="l11"
                 Height="39"
-                Width="117"
+                Width="161"
                 FontSize="24"
                 FontFamily="Helvatic"
                 HorizontalAlignment="Left"
@@ -150,14 +150,14 @@
                 HorizontalContentAlignment="Left"
                 Margin="180,-219,0,0"/>
                 <Label x:Name="l22"
-                Height="39"
-                Width="117"
+                Height="43"
+                Width="159"
                 FontSize="24"
                 FontFamily="Helvatic"
                 HorizontalAlignment="Left"
                 VerticalContentAlignment="Center"                     
                 HorizontalContentAlignment="Left"
-                Margin="180,-160,0,0"/>
+                Margin="180,-130,0,0"/>
 
 
             </StackPanel>
@@ -219,7 +219,7 @@
                     Margin="200,-180,0,0">
                     <Label x:Name="nameLabel2"
                        IsEnabled="False"
-                       Content="Petar"
+                       
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -238,7 +238,6 @@
                     Margin="200,-90,0,0">
                     <Label x:Name="lastNameLabel2"
                        IsEnabled="False"
-                       Content="Petrović"
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -256,7 +255,6 @@
                     Margin="200,10,0,0">
                     <Label x:Name="jmbgLabel2"
                        IsEnabled="False"
-                       Content="1212994728745"
                         Height="40"
                        Width="213"
                        FontSize="24"

@@ -93,6 +93,7 @@
                        Width="430"
                        Margin="0,0,0,70"/>
                 <TextBox  
+                    x:Name="usernameTextBox"
                     BorderThickness="2"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -104,7 +105,46 @@
                     IsEnabled="{Binding Path=IsChecked, ElementName=NameBox}" 
                     Margin="48,-50,48,70" 
                     FontFamily="Helvatic"
-                    CaretBrush="#FF131619" Background="#FFB9C8D6"  />
+                    CaretBrush="#FF131619" Background="#FFB9C8D6" 
+                    TextChanged="usernameTextBox_TextChanged"/>
+                <TextBox Text="{x:Static language:Language.textWarningInPatientValidation}" 
+                            x:Name="textWarning"
+                            Visibility="{Binding myVisibility}"
+                            TextWrapping="Wrap"
+                            AcceptsReturn="True"
+                            IsReadOnly="True"                          
+                            BorderBrush="{x:Null}"
+                            Background="{x:Null}"
+                            CaretBrush="{x:Null}"
+                            SelectionBrush="{x:Null}"
+                            FontSize="28"
+                            FontFamily="Helvatic"
+                            HorizontalAlignment="Center"
+                            VerticalContentAlignment="Top"                     
+                            TextAlignment="Center"
+                            Width="410"
+                            Margin="8,16,12,10"
+                            Foreground="#FF761616" FontWeight="Bold"
+                        />
+                <TextBox Text="{x:Static language:Language.textWarning2InPatValForRec}" 
+                            x:Name="textWarning2"
+                            Visibility="{Binding myVisibility}"
+                            TextWrapping="Wrap"
+                            AcceptsReturn="True"
+                            IsReadOnly="True"                          
+                            BorderBrush="{x:Null}"
+                            Background="{x:Null}"
+                            CaretBrush="{x:Null}"
+                            SelectionBrush="{x:Null}"
+                            FontSize="28"
+                            FontFamily="Helvatic"
+                            HorizontalAlignment="Center"
+                            VerticalContentAlignment="Top"                     
+                            TextAlignment="Center"
+                            Width="410"
+                            Margin="8,-46,12,10"
+                            Foreground="#FF761616" FontWeight="Bold"
+                        />
             </StackPanel>
 
             <StackPanel Grid.Row="3" Grid.ColumnSpan="5">

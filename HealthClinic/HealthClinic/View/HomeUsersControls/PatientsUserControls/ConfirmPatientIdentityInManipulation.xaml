@@ -143,7 +143,7 @@
                     Margin="200,-270,0,0">
                     <Label x:Name="nameLabel2"
                        IsEnabled="False"
-                       Content="Petar"
+                      
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -162,7 +162,7 @@
                     Margin="200,-170,0,0">
                     <Label x:Name="lastNameLabel2"
                        IsEnabled="False"
-                       Content="Petrović"
+                       
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -180,7 +180,7 @@
                     Margin="200,-70,0,0">
                     <Label x:Name="jmbgLabel2"
                        IsEnabled="False"
-                       Content="1212994728745"
+                       
                         Height="40"
                        Width="213"
                        FontSize="24"
@@ -198,7 +198,7 @@
                     Margin="200,10,0,0">
                     <Label x:Name="usernameLabel2"
                        IsEnabled="False"
-                       Content="peki123"
+                       
                         Height="40"
                        Width="190"
                        FontSize="24"
