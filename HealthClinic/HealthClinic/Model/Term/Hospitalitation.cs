@@ -10,15 +10,35 @@ using System;
 
 namespace Model.Term
 {
-   public class Hospitalitation : Term , IIdentifiable<int>
+    public class Hospitalitation : Term, IIdentifiable<int>
     {
-      private bool urgency;
-      private String shortDescription;
-      private int id;
-      
-      public Room room;
-      public Model.AllActors.Doctor doctor;
-      public Bed bedForLaying;
+        private bool urgency { get; set; }
+        private String shortDescription { get; set; }
+
+        private int id;
+
+        public Room room { get; set; }
+        public Model.AllActors.Doctor doctor { get; set; }
+        public Bed bedForLaying { get; set; }
+
+        public Hospitalitation(int id)
+        {
+            this.id = id;
+        }
+
+        public Hospitalitation()
+        {
+        }
+
+        public Hospitalitation(bool urgency, string shortDescription, int id, Room room, AllActors.Doctor doctor, Bed bedForLaying)
+        {
+            this.urgency = urgency;
+            this.shortDescription = shortDescription;
+            this.id = id;
+            this.room = room;
+            this.doctor = doctor;
+            this.bedForLaying = bedForLaying;
+        }
 
         public int GetId()
         {

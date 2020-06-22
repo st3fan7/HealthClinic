@@ -8,10 +8,19 @@ using System;
 
 namespace Model.Patient
 {
-   public class Question
-   {
-      private String questionText;
-      private GradeOfQuestion answer;
-   
-   }
+    public class Question
+    {
+        private String questionText { get; set; }
+        private GradeOfQuestion answer { get; set; }
+
+        public Question()
+        {
+        }
+
+        public Question(string questionText, GradeOfQuestion answer)
+        {
+            this.questionText = questionText;
+            this.answer = answer;
+        }
+    }
 }

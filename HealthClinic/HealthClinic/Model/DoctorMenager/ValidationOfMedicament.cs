@@ -8,14 +8,33 @@ using System;
 
 namespace Model.DoctorMenager
 {
-   public class ValidationOfMedicament : IIdentifiable<int>
+    public class ValidationOfMedicament : IIdentifiable<int>
     {
-      private bool approved;
-      private int id;
-      
-      public Medicament medicament;
-      public Model.AllActors.Doctor[] doctor;
-      public FeedbackOfValidation feedbackOfValidation;
+        private bool approved { get; set; }
+
+        private int id;
+
+        public Medicament medicament { get; set; }
+        public Model.AllActors.Doctor[] doctor { get; set; }
+        public FeedbackOfValidation feedbackOfValidation { get; set; }
+
+        public ValidationOfMedicament(int id)
+        {
+            this.id = id;
+        }
+
+        public ValidationOfMedicament()
+        {
+        }
+
+        public ValidationOfMedicament(bool approved, int id, Medicament medicament, AllActors.Doctor[] doctor, FeedbackOfValidation feedbackOfValidation)
+        {
+            this.approved = approved;
+            this.id = id;
+            this.medicament = medicament;
+            this.doctor = doctor;
+            this.feedbackOfValidation = feedbackOfValidation;
+        }
 
         public int GetId()
         {
