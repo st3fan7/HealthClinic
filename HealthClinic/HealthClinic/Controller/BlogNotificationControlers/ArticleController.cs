@@ -22,27 +22,27 @@ namespace Controller.BlogNotificationControlers
 
         public Article AddEntity(Article entity)
         {
-            throw new NotImplementedException();
+           return articleService.AddEntity(entity);
         }
 
         public void DeleteEntity(Article entity)
         {
-            throw new NotImplementedException();
+            articleService.DeleteEntity(entity);
         }
 
         public IEnumerable<Article> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return articleService.GetAllEntities();
         }
 
         public Article GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return articleService.GetEntity(id);
         }
 
         public void UpdateEntity(Article entity)
         {
-            throw new NotImplementedException();
+            articleService.UpdateEntity(entity);
         }
 
     }

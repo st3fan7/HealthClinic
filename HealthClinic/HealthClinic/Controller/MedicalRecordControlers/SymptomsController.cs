@@ -7,6 +7,7 @@
 using Model.PatientDoctor;
 using Service.MedicalRecordService;
 using System;
+using System.Collections.Generic;
 
 namespace Controller.MedicalRecordControlers
 {
@@ -21,27 +22,27 @@ namespace Controller.MedicalRecordControlers
 
         public Symptoms AddEntity(Symptoms entity)
         {
-            throw new NotImplementedException();
+            return symptomsService.AddEntity(entity);
         }
 
         public void DeleteEntity(Symptoms entity)
         {
-            throw new NotImplementedException();
+            symptomsService.DeleteEntity(entity);
         }
 
-        public System.Collections.Generic.IEnumerable<Symptoms> GetAllEntities()
+        public IEnumerable<Symptoms> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return symptomsService.GetAllEntities();
         }
 
         public Symptoms GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return symptomsService.GetEntity(id);
         }
 
         public void UpdateEntity(Symptoms entity)
         {
-            throw new NotImplementedException();
+            symptomsService.UpdateEntity(entity);
         }
     }
 }

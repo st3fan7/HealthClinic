@@ -23,37 +23,37 @@ namespace Controller.UsersControlers
 
         public WorkingTimeForDoctor DetermineDoctorWorkTime(WorkingTimeForDoctor workingTimeForDoctor)
         {
-            throw new NotImplementedException();
+            return workingTimeForDoctorService.DetermineDoctorWorkTime(workingTimeForDoctor);
         }
 
         public List<WorkingTimeForDoctor> GetWorkTimeForDoctor(Doctor doctor)
         {
-            throw new NotImplementedException();
+            return workingTimeForDoctorService.GetWorkTimeForDoctor(doctor);
         }
 
         public WorkingTimeForDoctor GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return workingTimeForDoctorService.GetEntity(id);
         }
 
         public IEnumerable<WorkingTimeForDoctor> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return workingTimeForDoctorService.GetAllEntities();
         }
 
         public WorkingTimeForDoctor AddEntity(WorkingTimeForDoctor entity)
         {
-            throw new NotImplementedException();
+            return workingTimeForDoctorService.AddEntity(entity);
         }
 
         public void UpdateEntity(WorkingTimeForDoctor entity)
         {
-            throw new NotImplementedException();
+            workingTimeForDoctorService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(WorkingTimeForDoctor entity)
         {
-            throw new NotImplementedException();
+           workingTimeForDoctorService.DeleteEntity(entity);
         }
 
     }

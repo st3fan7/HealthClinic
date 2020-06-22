@@ -22,27 +22,27 @@ namespace Controller.MedicalRecordControlers
 
         public Allergies AddEntity(Allergies entity)
         {
-            throw new NotImplementedException();
+            return allergiesService.AddEntity(entity);
         }
 
         public void DeleteEntity(Allergies entity)
         {
-            throw new NotImplementedException();
+            allergiesService.DeleteEntity(entity);
         }
 
         public IEnumerable<Allergies> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return allergiesService.GetAllEntities();
         }
 
         public Allergies GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return allergiesService.GetEntity(id);
         }
 
         public void UpdateEntity(Allergies entity)
         {
-            throw new NotImplementedException();
+            allergiesService.UpdateEntity(entity);
         }
     }
 }

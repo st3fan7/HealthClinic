@@ -22,37 +22,37 @@ namespace Controller.RoomsControlers
 
         public bool AddExistingEquipment(String equipmentID, int quantity)
         {
-            throw new NotImplementedException();
+            return equipmentService.AddExistingEquipment(equipmentID, quantity);
         }
 
         public Medicament TakeMedicament(Medicament medicament)
         {
-            throw new NotImplementedException();
+            return equipmentService.TakeMedicament(medicament);
         }
 
         public Equipment GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return equipmentService.GetEntity(id);
         }
 
         public IEnumerable<Equipment> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return equipmentService.GetAllEntities();
         }
 
         public Equipment AddEntity(Equipment entity)
         {
-            throw new NotImplementedException();
+            return equipmentService.AddEntity(entity);
         }
 
         public void UpdateEntity(Equipment entity)
         {
-            throw new NotImplementedException();
+            equipmentService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Equipment entity)
         {
-            throw new NotImplementedException();
+            equipmentService.DeleteEntity(entity);
         }
 
     }

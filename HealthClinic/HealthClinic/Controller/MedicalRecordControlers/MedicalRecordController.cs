@@ -23,37 +23,37 @@ namespace Controller.MedicalRecordControlers
 
         public MedicalRecord OpenMedicalRecord(MedicalRecord medicalRecord)
         {
-            throw new NotImplementedException();
+            return medicalRecordService.OpenMedicalRecord(medicalRecord);
         }
 
-        public Model.PatientDoctor.MedicalRecord GetMedicalRecordByPatient(Patient patient)
+        public MedicalRecord GetMedicalRecordByPatient(Patient patient)
         {
-            throw new NotImplementedException();
+            return medicalRecordService.GetMedicalRecordByPatient(patient);
         }
 
         public MedicalRecord GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return medicalRecordService.GetEntity(id);
         }
 
         public IEnumerable<MedicalRecord> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return medicalRecordService.GetAllEntities();
         }
 
         public MedicalRecord AddEntity(MedicalRecord entity)
         {
-            throw new NotImplementedException();
+            return medicalRecordService.AddEntity(entity);
         }
 
         public void UpdateEntity(MedicalRecord entity)
         {
-            throw new NotImplementedException();
+            medicalRecordService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(MedicalRecord entity)
         {
-            throw new NotImplementedException();
+            medicalRecordService.DeleteEntity(entity);
         }
 
     }

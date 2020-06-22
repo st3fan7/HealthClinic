@@ -22,32 +22,32 @@ namespace Controller.BlogNotificationControlers
 
         public Survey CompletingSurvey(Survey survey)
         {
-            throw new NotImplementedException();
+            return surveyService.CompletingSurvey(survey);
         }
 
         public Survey GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return surveyService.GetEntity(id);
         }
 
         public IEnumerable<Survey> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return surveyService.GetAllEntities();
         }
 
         public Survey AddEntity(Survey entity)
         {
-            throw new NotImplementedException();
+            return surveyService.AddEntity(entity);
         }
 
         public void UpdateEntity(Survey entity)
         {
-            throw new NotImplementedException();
+            surveyService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Survey entity)
         {
-            throw new NotImplementedException();
+            surveyService.DeleteEntity(entity);
         }
 
     }

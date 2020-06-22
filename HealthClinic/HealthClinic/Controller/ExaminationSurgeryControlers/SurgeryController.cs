@@ -23,57 +23,57 @@ namespace Controller.ExaminationSurgeryControlers
 
         public List<Surgery> GetByDate(DateTime date)
         {
-            throw new NotImplementedException();
+            return surgeryService.GetByDate(date);
         }
 
         public List<Surgery> GetAllSurgeryByDoctor(Doctor doctor)
         {
-            throw new NotImplementedException();
+            return surgeryService.GetAllSurgeryByDoctor(doctor);
         }
 
         public List<Surgery> GetAllSurgeryByPatient(Patient patient)
         {
-            throw new NotImplementedException();
+            return surgeryService.GetAllSurgeryByPatient(patient);
         }
 
         public List<Surgery> GetAllMedicalExaminationsByPatient(Room room)
         {
-            throw new NotImplementedException();
+            return surgeryService.GetAllMedicalExaminationsByPatient(room);
         }
 
         public List<Surgery> GetAllMedicalExaminationsByPatient2(DateTime time)
         {
-            throw new NotImplementedException();
+            return surgeryService.GetAllMedicalExaminationsByPatient2(time);
         }
 
         public Model.Term.Surgery GetPreviousSurgery(Patient patient)
         {
-            throw new NotImplementedException();
+            return surgeryService.GetPreviousSurgery(patient);
         }
 
         public Surgery GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return surgeryService.GetEntity(id);
         }
 
         public IEnumerable<Surgery> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return surgeryService.GetAllEntities();
         }
 
         public Surgery AddEntity(Surgery entity)
         {
-            throw new NotImplementedException();
+            return surgeryService.AddEntity(entity);
         }
 
         public void UpdateEntity(Surgery entity)
         {
-            throw new NotImplementedException();
+            surgeryService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Surgery entity)
         {
-            throw new NotImplementedException();
+            surgeryService.DeleteEntity(entity);
         }
 
     }

@@ -23,17 +23,17 @@ namespace Controller.ExaminationSurgeryControlers
 
         public void GetByDate(DateTime date)
         {
-            throw new NotImplementedException();
+            medicalExaminationService.GetByDate(date);
         }
 
         public List<MedicalExamination> GetAllMedicalExaminationsByDoctor(Doctor doctor)
         {
-            throw new NotImplementedException();
+            return medicalExaminationService.GetAllMedicalExaminationsByDoctor(doctor);
         }
 
         public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Patient patient)
         {
-            throw new NotImplementedException();
+            return medicalExaminationService.GetAllMedicalExaminationsByPatient(patient);
         }
 
         public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Room room)
@@ -43,37 +43,37 @@ namespace Controller.ExaminationSurgeryControlers
 
         public List<MedicalExamination> GetAllMedicalExaminationsByPatient2(DateTime time)
         {
-            throw new NotImplementedException();
+            return medicalExaminationService.GetAllMedicalExaminationsByPatient2(time);
         }
 
         public MedicalExamination GetPreviousMedicalExemination(Patient patient)
         {
-            throw new NotImplementedException();
+            return medicalExaminationService.GetPreviousMedicalExemination(patient);
         }
 
         public MedicalExamination GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return medicalExaminationService.GetEntity(id);
         }
 
         public IEnumerable<MedicalExamination> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return medicalExaminationService.GetAllEntities();
         }
 
         public MedicalExamination AddEntity(MedicalExamination entity)
         {
-            throw new NotImplementedException();
+            return medicalExaminationService.AddEntity(entity);
         }
 
         public void UpdateEntity(MedicalExamination entity)
         {
-            throw new NotImplementedException();
+            medicalExaminationService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(MedicalExamination entity)
         {
-            throw new NotImplementedException();
+            medicalExaminationService.DeleteEntity(entity);
         }
 
     }

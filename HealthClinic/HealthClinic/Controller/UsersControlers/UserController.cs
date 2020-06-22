@@ -22,22 +22,22 @@ namespace Controller.UsersControlers
 
         public Model.AllActors.User Login(String username, String password)
         {
-            throw new NotImplementedException();
+            return userService.Login(username, password);
         }
 
         public bool IsUsernameValid(String username)
         {
-            throw new NotImplementedException();
+            return userService.IsUsernameValid(username);
         }
 
         public bool IsPasswordValid(String password)
         {
-            throw new NotImplementedException();
+            return userService.IsPasswordValid(password);
         }
 
         public void DeactivateAccount(User user)
         {
-            throw new NotImplementedException();
+            userService.DeactivateAccount(user);
         }
 
         public Model.AllActors.User ChangeUserData(User user)
@@ -46,33 +46,33 @@ namespace Controller.UsersControlers
         }
 
         public Model.AllActors.Patient TransformGuestAccount(Patient patient)
-        {
-            throw new NotImplementedException();
+        {           
+            return userService.TransformGuestAccount(patient);
         }
 
         public User GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return userService.GetEntity(id);
         }
 
         public IEnumerable<User> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return userService.GetAllEntities();
         }
 
         public User AddEntity(User entity)
         {
-            throw new NotImplementedException();
+            return userService.AddEntity(entity);
         }
 
         public void UpdateEntity(User entity)
         {
-            throw new NotImplementedException();
+            userService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(User entity)
         {
-            throw new NotImplementedException();
+            userService.DeleteEntity(entity);
         }
 
     }

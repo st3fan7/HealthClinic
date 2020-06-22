@@ -22,27 +22,27 @@ namespace Controller.MedicalRecordControlers
 
         public Diagnosis AddEntity(Diagnosis entity)
         {
-            throw new NotImplementedException();
+            return diagnosisService.AddEntity(entity);
         }
 
         public void DeleteEntity(Diagnosis entity)
         {
-            throw new NotImplementedException();
+            diagnosisService.DeleteEntity(entity);
         }
 
         public IEnumerable<Diagnosis> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return diagnosisService.GetAllEntities();
         }
 
         public Diagnosis GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return diagnosisService.GetEntity(id);
         }
 
         public void UpdateEntity(Diagnosis entity)
         {
-            throw new NotImplementedException();
+            diagnosisService.UpdateEntity(entity);
         }
     }
 }

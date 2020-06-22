@@ -23,42 +23,42 @@ namespace Controller.BlogNotificationControlers
 
         public Notification SendNotification(Notification notification, User user)
         {
-            throw new NotImplementedException();
+            return notificationService.SendNotification(notification);
         }
 
         public Notification ReadNotification(Notification notification)
         {
-            throw new NotImplementedException();
+            return notificationService.ReadNotification(notification);
         }
 
         public List<Notification> GetAllNotificationsForUser(string username)
         {
-            throw new NotImplementedException();
+            return notificationService.GetAllNotificationsForUser(username);
         }
 
         public Notification GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return notificationService.GetEntity(id);
         }
 
         public IEnumerable<Notification> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return notificationService.GetAllEntities();
         }
 
         public Notification AddEntity(Notification entity)
         {
-            throw new NotImplementedException();
+            return notificationService.AddEntity(entity);
         }
 
         public void UpdateEntity(Notification entity)
         {
-            throw new NotImplementedException();
+            notificationService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Notification entity)
         {
-            throw new NotImplementedException();
+            notificationService.DeleteEntity(entity);
         }
 
     }

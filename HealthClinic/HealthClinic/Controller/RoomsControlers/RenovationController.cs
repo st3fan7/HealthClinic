@@ -22,37 +22,39 @@ namespace Controller.RoomsControlers
 
         public bool SeparateOnTwoParts(Room room)
         {
+            // return renovationService.SeparateOnTwoParts(room);
             throw new NotImplementedException();
         }
 
         public bool ConnectTwoParts(Room room)
         {
+            //return renovationService.ConnectTwoParts(room);
             throw new NotImplementedException();
         }
 
         public Renovation GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return renovationService.GetEntity(id);
         }
 
         public IEnumerable<Renovation> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return renovationService.GetAllEntities();
         }
 
         public Renovation AddEntity(Renovation entity)
         {
-            throw new NotImplementedException();
+            return renovationService.AddEntity(entity);
         }
 
         public void UpdateEntity(Renovation entity)
         {
-            throw new NotImplementedException();
+            renovationService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Renovation entity)
         {
-            throw new NotImplementedException();
+            renovationService.DeleteEntity(entity);
         }
 
     }
