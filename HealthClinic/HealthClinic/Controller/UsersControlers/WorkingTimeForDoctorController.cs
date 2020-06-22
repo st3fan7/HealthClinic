@@ -5,19 +5,28 @@
  ***********************************************************************/
 
 using Model.Term;
+using Service.UsersServices;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.UsersControlers
 {
-   public class WorkingTimeForDoctorController : IController<WorkingTimeForDoctor,int>
-   {
-      public Model.Term.WorkingTimeForDoctor DetermineDoctorWorkTime(Model.Term.WorkingTimeForDoctor workingTimeForDoctor)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public List<WorkingTimeForDoctor> GetWorkTimeForDoctor(Model.AllActors.Doctor doctor)
+    public class WorkingTimeForDoctorController : IController<WorkingTimeForDoctor, int>
+    {
+        public WorkingTimeForDoctorService workingTimeForDoctorService;
+
+        public WorkingTimeForDoctorController(WorkingTimeForDoctorService workingTimeForDoctorService)
+        {
+            this.workingTimeForDoctorService = workingTimeForDoctorService;
+        }
+
+        public WorkingTimeForDoctor DetermineDoctorWorkTime(WorkingTimeForDoctor workingTimeForDoctor)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<WorkingTimeForDoctor> GetWorkTimeForDoctor(Doctor doctor)
         {
             throw new NotImplementedException();
         }
@@ -47,7 +56,5 @@ namespace Controller.UsersControlers
             throw new NotImplementedException();
         }
 
-        public Service.UsersServices.WorkingTimeForDoctorService workingTimeForDoctorService;
-   
-   }
+    }
 }

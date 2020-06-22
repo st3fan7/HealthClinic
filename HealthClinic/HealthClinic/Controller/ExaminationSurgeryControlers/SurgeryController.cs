@@ -5,29 +5,38 @@
  ***********************************************************************/
 
 using Model.Term;
+using Model.AllActors;
+using Service.ExaminationSurgeryServices;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.ExaminationSurgeryControlers
 {
-   public class SurgeryController : IController<Surgery,int>
-   {
-      public List<Surgery> GetByDate(DateTime date)
-      {
-         throw new NotImplementedException();
-      }
+    public class SurgeryController : IController<Surgery, int>
+    {
+        public SurgeryService surgeryService;
 
-        public List<Surgery> GetAllSurgeryByDoctor(Model.AllActors.Doctor doctor)
+        public SurgeryController(SurgeryService surgeryService)
+        {
+            this.surgeryService = surgeryService;
+        }
+
+        public List<Surgery> GetByDate(DateTime date)
         {
             throw new NotImplementedException();
         }
 
-        public List<Surgery> GetAllSurgeryByPatient(Model.AllActors.Patient patient)
+        public List<Surgery> GetAllSurgeryByDoctor(Doctor doctor)
         {
             throw new NotImplementedException();
         }
 
-        public List<Surgery> GetAllMedicalExaminationsByPatient(Model.Term.Room room)
+        public List<Surgery> GetAllSurgeryByPatient(Patient patient)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Surgery> GetAllMedicalExaminationsByPatient(Room room)
         {
             throw new NotImplementedException();
         }
@@ -37,7 +46,7 @@ namespace Controller.ExaminationSurgeryControlers
             throw new NotImplementedException();
         }
 
-        public Model.Term.Surgery GetPreviousSurgery(Model.AllActors.Patient patient)
+        public Model.Term.Surgery GetPreviousSurgery(Patient patient)
         {
             throw new NotImplementedException();
         }
@@ -67,7 +76,5 @@ namespace Controller.ExaminationSurgeryControlers
             throw new NotImplementedException();
         }
 
-        public Service.ExaminationSurgeryServices.SurgeryService surgeryService;
-   
-   }
+    }
 }

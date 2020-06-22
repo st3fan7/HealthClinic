@@ -12,7 +12,7 @@ namespace Controller.MedicamentControlers
 {
     public class MedicamentController : IController<Medicament, int>
     {
-        public Service.MedicamentService.MedicamentService medicamentService;
+        public MedicamentService medicamentService;
 
         public MedicamentController(MedicamentService medicamentService)
         {

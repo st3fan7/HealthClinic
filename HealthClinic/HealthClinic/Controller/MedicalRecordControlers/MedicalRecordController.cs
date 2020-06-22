@@ -5,22 +5,31 @@
  ***********************************************************************/
 
 using Model.PatientDoctor;
+using Service.MedicalRecordService;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.MedicalRecordControlers
 {
-   public class MedicalRecordController : IController<MedicalRecord,int>
-   {
-      public Model.PatientDoctor.MedicalRecord OpenMedicalRecord(Model.PatientDoctor.MedicalRecord medicalRecord)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Model.PatientDoctor.MedicalRecord GetMedicalRecordByPatient(Model.AllActors.Patient patient)
-      {
-         throw new NotImplementedException();
-      }
+    public class MedicalRecordController : IController<MedicalRecord, int>
+    {
+        public MedicalRecordService medicalRecordService;
+
+        public MedicalRecordController(MedicalRecordService medicalRecordService)
+        {
+            this.medicalRecordService = medicalRecordService;
+        }
+
+        public MedicalRecord OpenMedicalRecord(MedicalRecord medicalRecord)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Model.PatientDoctor.MedicalRecord GetMedicalRecordByPatient(Patient patient)
+        {
+            throw new NotImplementedException();
+        }
 
         public MedicalRecord GetEntity(int id)
         {
@@ -47,7 +56,5 @@ namespace Controller.MedicalRecordControlers
             throw new NotImplementedException();
         }
 
-        public Service.MedicalRecordService.MedicalRecordService medicalRecordService;
-   
-   }
+    }
 }

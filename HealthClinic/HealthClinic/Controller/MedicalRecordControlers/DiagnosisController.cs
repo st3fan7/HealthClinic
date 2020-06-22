@@ -5,14 +5,20 @@
  ***********************************************************************/
 
 using Model.PatientDoctor;
+using Service.MedicalRecordService;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.MedicalRecordControlers
 {
-   public class DiagnosisController : IController<Diagnosis,int>
-   {
-      public Service.MedicalRecordService.DiagnosisService diagnosisService;
+    public class DiagnosisController : IController<Diagnosis, int>
+    {
+        public DiagnosisService diagnosisService;
+
+        public DiagnosisController(DiagnosisService diagnosisService)
+        {
+            this.diagnosisService = diagnosisService;
+        }
 
         public Diagnosis AddEntity(Diagnosis entity)
         {

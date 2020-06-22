@@ -5,29 +5,38 @@
  ***********************************************************************/
 
 using Model.Term;
+using Model.AllActors;
+using Service.ExaminationSurgeryServices;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.ExaminationSurgeryControlers
 {
-   public class MedicalExaminationController : IController<MedicalExamination,int>
-   {
-      public void GetByDate(DateTime date)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public List<MedicalExamination> GetAllMedicalExaminationsByDoctor(Model.AllActors.Doctor doctor)
+    public class MedicalExaminationController : IController<MedicalExamination, int>
+    {
+        public MedicalExaminationService medicalExaminationService;
+
+        public MedicalExaminationController(MedicalExaminationService medicalExaminationService)
         {
-            throw new NotImplementedException();
+            this.medicalExaminationService = medicalExaminationService;
         }
-      
-      public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Model.AllActors.Patient patient)
+
+        public void GetByDate(DateTime date)
         {
             throw new NotImplementedException();
         }
 
-        public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Model.Term.Room room)
+        public List<MedicalExamination> GetAllMedicalExaminationsByDoctor(Doctor doctor)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Patient patient)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Room room)
         {
             throw new NotImplementedException();
         }
@@ -37,7 +46,7 @@ namespace Controller.ExaminationSurgeryControlers
             throw new NotImplementedException();
         }
 
-        public MedicalExamination GetPreviousMedicalExemination(Model.AllActors.Patient patient)
+        public MedicalExamination GetPreviousMedicalExemination(Patient patient)
         {
             throw new NotImplementedException();
         }
@@ -67,7 +76,5 @@ namespace Controller.ExaminationSurgeryControlers
             throw new NotImplementedException();
         }
 
-        public Service.ExaminationSurgeryServices.MedicalExaminationService medicalExaminationService;
-   
-   }
+    }
 }

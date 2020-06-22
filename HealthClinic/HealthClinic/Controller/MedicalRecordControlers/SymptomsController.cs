@@ -5,13 +5,19 @@
  ***********************************************************************/
 
 using Model.PatientDoctor;
+using Service.MedicalRecordService;
 using System;
 
 namespace Controller.MedicalRecordControlers
 {
-   public class SymptomsController : IController<Symptoms,int>
-   {
-      public Service.MedicalRecordService.SymptomsService symptomsService;
+    public class SymptomsController : IController<Symptoms, int>
+    {
+        public SymptomsService symptomsService;
+
+        public SymptomsController(SymptomsService symptomsService)
+        {
+            this.symptomsService = symptomsService;
+        }
 
         public Symptoms AddEntity(Symptoms entity)
         {

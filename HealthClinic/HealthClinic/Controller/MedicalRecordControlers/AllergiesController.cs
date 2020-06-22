@@ -5,14 +5,20 @@
  ***********************************************************************/
 
 using Model.PatientDoctor;
+using Service.MedicalRecordService;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.MedicalRecordControlers
 {
-   public class AllergiesController : IController<Allergies,int>
-   {
-      public Service.MedicalRecordService.AllergiesService allergiesService;
+    public class AllergiesController : IController<Allergies, int>
+    {
+        public AllergiesService allergiesService;
+
+        public AllergiesController(AllergiesService allergiesService)
+        {
+            this.allergiesService = allergiesService;
+        }
 
         public Allergies AddEntity(Allergies entity)
         {

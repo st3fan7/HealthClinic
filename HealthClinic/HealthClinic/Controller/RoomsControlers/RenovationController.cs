@@ -5,22 +5,30 @@
  ***********************************************************************/
 
 using Model.Term;
+using Service.RoomsServices;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.RoomsControlers
 {
-   public class RenovationController : IController<Renovation,int>
-   {
-      public bool SeparateOnTwoParts(Model.Term.Room room)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public bool ConnectTwoParts(Model.Term.Room room)
-      {
-         throw new NotImplementedException();
-      }
+    public class RenovationController : IController<Renovation, int>
+    {
+        public RenovationService renovationService;
+
+        public RenovationController(RenovationService renovationService)
+        {
+            this.renovationService = renovationService;
+        }
+
+        public bool SeparateOnTwoParts(Room room)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ConnectTwoParts(Room room)
+        {
+            throw new NotImplementedException();
+        }
 
         public Renovation GetEntity(int id)
         {
@@ -47,7 +55,5 @@ namespace Controller.RoomsControlers
             throw new NotImplementedException();
         }
 
-        public Service.RoomsServices.RenovationService renovationService;
-   
-   }
+    }
 }

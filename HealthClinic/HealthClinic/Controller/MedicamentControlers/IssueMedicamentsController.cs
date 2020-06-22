@@ -5,17 +5,25 @@
  ***********************************************************************/
 
 using Model.Doctor;
+using Service.MedicamentService;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.MedicamentControlers
 {
-   public class IssueMedicamentsController : IController<IssueOfMedicaments,int>
-   {
-      public Model.Doctor.IssueOfMedicaments IssueOfMedicaments(Model.Doctor.IssueOfMedicaments issueOfMedicaments)
-      {
-         throw new NotImplementedException();
-      }
+    public class IssueMedicamentsController : IController<IssueOfMedicaments, int>
+    {
+        public IssueMedicamentsService issueMedicamentsService;
+
+        public IssueMedicamentsController(IssueMedicamentsService issueMedicamentsService)
+        {
+            this.issueMedicamentsService = issueMedicamentsService;
+        }
+
+        public Model.Doctor.IssueOfMedicaments IssueOfMedicaments(IssueOfMedicaments issueOfMedicaments)
+        {
+            throw new NotImplementedException();
+        }
 
         public IssueOfMedicaments GetEntity(int id)
         {
@@ -42,7 +50,5 @@ namespace Controller.MedicamentControlers
             throw new NotImplementedException();
         }
 
-        public Service.MedicamentService.IssueMedicamentsService issueMedicamentsService;
-   
-   }
+    }
 }

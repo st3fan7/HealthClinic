@@ -5,22 +5,30 @@
 
 using Model.DoctorMenager;
 using Model.Manager;
+using Service.RoomsServices;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.RoomsControlers
 {
-   public class EquipmentController : IController<Equipment,int>
-   {
-      public bool AddExistingEquipment(String equipmentID, int quantity)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Medicament TakeMedicament(Medicament medicament)
-      {
-         throw new NotImplementedException();
-      }
+    public class EquipmentController : IController<Equipment, int>
+    {
+        public EquipmentService equipmentService;
+
+        public EquipmentController(EquipmentService equipmentService)
+        {
+            this.equipmentService = equipmentService;
+        }
+
+        public bool AddExistingEquipment(String equipmentID, int quantity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Medicament TakeMedicament(Medicament medicament)
+        {
+            throw new NotImplementedException();
+        }
 
         public Equipment GetEntity(int id)
         {
@@ -47,7 +55,5 @@ namespace Controller.RoomsControlers
             throw new NotImplementedException();
         }
 
-        public Service.RoomsServices.EquipmentService equipmentService;
-   
-   }
+    }
 }
