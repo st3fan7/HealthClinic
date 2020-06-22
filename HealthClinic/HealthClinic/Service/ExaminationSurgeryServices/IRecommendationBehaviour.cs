@@ -4,12 +4,14 @@
 // Purpose: Definition of Interface IRecommendationBehaviour
 
 using System;
+using Model.AllActors;
+using Model.Term;
 
 namespace Service.ExaminationSurgeryServices
 {
    public interface IRecommendationBehaviour
    {
-      Model.Term.MedicalExamination RecommendMedicalExamination(Model.AllActors.Doctor doctor, Model.Term.Term dateRange);
+      MedicalExamination RecommendMedicalExamination(Doctor doctor, Term dateRange);
    
    }
 }

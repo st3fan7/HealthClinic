@@ -8,9 +8,17 @@ using System;
 
 namespace Model.DoctorMenager
 {
-   public class FeedbackOfValidation
-   {
-      private String comment;
-   
-   }
+    public class FeedbackOfValidation
+    {
+        private String comment { get; set; }
+
+        public FeedbackOfValidation()
+        {
+        }
+
+        public FeedbackOfValidation(string comment)
+        {
+            this.comment = comment;
+        }
+    }
 }

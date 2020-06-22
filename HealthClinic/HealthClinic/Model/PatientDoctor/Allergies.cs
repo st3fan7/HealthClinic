@@ -8,10 +8,27 @@ using System;
 
 namespace Model.PatientDoctor
 {
-   public class Allergies : IIdentifiable<int>
-   {
-      private String name;
-      private int id;
+    public class Allergies : IIdentifiable<int>
+    {
+        private String name;
+        private int id;
+
+        public string Name { get => name; set => name = value; }
+
+        public Allergies(int id)
+        {
+            this.id = id;
+        }
+
+        public Allergies()
+        {
+        }
+
+        public Allergies(string name, int id)
+        {
+            this.Name = name;
+            this.id = id;
+        }
 
         public int GetId()
         {

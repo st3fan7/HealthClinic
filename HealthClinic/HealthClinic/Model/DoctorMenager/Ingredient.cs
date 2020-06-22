@@ -8,9 +8,17 @@ using System;
 
 namespace Model.DoctorMenager
 {
-   public class Ingredient
-   {
-      private String name;
-   
-   }
+    public class Ingredient
+    {
+        private String name { get; set; }
+
+        public Ingredient()
+        {
+        }
+
+        public Ingredient(string name)
+        {
+            this.name = name;
+        }
+    }
 }

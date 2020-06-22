@@ -5,54 +5,61 @@
  ***********************************************************************/
 
 using Model.BlogAndNotification;
+using Service.BlogNotificationServices;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.BlogNotificationControlers
 {
-   public class NotificationController : IController<Notification,int>
-   {
-      public Notification SendNotification(Model.BlogAndNotification.Notification notification, Model.AllActors.User user)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Notification ReadNotification(Model.BlogAndNotification.Notification notification)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public List<Notification> GetAllNotificationsForUser(string username)
-      {
-         throw new NotImplementedException();
-      }
+    public class NotificationController : IController<Notification, int>
+    {
+        public NotificationService notificationService;
+
+        public NotificationController(NotificationService notificationService)
+        {
+            this.notificationService = notificationService;
+        }
+
+        public Notification SendNotification(Notification notification, User user)
+        {
+            return notificationService.SendNotification(notification);
+        }
+
+        public Notification ReadNotification(Notification notification)
+        {
+            return notificationService.ReadNotification(notification);
+        }
+
+        public List<Notification> GetAllNotificationsForUser(string username)
+        {
+            return notificationService.GetAllNotificationsForUser(username);
+        }
 
         public Notification GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return notificationService.GetEntity(id);
         }
 
         public IEnumerable<Notification> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return notificationService.GetAllEntities();
         }
 
         public Notification AddEntity(Notification entity)
         {
-            throw new NotImplementedException();
+            return notificationService.AddEntity(entity);
         }
 
         public void UpdateEntity(Notification entity)
         {
-            throw new NotImplementedException();
+            notificationService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Notification entity)
         {
-            throw new NotImplementedException();
+            notificationService.DeleteEntity(entity);
         }
 
-        public Service.BlogNotificationServices.NotificationService notificationService;
-   
-   }
+    }
 }

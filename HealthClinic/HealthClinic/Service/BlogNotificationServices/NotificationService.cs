@@ -5,34 +5,42 @@
  ***********************************************************************/
 
 using Model.BlogAndNotification;
+using Repository.BlogNotificationRepository;
 using System;
 using System.Collections.Generic;
 
 namespace Service.BlogNotificationServices
 {
-   public class NotificationService : IService<Notification,int>
-   {
-      public Model.BlogAndNotification.Notification SendNotification(Notification notification)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Model.BlogAndNotification.Notification ReadNotification(Notification notification)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public List<Notification> GetAllNotificationsForUser(string username)
-      {
-         throw new NotImplementedException();
-      }
+    public class NotificationService : IService<Notification, int>
+    {
+        public INotificationRepository notificationRepository;
+
+        public NotificationService(INotificationRepository notificationRepository)
+        {
+            this.notificationRepository = notificationRepository;
+        }
+
+        public Notification SendNotification(Notification notification)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Notification ReadNotification(Notification notification)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Notification> GetAllNotificationsForUser(string username)
+        {
+            throw new NotImplementedException();
+        }
 
         public Notification GetEntity(int id)
         {
             throw new NotImplementedException();
         }
 
-        public System.Collections.Generic.IEnumerable<Notification> GetAllEntities()
+        public IEnumerable<Notification> GetAllEntities()
         {
             throw new NotImplementedException();
         }
@@ -52,7 +60,5 @@ namespace Service.BlogNotificationServices
             throw new NotImplementedException();
         }
 
-        public Repository.BlogNotificationRepository.INotificationRepository iNotificationRepository;
-   
-   }
+    }
 }

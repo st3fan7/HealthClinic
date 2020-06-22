@@ -5,37 +5,46 @@
  ***********************************************************************/
 
 using Model.Term;
+using Repository.RoomsRepository;
 using System;
 using System.Collections.Generic;
 
 namespace Service.RoomsServices
 {
-   public class RenovationService : IService<Renovation,int>
-   {
-      public Model.Term.Renovation SeparateOnTwoParts(Model.Term.Renovation renovation)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Model.Term.Renovation ConnectTwoParts(Model.Term.Renovation renovation)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public bool IsRoomFreeForRenovation(Model.Term.Room room, Model.Term.Term term)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Model.Term.Room FindSecondPart(Model.Term.Room room)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Model.Term.Room RelocateHalfEquipment(Model.Term.Room fromRoom, Model.Term.Room toRoom)
-      {
-         throw new NotImplementedException();
-      }
+    public class RenovationService : IService<Renovation, int>
+    {
+        public IRenovationRepository renovationRepository;
+        //public RoomService roomService;
+
+        public RenovationService(IRenovationRepository renovationRepository)
+        {
+            this.renovationRepository = renovationRepository;
+        }
+
+        public Renovation SeparateOnTwoParts(Renovation renovation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Renovation ConnectTwoParts(Renovation renovation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsRoomFreeForRenovation(Room room, Term term)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Room FindSecondPart(Room room)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Room RelocateHalfEquipment(Room fromRoom, Room toRoom)
+        {
+            throw new NotImplementedException();
+        }
 
         public Renovation GetEntity(int id)
         {
@@ -62,8 +71,5 @@ namespace Service.RoomsServices
             throw new NotImplementedException();
         }
 
-        public Repository.RoomsRepository.IRenovationRepository iRenovationRepository;
-      public RoomService roomService;
-   
-   }
+    }
 }

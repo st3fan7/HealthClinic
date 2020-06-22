@@ -8,10 +8,25 @@ using System;
 
 namespace Model.PatientDoctor
 {
-   public class Symptoms : IIdentifiable<int>
+    public class Symptoms : IIdentifiable<int>
     {
-      private String name;
-      private int id;
+        private String name { get; set; }
+        private int id;
+
+        public Symptoms(int id)
+        {
+            this.id = id;
+        }
+
+        public Symptoms()
+        {
+        }
+
+        public Symptoms(string name, int id)
+        {
+            this.name = name;
+            this.id = id;
+        }
 
         public int GetId()
         {

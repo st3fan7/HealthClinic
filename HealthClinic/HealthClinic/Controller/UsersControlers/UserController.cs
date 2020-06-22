@@ -5,69 +5,75 @@
  ***********************************************************************/
 
 using Model.AllActors;
+using Service.UsersServices;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.UsersControlers
 {
-   public class UserController : IController<User,int>
-   {
-      public Model.AllActors.User Login(String username, String password)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public bool IsUsernameValid(String username)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public bool IsPasswordValid(String password)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public void DeactivateAccount(Model.AllActors.User user)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Model.AllActors.User ChangeUserData(Model.AllActors.User user)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Model.AllActors.Patient TransformGuestAccount(Model.AllActors.Patient patient)
-      {
-         throw new NotImplementedException();
-      }
+    public class UserController : IController<User, int>
+    {
+        public UserService userService;
+
+        public UserController(UserService userService)
+        {
+            this.userService = userService;
+        }
+
+        public Model.AllActors.User Login(String username, String password)
+        {
+            return userService.Login(username, password);
+        }
+
+        public bool IsUsernameValid(String username)
+        {
+            return userService.IsUsernameValid(username);
+        }
+
+        public bool IsPasswordValid(String password)
+        {
+            return userService.IsPasswordValid(password);
+        }
+
+        public void DeactivateAccount(User user)
+        {
+            userService.DeactivateAccount(user);
+        }
+
+        public Model.AllActors.User ChangeUserData(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Model.AllActors.Patient TransformGuestAccount(Patient patient)
+        {           
+            return userService.TransformGuestAccount(patient);
+        }
 
         public User GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return userService.GetEntity(id);
         }
 
         public IEnumerable<User> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return userService.GetAllEntities();
         }
 
         public User AddEntity(User entity)
         {
-            throw new NotImplementedException();
+            return userService.AddEntity(entity);
         }
 
         public void UpdateEntity(User entity)
         {
-            throw new NotImplementedException();
+            userService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(User entity)
         {
-            throw new NotImplementedException();
+            userService.DeleteEntity(entity);
         }
 
-        public Service.UsersServices.UserService userService;
-   
-   }
+    }
 }

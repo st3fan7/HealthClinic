@@ -9,11 +9,20 @@ using System;
 
 namespace Model.AllActors
 {
-   public class Patient : User
-   {
-      private Boolean guestAccount;
-      
-      public MedicalRecord medicalRecord;
-   
-   }
+    public class Patient : User
+    {
+        private Boolean guestAccount { get; set; }
+
+        public MedicalRecord medicalRecord { get; set; }
+
+        public Patient()
+        {
+        }
+
+        public Patient(bool guestAccount, MedicalRecord medicalRecord)
+        {
+            this.guestAccount = guestAccount;
+            this.medicalRecord = medicalRecord;
+        }
+    }
 }

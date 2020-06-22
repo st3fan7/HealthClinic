@@ -5,23 +5,32 @@
  ***********************************************************************/
 
 using Model.Term;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
+using Repository.UsersRepository;
 
 namespace Service.UsersServices
 {
-   public class WorkingTimeForDoctorService : IService<WorkingTimeForDoctor,int>
-   {
-        public Model.Term.WorkingTimeForDoctor DetermineDoctorWorkTime(Model.Term.WorkingTimeForDoctor workingTimeForDoctor)
+    public class WorkingTimeForDoctorService : IService<WorkingTimeForDoctor, int>
+    {
+        public IWorkingTimeForDoctorRepository workingTimeForDoctorRepository;
+
+        public WorkingTimeForDoctorService(IWorkingTimeForDoctorRepository workingTimeForDoctorRepository)
+        {
+            this.workingTimeForDoctorRepository = workingTimeForDoctorRepository;
+        }
+
+        public WorkingTimeForDoctor DetermineDoctorWorkTime(WorkingTimeForDoctor workingTimeForDoctor)
         {
             throw new NotImplementedException();
         }
-      
-        public List<WorkingTimeForDoctor> GetWorkTimeForDoctor(Model.AllActors.Doctor doctor)
+
+        public List<WorkingTimeForDoctor> GetWorkTimeForDoctor(Doctor doctor)
         {
             throw new NotImplementedException();
         }
-        
+
         public WorkingTimeForDoctor GetEntity(int id)
         {
             throw new NotImplementedException();
@@ -47,7 +56,5 @@ namespace Service.UsersServices
             throw new NotImplementedException();
         }
 
-        public Repository.UsersRepository.IWorkingTimeForDoctorRepository iWorkingTimeForDoctorRepository;
-   
-   }
+    }
 }

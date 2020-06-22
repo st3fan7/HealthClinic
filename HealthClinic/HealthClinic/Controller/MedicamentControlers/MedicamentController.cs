@@ -12,7 +12,7 @@ namespace Controller.MedicamentControlers
 {
     public class MedicamentController : IController<Medicament, int>
     {
-        public Service.MedicamentService.MedicamentService medicamentService;
+        public MedicamentService medicamentService;
 
         public MedicamentController(MedicamentService medicamentService)
         {
@@ -21,32 +21,32 @@ namespace Controller.MedicamentControlers
 
         public void AddExistingMedicament(String medicamentID, int quantity)
         {
-            throw new NotImplementedException();
+            medicamentService.AddExistingMedicament(medicamentID, quantity);
         }
 
         public Medicament GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return medicamentService.GetEntity(id);
         }
 
         public IEnumerable<Medicament> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return medicamentService.GetAllEntities();
         }
 
         public Medicament AddEntity(Medicament entity)
         {
-            throw new NotImplementedException();
+            return medicamentService.AddEntity(entity);
         }
 
         public void UpdateEntity(Medicament entity)
         {
-            throw new NotImplementedException();
+            medicamentService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Medicament entity)
         {
-            throw new NotImplementedException();
+            medicamentService.DeleteEntity(entity);
         }
 
     }

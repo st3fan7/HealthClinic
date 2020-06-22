@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Controller.BlogNotificationControlers;
 using Controller.MedicamentControlers;
 using Model.DoctorMenager;
 using Repository.Csv.Converter;
@@ -22,6 +23,7 @@ namespace HealthClinic
     public partial class App : Application
     {
         private const string MEDICAMNET_FILE = "../../Resources/Data/medicaments.csv";
+        private const string ARTICLE_FILE = "../../Resources/Data/article.csv";
         private const string CSV_DELIMITER = ";";
 
         private const string DATETIME_FORMAT = "dd.MM.yyyy.";
@@ -33,10 +35,13 @@ namespace HealthClinic
                 new IntSequencer());
 
             var medicamentService = new MedicamentService(medicamentRepository);
+            
 
             MedicamentController = new MedicamentController(medicamentService);
+            
         }
 
         public IController<Medicament, int> MedicamentController { get; private set; }
+        public IController<Medicament, int> ArticleController { get; private set; }
     }
 }
