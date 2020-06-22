@@ -5,17 +5,25 @@
  ***********************************************************************/
 
 using Model.Patient;
+using Service.BlogNotificationServices;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.BlogNotificationControlers
 {
-   public class SurveyController : IController<Survey,int>
-   {
-      public Survey CompletingSurvey(Model.Patient.Survey survey)
-      {
-         throw new NotImplementedException();
-      }
+    public class SurveyController : IController<Survey, int>
+    {
+        public SurveyService surveyService;
+
+        public SurveyController(SurveyService surveyService)
+        {
+            this.surveyService = surveyService;
+        }
+
+        public Survey CompletingSurvey(Survey survey)
+        {
+            throw new NotImplementedException();
+        }
 
         public Survey GetEntity(int id)
         {
@@ -42,7 +50,5 @@ namespace Controller.BlogNotificationControlers
             throw new NotImplementedException();
         }
 
-        public Service.BlogNotificationServices.SurveyService surveyService;
-   
-   }
+    }
 }

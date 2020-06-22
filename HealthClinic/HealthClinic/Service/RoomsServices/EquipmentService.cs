@@ -5,22 +5,30 @@
 
 using Model.DoctorMenager;
 using Model.Manager;
+using Repository.RoomsRepository;
 using System;
 using System.Collections.Generic;
 
 namespace Service.RoomsServices
 {
-   public class EquipmentService : IService<Equipment,int>
-   {
-      public bool AddExistingEquipment(String equipmentID, int quantity)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Medicament TakeMedicament(Medicament medicament)
-      {
-         throw new NotImplementedException();
-      }
+    public class EquipmentService : IService<Equipment, int>
+    {
+        public IEquipmentRepository equipmentRepository;
+
+        public EquipmentService(IEquipmentRepository equipmentRepository)
+        {
+            this.equipmentRepository = equipmentRepository;
+        }
+
+        public bool AddExistingEquipment(String equipmentID, int quantity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Medicament TakeMedicament(Medicament medicament)
+        {
+            throw new NotImplementedException();
+        }
 
         public Equipment GetEntity(int id)
         {
@@ -47,7 +55,5 @@ namespace Service.RoomsServices
             throw new NotImplementedException();
         }
 
-        public Repository.RoomsRepository.IEquipmentRepository iEquipmentRepository;
-   
-   }
+    }
 }

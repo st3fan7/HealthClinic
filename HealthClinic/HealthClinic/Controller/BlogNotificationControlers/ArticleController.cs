@@ -15,6 +15,11 @@ namespace Controller.BlogNotificationControlers
     {
         public ArticleService articleService;
 
+        public ArticleController(ArticleService articleService)
+        {
+            this.articleService = articleService;
+        }
+
         public Article AddEntity(Article entity)
         {
             throw new NotImplementedException();

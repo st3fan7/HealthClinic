@@ -5,27 +5,36 @@
  ***********************************************************************/
 
 using Model.BlogAndNotification;
+using Service.BlogNotificationServices;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.BlogNotificationControlers
 {
-   public class NotificationController : IController<Notification,int>
-   {
-      public Notification SendNotification(Model.BlogAndNotification.Notification notification, Model.AllActors.User user)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Notification ReadNotification(Model.BlogAndNotification.Notification notification)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public List<Notification> GetAllNotificationsForUser(string username)
-      {
-         throw new NotImplementedException();
-      }
+    public class NotificationController : IController<Notification, int>
+    {
+        public NotificationService notificationService;
+
+        public NotificationController(NotificationService notificationService)
+        {
+            this.notificationService = notificationService;
+        }
+
+        public Notification SendNotification(Notification notification, User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Notification ReadNotification(Notification notification)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Notification> GetAllNotificationsForUser(string username)
+        {
+            throw new NotImplementedException();
+        }
 
         public Notification GetEntity(int id)
         {
@@ -52,7 +61,5 @@ namespace Controller.BlogNotificationControlers
             throw new NotImplementedException();
         }
 
-        public Service.BlogNotificationServices.NotificationService notificationService;
-   
-   }
+    }
 }

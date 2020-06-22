@@ -5,13 +5,19 @@
 // Purpose: Definition of Class SpetialitationController
 
 using Model.Doctor;
+using Service.UsersServices;
 using System;
 
 namespace Controller.UsersControlers
 {
-   public class SpetialitationController : IController<Specialitation,int>
-   {
-      public Service.UsersServices.SpetialitationService spetialitationService;
+    public class SpetialitationController : IController<Specialitation, int>
+    {
+        public SpetialitationService spetialitationService;
+
+        public SpetialitationController(SpetialitationService spetialitationService)
+        {
+            this.spetialitationService = spetialitationService;
+        }
 
         public Specialitation AddEntity(Specialitation entity)
         {

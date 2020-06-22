@@ -13,8 +13,12 @@ namespace Controller.ExaminationSurgeryControlers
 {
    public class HospitalitationController : IController<Hospitalitation,int>
    {
-
         public HospitalitationService hospitalitationService;
+
+        public HospitalitationController(HospitalitationService hospitalitationService)
+        {
+            this.hospitalitationService = hospitalitationService;
+        }
 
         public Hospitalitation AddEntity(Hospitalitation entity)
         {

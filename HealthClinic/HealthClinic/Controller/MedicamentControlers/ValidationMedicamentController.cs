@@ -5,16 +5,20 @@
  ***********************************************************************/
 
 using Model.DoctorMenager;
+using Service.MedicamentService;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.MedicamentControlers
 {
-   public class ValidationMedicamentController : IController<ValidationOfMedicament,int>
-   {
-     
+    public class ValidationMedicamentController : IController<ValidationOfMedicament, int>
+    {
+        public ValidationMedicamentService validationMedicamentService;
 
-        public Service.MedicamentService.ValidationMedicamentService validationMedicamentService;
+        public ValidationMedicamentController(ValidationMedicamentService validationMedicamentService)
+        {
+            this.validationMedicamentService = validationMedicamentService;
+        }
 
         public ValidationOfMedicament AddEntity(ValidationOfMedicament entity)
         {

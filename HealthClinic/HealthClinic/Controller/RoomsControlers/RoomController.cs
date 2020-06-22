@@ -5,26 +5,35 @@
  ***********************************************************************/
 
 using Model.Term;
+using Model.Manager;
+using Service.RoomsServices;
 using System;
 
 namespace Controller.RoomsControlers
 {
-   public class RoomController : IController<Room,int>
-   {
-      public bool DetermineTypeOfRoom(Model.Term.TypeOfRoom typeOfRoom)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public bool AddEquipment(Model.Manager.Equipment equipment)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Model.Manager.Equipment TakeEquipment(Model.Manager.Equipment equipment)
-      {
-         throw new NotImplementedException();
-      }
+    public class RoomController : IController<Room, int>
+    {
+        public RoomService roomService;
+
+        public RoomController(RoomService roomService)
+        {
+            this.roomService = roomService;
+        }
+
+        public bool DetermineTypeOfRoom(TypeOfRoom typeOfRoom)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AddEquipment(Equipment equipment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Model.Manager.Equipment TakeEquipment(Equipment equipment)
+        {
+            throw new NotImplementedException();
+        }
 
         public Room GetEntity(int id)
         {
@@ -51,7 +60,5 @@ namespace Controller.RoomsControlers
             throw new NotImplementedException();
         }
 
-        public Service.RoomsServices.RoomService roomService;
-   
-   }
+    }
 }

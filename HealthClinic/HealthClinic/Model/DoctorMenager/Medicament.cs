@@ -19,6 +19,8 @@ namespace Model.DoctorMenager
         private int quantity;
         private int id;
 
+        public System.Collections.ArrayList ingredient;
+
         public Medicament(string code, string name, string producer, State stateOfValidation, int quantity, int id, ArrayList ingredient)
         {
             this.code = code;
@@ -29,9 +31,7 @@ namespace Model.DoctorMenager
             this.id = id;
             Ingredient = ingredient;
         }
-
-        public System.Collections.ArrayList ingredient;
-
+       
         /// <summary>
         /// Property for collection of Ingredient
         /// </summary>
