@@ -8,10 +8,10 @@ using System;
 
 namespace Model.DoctorMenager
 {
-   public enum State
-   {
-      Confirmed,
-      Rejected,
-      OnValidation
-   }
+    public enum State
+    {
+        Confirmed,
+        Rejected,
+        OnValidation
+    }
 }

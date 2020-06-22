@@ -5,17 +5,25 @@
  ***********************************************************************/
 
 using Model.Term;
+using Repository.ExaminationSurgeryRepository;
 using System;
 using System.Collections.Generic;
 
 namespace Service.ExaminationSurgeryServices
 {
-   public class MedicalExaminationService : IService<MedicalExamination,int>
-   {
-      public List<MedicalExamination> GetByDate(DateTime date)
-      {
-         throw new NotImplementedException();
-      }
+    public class MedicalExaminationService : IService<MedicalExamination, int>
+    {
+        public IMedicalExaminationRepository medicalExaminationRepository;
+
+        public MedicalExaminationService(IMedicalExaminationRepository medicalExaminationRepository)
+        {
+            this.medicalExaminationRepository = medicalExaminationRepository;
+        }
+
+        public List<MedicalExamination> GetByDate(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
 
         public List<MedicalExamination> GetAllMedicalExaminationsByDoctor(Model.AllActors.Doctor doctor)
         {
@@ -43,19 +51,19 @@ namespace Service.ExaminationSurgeryServices
         }
 
         public bool IsMedicalExaminationFreeForScheduling(Model.Term.MedicalExamination medicalExamination)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public bool IsRoomFreeForScheduling(Model.Term.Room room, DateTime time)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Boolean IsDoctorFreeForScheduling(Model.AllActors.Doctor doctor, DateTime time)
-      {
-         throw new NotImplementedException();
-      }
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsRoomFreeForScheduling(Model.Term.Room room, DateTime time)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Boolean IsDoctorFreeForScheduling(Model.AllActors.Doctor doctor, DateTime time)
+        {
+            throw new NotImplementedException();
+        }
 
         public MedicalExamination GetEntity(int id)
         {
@@ -82,7 +90,5 @@ namespace Service.ExaminationSurgeryServices
             throw new NotImplementedException();
         }
 
-        public Repository.ExaminationSurgeryRepository.IMedicalExaminationRepository iMedicalExaminationRepository;
-   
-   }
+    }
 }

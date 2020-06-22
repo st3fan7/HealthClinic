@@ -4,17 +4,20 @@
 // Purpose: Definition of Class RecommendedTermBehaviour
 
 using System;
+using Model.Term;
+using Model.AllActors;
+using Repository.ExaminationSurgeryRepository;
 
 namespace Service.ExaminationSurgeryServices
 {
-   public class RecommendedTermBehaviour : IRecommendationBehaviour
-   {
-      public Model.Term.MedicalExamination RecommendMedicalExamination(Model.AllActors.Doctor doctor, Model.Term.Term dateRange)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Repository.ExaminationSurgeryRepository.IMedicalExaminationRepository iMedicalExaminationRepository;
-   
-   }
+    public class RecommendedTermBehaviour : IRecommendationBehaviour
+    {
+        public IMedicalExaminationRepository iMedicalExaminationRepository;
+
+        public MedicalExamination RecommendMedicalExamination(Doctor doctor, Term dateRange)
+        {
+            throw new NotImplementedException();
+        }
+
+    }
 }

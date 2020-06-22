@@ -36,6 +36,15 @@ namespace Model.BlogAndNotification
             this.receiveNotifications = receiveNotifications;
         }
 
+        public int GetId()
+        {
+            return id;
+        }
+
+        public void SetId(int id)
+        {
+            this.id = id;
+        }
 
         /// <summary>
         /// Property for collection of User
@@ -95,17 +104,7 @@ namespace Model.BlogAndNotification
         {
             if (receiveNotifications != null)
                 receiveNotifications.Clear();
-        }
-
-        public int GetId()
-        {
-            return id;
-        }
-
-        public void SetId(int id)
-        {
-            this.id = id;
-        }
+        }        
 
     }
 }

@@ -6,12 +6,18 @@
 using Model.Doctor;
 using System;
 using System.Collections.Generic;
+using Repository.UsersRepository;
 
 namespace Service.UsersServices
 {
-   public class SpetialitationService : IService<Specialitation,int>
-   {
-      public Repository.UsersRepository.ISpecialitationRepository iSpecialitationRepository;
+    public class SpetialitationService : IService<Specialitation, int>
+    {
+        public ISpecialitationRepository specialitationRepository;
+
+        public SpetialitationService(ISpecialitationRepository specialitationRepository)
+        {
+            this.specialitationRepository = specialitationRepository;
+        }
 
         public Specialitation AddEntity(Specialitation entity)
         {

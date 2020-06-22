@@ -5,17 +5,26 @@
  ***********************************************************************/
 
 using Model.BlogAndNotification;
+using Repository.BlogNotificationRepository;
 using System;
 using System.Collections.Generic;
 
 namespace Service.BlogNotificationServices
 {
-   public class ArticleService : IService<Article,int>
-   {
-      public Model.BlogAndNotification.Article ReadArticle(Model.BlogAndNotification.Article article)
-      {
-         throw new NotImplementedException();
-      }
+    public class ArticleService : IService<Article, int>
+    {
+        public IArticleRepository articleRepository;
+        //public CommentService commentService;
+
+        public ArticleService(IArticleRepository articleRepository)
+        {
+            this.articleRepository = articleRepository;
+        }       
+
+        public Article ReadArticle(Model.BlogAndNotification.Article article)
+        {
+            throw new NotImplementedException();
+        }
 
         public Article GetEntity(int id)
         {
@@ -42,8 +51,5 @@ namespace Service.BlogNotificationServices
             throw new NotImplementedException();
         }
 
-        public Repository.BlogNotificationRepository.IArticleRepository iArticleRepository;
-      public CommentService commentService;
-   
-   }
+    }
 }

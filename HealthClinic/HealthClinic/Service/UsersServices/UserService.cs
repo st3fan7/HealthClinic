@@ -8,37 +8,45 @@ using Model.AllActors;
 using Model.Doctor;
 using System;
 using System.Collections.Generic;
+using Repository.UsersRepository;
 
 namespace Service.UsersServices
 {
-   public class UserService : IService<User,int>
-   {
-      public Model.AllActors.User Login(String username, String password)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public bool IsUsernameValid(String username)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public bool IsPasswordValid(String password)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public void DeactivateAccount(Model.AllActors.User user)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public bool DoesJmbgExsist(String jmbg)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public List<Doctor> GetAllDoctors()
+    public class UserService : IService<User, int>
+    {
+        public IUserRepository userRepository;
+
+        public UserService(IUserRepository userRepository)
+        {
+            this.userRepository = userRepository;
+        }
+
+        public User Login(String username, String password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsUsernameValid(String username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsPasswordValid(String password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeactivateAccount(Model.AllActors.User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DoesJmbgExsist(String jmbg)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Doctor> GetAllDoctors()
         {
             throw new NotImplementedException();
         }
@@ -54,19 +62,19 @@ namespace Service.UsersServices
         }
 
         public List<DoctorSpecialist> GetDoctorBySpecialitation(Model.Doctor.Specialitation specialitation)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Model.AllActors.Patient TransformGuestAccount(Model.AllActors.Patient patient)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Boolean GetOccupancyStatus(Model.AllActors.Doctor doctor, DateTime time)
-      {
-         throw new NotImplementedException();
-      }
+        {
+            throw new NotImplementedException();
+        }
+
+        public Model.AllActors.Patient TransformGuestAccount(Model.AllActors.Patient patient)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Boolean GetOccupancyStatus(Model.AllActors.Doctor doctor, DateTime time)
+        {
+            throw new NotImplementedException();
+        }
 
         public User GetEntity(int id)
         {
@@ -92,8 +100,5 @@ namespace Service.UsersServices
         {
             throw new NotImplementedException();
         }
-
-        public Repository.UsersRepository.IUserRepository iUserRepository;
-   
-   }
+    }
 }

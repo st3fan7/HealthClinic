@@ -5,27 +5,35 @@
  ***********************************************************************/
 
 using Model.Term;
+using Repository.ExaminationSurgeryRepository;
 using System;
 using System.Collections.Generic;
 
 namespace Service.ExaminationSurgeryServices
 {
-   public class HospitalitationService : IService<Hospitalitation,int>
-   {
-      public Model.Term.Hospitalitation DetermineHospitalitation(Hospitalitation hospitalitation)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public List<Hospitalitation> GetAllHospitalitationsByRoom(Room room)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public List<Hospitalitation> GetByDate(DateTime date)
-      {
-         throw new NotImplementedException();
-      }
+    public class HospitalitationService : IService<Hospitalitation, int>
+    {
+        public IHospitalitationRepository hospitalitationRepository;
+
+        public HospitalitationService(IHospitalitationRepository hospitalitationRepository)
+        {
+            this.hospitalitationRepository = hospitalitationRepository;
+        }
+
+        public Hospitalitation DetermineHospitalitation(Hospitalitation hospitalitation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Hospitalitation> GetAllHospitalitationsByRoom(Room room)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Hospitalitation> GetByDate(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
 
         public Hospitalitation GetEntity(int id)
         {
@@ -52,7 +60,5 @@ namespace Service.ExaminationSurgeryServices
             throw new NotImplementedException();
         }
 
-        public Repository.ExaminationSurgeryRepository.IHospitalitationRepository iHospitalitationRepository;
-   
-   }
+    }
 }

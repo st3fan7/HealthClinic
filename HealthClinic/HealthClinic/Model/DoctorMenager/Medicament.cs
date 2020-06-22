@@ -31,9 +31,7 @@ namespace Model.DoctorMenager
             this.id = id;
             Ingredient = ingredient;
         }
-
-        
-
+       
         /// <summary>
         /// Property for collection of Ingredient
         /// </summary>

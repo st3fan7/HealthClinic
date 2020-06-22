@@ -38,7 +38,15 @@ namespace Model.BlogAndNotification
             this.comments = comments;
         }
 
+        public int GetId()
+        {
+            return id;
+        }
 
+        public void SetId(int id)
+        {
+            this.id = id;
+        }
 
         /// <summary>
         /// Property for collection of Comment
@@ -98,19 +106,7 @@ namespace Model.BlogAndNotification
         {
             if (comments != null)
                 comments.Clear();
-        }
-
-        public int GetId()
-        {
-            return id;
-        }
-
-        public void SetId(int id)
-        {
-            this.id = id;
-        }
-
-
+        }    
 
         /// <summary>
         /// Property for Model.AllActors.Blog

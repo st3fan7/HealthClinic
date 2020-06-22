@@ -39,6 +39,15 @@ namespace Model.Doctor
             this.medicament = medicament;
         }
 
+        public int GetId()
+        {
+            return id;
+        }
+
+        public void SetId(int id)
+        {
+            this.id = id;
+        }
 
         /// <summary>
         /// Property for collection of Model.DoctorMenager.Medicament
@@ -98,19 +107,7 @@ namespace Model.Doctor
         {
             if (medicament != null)
                 medicament.Clear();
-        }
-
-        public int GetId()
-        {
-            return id;
-        }
-
-        public void SetId(int id)
-        {
-            this.id = id;
-        }
-
-
+        }      
 
     }
 }

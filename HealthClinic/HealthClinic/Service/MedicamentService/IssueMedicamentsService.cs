@@ -12,7 +12,14 @@ namespace Service.MedicamentService
 {
     public class IssueMedicamentsService : IService<IssueOfMedicaments, int>
     {
-        public Model.Doctor.IssueOfMedicaments IssueOfMedicaments(Model.Doctor.IssueOfMedicaments issueOfMedicaments)
+        public IIssueOfMedicamentRepository issueOfMedicamentRepository;
+
+        public IssueMedicamentsService(IIssueOfMedicamentRepository issueOfMedicamentRepository)
+        {
+            this.issueOfMedicamentRepository = issueOfMedicamentRepository;
+        }
+
+        public IssueOfMedicaments IssueOfMedicaments(IssueOfMedicaments issueOfMedicaments) // Ne treba
         {
             throw new NotImplementedException();
         }
@@ -41,8 +48,6 @@ namespace Service.MedicamentService
         {
             throw new NotImplementedException();
         }
-
-        public IIssueOfMedicamentRepository issueOfMedicamentRepository;
 
     }
 }
