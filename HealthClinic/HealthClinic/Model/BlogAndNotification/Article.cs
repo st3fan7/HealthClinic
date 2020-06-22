@@ -13,7 +13,7 @@ namespace Model.BlogAndNotification
 {
     public class Article : Content, IIdentifiable<int>
     {
-        private String title { get; set; }
+        private String title;
         
         private int id;
         
@@ -32,7 +32,7 @@ namespace Model.BlogAndNotification
 
         public Article(string title, int id, Blog blog, ArrayList comments)
         {
-            this.title = title;
+            this.Title = title;
             this.id = id;
             this.blog = blog;
             this.comments = comments;
@@ -137,5 +137,6 @@ namespace Model.BlogAndNotification
             }
         }
 
+        public string Title { get => title; set => title = value; }
     }
 }

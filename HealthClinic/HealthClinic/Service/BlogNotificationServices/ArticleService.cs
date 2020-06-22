@@ -28,7 +28,7 @@ namespace Service.BlogNotificationServices
 
         public Article GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return articleRepository.GetEntity(id);
         }
 
         public IEnumerable<Article> GetAllEntities()

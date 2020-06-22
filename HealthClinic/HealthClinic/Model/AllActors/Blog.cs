@@ -13,7 +13,7 @@ namespace Model.AllActors
 {
     public class Blog : IIdentifiable<int>
     {
-        private String name { get; set; }
+        private String name;
 
         public ArrayList articles;
         private int id { get; set; }
@@ -29,7 +29,7 @@ namespace Model.AllActors
 
         public Blog(string name, ArrayList articles, int id)
         {
-            this.name = name;
+            this.Name = name;
             this.articles = articles;
             this.id = id;
         }
@@ -56,6 +56,9 @@ namespace Model.AllActors
                 }
             }
         }
+
+        public string Name { get => name; set => name = value; }
+
 
         /// <summary>
         /// Add a new Article in the collection
