@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HealthClinic.View"
-        mc:Ignorable="d"
+       mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Unos novog leka u magacin" Height="420" Width="770" WindowStartupLocation="CenterScreen">
     <Grid>
@@ -34,9 +34,11 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">Lekar:</Label>
-                    <ComboBox Grid.Column="1" Margin="0,3,6,3" x:Name="firstField">
-                        <ComboBoxItem x:Name="firstItem">Milan Petrović</ComboBoxItem>
-                        <ComboBoxItem>Miloš Jović</ComboBoxItem>
+                    <ComboBox Grid.Column="1" Margin="0,3,6,3" x:Name="ComboBoxDoctors">
+                        <ComboBoxItem x:Name="firstItem" Content="Milan Petrović"/>
+                        <ComboBoxItem Content="Milica Jovanović"/>
+                        <ComboBoxItem Content="Petar Simić"/>
+                        <ComboBoxItem Content="Jovan Mihajlović"/>
                     </ComboBox>
                 </Grid>
                 <Grid Grid.Row="2">
@@ -46,7 +48,7 @@
                         <ColumnDefinition Width="7*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,4,0.4,4" FontSize="16">Šifra:</Label>
-                    <TextBox
+                    <TextBox x:Name="InputCodeOfMedicament"
                     BorderThickness="1"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -63,7 +65,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">Naziv:</Label>
-                    <TextBox Grid.Column="1"
+                    <TextBox Grid.Column="1" x:Name="InputNameOfMedicament"
                     BorderThickness="1"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -80,7 +82,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">Proizvođač:</Label>
-                    <TextBox Grid.Column="1"
+                    <TextBox Grid.Column="1" x:Name="InputProducerOfMedicament"
                     BorderThickness="1"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -97,7 +99,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">Količina:</Label>
-                    <TextBox
+                    <TextBox x:Name="InputAmountOfMedicament"
                     BorderThickness="1"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -114,7 +116,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" VerticalAlignment="Top" Margin="10,3,0.4,0" FontSize="16">Sastojci:</Label>
-                    <TextBox
+                    <TextBox x:Name="InputIngredientsOfMedicament"
                         Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                         AcceptsReturn="True"
                         TextWrapping="Wrap"
@@ -128,8 +130,8 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Column="0" Content="Pošalji lekaru" Margin="10,0,3,0"/>
-                    <Button Grid.Column="1" Content="Odustani" Margin="8,0,6,0"/>
+                    <Button Grid.Column="0" Content="Pošalji lekaru" Margin="10,0,3,0" Click="Button_Click_PosaljiLekaru"/>
+                    <Button Grid.Column="1" Content="Odustani" Margin="8,0,6,0" Click="Button_Click_Odustani"/>
                 </Grid>
             </Grid>
 
@@ -140,7 +142,7 @@
                 </Grid.RowDefinitions>
 
                 <Label FontSize="21" VerticalAlignment="Center" Margin="2,0,0,0" FontWeight="Bold">Poslati na validaciju</Label>
-                <DataGrid x:Name="dataGridMedicaments" Grid.Row="1" ItemsSource="{Binding Path=MedicamentsList}" AutoGenerateColumns="False" 
+                <DataGrid x:Name="DataGridMedicamentsOnValidation" Grid.Row="1" ItemsSource="{Binding }" AutoGenerateColumns="False" 
                   SelectionMode="Single" IsReadOnly="True" Margin="5,0,10,10" BorderThickness="1">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Šifra" Binding="{Binding }"/>

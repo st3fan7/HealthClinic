@@ -22,8 +22,13 @@ namespace HealthClinic.View
         public Renovation()
         {
             InitializeComponent();
-            firstField.Focus();
-            firstField.SelectedItem = firstItem;
+            DataPickerFromDataTime.SelectedDate = DateTime.Now.Date;
+            DataPickerToDataTime.SelectedDate = DateTime.Now.Date; // Izmeni
+        }
+
+        private void Button_Click_ZakaziRenoviranje(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void Button_Click_PrikaziZauzecaSale(object sender, RoutedEventArgs e)

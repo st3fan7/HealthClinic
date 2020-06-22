@@ -20,14 +20,15 @@ namespace HealthClinic.View
     /// </summary>
     public partial class DoctorAccounts : Window
     {
+        public static RoutedCommand helpSchortcut = new RoutedCommand();
+
         public DoctorAccounts()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click_PocetnaStrana(object sender, RoutedEventArgs e)
-        {
-            this.Close();
+            helpSchortcut.InputGestures.Add(new KeyGesture(Key.H, ModifierKeys.Control));
+            CommandBindings.Add(new CommandBinding(helpSchortcut, ShortKey_Click));
+            InputSearch.Focus();
+            InputSearch.SelectAll();
         }
 
         private void Button_Click_KreirajNoviNalog(object sender, RoutedEventArgs e)
@@ -36,16 +37,37 @@ namespace HealthClinic.View
             createDoctorAccount.ShowDialog();
         }
 
-        private void Button_Click_ObrisiNalog(object sender, RoutedEventArgs e)
+        private void Button_Click_Prikazi(object sender, RoutedEventArgs e)
         {
-            var deleteDoctorAccount = new DeleteDoctorAccount();
-            deleteDoctorAccount.ShowDialog();
+            var doctorAccount = new DoctorAccount();
+            doctorAccount.ShowDialog();
         }
 
-        private void Button_Click_IzmeniNalog(object sender, RoutedEventArgs e)
+        private void Button_Click_Izmeni(object sender, RoutedEventArgs e)
         {
-            var updateDoctorAccountFirst = new UpdateDoctorAccountFirst();
-            updateDoctorAccountFirst.ShowDialog();
+            var updateDoctorAccount = new UpdateDoctorAccount();
+            updateDoctorAccount.ShowDialog();
+        }
+
+        private void Button_Click_Obrisi(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Button_Click_PocetnaStrana(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ShortKey_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            var helpWindow = new HelpWindow();
+            helpWindow.ShowDialog();
+        }
+
+        private void Search_KeyUp(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }

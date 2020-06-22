@@ -22,8 +22,18 @@ namespace HealthClinic.View
         public AddNewMedicament()
         {
             InitializeComponent();
-            firstField.Focus();
-            firstField.SelectedItem = firstItem;
+            ComboBoxDoctors.Focus();
+            ComboBoxDoctors.SelectedItem = firstItem;
+        }
+
+        private void Button_Click_PosaljiLekaru(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Button_Click_Odustani(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

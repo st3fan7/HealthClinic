@@ -12,18 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace HealthClinic.View.WorkPeople
+namespace HealthClinic.View
 {
     /// <summary>
-    /// Interaction logic for DeleteSecretaryAccount.xaml
+    /// Interaction logic for HelpWindow.xaml
     /// </summary>
-    public partial class DeleteSecretaryAccount : Window
+    public partial class HelpWindow : Window
     {
-        public DeleteSecretaryAccount()
+        public HelpWindow()
         {
             InitializeComponent();
-            firstInput.Focus();
-            firstInput.SelectAll();
+        }
+
+        private void Button_Click_ZatvoriProzor(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

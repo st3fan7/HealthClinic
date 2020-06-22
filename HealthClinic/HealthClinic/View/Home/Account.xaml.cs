@@ -12,31 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace HealthClinic.View.WorkPeople
+namespace HealthClinic.View.Account
 {
     /// <summary>
-    /// Interaction logic for UpdateDoctorAccountFirst.xaml
+    /// Interaction logic for Account.xaml
     /// </summary>
-    public partial class UpdateDoctorAccountFirst : Window
+    public partial class Account : Window
     {
-        public UpdateDoctorAccountFirst()
+        public Account()
         {
             InitializeComponent();
-            firstInput.Focus();
-            firstInput.SelectAll();
         }
 
-        private void Button_Click_Potvrdi(object sender, RoutedEventArgs e)
+        private void Button_Click_IzmeniNalog(object sender, RoutedEventArgs e)
         {
-            var updateDoctorAccount = new UpdateDoctorAccount();
-            this.Close();
-            updateDoctorAccount.ShowDialog();
-        }
-
-        private void Button_Click_Odustani(object sender, RoutedEventArgs e)
-        {
+            var updateAccount = new UpdateAccount();
+            updateAccount.ShowDialog();
             this.Close();
         }
 
+        private void Button_Click_PocetnaStrana(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

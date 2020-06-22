@@ -33,17 +33,16 @@ namespace HealthClinic
             this.Close();
         }
 
-        private void Button_Click_Izadji(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-
         private void Button_Click_ZaboravljenaLozinka(object sender, RoutedEventArgs e)
         {
             LoginGrid.Children.Clear();
             UserControl usc = new ForgottenPassword();
             LoginGrid.Children.Add(usc);
+        }
+
+        private void Button_Click_Izadji(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

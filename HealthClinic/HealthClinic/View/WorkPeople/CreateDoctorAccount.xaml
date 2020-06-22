@@ -37,12 +37,12 @@
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="165"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">Ime:</Label>
-            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
-                    TextWrapping="Wrap" x:Name="firstInput"
+            <TextBox x:Name="InputName" Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+                    TextWrapping="Wrap" 
                     FontSize="16" 
                     materialDesign:HintAssist.Hint="Unesite ime"
                     IsEnabled="{Binding Path=IsChecked, ElementName=JmbgBox}" 
@@ -51,13 +51,13 @@
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="165"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">Prezime:</Label>
-            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+            <TextBox x:Name="InputSurname" Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
                     TextWrapping="Wrap"
-                    FontSize="16" x:Name="ime"
+                    FontSize="16"
                     materialDesign:HintAssist.Hint="Unesite prezime"
                     IsEnabled="{Binding Path=IsChecked, ElementName=JmbgBox}" 
                     CaretBrush="#FF131619" Margin="0,0.5,10,0.5"/>
@@ -65,11 +65,11 @@
 
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="165"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">JMBG:</Label>
-            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+            <TextBox x:Name="InputJmbg" Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
                     TextWrapping="Wrap"
                     FontSize="16"
                     materialDesign:HintAssist.Hint="Unesite JMBG"
@@ -79,11 +79,11 @@
 
         <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="165"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">Datum rođenja:</Label>
-            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+            <TextBox x:Name="InputDateOfBirthday" Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
                     TextWrapping="Wrap"
                     FontSize="16"
                     materialDesign:HintAssist.Hint="Unesite datum rođenja"
@@ -93,11 +93,11 @@
 
         <Grid Grid.Row="5">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="165"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">Mesto stanovanja:</Label>
-            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+            <TextBox x:Name="InputCity" Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
                     TextWrapping="Wrap"
                     FontSize="16"
                     materialDesign:HintAssist.Hint="Unesite adresu stanovanja"
@@ -107,11 +107,11 @@
 
         <Grid Grid.Row="6">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="165"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">Adresa stanovanja:</Label>
-            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+            <TextBox x:Name="InputAddress" Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
                     TextWrapping="Wrap"
                     FontSize="16"
                     materialDesign:HintAssist.Hint="Unesite državu"
@@ -121,11 +121,11 @@
 
         <Grid Grid.Row="7">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="165"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">Država:</Label>
-            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+            <TextBox x:Name="InputCountry" Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
                     TextWrapping="Wrap"
                     FontSize="16"
                     materialDesign:HintAssist.Hint="Unesite mesto stanovanja"
@@ -135,11 +135,11 @@
 
         <Grid Grid.Row="8">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="165"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">E-mail adresa:</Label>
-            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+            <TextBox x:Name="InputEmailAddress" Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
                     TextWrapping="Wrap"
                     FontSize="16"
                     materialDesign:HintAssist.Hint="Unesite e-mail adresu"
@@ -149,11 +149,11 @@
 
         <Grid Grid.Row="9">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="165"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">Kontakt telefon:</Label>
-            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+            <TextBox x:Name="InputMobilePhone" Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
                     TextWrapping="Wrap"
                     FontSize="16"
                     materialDesign:HintAssist.Hint="Unesite kontakt telefon"
@@ -163,11 +163,11 @@
 
         <Grid Grid.Row="10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="165"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">Zvanje:</Label>
-            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+            <TextBox x:Name="InputVocation" Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
                     TextWrapping="Wrap"
                     FontSize="16"
                     materialDesign:HintAssist.Hint="Unesite zvanje"
@@ -177,11 +177,11 @@
 
         <Grid Grid.Row="11">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="165"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">Korisničko ime:</Label>
-            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+            <TextBox x:Name="InputUsername" Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
                     TextWrapping="Wrap"
                     FontSize="16"
                     materialDesign:HintAssist.Hint="Unesite korisničko ime"
@@ -191,11 +191,11 @@
 
         <Grid Grid.Row="12">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="165"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16">Lozinka:</Label>
-            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+            <TextBox x:Name="InputPassword" Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
                     TextWrapping="Wrap"
                     FontSize="16"
                     materialDesign:HintAssist.Hint="Unesite lozinku"
@@ -209,8 +209,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Content="Potvrdi" Margin="95,1,5,1"/>
-            <Button Grid.Column="1" Content="Odustani" Margin="5,1,95,1"/>
+            <Button Grid.Column="0" Content="Potvrdi" Margin="95,1,5,1" Click="Button_Click_Potvrdi" />
+            <Button Grid.Column="1" Content="Odustani" Margin="5,1,95,1" Click="Button_Click_Odustani"/>
         </Grid>
     </Grid>
 </Window>
+

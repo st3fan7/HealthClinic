@@ -15,15 +15,21 @@ using System.Windows.Shapes;
 namespace HealthClinic.View
 {
     /// <summary>
-    /// Interaction logic for RemoveEquipment.xaml
+    /// Interaction logic for Reports.xaml
     /// </summary>
-    public partial class RemoveEquipment : Window
+    public partial class Reports : Window
     {
-        public RemoveEquipment()
+
+        public Reports()
         {
             InitializeComponent();
-            firstInput.Focus();
-            firstInput.SelectAll();
+            DataPickerFromDataTime.SelectedDate = DateTime.Now.Date;
+            DataPickerToDataTime.SelectedDate = DateTime.Now.Date; // Izmeni
+        }
+
+        private void Button_Click_PocetnaStrana(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HealthClinic.View"
-        mc:Ignorable="d"
+       mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Radno vreme lekara" Height="490" Width="840" WindowStartupLocation="CenterScreen">
     <Grid>
@@ -19,7 +19,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="350"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="250"/>
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" Text="Raspored radnog vremena lekara" FontSize="22" Margin="10,5,0,0" />
@@ -32,19 +32,19 @@
                     Style="{DynamicResource MaterialDesignToolButton}">
                     <materialDesign:PackIcon Kind="Magnify" Opacity=".56" BorderBrush="Black" />
                 </Button>
-                <TextBox
+                <TextBox x:Name="InputSearch" 
                     Grid.Column="1"
                     Margin="8,0,10,0"
                     materialDesign:HintAssist.Hint="Pretraži"
                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                     BorderThickness="1"
                     MinWidth="200"
-                    VerticalAlignment="Center" Background="{x:Null}"/>
+                    VerticalAlignment="Center" Background="{x:Null}" KeyUp="Search_KeyUp"/>
             </Grid>
         </Grid>
 
-        <DataGrid x:Name="dataGridMedicaments" Grid.Row="1" ItemsSource="{Binding Path=MedicamentsList}" AutoGenerateColumns="False" 
-                  SelectionMode="Single" IsReadOnly="True" Margin="10,0,10,1" BorderThickness="1">
+        <DataGrid x:Name="DataGridWorkingTimeForDoctors" Grid.Row="1" ItemsSource="{Binding }" AutoGenerateColumns="False" 
+                  SelectionMode="Single" IsReadOnly="True" Margin="10,0,10,1" BorderThickness="1" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Lekar" Binding="{Binding }"/>
                 <DataGridTextColumn Header="Ponedeljak" Binding="{Binding }" />
@@ -57,7 +57,13 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <TextBlock Grid.Row="2" Text="Pritisnite ESC da izađete iz tabele" FontSize="16" Margin="10,1,0,0"/>
+        <TextBlock Grid.Row="2" FontSize="16" Margin="10,0,0,0">
+            <Run >Držite </Run>
+            <Run Foreground="Red">Ctrl</Run>
+            <Run > i pritisnite </Run>
+            <Run Foreground="Red">H </Run>
+            <Run >za pomoć pri kretanju kroz prozor</Run>
+        </TextBlock>
 
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>

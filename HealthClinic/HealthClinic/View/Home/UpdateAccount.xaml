@@ -1,4 +1,4 @@
-﻿<Window x:Class="HealthClinic.View.Account.Account"
+﻿<Window x:Class="HealthClinic.View.Account.UpdateAccount"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,32 +6,32 @@
         xmlns:local="clr-namespace:HealthClinic.View.Account"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Moj nalog" Height="510" Width="470" WindowStartupLocation="CenterScreen">
+        Title="Izmena naloga" Height="510" Width="470" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="70"/>
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <materialDesign:PackIcon Grid.Row="2" Kind="AccountCircle" Width="60" Height="60" VerticalAlignment="Center" Margin="10,0,0,0" />
+            <materialDesign:PackIcon Grid.Row="2" Kind="AccountEdit" Width="40" Height="40" VerticalAlignment="Center" Margin="10,0,0,0" />
             <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="30" FontWeight="Bold">Upravnik</TextBlock>
         </Grid>
 
@@ -41,7 +41,10 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18">Ime:</Label>
-            <Label Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontWeight="Bold" Content="Petar"/>
+            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                     TextWrapping="Wrap" x:Name="InputName"
+                     FontSize="16" 
+                     CaretBrush="#FF131619" Margin="0,0.5,10,0.5" />
         </Grid>
 
         <Grid Grid.Row="2">
@@ -50,7 +53,10 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18">Prezime:</Label>
-            <Label Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontWeight="Bold" Content="Petrović"/>
+            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+                    TextWrapping="Wrap" x:Name="InputSurname"
+                    FontSize="16"
+                    CaretBrush="#FF131619" Margin="0,0.5,10,0.5"/>
         </Grid>
 
         <Grid Grid.Row="3">
@@ -59,7 +65,10 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18">JMBG:</Label>
-            <Label Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontWeight="Bold" Content="0811965107787"/>
+            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+                    TextWrapping="Wrap" x:Name="InputJmbg"
+                    FontSize="16"
+                    CaretBrush="#FF131619" Margin="0,0.5,10,0.5"/>
         </Grid>
 
         <Grid Grid.Row="4">
@@ -68,7 +77,10 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18">Datum rođenja:</Label>
-            <Label Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontWeight="Bold" Content="08.11.1965."/>
+            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+                    TextWrapping="Wrap" x:Name="InputDateOfBirthday"
+                    FontSize="16"
+                    CaretBrush="#FF131619" Margin="0,0.5,10,0.5"/>
         </Grid>
 
         <Grid Grid.Row="5">
@@ -77,7 +89,10 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18">Mesto stanovanja:</Label>
-            <Label Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontWeight="Bold" Content="Novi Sad"/>
+            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+                    TextWrapping="Wrap" x:Name="InputCity"
+                    FontSize="16"
+                    CaretBrush="#FF131619" Margin="0,0.5,10,0.5"/>
         </Grid>
 
         <Grid Grid.Row="6">
@@ -86,7 +101,10 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18">Adresa stanovanja:</Label>
-            <Label Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontWeight="Bold" Content="Bulevar Oslobođenja, 110"/>
+            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+                    TextWrapping="Wrap" x:Name="InputAddress"
+                    FontSize="16" 
+                    CaretBrush="#FF131619" Margin="0,0.5,10,0.5"/>
         </Grid>
 
         <Grid Grid.Row="7">
@@ -95,7 +113,10 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18">Država:</Label>
-            <Label Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontWeight="Bold" Content="Srbija"/>
+            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+                    TextWrapping="Wrap" x:Name="InputCountry"
+                    FontSize="16"
+                    CaretBrush="#FF131619" Margin="0,0.5,10,0.5"/>
         </Grid>
 
         <Grid Grid.Row="8">
@@ -104,7 +125,10 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18">E-mail adresa:</Label>
-            <Label Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontWeight="Bold" Content="petar.petrovic@gmail.com"/>
+            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+                    TextWrapping="Wrap" x:Name="InputEmailAddress"
+                    FontSize="16"
+                    CaretBrush="#FF131619" Margin="0,0.5,10,0.5"/>
         </Grid>
 
         <Grid Grid.Row="9">
@@ -113,7 +137,10 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18">Kontakt telefon:</Label>
-            <Label Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontWeight="Bold" Content="069 363 4885"/>
+            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+                    TextWrapping="Wrap" x:Name="InputMobilePhone"
+                    FontSize="16"
+                    CaretBrush="#FF131619" Margin="0,0.5,10,0.5"/>
         </Grid>
 
         <Grid Grid.Row="10">
@@ -122,7 +149,10 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18">Korisničko ime:</Label>
-            <Label Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontWeight="Bold"  Content="petar.petrovic.upravnik"/>
+            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+                    TextWrapping="Wrap" x:Name="InputUsername"
+                    FontSize="16"
+                    CaretBrush="#FF131619" Margin="0,0.5,10,0.5"/>
         </Grid>
 
         <Grid Grid.Row="11">
@@ -131,28 +161,20 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18">Lozinka:</Label>
-            <Label Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontWeight="Bold" Content="********" />
+            <TextBox Grid.Column="1" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AcceptsReturn="True"
+                    TextWrapping="Wrap" x:Name="InputPassword"
+                    FontSize="16"
+                    CaretBrush="#FF131619" Margin="0,0.5,10,0.5"/>
         </Grid>
 
-        <Grid Grid.Row="13" >
+        <Grid Grid.Row="13" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="160"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="160"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Margin="10,0,0,0" Click="Button_Click_IzmeniNalog" >
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="AccountEdit" Margin="0,3,5,0" />
-                    <TextBlock Text="Izmeni nalog"/>
-                </StackPanel>
-            </Button>
-            <Button Grid.Column="4" Margin="0,0,10,0" Click="Button_Click_PocetnaStrana">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Home" Margin="0,2,5,0"/>
-                    <TextBlock Text="Početna strana"/>
-                </StackPanel>
-            </Button>
+            <Button Grid.Column="0" Content="Potvrdi" Margin="95,1,5,1" Click="Button_Click_Potvrdi"/>
+            <Button Grid.Column="1" Content="Odustani" Margin="5,1,95,1" Click="Button_Click_Odustani"/>
         </Grid>
     </Grid>
 </Window>

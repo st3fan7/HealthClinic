@@ -22,13 +22,27 @@ namespace HealthClinic.View
         public RelocationEquipmentFromRoom()
         {
             InitializeComponent();
-            firstField.Focus();
-            firstField.SelectedItem = firstItem;
+            ComboBoxEquipmentInRoom.Focus();
+            ComboBoxEquipmentInRoom.SelectedItem = firstItem;
+        }
+
+        private void Button_Click_Premesti(object sender, RoutedEventArgs e)
+        {
         }
 
         private void Button_Click_PocetnaStrana(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void EquipmentInRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void EquipmentFromRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

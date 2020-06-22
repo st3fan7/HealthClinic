@@ -19,9 +19,32 @@ namespace HealthClinic.View
     /// </summary>
     public partial class Rooms : Window
     {
+        public static RoutedCommand helpSchortcut = new RoutedCommand();
+
         public Rooms()
         {
             InitializeComponent();
+            helpSchortcut.InputGestures.Add(new KeyGesture(Key.H, ModifierKeys.Control));
+            CommandBindings.Add(new CommandBinding(helpSchortcut, ShortKey_Click));
+            InputSearch.Focus();
+            InputSearch.SelectAll();
+        }
+
+        private void Button_Click_DodajNovuSalu(object sender, RoutedEventArgs e)
+        {
+            var addRoom = new AddRoom();
+            addRoom.ShowDialog();
+        }       
+
+        private void Button_Click_Prikazi(object sender, RoutedEventArgs e)
+        {
+            var medicalEquipment = new MedicalEquipment();
+            medicalEquipment.ShowDialog();
+        }
+
+        private void Button_Click_Obrisi(object sender, RoutedEventArgs e)
+        {
+            
         }
 
         private void Button_Click_PocetnaStrana(object sender, RoutedEventArgs e)
@@ -29,22 +52,15 @@ namespace HealthClinic.View
             this.Close();
         }
 
-        private void Button_Click_IzmeniTipSale(object sender, RoutedEventArgs e)
+        private void ShortKey_Click(object sender, ExecutedRoutedEventArgs e)
         {
-            var determinateTypeOfRoom = new DeterminateTypeOfRoom();
-            determinateTypeOfRoom.ShowDialog();
+            var helpWindow = new HelpWindow();
+            helpWindow.ShowDialog();
         }
 
-        private void Button_Click_ObrisiSalu(object sender, RoutedEventArgs e)
+        private void Search_KeyUp(object sender, KeyEventArgs e)
         {
-            var removeRoom = new RemoveRoom();
-            removeRoom.ShowDialog();
-        }
 
-        private void Button_Click_DodajSalu(object sender, RoutedEventArgs e)
-        {
-            var addRoom = new AddRoom();
-            addRoom.ShowDialog();
         }
     }
 }

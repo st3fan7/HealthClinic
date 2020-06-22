@@ -23,7 +23,7 @@
 
         <Label Grid.Row="1" Grid.Column="0" Content="Unesite šifru leka:" FontSize="16" VerticalAlignment="Center" Margin="10,5.6,196.6,5.2" Grid.ColumnSpan="3" />
         <Label Grid.Row="2" Grid.Column="0" Content="Unesite količinu leka:" FontSize="16" VerticalAlignment="Center" Margin="10,5.8,196.6,6" Grid.ColumnSpan="3" />
-        <TextBox  Grid.Row="1" Grid.Column="2" x:Name="firstInput"
+        <TextBox  Grid.Row="1" Grid.Column="2" x:Name="InputCodeOfMedicament"
                     BorderThickness="1"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -33,7 +33,7 @@
                     materialDesign:HintAssist.Hint="Šifra"
                     IsEnabled="{Binding Path=IsChecked, ElementName=JmbgBox}" 
                     CaretBrush="#FF131619" Margin="0.2,2.6,9.6,3.2" />
-        <TextBox  Grid.Row="2" Grid.Column="2"
+        <TextBox  Grid.Row="2" Grid.Column="2" x:Name="InputAmountOfMedicament"
                     BorderThickness="1"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -49,8 +49,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Content="Potvrdi" Margin="61,0,5,0"/>
-            <Button Grid.Column="1" Content="Odustani" Margin="5,0,60,0"/>
+            <Button Grid.Column="0" Content="Potvrdi" Margin="61,0,5,0" Click="Button_Click_Potvrdi"/>
+            <Button Grid.Column="1" Content="Odustani" Margin="5,0,60,0" Click="Button_Click_Odustani"/>
         </Grid>
     </Grid>
 </Window>

@@ -15,15 +15,18 @@ using System.Windows.Shapes;
 namespace HealthClinic.View
 {
     /// <summary>
-    /// Interaction logic for DeleteDoctorAccount.xaml
+    /// Interaction logic for SecretaryAccount.xaml
     /// </summary>
-    public partial class DeleteDoctorAccount : Window
+    public partial class SecretaryAccount : Window
     {
-        public DeleteDoctorAccount()
+        public SecretaryAccount()
         {
             InitializeComponent();
-            firstInput.Focus();
-            firstInput.SelectAll();
+        }
+
+        private void Button_Click_URedu(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

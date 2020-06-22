@@ -25,7 +25,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Izaberite lekara čije radno vreme želite da izmenite:</TextBlock>
-            <ComboBox Grid.Column="1" x:Name="firstField" Margin="0,1,10,1">
+            <ComboBox Grid.Column="1" x:Name="ComboBoxDoctors" Margin="0,1,10,1">
                 <ComboBoxItem x:Name="firstItem">Milan Petrović</ComboBoxItem>
                 <ComboBoxItem>Miloš Jović</ComboBoxItem>
             </ComboBox>
@@ -38,7 +38,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Izaberite dan za koji želite da promenite radno vreme:</TextBlock>
-            <ComboBox Grid.Column="1"  Margin="1,0,10,1">
+            <ComboBox Grid.Column="1"  Margin="1,0,10,1" x:Name="ComboBoxDaysOfTheWeek">
                 <ComboBoxItem IsSelected="True">Ponedeljak</ComboBoxItem>
                 <ComboBoxItem>Utorak</ComboBoxItem>
             </ComboBox>
@@ -50,17 +50,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Unesite vreme početka radnog vremena:</TextBlock>
-            <TextBox Grid.Column="1"
-                    BorderThickness="1"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    AcceptsReturn="True"
-                    TextWrapping="Wrap"
-                    FontSize="16"
-                    materialDesign:HintAssist.Hint="00:00"
-                    IsEnabled="{Binding Path=IsChecked, ElementName=JmbgBox}" 
-                    CaretBrush="#FF131619" Margin="0,2,10,2" />
+            <TextBlock Grid.Column="0" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Izaberite vreme početka radnog vremena:</TextBlock>
+            <materialDesign:TimePicker  Margin="1,0,10,1"
+                x:Name="TimePickerStartWorkingTime" Grid.Column="1" Is24Hours="True"/>
         </Grid>
 
         <Grid Grid.Row="3">
@@ -69,17 +61,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Unesite vreme kraja radnog vremena:</TextBlock>
-            <TextBox Grid.Column="1"
-                    BorderThickness="1"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    AcceptsReturn="True"
-                    TextWrapping="Wrap"
-                    FontSize="16"
-                    materialDesign:HintAssist.Hint="00:00"
-                    IsEnabled="{Binding Path=IsChecked, ElementName=JmbgBox}" 
-                    CaretBrush="#FF131619" Margin="0,2,10,2"  />
+            <TextBlock Grid.Column="0" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Izaberite vreme kraja radnog vremena:</TextBlock>
+            <materialDesign:TimePicker  Margin="1,0,10,1"
+                x:Name="TimePickerEndWorkingTime" Grid.Column="1" Is24Hours="True"/>
         </Grid>
 
         <Grid Grid.Row="4">
@@ -88,8 +72,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            
-            <CheckBox Grid.Column="0" FontSize="16" Margin="10,0,0,0">Izabrani lekar ne radi za izabrani dan</CheckBox>
+            <CheckBox x:Name="CheckBoxDoctorDontWork" Grid.Column="0" FontSize="16" Margin="10,0,0,0">Izabrani lekar ne radi za izabrani dan</CheckBox>
         </Grid>
 
         <Grid Grid.Row="6">
@@ -98,8 +81,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Content="Potvrdi" Margin="170,0,5,0" />
-            <Button Grid.Column="1" Content="Odustani" Margin="5,0,170,1"/>
+            <Button Grid.Column="0" Content="Potvrdi" Margin="170,0,5,0" Click="Button_Click_Potvrdi"/>
+            <Button Grid.Column="1" Content="Odustani" Margin="5,0,170,1" Click="Button_Click_Odustani"/>
         </Grid>
     </Grid>
 </Window>

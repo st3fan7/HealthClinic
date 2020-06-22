@@ -22,8 +22,18 @@ namespace HealthClinic.View
         public CreateDoctorAccount()
         {
             InitializeComponent();
-            firstInput.Focus();
-            firstInput.SelectAll();
+            InputName.Focus();
+            InputName.SelectAll();
+        }
+
+        private void Button_Click_Potvrdi(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Button_Click_Odustani(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
     }

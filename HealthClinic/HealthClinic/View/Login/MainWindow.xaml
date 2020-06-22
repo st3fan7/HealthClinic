@@ -37,7 +37,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="1" Text="Korisničko ime:" FontSize="20" Margin="0,5,0,0" />
-                <TextBox Grid.Column="2"
+                <TextBox Grid.Column="2" x:Name="InputUsername"
                 Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                 VerticalAlignment="Top"
                 IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextFieldTextBoxEnabledComboBox}"
@@ -53,7 +53,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="1" Text="Lozinka:" FontSize="20" Margin="0,5,0,0" />
-                <PasswordBox Grid.Column="2"
+                <PasswordBox Grid.Column="2" x:Name="InputPassword"
                 Style="{StaticResource MaterialDesignOutlinedPasswordFieldPasswordBox}"
                 VerticalAlignment="Top"
                 IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedPasswordFieldPasswordBoxEnabledComboBox}"

@@ -22,8 +22,22 @@ namespace HealthClinic.View.Account
         public UpdateAccount()
         {
             InitializeComponent();
-            firstInput.Focus();
-            firstInput.SelectAll();
+            InputName.Focus();
+            InputName.SelectAll();
+        }
+        private void Button_Click_Potvrdi(object sender, RoutedEventArgs e)
+        {
+            // Izvrsi izmene naloga
+            var account = new Account();
+            account.ShowDialog();
+            this.Close();
+        }
+
+        private void Button_Click_Odustani(object sender, RoutedEventArgs e)
+        {
+            var account = new Account();
+            account.ShowDialog();
+            this.Close();
         }
     }
 }

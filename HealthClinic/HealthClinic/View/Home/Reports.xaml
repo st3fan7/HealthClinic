@@ -28,17 +28,8 @@
                 <ColumnDefinition Width="160"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Unesite početni datum:</TextBlock>
-            <TextBox  Grid.Column="1" x:Name="firstInput"
-                    BorderThickness="1"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    AcceptsReturn="True"
-                    TextWrapping="Wrap"
-                    FontSize="16"
-                    materialDesign:HintAssist.Hint="dan.mesec.godina."
-                    IsEnabled="{Binding Path=IsChecked, ElementName=JmbgBox}" 
-                    CaretBrush="#FF131619" Margin="0,2" />
+            <TextBlock VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Izaberite početni datum:</TextBlock>
+            <DatePicker x:Name="DataPickerFromDataTime" Grid.Column="1"></DatePicker>
         </Grid>
 
         <Grid Grid.Row="2">
@@ -47,17 +38,8 @@
                 <ColumnDefinition Width="160"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Unesite krajnji datum:</TextBlock>
-            <TextBox  Grid.Column="1"
-                    BorderThickness="1"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    AcceptsReturn="True"
-                    TextWrapping="Wrap"
-                    FontSize="16"
-                    materialDesign:HintAssist.Hint="dan.mesec.godina."
-                    IsEnabled="{Binding Path=IsChecked, ElementName=JmbgBox}" 
-                    CaretBrush="#FF131619" Margin="0,2" />
+            <TextBlock VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Izaberite krajnji datum:</TextBlock>
+            <DatePicker x:Name="DataPickerToDataTime" Grid.Column="1"></DatePicker>
         </Grid>
 
         <Grid Grid.Row="4">
@@ -67,9 +49,11 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBlock VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Izaberite lekara:</TextBlock>
-            <ComboBox Grid.Column="1" Margin="0">
-                <ComboBoxItem IsSelected="True">Milan Jovin</ComboBoxItem>
-                <ComboBoxItem>Milica Rac</ComboBoxItem>
+            <ComboBox x:Name="ComboBoxDoctors" Grid.Column="1" >
+                <ComboBoxItem IsSelected="True">Milan Petrović</ComboBoxItem>
+                <ComboBoxItem>Milica Jovanović</ComboBoxItem>
+                <ComboBoxItem>Petar Simić</ComboBoxItem>
+                <ComboBoxItem>Jovan Mihajlović</ComboBoxItem>
             </ComboBox>
         </Grid>
 
@@ -80,9 +64,15 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBlock VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Izaberite salu:</TextBlock>
-            <ComboBox Grid.Column="1" Margin="0">
-                <ComboBoxItem IsSelected="True">101a</ComboBoxItem>
-                <ComboBoxItem>102a</ComboBoxItem>
+            <ComboBox  x:Name="ComboBoxNumbersOfRooms" Grid.Column="1" >
+                <ComboBoxItem IsSelected="True" Content="101a"/>
+                <ComboBoxItem Content="102a"/>
+                <ComboBoxItem Content="103a"/>
+                <ComboBoxItem Content="108a"/>
+                <ComboBoxItem Content="108b"/>
+                <ComboBoxItem Content="201a"/>
+                <ComboBoxItem Content="207a"/>
+                <ComboBoxItem Content="301a"/>
             </ComboBox>
         </Grid>
 
@@ -101,7 +91,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0"  FontSize="16" VerticalAlignment="Center" Margin="10,0,0,2" >Izaberite izveštaj:</TextBlock>
-                <RadioButton Grid.Column="1" Content="Izveštaj o zauzetosti sale za uneti period" FontSize="14"
+                <RadioButton x:Name="Report1" Grid.Column="1" Content="Izveštaj o zauzetosti sale za uneti period" FontSize="14"
                              GroupName="Reports" IsChecked="True"/>
             </Grid>
 
@@ -110,8 +100,8 @@
                     <ColumnDefinition Width="190"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <RadioButton Grid.Column="1" Content="Izveštaj o zauzetosti lekara za uneti period" FontSize="14"
-                             GroupName="Reports"/>
+                <RadioButton x:Name="Report2" Grid.Column="1" Content="Izveštaj o zauzetosti lekara za uneti period" FontSize="14"
+                             GroupName="Reports" />
             </Grid>
 
             <Grid Grid.Row="2">
@@ -119,7 +109,7 @@
                     <ColumnDefinition Width="190"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <RadioButton Grid.Column="1" Content="Izveštaj o planu rada lekara uneti period" FontSize="14"
+                <RadioButton x:Name="Report3" Grid.Column="1" Content="Izveštaj o planu rada lekara uneti period" FontSize="14"
                              GroupName="Reports"/>
             </Grid>
 
@@ -128,7 +118,7 @@
                     <ColumnDefinition Width="190"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <RadioButton Grid.Column="1" Content="Izveštaj o količini lekova (trenutno stanje)" FontSize="14"
+                <RadioButton x:Name="Report4" Grid.Column="1" Content="Izveštaj o količini lekova (trenutno stanje)" FontSize="14"
                              GroupName="Reports"/>
             </Grid>
         </Grid>
@@ -142,7 +132,7 @@
             <Button Grid.Column="0" Margin="10,0,0,0" >
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="ClipboardTextOutline" Margin="0,2,6,0"/>
-                    <TextBlock Text="Prikaži izveštaj"/>
+                    <TextBlock Text="Generiši izveštaj"/>
                 </StackPanel>
             </Button>
             <Button Grid.Column="2" Margin="0,0,10,0" Click="Button_Click_PocetnaStrana" >

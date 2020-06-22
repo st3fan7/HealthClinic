@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controller;
+using Model.DoctorMenager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +21,29 @@ namespace HealthClinic.View
     /// </summary>
     public partial class AddMedicament : Window
     {
+        private readonly IController<Medicament, int> medicamentController;
+
         public AddMedicament()
         {
             InitializeComponent();
-            firstInput.Focus();
-            firstInput.SelectAll();
+            InputCodeOfMedicament.Focus();
+            InputCodeOfMedicament.SelectAll();
+
+            var app = Application.Current as App;
+            medicamentController = app.MedicamentController;
+        }
+
+        private void Button_Click_Potvrdi(object sender, RoutedEventArgs e)
+        {
+            String code = InputCodeOfMedicament.Text;
+            //String kolicina = InputAmountOfMedicament.Text;    
+
+            //medicamentController.AddEntity(new Medicament(2, code, "nameeee", "prozvssd", 5));   
+        }
+
+        private void Button_Click_Odustani(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

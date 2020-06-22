@@ -23,7 +23,7 @@
 
         <Label Grid.Row="1" Grid.Column="0" Content="Unesite broj sale:" FontSize="16" VerticalAlignment="Center" Margin="10,0,0,0" />
         <Label Grid.Row="2" Grid.Column="0" Content="Izaberite tip sale:" FontSize="16" VerticalAlignment="Center" Margin="10,0,0,0" />
-        <TextBox  Grid.Row="1" Grid.Column="1" x:Name="firstInput"
+        <TextBox  Grid.Row="1" Grid.Column="1" x:Name="InputNubmerOfRoom"
                     BorderThickness="1"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -33,7 +33,7 @@
                     materialDesign:HintAssist.Hint="Broj sale"
                     IsEnabled="{Binding Path=IsChecked, ElementName=JmbgBox}" 
                     CaretBrush="#FF131619" Margin="0,3,10,3" />
-        <ComboBox Grid.Row="2" Grid.Column="2" Margin="0,3,10,3" >
+        <ComboBox Grid.Row="2" Grid.Column="2" Margin="0,3,10,3" x:Name="ComboBoxTypeOfRoom">
             <ComboBoxItem IsSelected="True">Sala za preglede</ComboBoxItem>
             <ComboBoxItem>Sala za operacije</ComboBoxItem>
             <ComboBoxItem>Sala za bolničko lečenje</ComboBoxItem>
@@ -44,8 +44,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Content="Potvrdi" Margin="61,0,5,0"/>
-            <Button Grid.Column="1" Content="Odustani" Margin="5,0,60,0"/>
+            <Button Grid.Column="0" Content="Potvrdi" Margin="61,0,5,0" Click="Button_Click_Potvrdi"/>
+            <Button Grid.Column="1" Content="Odustani" Margin="5,0,60,0" Click="Button_Click_Odustani"/>
         </Grid>
     </Grid>
 </Window>

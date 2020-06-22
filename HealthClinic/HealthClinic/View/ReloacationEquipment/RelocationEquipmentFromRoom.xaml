@@ -32,14 +32,14 @@
                 <ColumnDefinition />
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name="dataGridEquipmentInRoom" Grid.Column="0" ItemsSource="{Binding Path=MedicamentsList}" AutoGenerateColumns="False" 
+            <DataGrid x:Name="DataGridEquipmentInRoom" Grid.Column="0" ItemsSource="{Binding }" AutoGenerateColumns="False" 
                   SelectionMode="Single" IsReadOnly="True" BorderThickness="1" Margin="10,0,5,0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Naziv opreme" Binding="{Binding }"/>
                     <DataGridTextColumn Header="Količina" Binding="{Binding }"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid x:Name="dataGridEquipmentFromRoom" Grid.Column="1" ItemsSource="{Binding Path=MedicamentsList}" AutoGenerateColumns="False" 
+            <DataGrid x:Name="DataGridEquipmentFromRoom" Grid.Column="1" ItemsSource="{Binding }" AutoGenerateColumns="False" 
                   SelectionMode="Single" IsReadOnly="True" BorderThickness="1" Margin="5,0,10,0" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Naziv opreme" Binding="{Binding }"/>
@@ -56,9 +56,14 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" FontSize="16" VerticalAlignment="Center" Margin="10,1,0,0">Izaberite salu u koju želite da dodate opremu:</TextBlock>
-            <ComboBox Grid.Column="1" Margin="0,2" x:Name="firstField">
+            <ComboBox Grid.Column="1" Margin="0,2" x:Name="ComboBoxEquipmentInRoom" SelectionChanged="EquipmentInRoom_SelectionChanged">
                 <ComboBoxItem x:Name="firstItem">101a</ComboBoxItem>
                 <ComboBoxItem>102a</ComboBoxItem>
+                <ComboBoxItem>103a</ComboBoxItem>
+                <ComboBoxItem>103b</ComboBoxItem>
+                <ComboBoxItem>201a</ComboBoxItem>
+                <ComboBoxItem>202a</ComboBoxItem>
+                <ComboBoxItem>301a</ComboBoxItem>
             </ComboBox>
         </Grid>
 
@@ -70,9 +75,14 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" FontSize="16" VerticalAlignment="Center" Margin="10,1,0,0">Izaberite salu iz koje želite da premestite opremu:</TextBlock>
-            <ComboBox Grid.Column="1" Margin="0,2">
-                <ComboBoxItem IsSelected="True">101a</ComboBoxItem>
+            <ComboBox Grid.Column="1" Margin="0,2" x:Name="ComboBoxEquipmentFromRoom" SelectionChanged="EquipmentFromRoom_SelectionChanged">
+                <ComboBoxItem IsSelected="True" Content="101a"/>
                 <ComboBoxItem>102a</ComboBoxItem>
+                <ComboBoxItem>103a</ComboBoxItem>
+                <ComboBoxItem>103b</ComboBoxItem>
+                <ComboBoxItem>201a</ComboBoxItem>
+                <ComboBoxItem>202a</ComboBoxItem>
+                <ComboBoxItem>301a</ComboBoxItem>
             </ComboBox>
         </Grid>
 
@@ -84,7 +94,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" FontSize="16" VerticalAlignment="Center" Margin="10,0,0,0">Unesite naziv opreme za premeštanje:</TextBlock>
-            <TextBox  Grid.Column="1"
+            <TextBox  Grid.Column="1" x:Name="InputNameOfEquipment"
                     BorderThickness="1"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -104,7 +114,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" FontSize="16" VerticalAlignment="Center" Margin="10,0,0,0">Unesite količinu koju želite da premestite:</TextBlock>
-            <TextBox  Grid.Column="1"
+            <TextBox  Grid.Column="1" x:Name="InputAmountOfEquipment"
                     BorderThickness="1"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -122,7 +132,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="170"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Margin="10,0,0,0" >
+            <Button Grid.Column="0" Margin="10,0,0,0" Click="Button_Click_Premesti" >
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="ShuffleVariant" Margin="0,2,6,0"/>
                     <TextBlock Text="Premesti"/>

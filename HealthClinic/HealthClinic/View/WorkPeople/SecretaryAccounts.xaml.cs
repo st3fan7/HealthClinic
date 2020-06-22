@@ -19,9 +19,15 @@ namespace HealthClinic.View.WorkPeople
     /// </summary>
     public partial class SecretaryAccounts : Window
     {
+        public static RoutedCommand helpSchortcut = new RoutedCommand();
+
         public SecretaryAccounts()
         {
             InitializeComponent();
+            helpSchortcut.InputGestures.Add(new KeyGesture(Key.H, ModifierKeys.Control));
+            CommandBindings.Add(new CommandBinding(helpSchortcut, ShortKey_Click));
+            InputSearch.Focus();
+            InputSearch.SelectAll();
         }
 
         private void Button_Click_KreirajNoviNalog(object sender, RoutedEventArgs e)
@@ -30,21 +36,37 @@ namespace HealthClinic.View.WorkPeople
             createSecretaryAccount.ShowDialog();
         }
 
-        private void Button_Click_IzmeniNalog(object sender, RoutedEventArgs e)
+        private void Button_Click_Prikazi(object sender, RoutedEventArgs e)
         {
-            var updateSecretaryAccountFirst = new UpdateSecretaryAccountFirst();
-            updateSecretaryAccountFirst.ShowDialog();
+            var secretaryAccount = new SecretaryAccount();
+            secretaryAccount.ShowDialog();
         }
 
-        private void Button_Click_ObrisiNalog(object sender, RoutedEventArgs e)
+        private void Button_Click_Izmeni(object sender, RoutedEventArgs e)
         {
-            var deleteSecretaryAccount = new DeleteSecretaryAccount();
-            deleteSecretaryAccount.ShowDialog();
+            var updateSecretaryAccount = new UpdateSecretaryAccount();
+            updateSecretaryAccount.ShowDialog();
+        }
+
+        private void Button_Click_Obrisi(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void Button_Click_PocetnaStrana(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void ShortKey_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            var helpWindow = new HelpWindow();
+            helpWindow.ShowDialog();
+        }
+
+        private void Search_KeyUp(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }

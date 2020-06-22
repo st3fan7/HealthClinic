@@ -22,9 +22,20 @@ namespace HealthClinic.View
         public ChangeWorkinTimeForDoctor()
         {
             InitializeComponent();
-            firstField.Focus();
-            firstField.SelectedItem = firstItem;
+            ComboBoxDoctors.Focus();
+            ComboBoxDoctors.SelectedItem = firstItem;
+            TimePickerStartWorkingTime.SelectedTime = DateTime.Now.Date;
+            TimePickerEndWorkingTime.SelectedTime = DateTime.Now.Date;
         }
 
+        private void Button_Click_Potvrdi(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Button_Click_Odustani(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

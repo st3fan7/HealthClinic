@@ -22,8 +22,18 @@ namespace HealthClinic.View
         public AddEquipment()
         {
             InitializeComponent();
-            firstInput.Focus();
-            firstInput.SelectAll();
+            InputCodeOfEquipment.Focus();
+            InputCodeOfEquipment.SelectAll();
+        }
+
+        private void Button_Click_Potvrdi(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Button_Click_Odustani(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

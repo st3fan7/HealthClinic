@@ -27,7 +27,7 @@
         <Label Grid.Row="2" Grid.Column="0" Content="Vrsta opreme:" FontSize="16" VerticalAlignment="Center" Margin="10,0,0,0" />
         <Label Grid.Row="3" Grid.Column="0" Content="Naziv:" FontSize="16" VerticalAlignment="Center" Margin="10,0,0,0" />
         <Label Grid.Row="4" Grid.Column="0" Content="Količina:" FontSize="16" VerticalAlignment="Center" Margin="10,0,0,0" />
-        <TextBox  Grid.Row="1" Grid.Column="1" x:Name="firstInput"
+        <TextBox  Grid.Row="1" Grid.Column="1" x:Name="InputCodeOfEquipment"
                     BorderThickness="1"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -37,7 +37,7 @@
                     materialDesign:HintAssist.Hint="Unesite šifru"
                     IsEnabled="{Binding Path=IsChecked, ElementName=JmbgBox}" 
                     CaretBrush="#FF131619" Margin="0,3,10,3" />
-        <TextBox  Grid.Row="2" Grid.Column="1"
+        <TextBox  Grid.Row="2" Grid.Column="1" x:Name="InputTypeOfEquipment"
                     BorderThickness="1"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -47,7 +47,7 @@
                     materialDesign:HintAssist.Hint="Unesite vrstu opreme"
                     IsEnabled="{Binding Path=IsChecked, ElementName=JmbgBox}" 
                     CaretBrush="#FF131619" Margin="0,3,10,3" />
-        <TextBox  Grid.Row="3" Grid.Column="1"
+        <TextBox  Grid.Row="3" Grid.Column="1" x:Name="InputNameOfEquipment"
                     BorderThickness="1"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -57,7 +57,7 @@
                     materialDesign:HintAssist.Hint="Unesite naziv"
                     IsEnabled="{Binding Path=IsChecked, ElementName=JmbgBox}" 
                     CaretBrush="#FF131619" Margin="0,3,10,3" />
-        <TextBox  Grid.Row="4" Grid.Column="1"
+        <TextBox  Grid.Row="4" Grid.Column="1" x:Name="InputAmountOfEquipment"
                     BorderThickness="1"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
@@ -73,8 +73,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Content="Potvrdi" Margin="45,0,5,0"/>
-            <Button Grid.Column="1" Content="Odustani" Margin="5,0,45,0"/>
+            <Button Grid.Column="0" Content="Potvrdi" Margin="45,0,5,0" Click="Button_Click_Potvrdi"/>
+            <Button Grid.Column="1" Content="Odustani" Margin="5,0,45,0" Click="Button_Click_Odustani"/>
         </Grid>
         
     </Grid>

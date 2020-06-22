@@ -44,14 +44,6 @@ namespace HealthClinic.View
             warehouse.ShowDialog();
         }
 
-        private void Button_Click_OdjaviSe(object sender, RoutedEventArgs e)
-        {
-            var mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.buttonLogOut = true;
-            this.Close();
-        }
-
         private void Buttom_Click_Sale(object sender, RoutedEventArgs e)
         {
             var rooms = new Rooms();
@@ -88,11 +80,30 @@ namespace HealthClinic.View
             account.ShowDialog();
         }
 
-
         private void Button_Click_Izvestaji(object sender, RoutedEventArgs e)
         {
             var reports = new Reports();
             reports.ShowDialog();
+        }
+
+        private void Button_Click_Obavestenja(object sender, RoutedEventArgs e)
+        {
+            var notifications = new Notifications();
+            notifications.ShowDialog();
+        }
+
+        private void Button_Click_Tutorijal(object sender, RoutedEventArgs e)
+        {
+            var tutorial = new Tutorial();
+            tutorial.ShowDialog();
+        }
+
+        private void Button_Click_OdjaviSe(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.buttonLogOut = true;
+            this.Close();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -102,9 +113,9 @@ namespace HealthClinic.View
                 e.Cancel = true;
                 MessageBox.Show(
                    "Morate se odjaviti da bi ugasili aplikaciju",
-                   "Upozorenje",
+                   "Greška",
                    MessageBoxButton.OK,
-                   MessageBoxImage.Warning);
+                   MessageBoxImage.Error);
             }
         }
     }
