@@ -8,10 +8,25 @@ using System;
 
 namespace Model.Doctor
 {
-   public class Specialitation : IIdentifiable<int>
+    public class Specialitation : IIdentifiable<int>
     {
-      private String specialitation;
-      private int id;
+        private String specialitation { get; set; }
+        private int id;
+
+        public Specialitation(int id)
+        {
+            this.id = id;
+        }
+
+        public Specialitation()
+        {
+        }
+
+        public Specialitation(string specialitation, int id)
+        {
+            this.specialitation = specialitation;
+            this.id = id;
+        }
 
         public int GetId()
         {
