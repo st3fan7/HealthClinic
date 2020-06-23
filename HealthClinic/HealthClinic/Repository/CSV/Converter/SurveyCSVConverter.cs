@@ -6,8 +6,9 @@
 using Model.AllActors;
 using Model.Patient;
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Windows.Documents;
 
 namespace Repository.Csv.Converter
 {
@@ -34,13 +35,13 @@ namespace Repository.Csv.Converter
         public Survey ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
-            ArrayList questions = new ArrayList();
+            List<Question> questions = new List<Question>();
             FillList(questions, tokens);
             return new Survey(int.Parse(tokens[0]), tokens[1], Convert.ToDateTime(tokens[2]), tokens[3], (Patient)new User(int.Parse(tokens[3])), questions);
 
         }
 
-        private void FillList(ArrayList questions, string[] tokens)
+        private void FillList(List<Question> questions, string[] tokens)
         {
             int i = 4;
             while (i < tokens.Length - 1)

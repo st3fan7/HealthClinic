@@ -6,7 +6,8 @@
 
 using HealthClinic.Repository;
 using System;
-using System.Collections;
+using System.Collections.Generic;
+using System.Windows.Documents;
 
 namespace Model.DoctorMenager
 {
@@ -19,14 +20,14 @@ namespace Model.DoctorMenager
         private int quantity;
         private int id;
 
-        public System.Collections.ArrayList ingredient;
+        private List<Ingredient> ingredient;
 
         public Medicament(int id)
         {
             this.id = id;
         }
 
-        public Medicament(int id, string code, string name, string producer, State stateOfValidation, int quantity, ArrayList ingredient)
+        public Medicament(int id, string code, string name, string producer, State stateOfValidation, int quantity, List<Ingredient> ingredient)
         {
             this.code = code;
             this.name = name;
@@ -37,7 +38,7 @@ namespace Model.DoctorMenager
             Ingredient = ingredient;
         }
 
-        public Medicament(string code, string name, string producer, State stateOfValidation, int quantity, ArrayList ingredient)
+        public Medicament(string code, string name, string producer, State stateOfValidation, int quantity, List<Ingredient> ingredient)
         {
             this.code = code;
             this.name = name;
@@ -47,64 +48,10 @@ namespace Model.DoctorMenager
             Ingredient = ingredient;
         }
 
-        /// <summary>
-        /// Property for collection of Ingredient
-        /// </summary>
-        /// <pdGenerated>Default opposite class collection property</pdGenerated>
-        public System.Collections.ArrayList Ingredient
-        {
-            get
-            {
-                if (ingredient == null)
-                    ingredient = new System.Collections.ArrayList();
-                return ingredient;
-            }
-            set
-            {
-                RemoveAllIngredient();
-                if (value != null)
-                {
-                    foreach (Ingredient oIngredient in value)
-                        AddIngredient(oIngredient);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Add a new Ingredient in the collection
-        /// </summary>
-        /// <pdGenerated>Default Add</pdGenerated>
-        public void AddIngredient(Ingredient newIngredient)
-        {
-            if (newIngredient == null)
-                return;
-            if (this.ingredient == null)
-                this.ingredient = new System.Collections.ArrayList();
-            if (!this.ingredient.Contains(newIngredient))
-                this.ingredient.Add(newIngredient);
-        }
-
-        /// <summary>
-        /// Remove an existing Ingredient from the collection
-        /// </summary>
-        /// <pdGenerated>Default Remove</pdGenerated>
-        public void RemoveIngredient(Ingredient oldIngredient)
-        {
-            if (oldIngredient == null)
-                return;
-            if (this.ingredient != null)
-                if (this.ingredient.Contains(oldIngredient))
-                    this.ingredient.Remove(oldIngredient);
-        }
-
-        /// <summary>
-        /// Remove all instances of Ingredient from the collection
-        /// </summary>
-        /// <pdGenerated>Default removeAll</pdGenerated>
         public void RemoveAllIngredient()
         {
-            if (ingredient != null)
-                ingredient.Clear();
+            if (Ingredient != null)
+                Ingredient.Clear();
         }
 
         public int GetId()
@@ -146,5 +93,6 @@ namespace Model.DoctorMenager
             set { quantity = value; }
         }
 
+        public List<Ingredient> Ingredient { get => ingredient; set => ingredient = value; }
     }
 }

@@ -6,7 +6,7 @@
 using Model.Manager;
 using Model.Term;
 using System;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace Repository.Csv.Converter
 {
@@ -22,7 +22,7 @@ namespace Repository.Csv.Converter
         public string ConvertEntityToCSVFormat(Room entity)
         {
             String equipmentCSV = "";
-            foreach (Equipment equipment in entity.equipment)
+            foreach (Equipment equipment in entity.Equipment)
             {
                 equipmentCSV += string.Join(delimiter, equipment.GetId());
                 equipmentCSV += delimiter;
@@ -33,12 +33,12 @@ namespace Repository.Csv.Converter
         public Room ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
-            ArrayList equipment = new ArrayList();
-            FillList(equipment, tokens);
-            return new Room(int.Parse(tokens[0]), tokens[1], (TypeOfRoom)Enum.Parse(typeof(TypeOfRoom), tokens[2]), equipment);
+            List<Equipment> equipments = new List<Equipment>();
+            FillList(equipments, tokens);
+            return new Room(int.Parse(tokens[0]), tokens[1], (TypeOfRoom)Enum.Parse(typeof(TypeOfRoom), tokens[2]), equipments);
         }
 
-        private void FillList(ArrayList equipment, string[] tokens)
+        private void FillList(List<Equipment> equipment, string[] tokens)
         {
             int i = 3;
             while (i < tokens.Length - 1)
