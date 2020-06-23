@@ -5,38 +5,44 @@
  ***********************************************************************/
 
 using Model.PatientDoctor;
+using Service.MedicalRecordService;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.MedicalRecordControlers
 {
-   public class DiagnosisController : IController<Diagnosis,int>
-   {
-      public Service.MedicalRecordService.DiagnosisService diagnosisService;
+    public class DiagnosisController : IController<Diagnosis, int>
+    {
+        public DiagnosisService diagnosisService;
+
+        public DiagnosisController(DiagnosisService diagnosisService)
+        {
+            this.diagnosisService = diagnosisService;
+        }
 
         public Diagnosis AddEntity(Diagnosis entity)
         {
-            throw new NotImplementedException();
+            return diagnosisService.AddEntity(entity);
         }
 
         public void DeleteEntity(Diagnosis entity)
         {
-            throw new NotImplementedException();
+            diagnosisService.DeleteEntity(entity);
         }
 
         public IEnumerable<Diagnosis> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return diagnosisService.GetAllEntities();
         }
 
         public Diagnosis GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return diagnosisService.GetEntity(id);
         }
 
         public void UpdateEntity(Diagnosis entity)
         {
-            throw new NotImplementedException();
+            diagnosisService.UpdateEntity(entity);
         }
     }
 }

@@ -5,45 +5,51 @@
  ***********************************************************************/
 
 using Model.BlogAndNotification;
+using Repository.BlogNotificationRepository;
 using System;
 using System.Collections.Generic;
 
 namespace Service.BlogNotificationServices
 {
-   public class ArticleService : IService<Article,int>
-   {
-      public Model.BlogAndNotification.Article ReadArticle(Model.BlogAndNotification.Article article)
-      {
-         throw new NotImplementedException();
-      }
+    public class ArticleService : IService<Article, int>
+    {
+        public IArticleRepository articleRepository;
+        //public CommentService commentService;
+
+        public ArticleService(IArticleRepository articleRepository)
+        {
+            this.articleRepository = articleRepository;
+        }       
+
+        public Article ReadArticle(Model.BlogAndNotification.Article article)
+        {
+            throw new NotImplementedException();
+        }
 
         public Article GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return articleRepository.GetEntity(id);
         }
 
         public IEnumerable<Article> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return articleRepository.GetAllEntities();
         }
 
         public Article AddEntity(Article entity)
         {
-            throw new NotImplementedException();
+            return articleRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(Article entity)
         {
-            throw new NotImplementedException();
+            articleRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Article entity)
         {
-            throw new NotImplementedException();
+            articleRepository.DeleteEntity(entity);
         }
 
-        public Repository.BlogNotificationRepository.IArticleRepository iArticleRepository;
-      public CommentService commentService;
-   
-   }
+    }
 }

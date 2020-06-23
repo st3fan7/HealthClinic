@@ -9,19 +9,19 @@ using System.Collections.Generic;
 
 namespace Repository.ExaminationSurgeryRepository
 {
-   public interface IMedicalExaminationRepository : IRepository<MedicalExamination,int>
-   {
-      List<MedicalExamination> GetAllMedicalExaminationsByDoctor(Model.AllActors.Doctor doctor);
-      
-      List<MedicalExamination> GetAllMedicalExaminationsByPatient(Model.AllActors.Patient patient);
-      
-      List<MedicalExamination> GetAllMedicalExaminationsByPatient(Model.Term.Room room);
-      
-      List<MedicalExamination> GetAllMedicalExaminationsByPatient2(DateTime time);
-      
-      MedicalExamination GetPreviousMedicalExemination(Model.AllActors.Patient patient);
-      
-      Boolean GetOccupancyStatus(Model.Term.MedicalExamination medicalExamination);
-   
-   }
+    public interface IMedicalExaminationRepository : IRepository<MedicalExamination, int>
+    {
+        List<MedicalExamination> GetAllMedicalExaminationsByDoctor(Model.AllActors.Doctor doctor);
+
+        List<MedicalExamination> GetAllMedicalExaminationsByPatient(Model.AllActors.Patient patient);
+
+        List<MedicalExamination> GetAllMedicalExaminationsByPatient(Model.Term.Room room);
+
+        List<MedicalExamination> GetAllMedicalExaminationsByPatient2(DateTime time);
+
+        MedicalExamination GetPreviousMedicalExemination(Model.AllActors.Patient patient);
+
+        Boolean GetOccupancyStatus(Model.Term.MedicalExamination medicalExamination);
+
+    }
 }

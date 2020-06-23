@@ -12,8 +12,8 @@ using System;
 
 namespace Repository.MedicamentRepository
 {
-   public class MedicamentRepository : CSVRepository<Medicament,int>, IMedicamentRepository
-   {
+    public class MedicamentRepository : CSVRepository<Medicament, int>, IMedicamentRepository
+    {
         private string path;
 
         public MedicamentRepository(ICSVStream<Medicament> stream, ISequencer<int> sequencer)

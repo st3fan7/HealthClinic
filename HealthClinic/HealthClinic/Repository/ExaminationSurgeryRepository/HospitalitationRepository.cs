@@ -13,8 +13,8 @@ using System.Collections.Generic;
 
 namespace Repository.ExaminationSurgeryRepository
 {
-   public class HospitalitationRepository : CSVRepository<Hospitalitation,int>, IHospitalitationRepository
-   {
+    public class HospitalitationRepository : CSVRepository<Hospitalitation, int>, IHospitalitationRepository
+    {
         private string path;
 
         public HospitalitationRepository(ICSVStream<Hospitalitation> stream, ISequencer<int> sequencer)

@@ -5,49 +5,57 @@
  ***********************************************************************/
 
 using Model.Term;
+using Service.RoomsServices;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.RoomsControlers
 {
-   public class RenovationController : IController<Renovation,int>
-   {
-      public bool SeparateOnTwoParts(Model.Term.Room room)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public bool ConnectTwoParts(Model.Term.Room room)
-      {
-         throw new NotImplementedException();
-      }
+    public class RenovationController : IController<Renovation, int>
+    {
+        public RenovationService renovationService;
+
+        public RenovationController(RenovationService renovationService)
+        {
+            this.renovationService = renovationService;
+        }
+
+        public bool SeparateOnTwoParts(Room room)
+        {
+            // return renovationService.SeparateOnTwoParts(room);
+            throw new NotImplementedException();
+        }
+
+        public bool ConnectTwoParts(Room room)
+        {
+            //return renovationService.ConnectTwoParts(room);
+            throw new NotImplementedException();
+        }
 
         public Renovation GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return renovationService.GetEntity(id);
         }
 
         public IEnumerable<Renovation> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return renovationService.GetAllEntities();
         }
 
         public Renovation AddEntity(Renovation entity)
         {
-            throw new NotImplementedException();
+            return renovationService.AddEntity(entity);
         }
 
         public void UpdateEntity(Renovation entity)
         {
-            throw new NotImplementedException();
+            renovationService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Renovation entity)
         {
-            throw new NotImplementedException();
+            renovationService.DeleteEntity(entity);
         }
 
-        public Service.RoomsServices.RenovationService renovationService;
-   
-   }
+    }
 }

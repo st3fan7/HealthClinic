@@ -5,69 +5,76 @@
  ***********************************************************************/
 
 using Model.Term;
+using Model.AllActors;
+using Service.ExaminationSurgeryServices;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.ExaminationSurgeryControlers
 {
-   public class MedicalExaminationController : IController<MedicalExamination,int>
-   {
-      public void GetByDate(DateTime date)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public List<MedicalExamination> GetAllMedicalExaminationsByDoctor(Model.AllActors.Doctor doctor)
+    public class MedicalExaminationController : IController<MedicalExamination, int>
+    {
+        public MedicalExaminationService medicalExaminationService;
+
+        public MedicalExaminationController(MedicalExaminationService medicalExaminationService)
         {
-            throw new NotImplementedException();
-        }
-      
-      public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Model.AllActors.Patient patient)
-        {
-            throw new NotImplementedException();
+            this.medicalExaminationService = medicalExaminationService;
         }
 
-        public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Model.Term.Room room)
+        public void GetByDate(DateTime date)
+        {
+            medicalExaminationService.GetByDate(date);
+        }
+
+        public List<MedicalExamination> GetAllMedicalExaminationsByDoctor(Doctor doctor)
+        {
+            return medicalExaminationService.GetAllMedicalExaminationsByDoctor(doctor);
+        }
+
+        public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Patient patient)
+        {
+            return medicalExaminationService.GetAllMedicalExaminationsByPatient(patient);
+        }
+
+        public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Room room)
         {
             throw new NotImplementedException();
         }
 
         public List<MedicalExamination> GetAllMedicalExaminationsByPatient2(DateTime time)
         {
-            throw new NotImplementedException();
+            return medicalExaminationService.GetAllMedicalExaminationsByPatient2(time);
         }
 
-        public MedicalExamination GetPreviousMedicalExemination(Model.AllActors.Patient patient)
+        public MedicalExamination GetPreviousMedicalExemination(Patient patient)
         {
-            throw new NotImplementedException();
+            return medicalExaminationService.GetPreviousMedicalExemination(patient);
         }
 
         public MedicalExamination GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return medicalExaminationService.GetEntity(id);
         }
 
         public IEnumerable<MedicalExamination> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return medicalExaminationService.GetAllEntities();
         }
 
         public MedicalExamination AddEntity(MedicalExamination entity)
         {
-            throw new NotImplementedException();
+            return medicalExaminationService.AddEntity(entity);
         }
 
         public void UpdateEntity(MedicalExamination entity)
         {
-            throw new NotImplementedException();
+            medicalExaminationService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(MedicalExamination entity)
         {
-            throw new NotImplementedException();
+            medicalExaminationService.DeleteEntity(entity);
         }
 
-        public Service.ExaminationSurgeryServices.MedicalExaminationService medicalExaminationService;
-   
-   }
+    }
 }

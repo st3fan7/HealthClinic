@@ -5,37 +5,43 @@
 // Purpose: Definition of Class SpetialitationController
 
 using Model.Doctor;
+using Service.UsersServices;
 using System;
 
 namespace Controller.UsersControlers
 {
-   public class SpetialitationController : IController<Specialitation,int>
-   {
-      public Service.UsersServices.SpetialitationService spetialitationService;
+    public class SpetialitationController : IController<Specialitation, int>
+    {
+        public SpetialitationService spetialitationService;
+
+        public SpetialitationController(SpetialitationService spetialitationService)
+        {
+            this.spetialitationService = spetialitationService;
+        }
 
         public Specialitation AddEntity(Specialitation entity)
         {
-            throw new NotImplementedException();
+            return spetialitationService.AddEntity(entity);
         }
 
         public void DeleteEntity(Specialitation entity)
         {
-            throw new NotImplementedException();
+            spetialitationService.DeleteEntity(entity);
         }
 
         public System.Collections.Generic.IEnumerable<Specialitation> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return spetialitationService.GetAllEntities();
         }
 
         public Specialitation GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return spetialitationService.GetEntity(id);
         }
 
         public void UpdateEntity(Specialitation entity)
         {
-            throw new NotImplementedException();
+            spetialitationService.UpdateEntity(entity);
         }
     }
 }

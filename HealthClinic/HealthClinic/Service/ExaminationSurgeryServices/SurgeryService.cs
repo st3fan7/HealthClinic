@@ -5,29 +5,38 @@
  ***********************************************************************/
 
 using Model.Term;
+using Model.AllActors;
+using Repository.ExaminationSurgeryRepository;
 using System;
 using System.Collections.Generic;
 
 namespace Service.ExaminationSurgeryServices
 {
-   public class SurgeryService : IService<Surgery,int>
-   {
-      public List<Surgery> GetByDate(DateTime date)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public List<Surgery> GetAllSurgeryByDoctor(Model.AllActors.Doctor doctor)
+    public class SurgeryService : IService<Surgery, int>
+    {
+        public ISurgeryRepository surgeryRepository;
+
+        public SurgeryService(ISurgeryRepository surgeryRepository)
+        {
+            this.surgeryRepository = surgeryRepository;
+        }
+
+        public List<Surgery> GetByDate(DateTime date)
         {
             throw new NotImplementedException();
         }
 
-        public List<Surgery> GetAllSurgeryByPatient(Model.AllActors.Patient patient)
+        public List<Surgery> GetAllSurgeryByDoctor(Doctor doctor)
         {
             throw new NotImplementedException();
         }
 
-        public List<Surgery> GetAllMedicalExaminationsByPatient(Model.Term.Room room)
+        public List<Surgery> GetAllSurgeryByPatient(Patient patient)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Surgery> GetAllMedicalExaminationsByPatient(Room room)
         {
             throw new NotImplementedException();
         }
@@ -37,37 +46,35 @@ namespace Service.ExaminationSurgeryServices
             throw new NotImplementedException();
         }
 
-        public Model.Term.Surgery GetPreviousSurgery(Model.AllActors.Patient patient)
+        public Surgery GetPreviousSurgery(Patient patient)
         {
             throw new NotImplementedException();
         }
 
         public Surgery GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return surgeryRepository.GetEntity(id);
         }
 
         public IEnumerable<Surgery> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return surgeryRepository.GetAllEntities();
         }
 
         public Surgery AddEntity(Surgery entity)
         {
-            throw new NotImplementedException();
+            return surgeryRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(Surgery entity)
         {
-            throw new NotImplementedException();
+            surgeryRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Surgery entity)
         {
-            throw new NotImplementedException();
+            surgeryRepository.DeleteEntity(entity);
         }
 
-        public Repository.ExaminationSurgeryRepository.ISurgeryRepository iSurgeryRepository;
-   
-   }
+    }
 }

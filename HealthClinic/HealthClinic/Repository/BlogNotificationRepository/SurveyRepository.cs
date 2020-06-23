@@ -12,8 +12,8 @@ using System;
 
 namespace Repository.BlogNotificationRepository
 {
-   public class SurveyRepository : CSVRepository<Survey,int>, ISurveyRepository
-   {
+    public class SurveyRepository : CSVRepository<Survey, int>, ISurveyRepository
+    {
         private String path;
 
         public SurveyRepository(ICSVStream<Survey> stream, ISequencer<int> sequencer)

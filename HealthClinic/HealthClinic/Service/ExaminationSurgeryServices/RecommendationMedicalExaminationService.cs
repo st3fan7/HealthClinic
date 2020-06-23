@@ -4,17 +4,19 @@
 // Purpose: Definition of Class RecommendationMedicalExaminationService
 
 using System;
+using Model.Term;
+using Model.AllActors;
 
 namespace Service.ExaminationSurgeryServices
 {
-   public class RecommendationMedicalExaminationService
-   {
-      public Model.Term.MedicalExamination RecommendMedicalExamination(Model.AllActors.Doctor doctor, Model.Term.Term dateRange)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public IRecommendationBehaviour iRecommendationBehaviour;
-   
-   }
+    public class RecommendationMedicalExaminationService
+    {
+        public IRecommendationBehaviour iRecommendationBehaviour;
+
+        public MedicalExamination RecommendMedicalExamination(Doctor doctor, Term dateRange)
+        {
+            throw new NotImplementedException();
+        }
+
+    }
 }

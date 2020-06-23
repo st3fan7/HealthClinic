@@ -10,14 +10,22 @@ namespace Repository.Csv.Converter
 {
     public class UserCSVConverter : ICSVConverter<User>
     {
-        public User ConvertCSVFormatToEntity(string entityCSVFormat)
+        private readonly string delimiter;
+
+        public UserCSVConverter(string delimiter)
         {
-            throw new NotImplementedException();
+            this.delimiter = delimiter;
         }
 
         public string ConvertEntityToCSVFormat(User entity)
         {
-            throw new NotImplementedException();
+            return string.Join(delimiter, entity.GetId(), entity.UserName, entity.Password);
+        }
+
+        public User ConvertCSVFormatToEntity(string entityCSVFormat)
+        {
+            string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
+            return new User(int.Parse(tokens[0]), tokens[1], tokens[2]);
         }
     }
 }

@@ -5,49 +5,56 @@
  ***********************************************************************/
 
 using Model.Term;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
+using Repository.UsersRepository;
 
 namespace Service.UsersServices
 {
-   public class WorkingTimeForDoctorService : IService<WorkingTimeForDoctor,int>
-   {
-        public Model.Term.WorkingTimeForDoctor DetermineDoctorWorkTime(Model.Term.WorkingTimeForDoctor workingTimeForDoctor)
+    public class WorkingTimeForDoctorService : IService<WorkingTimeForDoctor, int>
+    {
+        public IWorkingTimeForDoctorRepository workingTimeForDoctorRepository;
+
+        public WorkingTimeForDoctorService(IWorkingTimeForDoctorRepository workingTimeForDoctorRepository)
+        {
+            this.workingTimeForDoctorRepository = workingTimeForDoctorRepository;
+        }
+
+        public WorkingTimeForDoctor DetermineDoctorWorkTime(WorkingTimeForDoctor workingTimeForDoctor)
         {
             throw new NotImplementedException();
         }
-      
-        public List<WorkingTimeForDoctor> GetWorkTimeForDoctor(Model.AllActors.Doctor doctor)
+
+        public List<WorkingTimeForDoctor> GetWorkTimeForDoctor(Doctor doctor)
         {
             throw new NotImplementedException();
         }
-        
+
         public WorkingTimeForDoctor GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return workingTimeForDoctorRepository.GetEntity(id);
         }
 
         public IEnumerable<WorkingTimeForDoctor> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return workingTimeForDoctorRepository.GetAllEntities();
         }
 
         public WorkingTimeForDoctor AddEntity(WorkingTimeForDoctor entity)
         {
-            throw new NotImplementedException();
+            return workingTimeForDoctorRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(WorkingTimeForDoctor entity)
         {
-            throw new NotImplementedException();
+            workingTimeForDoctorRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(WorkingTimeForDoctor entity)
         {
-            throw new NotImplementedException();
+            workingTimeForDoctorRepository.DeleteEntity(entity);
         }
 
-        public Repository.UsersRepository.IWorkingTimeForDoctorRepository iWorkingTimeForDoctorRepository;
-   
-   }
+    }
 }

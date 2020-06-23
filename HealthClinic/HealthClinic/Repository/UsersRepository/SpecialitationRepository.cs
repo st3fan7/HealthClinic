@@ -11,8 +11,8 @@ using System;
 
 namespace Repository.UsersRepository
 {
-   public class SpecialitationRepository : CSVRepository<Specialitation,int>, ISpecialitationRepository
-   {
+    public class SpecialitationRepository : CSVRepository<Specialitation, int>, ISpecialitationRepository
+    {
         private string path;
 
         public SpecialitationRepository(ICSVStream<Specialitation> stream, ISequencer<int> sequencer)
