@@ -26,6 +26,5 @@ namespace Model.AllActors
             this.Code = code;
         }
 
-
     }
 }
