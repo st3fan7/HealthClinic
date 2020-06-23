@@ -5,44 +5,50 @@
  ***********************************************************************/
 
 using Model.Patient;
+using Repository.BlogNotificationRepository;
 using System;
 using System.Collections.Generic;
 
 namespace Service.BlogNotificationServices
 {
-   public class SurveyService : IService<Survey,int>
-   {
-      public Model.Patient.Survey CompletingSurvey(Survey survey)
-      {
-         throw new NotImplementedException();
-      }
+    public class SurveyService : IService<Survey, int>
+    {
+        public ISurveyRepository surveyRepository;
+
+        public SurveyService(ISurveyRepository surveyRepository)
+        {
+            this.surveyRepository = surveyRepository;
+        }
+
+        public Survey CompletingSurvey(Survey survey)
+        {
+            throw new NotImplementedException();
+        }
 
         public Survey GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return surveyRepository.GetEntity(id);
         }
 
         public IEnumerable<Survey> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return surveyRepository.GetAllEntities();
         }
 
         public Survey AddEntity(Survey entity)
         {
-            throw new NotImplementedException();
+            return surveyRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(Survey entity)
         {
-            throw new NotImplementedException();
+            surveyRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Survey entity)
         {
-            throw new NotImplementedException();
+            surveyRepository.DeleteEntity(entity);
         }
 
-        public Repository.BlogNotificationRepository.ISurveyRepository iSurveyRepository;
-   
-   }
+    }
 }

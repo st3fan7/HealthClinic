@@ -9,11 +9,11 @@ using System.Collections.Generic;
 
 namespace Repository.ExaminationSurgeryRepository
 {
-   public interface IHospitalitationRepository : IRepository<Hospitalitation,int>
-   {
-      List<Hospitalitation> GetAllHospitalitationsByRoom(Model.Term.Room room);
-      
-      List<Hospitalitation> GetByDate(DateTime date);
-   
-   }
+    public interface IHospitalitationRepository : IRepository<Hospitalitation, int>
+    {
+        List<Hospitalitation> GetAllHospitalitationsByRoom(Model.Term.Room room);
+
+        List<Hospitalitation> GetByDate(DateTime date);
+
+    }
 }

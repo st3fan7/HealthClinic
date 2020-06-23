@@ -12,7 +12,7 @@ using System;
 
 namespace Repository.MedicamentRepository
 {
-   public class IssueOfMedicamentRepository : CSVRepository<IssueOfMedicaments,int>, IIssueOfMedicamentRepository
+    public class IssueOfMedicamentRepository : CSVRepository<IssueOfMedicaments, int>, IIssueOfMedicamentRepository
     {
         private string path;
 

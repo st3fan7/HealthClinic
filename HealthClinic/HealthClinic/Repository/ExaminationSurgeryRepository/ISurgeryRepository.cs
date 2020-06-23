@@ -9,17 +9,17 @@ using System.Collections.Generic;
 
 namespace Repository.ExaminationSurgeryRepository
 {
-   public interface ISurgeryRepository : IRepository<Surgery,int>
-   {
-      List<Surgery> GetAllSurgeryByDoctor(Model.AllActors.Doctor doctor);
-      
-      List<Surgery> GetAllSurgeryByPatient(Model.AllActors.Patient patient);
-      
-      List<Surgery> GetAllMedicalExaminationsByPatient(Model.Term.Room room);
-      
-      List<Surgery> GetAllMedicalExaminationsByPatient2(DateTime time);
-      
-      Model.Term.Surgery GetPreviousSurgery(Model.AllActors.Patient patient);
-   
-   }
+    public interface ISurgeryRepository : IRepository<Surgery, int>
+    {
+        List<Surgery> GetAllSurgeryByDoctor(Model.AllActors.Doctor doctor);
+
+        List<Surgery> GetAllSurgeryByPatient(Model.AllActors.Patient patient);
+
+        List<Surgery> GetAllMedicalExaminationsByPatient(Model.Term.Room room);
+
+        List<Surgery> GetAllMedicalExaminationsByPatient2(DateTime time);
+
+        Model.Term.Surgery GetPreviousSurgery(Model.AllActors.Patient patient);
+
+    }
 }

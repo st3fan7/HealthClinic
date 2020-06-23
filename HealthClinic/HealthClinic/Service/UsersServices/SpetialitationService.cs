@@ -6,36 +6,42 @@
 using Model.Doctor;
 using System;
 using System.Collections.Generic;
+using Repository.UsersRepository;
 
 namespace Service.UsersServices
 {
-   public class SpetialitationService : IService<Specialitation,int>
-   {
-      public Repository.UsersRepository.ISpecialitationRepository iSpecialitationRepository;
+    public class SpetialitationService : IService<Specialitation, int>
+    {
+        public ISpecialitationRepository specialitationRepository;
+
+        public SpetialitationService(ISpecialitationRepository specialitationRepository)
+        {
+            this.specialitationRepository = specialitationRepository;
+        }
 
         public Specialitation AddEntity(Specialitation entity)
         {
-            throw new NotImplementedException();
+            return specialitationRepository.AddEntity(entity);
         }
 
         public void DeleteEntity(Specialitation entity)
         {
-            throw new NotImplementedException();
+            specialitationRepository.DeleteEntity(entity);
         }
 
         public IEnumerable<Specialitation> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return specialitationRepository.GetAllEntities();
         }
 
         public Specialitation GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return specialitationRepository.GetEntity(id);
         }
 
         public void UpdateEntity(Specialitation entity)
         {
-            throw new NotImplementedException();
+            specialitationRepository.UpdateEntity(entity);
         }
     }
 }

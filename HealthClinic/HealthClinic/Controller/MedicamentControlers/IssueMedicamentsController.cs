@@ -5,44 +5,50 @@
  ***********************************************************************/
 
 using Model.Doctor;
+using Service.MedicamentService;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.MedicamentControlers
 {
-   public class IssueMedicamentsController : IController<IssueOfMedicaments,int>
-   {
-      public Model.Doctor.IssueOfMedicaments IssueOfMedicaments(Model.Doctor.IssueOfMedicaments issueOfMedicaments)
-      {
-         throw new NotImplementedException();
-      }
+    public class IssueMedicamentsController : IController<IssueOfMedicaments, int>
+    {
+        public IssueMedicamentsService issueMedicamentsService;
+
+        public IssueMedicamentsController(IssueMedicamentsService issueMedicamentsService)
+        {
+            this.issueMedicamentsService = issueMedicamentsService;
+        }
+
+        public IssueOfMedicaments IssueOfMedicaments(IssueOfMedicaments issueOfMedicaments)
+        {
+            return issueMedicamentsService.IssueOfMedicaments(issueOfMedicaments);
+        }
 
         public IssueOfMedicaments GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return issueMedicamentsService.GetEntity(id);
         }
 
         public IEnumerable<IssueOfMedicaments> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return issueMedicamentsService.GetAllEntities();
         }
 
         public IssueOfMedicaments AddEntity(IssueOfMedicaments entity)
         {
-            throw new NotImplementedException();
+            return issueMedicamentsService.AddEntity(entity);
         }
 
         public void UpdateEntity(IssueOfMedicaments entity)
         {
-            throw new NotImplementedException();
+            issueMedicamentsService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(IssueOfMedicaments entity)
         {
-            throw new NotImplementedException();
+            issueMedicamentsService.DeleteEntity(entity);
         }
 
-        public Service.MedicamentService.IssueMedicamentsService issueMedicamentsService;
-   
-   }
+    }
 }

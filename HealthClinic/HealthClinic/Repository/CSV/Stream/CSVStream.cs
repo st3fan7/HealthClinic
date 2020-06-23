@@ -11,8 +11,8 @@ using System.Linq;
 
 namespace Repository.Csv.Stream
 {
-   public class CSVStream<E> : ICSVStream<E> where E : class
-   {
+    public class CSVStream<E> : ICSVStream<E> where E : class
+    {
         private string path;
         private ICSVConverter<E> converter;
 
@@ -22,17 +22,17 @@ namespace Repository.Csv.Stream
             this.converter = converter;
         }
 
-        public void AppendToFile(E entity) 
+        public void AppendToFile(E entity)
         {
             File.AppendAllText(path, converter.ConvertEntityToCSVFormat(entity) + Environment.NewLine);
         }
 
-        public IEnumerable<E> ReadAll() 
+        public IEnumerable<E> ReadAll()
         {
             return File.ReadAllLines(path).Select(converter.ConvertCSVFormatToEntity).ToList();
         }
 
-        public void SaveAll(IEnumerable<E> entities)    
+        public void SaveAll(IEnumerable<E> entities)
         {
             WriteAllLinesToFile(entities.Select(converter.ConvertEntityToCSVFormat).ToList());
         }

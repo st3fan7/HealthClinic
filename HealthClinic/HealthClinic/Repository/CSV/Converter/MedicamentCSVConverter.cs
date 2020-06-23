@@ -5,6 +5,7 @@
 
 using Model.DoctorMenager;
 using System;
+using System.Collections.Generic;
 
 namespace Repository.Csv.Converter
 {
@@ -20,15 +21,33 @@ namespace Repository.Csv.Converter
         public Medicament ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
-            //return new Medicament(tokens[0], tokens[1], tokens[2], State.Confirmed,  // Izmeni state
-            //    int.Parse(tokens[4]), int.Parse(tokens[5]), new System.Collections.ArrayList());  // Izmeni listu
-            return null;
+            List<Ingredient> listOfIngredients = new List<Ingredient>();
+            FillList(listOfIngredients, tokens);
+            return new Medicament(int.Parse(tokens[0]), tokens[1], tokens[2], tokens[3], (State)Enum.Parse(typeof(State), tokens[4]), int.Parse(tokens[5]), listOfIngredients);
+        }
+
+        private void FillList(List<Ingredient> ingredients, string[] tokens)
+        {
+            int i = 5;
+            while (i < tokens.Length - 1)
+            {
+                ingredients.Add(new Ingredient()); // izmeni
+                i++;
+            }
         }
 
         public string ConvertEntityToCSVFormat(Medicament entity)
         {
-            return string.Join(delimiter, entity.Code, entity.Name, entity.Producer,
-                entity.StateOfValidation, entity.Quantity, entity.GetId(), entity.Ingredient);
+            String listOfMedicaments = "";
+
+            foreach (Ingredient ingredient in entity.Ingredient)
+            {
+                listOfMedicaments += string.Join(delimiter, ingredient);
+                listOfMedicaments += delimiter; //??
+
+            }
+
+            return string.Join(delimiter, entity.Code, entity.Name, entity.Producer, entity.StateOfValidation, entity.Quantity, entity.GetId(), listOfMedicaments);
         }
     }
 }
