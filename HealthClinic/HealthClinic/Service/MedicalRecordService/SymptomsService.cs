@@ -21,27 +21,27 @@ namespace Service.MedicalRecordService
 
         public Symptoms GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return symptomsRepository.GetEntity(id);
         }
 
         public IEnumerable<Symptoms> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return symptomsRepository.GetAllEntities();
         }
 
         public Symptoms AddEntity(Symptoms entity)
         {
-            throw new NotImplementedException();
+            return symptomsRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(Symptoms entity)
         {
-            throw new NotImplementedException();
+            symptomsRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Symptoms entity)
         {
-            throw new NotImplementedException();
+            symptomsRepository.DeleteEntity(entity);
         }
     }
 }

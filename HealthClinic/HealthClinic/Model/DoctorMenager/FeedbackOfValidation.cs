@@ -10,15 +10,17 @@ namespace Model.DoctorMenager
 {
     public class FeedbackOfValidation
     {
-        private String comment { get; set; }
-
+        private String comment;
+        public string Comment { get => comment; set => comment = value; }
         public FeedbackOfValidation()
         {
         }
 
         public FeedbackOfValidation(string comment)
         {
-            this.comment = comment;
+            this.Comment = comment;
         }
+
+       
     }
 }

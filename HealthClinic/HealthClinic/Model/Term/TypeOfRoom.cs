@@ -10,7 +10,9 @@ namespace Model.Term
 {
     public class TypeOfRoom
     {
-        private String nameOfType { get; set; }
+        private String nameOfType;
+
+        public string NameOfType { get => nameOfType; set => nameOfType = value; }
 
         public TypeOfRoom()
         {
@@ -18,7 +20,9 @@ namespace Model.Term
 
         public TypeOfRoom(string nameOfType)
         {
-            this.nameOfType = nameOfType;
+            this.NameOfType = nameOfType;
         }
+
+        
     }
 }

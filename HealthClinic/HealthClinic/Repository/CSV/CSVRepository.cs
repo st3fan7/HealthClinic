@@ -13,13 +13,13 @@ using Repository.IDSequencer;
 
 namespace Repository.Csv
 {
-   public class CSVRepository<E,ID> : IRepository<E,ID>
-        where E : IIdentifiable<ID>
-        where ID : IComparable
+    public class CSVRepository<E, ID> : IRepository<E, ID>
+         where E : IIdentifiable<ID>
+         where ID : IComparable
     {
         public ICSVStream<E> stream;
         public ISequencer<ID> sequencer;
-        
+
         public CSVRepository(ICSVStream<E> stream, ISequencer<ID> sequencer)
         {
             this.stream = stream;
@@ -52,21 +52,21 @@ namespace Repository.Csv
 
         public E GetEntity(ID id)
         {
-            return stream.ReadAll().SingleOrDefault(entity => entity.GetId().CompareTo(id) == 0); 
+            return stream.ReadAll().SingleOrDefault(entity => entity.GetId().CompareTo(id) == 0);
         }
 
         public void UpdateEntity(E entity)
         {
             var entities = stream.ReadAll().ToList();
             entities[entities.FindIndex(ent => ent.GetId().CompareTo(entity.GetId()) == 0)] = entity;
-            stream.SaveAll(entities); 
+            stream.SaveAll(entities);
         }
 
         protected void InitializeId() => sequencer.Initialize(GetMaxId(stream.ReadAll()));
 
         private ID GetMaxId(IEnumerable<E> entities)
         {
-            return entities.Count() == 0 ? default : entities.Max(entity => entity.GetId()); // VERSION 7.1
+            return entities.Count() == 0 ? default : entities.Max(entity => entity.GetId()); 
         }
 
     }

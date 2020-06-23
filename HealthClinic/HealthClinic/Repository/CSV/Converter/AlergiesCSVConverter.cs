@@ -19,18 +19,15 @@ namespace Repository.Csv.Converter
             this.delimiter = delimiter;
         }
 
+        public string ConvertEntityToCSVFormat(Allergies entity)
+        {
+            return string.Join(delimiter, entity.GetId(), entity.Name);
+        }
+
         public Allergies ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
-            return new Allergies(tokens[0], int.Parse(tokens[1]));
-            
-            
-        }
-
-        public string ConvertEntityToCSVFormat(Allergies entity)
-        {        
-            return string.Join(delimiter, entity.Name, entity.GetId());
-            //entity
+            return new Allergies(int.Parse(tokens[0]), tokens[1]);                    
         }
     }
 }

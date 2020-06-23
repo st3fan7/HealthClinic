@@ -8,7 +8,7 @@ using System;
 
 namespace Repository.UsersRepository
 {
-   public interface ISpecialitationRepository : IRepository<Specialitation,int>
-   {
-   }
+    public interface ISpecialitationRepository : IRepository<Specialitation, int>
+    {
+    }
 }

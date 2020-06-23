@@ -12,8 +12,8 @@ using System;
 
 namespace Repository.BlogNotificationRepository
 {
-   public class NotificationRepository : CSVRepository<Notification,int>, INotificationRepository
-   {
+    public class NotificationRepository : CSVRepository<Notification, int>, INotificationRepository
+    {
         private String path;
 
         public NotificationRepository(ICSVStream<Notification> stream, ISequencer<int> sequencer)

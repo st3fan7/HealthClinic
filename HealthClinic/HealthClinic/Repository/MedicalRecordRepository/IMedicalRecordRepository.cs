@@ -8,9 +8,9 @@ using System;
 
 namespace Repository.MedicalRecordRepository
 {
-   public interface IMedicalRecordRepository : IRepository<MedicalRecord,int>
-   {
-      Model.PatientDoctor.MedicalRecord GetMedicalRecordByPatient(Model.AllActors.Patient patient);
-   
-   }
+    public interface IMedicalRecordRepository : IRepository<MedicalRecord, int>
+    {
+        Model.PatientDoctor.MedicalRecord GetMedicalRecordByPatient(Model.AllActors.Patient patient);
+
+    }
 }

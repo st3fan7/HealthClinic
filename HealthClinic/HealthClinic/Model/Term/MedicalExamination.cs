@@ -11,15 +11,17 @@ namespace Model.Term
 {
     public class MedicalExamination : Term, IIdentifiable<int>
     {
-        private bool urgency { get; set; }
-        private String shortDescription { get; set; }
-
+        private bool urgency;
+        private String shortDescription;
         private int id;
+        private Room room;
+        private AllActors.Doctor doctor;
+        public AllActors.Patient patient;
 
-        public Room room { get; set; }
-        public Model.AllActors.Doctor doctor { get; set; }
-
-        public Model.AllActors.Patient patient;
+        public bool Urgency { get => urgency; set => urgency = value; }
+        public string ShortDescription { get => shortDescription; set => shortDescription = value; }
+        public Room Room { get => room; set => room = value; }
+        public AllActors.Doctor Doctor { get => doctor; set => doctor = value; }
 
         public MedicalExamination(int id)
         {
@@ -30,13 +32,22 @@ namespace Model.Term
         {
         }
 
-        public MedicalExamination(bool urgency, string shortDescription, int id, Room room, AllActors.Doctor doctor, AllActors.Patient patient)
+        public MedicalExamination(int id, bool urgency, string shortDescription, Room room, AllActors.Doctor doctor, AllActors.Patient patient)
         {
-            this.urgency = urgency;
-            this.shortDescription = shortDescription;
+            this.Urgency = urgency;
+            this.ShortDescription = shortDescription;
             this.id = id;
-            this.room = room;
-            this.doctor = doctor;
+            this.Room = room;
+            this.Doctor = doctor;
+            this.patient = patient;
+        }
+
+        public MedicalExamination(bool urgency, string shortDescription, Room room, AllActors.Doctor doctor, AllActors.Patient patient)
+        {
+            this.Urgency = urgency;
+            this.ShortDescription = shortDescription;
+            this.Room = room;
+            this.Doctor = doctor;
             this.patient = patient;
         }
 

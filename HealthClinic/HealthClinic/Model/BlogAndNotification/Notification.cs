@@ -7,17 +7,20 @@
 using HealthClinic.Repository;
 using Model.AllActors;
 using System;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace Model.BlogAndNotification
 {
     public class Notification : Content, IIdentifiable<int>
     {
-        private String title { get; set; }
         private int id;
-        public User sendNotificationByUser { get; set; }
+        private String title;
+        private User sendNotificationByUser;
+        private List<User> receiveNotifications;
 
-        public System.Collections.ArrayList receiveNotifications;
+        public string Title { get => title; set => title = value; }
+        public User SendNotificationByUser { get => sendNotificationByUser; set => sendNotificationByUser = value; }
+        public List<User> ReceiveNotifications { get => receiveNotifications; set => receiveNotifications = value; }
 
         public Notification(int id)
         {
@@ -28,12 +31,19 @@ namespace Model.BlogAndNotification
         {
         }
 
-        public Notification(string title, int id, User sendNotificationByUser, ArrayList receiveNotifications)
+        public Notification(int id, string title, User sendNotificationByUser, List<User> receiveNotifications)
         {
-            this.title = title;
+            this.Title = title;
             this.id = id;
-            this.sendNotificationByUser = sendNotificationByUser;
-            this.receiveNotifications = receiveNotifications;
+            this.SendNotificationByUser = sendNotificationByUser;
+            this.ReceiveNotifications = receiveNotifications;
+        }
+
+        public Notification(string title, User sendNotificationByUser, List<User> receiveNotifications)
+        {
+            this.Title = title;
+            this.SendNotificationByUser = sendNotificationByUser;
+            this.ReceiveNotifications = receiveNotifications;
         }
 
         public int GetId()
@@ -44,67 +54,7 @@ namespace Model.BlogAndNotification
         public void SetId(int id)
         {
             this.id = id;
-        }
-
-        /// <summary>
-        /// Property for collection of User
-        /// </summary>
-        /// <pdGenerated>Default opposite class collection property</pdGenerated>
-        public System.Collections.ArrayList ReceiveNotifications
-        {
-            get
-            {
-                if (receiveNotifications == null)
-                    receiveNotifications = new System.Collections.ArrayList();
-                return receiveNotifications;
-            }
-            set
-            {
-                RemoveAllReceiveNotifications();
-                if (value != null)
-                {
-                    foreach (User oUser in value)
-                        AddReceiveNotifications(oUser);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Add a new User in the collection
-        /// </summary>
-        /// <pdGenerated>Default Add</pdGenerated>
-        public void AddReceiveNotifications(User newUser)
-        {
-            if (newUser == null)
-                return;
-            if (this.receiveNotifications == null)
-                this.receiveNotifications = new System.Collections.ArrayList();
-            if (!this.receiveNotifications.Contains(newUser))
-                this.receiveNotifications.Add(newUser);
-        }
-
-        /// <summary>
-        /// Remove an existing User from the collection
-        /// </summary>
-        /// <pdGenerated>Default Remove</pdGenerated>
-        public void RemoveReceiveNotifications(User oldUser)
-        {
-            if (oldUser == null)
-                return;
-            if (this.receiveNotifications != null)
-                if (this.receiveNotifications.Contains(oldUser))
-                    this.receiveNotifications.Remove(oldUser);
-        }
-
-        /// <summary>
-        /// Remove all instances of User from the collection
-        /// </summary>
-        /// <pdGenerated>Default removeAll</pdGenerated>
-        public void RemoveAllReceiveNotifications()
-        {
-            if (receiveNotifications != null)
-                receiveNotifications.Clear();
-        }        
+        }              
 
     }
 }

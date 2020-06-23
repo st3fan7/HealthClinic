@@ -27,27 +27,27 @@ namespace Service.BlogNotificationServices
 
         public Survey GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return surveyRepository.GetEntity(id);
         }
 
         public IEnumerable<Survey> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return surveyRepository.GetAllEntities();
         }
 
         public Survey AddEntity(Survey entity)
         {
-            throw new NotImplementedException();
+            return surveyRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(Survey entity)
         {
-            throw new NotImplementedException();
+            surveyRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Survey entity)
         {
-            throw new NotImplementedException();
+            surveyRepository.DeleteEntity(entity);
         }
 
     }

@@ -22,7 +22,7 @@ namespace Controller.BlogNotificationControlers
 
         public Article AddEntity(Article entity)
         {
-           return articleService.AddEntity(entity);
+            return articleService.AddEntity(entity);
         }
 
         public void DeleteEntity(Article entity)

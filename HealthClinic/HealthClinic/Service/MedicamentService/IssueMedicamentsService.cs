@@ -26,27 +26,27 @@ namespace Service.MedicamentService
 
         public IssueOfMedicaments GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return issueOfMedicamentRepository.GetEntity(id);
         }
 
         public IEnumerable<IssueOfMedicaments> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return issueOfMedicamentRepository.GetAllEntities();
         }
 
         public IssueOfMedicaments AddEntity(IssueOfMedicaments entity)
         {
-            throw new NotImplementedException();
+            return issueOfMedicamentRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(IssueOfMedicaments entity)
         {
-            throw new NotImplementedException();
+            issueOfMedicamentRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(IssueOfMedicaments entity)
         {
-            throw new NotImplementedException();
+            issueOfMedicamentRepository.DeleteEntity(entity);
         }
 
     }

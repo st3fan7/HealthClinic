@@ -48,27 +48,27 @@ namespace Service.RoomsServices
 
         public Renovation GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return renovationRepository.GetEntity(id);
         }
 
         public IEnumerable<Renovation> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return renovationRepository.GetAllEntities();
         }
 
         public Renovation AddEntity(Renovation entity)
         {
-            throw new NotImplementedException();
+            return renovationRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(Renovation entity)
         {
-            throw new NotImplementedException();
+            renovationRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Renovation entity)
         {
-            throw new NotImplementedException();
+            renovationRepository.DeleteEntity(entity);
         }
 
     }

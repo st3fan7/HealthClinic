@@ -10,8 +10,10 @@ namespace Model.PatientDoctor
 {
     public class Symptoms : IIdentifiable<int>
     {
-        private String name { get; set; }
+        private String name;
         private int id;
+
+        public string Name { get => name; set => name = value; }
 
         public Symptoms(int id)
         {
@@ -22,10 +24,15 @@ namespace Model.PatientDoctor
         {
         }
 
-        public Symptoms(string name, int id)
+        public Symptoms(int id, string name)
         {
-            this.name = name;
+            this.Name = name;
             this.id = id;
+        }
+
+        public Symptoms(string name)
+        {
+            this.Name = name;
         }
 
         public int GetId()

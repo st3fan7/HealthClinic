@@ -11,9 +11,11 @@ namespace Model.AllActors
 {
     public class Patient : User
     {
-        private Boolean guestAccount { get; set; }
+        private Boolean guestAccount;
+        private MedicalRecord medicalRecord;
 
-        public MedicalRecord medicalRecord { get; set; }
+        public bool GuestAccount { get => guestAccount; set => guestAccount = value; }
+        public MedicalRecord MedicalRecord { get => medicalRecord; set => medicalRecord = value; }
 
         public Patient()
         {
@@ -21,8 +23,8 @@ namespace Model.AllActors
 
         public Patient(bool guestAccount, MedicalRecord medicalRecord)
         {
-            this.guestAccount = guestAccount;
-            this.medicalRecord = medicalRecord;
+            this.GuestAccount = guestAccount;
+            this.MedicalRecord = medicalRecord;
         }
     }
 }

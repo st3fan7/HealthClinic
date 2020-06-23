@@ -5,16 +5,18 @@
  ***********************************************************************/
 
 using System;
+using Model.AllActors;
 
 namespace Model.Doctor
 {
     public class Bed
     {
-        private bool taken { get; set; }
-
         private int id;
+        private bool taken;       
+        private AllActors.Patient patient;
 
-        public Model.AllActors.Patient patient { get; set; }
+        public bool Taken { get => taken; set => taken = value; }
+        public AllActors.Patient Patient { get => patient; set => patient = value; }
 
         public Bed(int id)
         {
@@ -25,11 +27,17 @@ namespace Model.Doctor
         {
         }
 
-        public Bed(bool taken, int id, AllActors.Patient patient)
+        public Bed(int id, bool taken, AllActors.Patient patient)
         {
-            this.taken = taken;
+            this.Taken = taken;
             this.id = id;
-            this.patient = patient;
+            this.Patient = patient;
+        }
+
+        public Bed(bool taken, AllActors.Patient patient)
+        {
+            this.Taken = taken;
+            this.Patient = patient;
         }
 
         public int GetId()

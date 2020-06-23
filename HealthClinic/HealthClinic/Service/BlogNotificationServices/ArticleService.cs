@@ -33,22 +33,22 @@ namespace Service.BlogNotificationServices
 
         public IEnumerable<Article> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return articleRepository.GetAllEntities();
         }
 
         public Article AddEntity(Article entity)
         {
-            throw new NotImplementedException();
+            return articleRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(Article entity)
         {
-            throw new NotImplementedException();
+            articleRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Article entity)
         {
-            throw new NotImplementedException();
+            articleRepository.DeleteEntity(entity);
         }
 
     }

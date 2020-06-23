@@ -21,33 +21,33 @@ namespace Repository.Csv.Converter
         public Medicament ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
-            System.Collections.ArrayList lista = new System.Collections.ArrayList();
+            List<Ingredient> listOfIngredients = new List<Ingredient>();
+            FillList(listOfIngredients, tokens);
+            return new Medicament(int.Parse(tokens[0]), tokens[1], tokens[2], tokens[3], (State)Enum.Parse(typeof(State), tokens[4]), int.Parse(tokens[5]), listOfIngredients);
+        }
 
-            int i = 6;
-            while(i < tokens.Length-1) 
+        private void FillList(List<Ingredient> ingredients, string[] tokens)
+        {
+            int i = 5;
+            while (i < tokens.Length - 1)
             {
-                lista.Add(tokens[i]);
+                ingredients.Add(new Ingredient()); // izmeni
                 i++;
             }
-
-            return new Medicament(tokens[0], tokens[1], tokens[2], (State)Enum.Parse(typeof(State), tokens[3]), 
-                int.Parse(tokens[4]), int.Parse(tokens[5]), lista);  // Izmeni listu
-            
         }
 
         public string ConvertEntityToCSVFormat(Medicament entity)
         {
-            String list = "";
+            String listOfMedicaments = "";
 
-            foreach(String i in entity.ingredient)
+            foreach (Ingredient ingredient in entity.Ingredient)
             {
-                list += string.Join(delimiter, i);
-                list += delimiter; //??
+                listOfMedicaments += string.Join(delimiter, ingredient);
+                listOfMedicaments += delimiter; //??
 
             }
 
-            return string.Join(delimiter, entity.Code, entity.Name, entity.Producer,
-                entity.StateOfValidation, entity.Quantity, entity.GetId(), list);
+            return string.Join(delimiter, entity.Code, entity.Name, entity.Producer, entity.StateOfValidation, entity.Quantity, entity.GetId(), listOfMedicaments);
         }
     }
 }

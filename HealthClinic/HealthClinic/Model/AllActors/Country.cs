@@ -10,8 +10,11 @@ namespace Model.AllActors
 {
     public class Country
     {
-        private String name { get; set; }
-        private String code { get; set; }
+        private String name;
+        private String code;
+
+        public string Name { get => name; set => name = value; }
+        public string Code { get => code; set => code = value; }
 
         public Country()
         {
@@ -19,8 +22,9 @@ namespace Model.AllActors
 
         public Country(string name, string code)
         {
-            this.name = name;
-            this.code = code;
+            this.Name = name;
+            this.Code = code;
         }
+
     }
 }

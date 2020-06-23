@@ -22,27 +22,27 @@ namespace Service.MedicamentService
 
         public ValidationOfMedicament AddEntity(ValidationOfMedicament entity)
         {
-            throw new NotImplementedException();
+            return validationOfMedicamentRepository.AddEntity(entity);
         }
 
         public void DeleteEntity(ValidationOfMedicament entity)
         {
-            throw new NotImplementedException();
+            validationOfMedicamentRepository.DeleteEntity(entity);
         }
 
         public IEnumerable<ValidationOfMedicament> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return validationOfMedicamentRepository.GetAllEntities();
         }
 
         public ValidationOfMedicament GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return validationOfMedicamentRepository.GetEntity(id);
         }
 
         public void UpdateEntity(ValidationOfMedicament entity)
         {
-            throw new NotImplementedException();
+            validationOfMedicamentRepository.UpdateEntity(entity);
         }
     }
 }

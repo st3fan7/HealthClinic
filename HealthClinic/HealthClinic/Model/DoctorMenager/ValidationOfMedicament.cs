@@ -5,18 +5,23 @@
 
 using HealthClinic.Repository;
 using System;
-
+using System.Collections.Generic;
+using System.Windows.Documents;
 namespace Model.DoctorMenager
 {
     public class ValidationOfMedicament : IIdentifiable<int>
     {
-        private bool approved { get; set; }
-
+        private bool approved;
         private int id;
+        private Medicament medicament;
+        private List<AllActors.Doctor> doctors;
 
-        public Medicament medicament { get; set; }
-        public Model.AllActors.Doctor[] doctor { get; set; }
-        public FeedbackOfValidation feedbackOfValidation { get; set; }
+        private FeedbackOfValidation feedbackOfValidation;
+
+        public bool Approved { get => approved; set => approved = value; }
+        public Medicament Medicament { get => medicament; set => medicament = value; }
+        public FeedbackOfValidation FeedbackOfValidation { get => feedbackOfValidation; set => feedbackOfValidation = value; }
+        public List<AllActors.Doctor> Doctors { get => doctors; set => doctors = value; }
 
         public ValidationOfMedicament(int id)
         {
@@ -27,13 +32,22 @@ namespace Model.DoctorMenager
         {
         }
 
-        public ValidationOfMedicament(bool approved, int id, Medicament medicament, AllActors.Doctor[] doctor, FeedbackOfValidation feedbackOfValidation)
+        public ValidationOfMedicament(int id, bool approved, Medicament medicament, FeedbackOfValidation feedbackOfValidation, List<AllActors.Doctor> doctors)
         {
-            this.approved = approved;
+            this.Approved = approved;
             this.id = id;
-            this.medicament = medicament;
-            this.doctor = doctor;
-            this.feedbackOfValidation = feedbackOfValidation;
+            this.Medicament = medicament;
+            this.FeedbackOfValidation = feedbackOfValidation;
+            this.doctors = doctors;
+        }
+
+
+        public ValidationOfMedicament(bool approved, Medicament medicament, FeedbackOfValidation feedbackOfValidation, List<AllActors.Doctor> doctors)
+        {
+            this.Approved = approved;
+            this.Medicament = medicament;
+            this.FeedbackOfValidation = feedbackOfValidation;
+            this.doctors = doctors;
         }
 
         public int GetId()

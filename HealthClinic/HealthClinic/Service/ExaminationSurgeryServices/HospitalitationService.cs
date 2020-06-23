@@ -27,37 +27,37 @@ namespace Service.ExaminationSurgeryServices
 
         public List<Hospitalitation> GetAllHospitalitationsByRoom(Room room)
         {
-            throw new NotImplementedException();
+            return hospitalitationRepository.GetAllHospitalitationsByRoom(room);
         }
 
         public List<Hospitalitation> GetByDate(DateTime date)
         {
-            throw new NotImplementedException();
+            return hospitalitationRepository.GetByDate(date);
         }
 
         public Hospitalitation GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return hospitalitationRepository.GetEntity(id);
         }
 
         public IEnumerable<Hospitalitation> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return hospitalitationRepository.GetAllEntities();
         }
 
         public Hospitalitation AddEntity(Hospitalitation entity)
         {
-            throw new NotImplementedException();
+            return hospitalitationRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(Hospitalitation entity)
         {
-            throw new NotImplementedException();
+            hospitalitationRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Hospitalitation entity)
         {
-            throw new NotImplementedException();
+            hospitalitationRepository.DeleteEntity(entity);
         }
 
     }

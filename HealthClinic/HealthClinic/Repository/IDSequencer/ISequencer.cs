@@ -7,11 +7,11 @@ using System;
 
 namespace Repository.IDSequencer
 {
-   public interface ISequencer<T>
-   {
-      void Initialize(T initID);
-      
-      T GenerateID();
-   
-   }
+    public interface ISequencer<T>
+    {
+        void Initialize(T initID);
+
+        T GenerateID();
+
+    }
 }

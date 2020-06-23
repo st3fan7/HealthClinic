@@ -10,8 +10,17 @@ namespace Model.Patient
 {
     public class Question
     {
-        private String questionText { get; set; }
-        private GradeOfQuestion answer { get; set; }
+        private String questionText;
+        private GradeOfQuestion answer;
+        private int id;
+
+        public string QuestionText { get => questionText; set => questionText = value; }
+        public GradeOfQuestion Answer { get => answer; set => answer = value; }
+
+        public Question(int id)
+        {
+            this.id = id;
+        }
 
         public Question()
         {
@@ -19,8 +28,19 @@ namespace Model.Patient
 
         public Question(string questionText, GradeOfQuestion answer)
         {
-            this.questionText = questionText;
-            this.answer = answer;
+            this.QuestionText = questionText;
+            this.Answer = answer;
+        }
+
+
+        public int GetId()
+        {
+            return id;
+        }
+
+        public void SetId(int id)
+        {
+            this.id = id;
         }
     }
 }
