@@ -6,7 +6,7 @@
 using Model.AllActors;
 using Model.BlogAndNotification;
 using System;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace Repository.Csv.Converter
 {
@@ -22,23 +22,23 @@ namespace Repository.Csv.Converter
         public string ConvertEntityToCSVFormat(Article entity)
         {
             String comentsCSV = "";
-            foreach (Comment comment in entity.comments) 
+            foreach (Comment comment in entity.Comments) 
             {
                 comentsCSV += string.Join(delimiter, comment.GetId());
                 comentsCSV += delimiter;
             }
-            return string.Join(delimiter, entity.GetId(), entity.Title, entity.blog.GetId(), comentsCSV);
+            return string.Join(delimiter, entity.GetId(), entity.Title, entity.Blog.GetId(), comentsCSV);
         }
 
         public Article ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
-            ArrayList coments = new ArrayList();
+            List<Comment> coments = new List<Comment>();
             FillList(coments, tokens);
             return new Article(int.Parse(tokens[0]), tokens[1], new Blog(int.Parse(tokens[2])), coments);
         }
       
-        private void FillList(ArrayList coments, string[] tokens)
+        private void FillList(List<Comment> coments, string[] tokens)
         {
             int i = 3;
             while (i < tokens.Length - 1)

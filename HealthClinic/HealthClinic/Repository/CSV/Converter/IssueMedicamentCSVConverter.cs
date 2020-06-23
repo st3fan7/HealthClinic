@@ -8,7 +8,7 @@ using Model.Doctor;
 using Model.DoctorMenager;
 using Model.PatientDoctor;
 using System;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace Repository.Csv.Converter
 {
@@ -24,7 +24,7 @@ namespace Repository.Csv.Converter
         public string ConvertEntityToCSVFormat(IssueOfMedicaments entity)
         {
             String medicamentsCSV = "";
-            foreach (Medicament medicament in entity.medicament)
+            foreach (Medicament medicament in entity.Medicaments)
             {
                 medicamentsCSV += string.Join(delimiter, medicament.GetId());
                 medicamentsCSV += delimiter;
@@ -35,12 +35,13 @@ namespace Repository.Csv.Converter
         public IssueOfMedicaments ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
-            ArrayList medicaments = new ArrayList();
+            List<Medicament> medicaments = new List<Medicament>();
             FillList(medicaments, tokens);
-            return new IssueOfMedicaments(int.Parse(tokens[0]), tokens[1], new MedicalRecord(int.Parse(tokens[2])), (Doctor) new User(int.Parse(tokens[3])), medicaments);
+            return new IssueOfMedicaments(int.Parse(tokens[0]), tokens[1], new MedicalRecord(int.Parse(tokens[2])),
+                (Doctor) new User(int.Parse(tokens[3])), medicaments);
         }
 
-        private void FillList(ArrayList medicaments, string[] tokens)
+        private void FillList(List<Medicament> medicaments, string[] tokens)
         {
             int i = 3;
             while (i < tokens.Length - 1)

@@ -12,7 +12,6 @@ namespace Model.AllActors
     public class Patient : User
     {
         private Boolean guestAccount;
-
         private MedicalRecord medicalRecord;
 
         public bool GuestAccount { get => guestAccount; set => guestAccount = value; }

@@ -10,8 +10,8 @@ namespace Model.Doctor
 {
     public class Specialitation : IIdentifiable<int>
     {
-        private String specialitationForDoctor; // promenio sam naziv
         private int id;
+        private String specialitationForDoctor; // promenjen naziv
 
         public string SpecialitationForDoctor { get => specialitationForDoctor; set => specialitationForDoctor = value; }
 

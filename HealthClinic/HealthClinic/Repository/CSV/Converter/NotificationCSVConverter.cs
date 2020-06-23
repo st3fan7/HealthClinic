@@ -6,7 +6,7 @@
 using Model.AllActors;
 using Model.BlogAndNotification;
 using System;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace Repository.Csv.Converter
 {
@@ -22,7 +22,7 @@ namespace Repository.Csv.Converter
         public string ConvertEntityToCSVFormat(Notification entity)
         {
             String receiveNotificationsCSV = "";
-            foreach (User user in entity.receiveNotifications)
+            foreach (User user in entity.ReceiveNotifications)
             {
                 receiveNotificationsCSV += string.Join(delimiter, user.GetId());
                 receiveNotificationsCSV += delimiter;
@@ -34,18 +34,18 @@ namespace Repository.Csv.Converter
         public Notification ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
-            ArrayList receiveNotifications = new ArrayList();
+            List<User> receiveNotifications = new List<User>();
             FillList(receiveNotifications, tokens);
             return new Notification(int.Parse(tokens[0]), tokens[1], new User(int.Parse(tokens[2])), receiveNotifications);
         }
 
-        private void FillList(ArrayList receiveNotifications, string[] tokens)
+        private void FillList(List<User> receiveNotifications, string[] tokens)
         {
             int i = 3;
             while (i < tokens.Length - 1)
             {
                 int id = int.Parse(tokens[i]);
-                receiveNotifications.Add(new Notification(id));     
+                receiveNotifications.Add(new User(id));     
                 i++;
             }
         }

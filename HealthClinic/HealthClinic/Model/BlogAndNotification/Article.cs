@@ -7,21 +7,20 @@
 using HealthClinic.Repository;
 using Model.AllActors;
 using System;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace Model.BlogAndNotification
 {
     public class Article : Content, IIdentifiable<int>
     {
-        private String title;
-        
         private int id;
-        
-        public Blog blog;
-
-        public System.Collections.ArrayList comments;
+        private String title;
+        private Blog blog;
+        private List<Comment> comments;
 
         public string Title { get => title; set => title = value; }
+        public Blog Blog { get => blog; set => blog = value; }
+        public List<Comment> Comments { get => comments; set => comments = value; }
 
         public Article(int id)
         {
@@ -32,19 +31,19 @@ namespace Model.BlogAndNotification
         {
         }
 
-        public Article(int id, string title, Blog blog, ArrayList comments)
+        public Article(int id, string title, Blog blog, List<Comment> comments)
         {
             this.Title = title;
             this.id = id;
-            this.blog = blog;
-            this.comments = comments;
+            this.Blog = blog;
+            this.Comments = comments;
         }
 
-        public Article(string title, Blog blog, ArrayList comments)
+        public Article(string title, Blog blog, List<Comment> comments)
         {
             this.Title = title;
-            this.blog = blog;
-            this.comments = comments;
+            this.Blog = blog;
+            this.Comments = comments;
         }
 
         public int GetId()
@@ -55,97 +54,7 @@ namespace Model.BlogAndNotification
         public void SetId(int id)
         {
             this.id = id;
-        }
+        }                  
 
-        /// <summary>
-        /// Property for collection of Comment
-        /// </summary>
-        /// <pdGenerated>Default opposite class collection property</pdGenerated>
-        public System.Collections.ArrayList Comments
-        {
-            get
-            {
-                if (comments == null)
-                    comments = new System.Collections.ArrayList();
-                return comments;
-            }
-            set
-            {
-                RemoveAllComments();
-                if (value != null)
-                {
-                    foreach (Comment oComment in value)
-                        AddComments(oComment);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Add a new Comment in the collection
-        /// </summary>
-        /// <pdGenerated>Default Add</pdGenerated>
-        public void AddComments(Comment newComment)
-        {
-            if (newComment == null)
-                return;
-            if (this.comments == null)
-                this.comments = new System.Collections.ArrayList();
-            if (!this.comments.Contains(newComment))
-                this.comments.Add(newComment);
-        }
-
-        /// <summary>
-        /// Remove an existing Comment from the collection
-        /// </summary>
-        /// <pdGenerated>Default Remove</pdGenerated>
-        public void RemoveComments(Comment oldComment)
-        {
-            if (oldComment == null)
-                return;
-            if (this.comments != null)
-                if (this.comments.Contains(oldComment))
-                    this.comments.Remove(oldComment);
-        }
-
-        /// <summary>
-        /// Remove all instances of Comment from the collection
-        /// </summary>
-        /// <pdGenerated>Default removeAll</pdGenerated>
-        public void RemoveAllComments()
-        {
-            if (comments != null)
-                comments.Clear();
-        }    
-
-        /// <summary>
-        /// Property for Model.AllActors.Blog
-        /// </summary>
-        /// <pdGenerated>Default opposite class property</pdGenerated>
-        public Blog Blog
-        {
-            get
-            {
-                return blog;
-            }
-            set
-            {
-                if (this.blog == null || !this.blog.Equals(value))
-                {
-                    if (this.blog != null)
-                    {
-                        Model.AllActors.Blog oldBlog = this.blog;
-                        this.blog = null;
-                        oldBlog.RemoveArticles(this);
-                    }
-                    if (value != null)
-                    {
-                        this.blog = value;
-                        this.blog.AddArticles(this);
-                    }
-                }
-            }
-        }
-
-        
     }
 }

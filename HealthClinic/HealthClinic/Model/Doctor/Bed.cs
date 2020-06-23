@@ -11,8 +11,8 @@ namespace Model.Doctor
 {
     public class Bed
     {
-        private bool taken;
         private int id;
+        private bool taken;       
         private AllActors.Patient patient;
 
         public bool Taken { get => taken; set => taken = value; }
