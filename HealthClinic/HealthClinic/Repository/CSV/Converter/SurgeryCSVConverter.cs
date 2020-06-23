@@ -10,6 +10,13 @@ namespace Repository.Csv.Converter
 {
     public class SurgeryCSVConverter : ICSVConverter<Surgery>
     {
+        private readonly string delimiter;
+
+        public SurgeryCSVConverter(string delimiter)
+        {
+            this.delimiter = delimiter;
+        }
+
         public Surgery ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             throw new NotImplementedException();

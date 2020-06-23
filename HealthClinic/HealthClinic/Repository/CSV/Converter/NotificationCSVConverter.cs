@@ -10,6 +10,13 @@ namespace Repository.Csv.Converter
 {
     public class NotificationCSVConverter : ICSVConverter<Notification>
     {
+        private readonly string delimiter;
+
+        public NotificationCSVConverter(string delimiter)
+        {
+            this.delimiter = delimiter;
+        }
+
         public Notification ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             throw new NotImplementedException();
