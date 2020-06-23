@@ -67,27 +67,27 @@ namespace Service.ExaminationSurgeryServices
 
         public MedicalExamination GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return medicalExaminationRepository.GetEntity(id);
         }
 
         public IEnumerable<MedicalExamination> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return medicalExaminationRepository.GetAllEntities();
         }
 
         public MedicalExamination AddEntity(MedicalExamination entity)
         {
-            throw new NotImplementedException();
+            return medicalExaminationRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(MedicalExamination entity)
         {
-            throw new NotImplementedException();
+            medicalExaminationRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(MedicalExamination entity)
         {
-            throw new NotImplementedException();
+            medicalExaminationRepository.DeleteEntity(entity);
         }
 
     }

@@ -33,27 +33,27 @@ namespace Service.UsersServices
 
         public WorkingTimeForDoctor GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return workingTimeForDoctorRepository.GetEntity(id);
         }
 
         public IEnumerable<WorkingTimeForDoctor> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return workingTimeForDoctorRepository.GetAllEntities();
         }
 
         public WorkingTimeForDoctor AddEntity(WorkingTimeForDoctor entity)
         {
-            throw new NotImplementedException();
+            return workingTimeForDoctorRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(WorkingTimeForDoctor entity)
         {
-            throw new NotImplementedException();
+            workingTimeForDoctorRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(WorkingTimeForDoctor entity)
         {
-            throw new NotImplementedException();
+            workingTimeForDoctorRepository.DeleteEntity(entity);
         }
 
     }

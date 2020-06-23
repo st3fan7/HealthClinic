@@ -37,27 +37,27 @@ namespace Service.BlogNotificationServices
 
         public Notification GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return notificationRepository.GetEntity(id);
         }
 
         public IEnumerable<Notification> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return notificationRepository.GetAllEntities();
         }
 
         public Notification AddEntity(Notification entity)
         {
-            throw new NotImplementedException();
+            return notificationRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(Notification entity)
         {
-            throw new NotImplementedException();
+            notificationRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Notification entity)
         {
-            throw new NotImplementedException();
+            notificationRepository.DeleteEntity(entity);
         }
 
     }

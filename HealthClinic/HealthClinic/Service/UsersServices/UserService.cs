@@ -48,17 +48,17 @@ namespace Service.UsersServices
 
         public List<Doctor> GetAllDoctors()
         {
-            throw new NotImplementedException();
+            return userRepository.GetAllDoctors();
         }
 
         public List<Patient> GetAllPatients()
         {
-            throw new NotImplementedException();
+            return userRepository.GetAllPatients();
         }
 
         public List<Secretary> GetAllSecretaries()
         {
-            throw new NotImplementedException();
+            return userRepository.GetAllSecretaries();
         }
 
         public List<DoctorSpecialist> GetDoctorBySpecialitation(Model.Doctor.Specialitation specialitation)
@@ -78,27 +78,27 @@ namespace Service.UsersServices
 
         public User GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return userRepository.GetEntity(id);
         }
 
         public IEnumerable<User> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return userRepository.GetAllEntities();
         }
 
         public User AddEntity(User entity)
         {
-            throw new NotImplementedException();
+            return userRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(User entity)
         {
-            throw new NotImplementedException();
+            userRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(User entity)
         {
-            throw new NotImplementedException();
+            userRepository.DeleteEntity(entity);
         }
     }
 }

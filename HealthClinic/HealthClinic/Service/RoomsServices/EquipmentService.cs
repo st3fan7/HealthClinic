@@ -32,27 +32,27 @@ namespace Service.RoomsServices
 
         public Equipment GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return equipmentRepository.GetEntity(id);
         }
 
         public IEnumerable<Equipment> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return equipmentRepository.GetAllEntities();
         }
 
         public Equipment AddEntity(Equipment entity)
         {
-            throw new NotImplementedException();
+            return equipmentRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(Equipment entity)
         {
-            throw new NotImplementedException();
+            equipmentRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(Equipment entity)
         {
-            throw new NotImplementedException();
+            equipmentRepository.DeleteEntity(entity);
         }
 
     }

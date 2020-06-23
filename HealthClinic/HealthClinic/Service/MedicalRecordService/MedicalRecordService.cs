@@ -32,27 +32,27 @@ namespace Service.MedicalRecordService
 
         public MedicalRecord GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return medicalRecordRepository.GetEntity(id);
         }
 
         public IEnumerable<MedicalRecord> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return medicalRecordRepository.GetAllEntities();
         }
 
         public MedicalRecord AddEntity(MedicalRecord entity)
         {
-            throw new NotImplementedException();
+            return medicalRecordRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(MedicalRecord entity)
         {
-            throw new NotImplementedException();
+            medicalRecordRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(MedicalRecord entity)
         {
-            throw new NotImplementedException();
+            medicalRecordRepository.DeleteEntity(entity);
         }
     }
 }

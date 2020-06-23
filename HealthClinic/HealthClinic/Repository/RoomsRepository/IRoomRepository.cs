@@ -8,7 +8,7 @@ using System;
 
 namespace Repository.RoomsRepository
 {
-    public interface IRoomRepository : IRepository<Renovation, int>
+    public interface IRoomRepository : IRepository<Room, int>
     {
         Model.Term.Term GetLastTermForRoom(Model.Term.Room room);
 
