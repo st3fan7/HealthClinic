@@ -8,7 +8,7 @@ using System;
 
 namespace Model.Doctor
 {
-   public class DoctorSpecialist : Model.AllActors.Doctor
+   public class DoctorSpecialist : AllActors.Doctor
    {
       public System.Collections.ArrayList specialitation;
 

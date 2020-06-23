@@ -15,7 +15,7 @@ namespace Model.Doctor
     {
         private String receipt;
         private int id;
-        private PatientDoctor.MedicalRecord medicalRecord;
+        private MedicalRecord medicalRecord;
         private AllActors.Doctor doctor;
         public System.Collections.ArrayList medicament;
 

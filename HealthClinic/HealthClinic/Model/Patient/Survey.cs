@@ -16,7 +16,7 @@ namespace Model.Patient
         private DateTime publishingDate;
         private String commentSurvey;
         private int id;
-        private Model.AllActors.Patient patient;
+        private AllActors.Patient patient;
         public System.Collections.ArrayList question;
 
         public string Title { get => title; set => title = value; }

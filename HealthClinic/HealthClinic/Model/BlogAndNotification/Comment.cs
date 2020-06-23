@@ -5,14 +5,15 @@
  ***********************************************************************/
 
 using System;
+using Model.AllActors;
 
 namespace Model.BlogAndNotification
 {
     public class Comment : Content
     {
         private int id;
-        public Model.AllActors.Patient patient;
-        public Model.AllActors.Doctor doctor;
+        public AllActors.Patient patient;
+        public AllActors.Doctor doctor;
 
         public Comment(int id)
         {

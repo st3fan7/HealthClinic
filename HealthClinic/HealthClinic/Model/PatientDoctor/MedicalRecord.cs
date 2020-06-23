@@ -13,7 +13,7 @@ namespace Model.PatientDoctor
     public class MedicalRecord : IIdentifiable<int>
     {
         private int id;
-        private Model.AllActors.Patient patient;
+        private AllActors.Patient patient;
         private Anamnesis anamnesis;
         public System.Collections.ArrayList allergies;
         public System.Collections.ArrayList medicament;

@@ -17,7 +17,7 @@ namespace Model.BlogAndNotification
         
         private int id;
         
-        public Model.AllActors.Blog blog;
+        public Blog blog;
 
         public System.Collections.ArrayList comments;
 
@@ -121,7 +121,7 @@ namespace Model.BlogAndNotification
         /// Property for Model.AllActors.Blog
         /// </summary>
         /// <pdGenerated>Default opposite class property</pdGenerated>
-        public Model.AllActors.Blog Blog
+        public Blog Blog
         {
             get
             {

@@ -17,15 +17,15 @@ namespace Repository.Csv.Converter
             this.delimiter = delimiter;
         }
 
+        public string ConvertEntityToCSVFormat(Symptoms entity)
+        {
+            return string.Join(delimiter, entity.GetId(), entity.Name);
+        }
+
         public Symptoms ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
             return new Symptoms(int.Parse(tokens[0]), tokens[1]);
-        }
-
-        public string ConvertEntityToCSVFormat(Symptoms entity)
-        {
-            return string.Join(delimiter, entity.GetId(), entity.Name);
         }
     }
 }

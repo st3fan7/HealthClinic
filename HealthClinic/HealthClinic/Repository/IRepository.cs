@@ -9,19 +9,18 @@ using System.Collections.Generic;
 
 namespace Repository
 {
-   public interface IRepository<E,ID> 
-        where E : IIdentifiable<ID>
-        where ID : IComparable
+    public interface IRepository<E, ID>
+         where E : IIdentifiable<ID>
+         where ID : IComparable
     {
-      E GetEntity(ID id);
-      
-      IEnumerable<E> GetAllEntities();
-      
-      E AddEntity(E entity);
-      
-      void UpdateEntity(E entity);
-      
-      void DeleteEntity(E entity);
-   
-   }
+        E GetEntity(ID id);
+
+        IEnumerable<E> GetAllEntities();
+
+        E AddEntity(E entity);
+
+        void UpdateEntity(E entity);
+
+        void DeleteEntity(E entity);
+    }
 }

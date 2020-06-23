@@ -3,6 +3,7 @@
 // Created: ponedeljak, 25. maj 2020. 01:41:55
 // Purpose: Definition of Class MedicalExaminationCSVConverter
 
+using Model.AllActors;
 using Model.Term;
 using System;
 
@@ -17,14 +18,18 @@ namespace Repository.Csv.Converter
             this.delimiter = delimiter;
         }
 
-        public MedicalExamination ConvertCSVFormatToEntity(string entityCSVFormat)
-        {
-            throw new NotImplementedException();
-        }
-
         public string ConvertEntityToCSVFormat(MedicalExamination entity)
         {
-            throw new NotImplementedException();
+            return string.Join(delimiter, entity.GetId(), entity.Urgency, entity.ShortDescription, entity.Room.GetId(),
+                entity.Doctor.GetId(), entity.Patient.GetId());
         }
+
+        public MedicalExamination ConvertCSVFormatToEntity(string entityCSVFormat)
+        {
+            string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
+            return new MedicalExamination(int.Parse(tokens[0]), bool.Parse(tokens[1]), tokens[2], new Room(int.Parse(tokens[3])),
+                (Doctor) new User(int.Parse(tokens[4])), (Patient) new User(int.Parse(tokens[5])));
+        }
+
     }
 }

@@ -4,6 +4,8 @@
 // Purpose: Definition of Class HospitalitationCSVConverter
 
 using Model.Term;
+using Model.AllActors;
+using Model.Doctor;
 using System;
 
 namespace Repository.Csv.Converter
@@ -17,14 +19,18 @@ namespace Repository.Csv.Converter
             this.delimiter = delimiter;
         }
 
-        public Hospitalitation ConvertCSVFormatToEntity(string entityCSVFormat)
-        {
-            throw new NotImplementedException();
-        }
-
         public string ConvertEntityToCSVFormat(Hospitalitation entity)
         {
-            throw new NotImplementedException();
+            return string.Join(delimiter, entity.GetId(), entity.Urgency, entity.ShortDescription, entity.Room.GetId(),
+                entity.Doctor.GetId(), entity.BedForLaying.GetId());
         }
+
+        public Hospitalitation ConvertCSVFormatToEntity(string entityCSVFormat)
+        {
+            string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
+            return new Hospitalitation(int.Parse(tokens[0]), bool.Parse(tokens[1]), tokens[2], new Room(int.Parse(tokens[3])),
+                (Doctor) new User(int.Parse(tokens[4])), new Bed(int.Parse(tokens[5]))); 
+        }
+
     }
 }

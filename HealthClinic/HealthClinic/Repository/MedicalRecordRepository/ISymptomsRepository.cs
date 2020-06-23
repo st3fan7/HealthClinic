@@ -8,7 +8,7 @@ using System;
 
 namespace Repository.MedicalRecordRepository
 {
-   public interface ISymptomsRepository : IRepository<Symptoms,int>
-   {
-   }
+    public interface ISymptomsRepository : IRepository<Symptoms, int>
+    {
+    }
 }

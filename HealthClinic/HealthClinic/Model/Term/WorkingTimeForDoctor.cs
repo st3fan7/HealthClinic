@@ -12,10 +12,10 @@ namespace Model.Term
 {
     public class WorkingTimeForDoctor : Term, IIdentifiable<int>
     {
-        private Model.Manager.DaysInWeek day;
+        private DaysInWeek day;
         private Boolean doesWork;
         private int id;
-        private Model.AllActors.Doctor doctor;
+        private AllActors.Doctor doctor;
 
         public DaysInWeek Day { get => day; set => day = value; }
         public bool DoesWork { get => doesWork; set => doesWork = value; }
@@ -30,7 +30,7 @@ namespace Model.Term
         {
         }
 
-        public WorkingTimeForDoctor(int id, DaysInWeek day, bool doesWork,AllActors.Doctor doctor)
+        public WorkingTimeForDoctor(int id, DaysInWeek day, bool doesWork, AllActors.Doctor doctor)
         {
             this.Day = day;
             this.DoesWork = doesWork;

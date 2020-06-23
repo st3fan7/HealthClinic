@@ -19,13 +19,24 @@ namespace Repository.Csv.Converter
         {
             this.delimiter = delimiter;
         }
-        
+       
+        public string ConvertEntityToCSVFormat(Survey entity)
+        {
+            String questionsCSV = "";
+            foreach (Question doctor in entity.Question)
+            {
+                questionsCSV += string.Join(delimiter, doctor.GetId());
+                questionsCSV += delimiter;
+            }
+            return string.Join(delimiter, entity.GetId(), entity.Title, entity.PublishingDate, entity.CommentSurvey, entity.Patient, questionsCSV);
+        }
+
         public Survey ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
             ArrayList questions = new ArrayList();
             FillList(questions, tokens);
-            return new Survey(int.Parse(tokens[0]), tokens[1], Convert.ToDateTime(tokens[2]) , tokens[3], (Patient)new User(int.Parse(tokens[3])), questions);
+            return new Survey(int.Parse(tokens[0]), tokens[1], Convert.ToDateTime(tokens[2]), tokens[3], (Patient)new User(int.Parse(tokens[3])), questions);
 
         }
 
@@ -38,17 +49,6 @@ namespace Repository.Csv.Converter
                 questions.Add(new Question(id));
                 i++;
             }
-        }
-
-        public string ConvertEntityToCSVFormat(Survey entity)
-        {
-            String questionsCSV = "";
-            foreach (Question doctor in entity.Question)
-            {
-                questionsCSV += string.Join(delimiter, doctor.GetId());
-                questionsCSV += delimiter;
-            }
-            return string.Join(delimiter, entity.GetId(), entity.Title, entity.PublishingDate, entity.CommentSurvey, entity.Patient, questionsCSV);
         }
     }
 }

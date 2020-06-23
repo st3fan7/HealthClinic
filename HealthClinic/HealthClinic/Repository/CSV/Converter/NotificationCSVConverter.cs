@@ -3,8 +3,10 @@
 // Created: ponedeljak, 25. maj 2020. 01:41:55
 // Purpose: Definition of Class NotificationCSVConverter
 
+using Model.AllActors;
 using Model.BlogAndNotification;
 using System;
+using System.Collections;
 
 namespace Repository.Csv.Converter
 {
@@ -17,14 +19,35 @@ namespace Repository.Csv.Converter
             this.delimiter = delimiter;
         }
 
-        public Notification ConvertCSVFormatToEntity(string entityCSVFormat)
-        {
-            throw new NotImplementedException();
-        }
-
         public string ConvertEntityToCSVFormat(Notification entity)
         {
-            throw new NotImplementedException();
+            String receiveNotificationsCSV = "";
+            foreach (User user in entity.receiveNotifications)
+            {
+                receiveNotificationsCSV += string.Join(delimiter, user.GetId());
+                receiveNotificationsCSV += delimiter;
+            }
+
+            return string.Join(delimiter, entity.GetId(), entity.Title, entity.SendNotificationByUser, receiveNotificationsCSV);
+        }
+
+        public Notification ConvertCSVFormatToEntity(string entityCSVFormat)
+        {
+            string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
+            ArrayList receiveNotifications = new ArrayList();
+            FillList(receiveNotifications, tokens);
+            return new Notification(int.Parse(tokens[0]), tokens[1], new User(int.Parse(tokens[2])), receiveNotifications);
+        }
+
+        private void FillList(ArrayList receiveNotifications, string[] tokens)
+        {
+            int i = 3;
+            while (i < tokens.Length - 1)
+            {
+                int id = int.Parse(tokens[i]);
+                receiveNotifications.Add(new Notification(id));     
+                i++;
+            }
         }
     }
 }

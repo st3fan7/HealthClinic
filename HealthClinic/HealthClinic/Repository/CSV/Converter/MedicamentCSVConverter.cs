@@ -5,6 +5,7 @@
 
 using Model.DoctorMenager;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Repository.Csv.Converter
@@ -18,36 +19,36 @@ namespace Repository.Csv.Converter
             this.delimiter = delimiter;
         }
 
+        public string ConvertEntityToCSVFormat(Medicament entity)
+        {
+            String ingridientsCSV = "";
+            foreach (String ingridient in entity.ingredient)
+            {
+                ingridientsCSV += string.Join(delimiter, ingridient);
+                ingridientsCSV += delimiter;
+            }
+
+            return string.Join(delimiter, entity.GetId(), entity.Code, entity.Name, entity.Producer,
+                entity.StateOfValidation, entity.Quantity, ingridientsCSV);
+        }
+
         public Medicament ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
-            System.Collections.ArrayList lista = new System.Collections.ArrayList();
-
-            int i = 6;
-            while(i < tokens.Length-1) 
-            {
-                lista.Add(tokens[i]);
-                i++;
-            }
-
-            return new Medicament(tokens[0], tokens[1], tokens[2], (State)Enum.Parse(typeof(State), tokens[3]), 
-                int.Parse(tokens[4]), int.Parse(tokens[5]), lista);  // Izmeni listu
-            
+            ArrayList indigrients = new ArrayList();
+            FillList(indigrients, tokens);
+            return new Medicament(int.Parse(tokens[0]), tokens[1], tokens[2], tokens[3], (State)Enum.Parse(typeof(State), tokens[4]), 
+                int.Parse(tokens[5]), indigrients);            
         }
 
-        public string ConvertEntityToCSVFormat(Medicament entity)
+        private void FillList(ArrayList indigrients, string[] tokens)
         {
-            String list = "";
-
-            foreach(String i in entity.ingredient)
+            int i = 3;
+            while (i < tokens.Length - 1)
             {
-                list += string.Join(delimiter, i);
-                list += delimiter; //??
-
+                indigrients.Add(tokens[i]);   
+                i++;
             }
-
-            return string.Join(delimiter, entity.Code, entity.Name, entity.Producer,
-                entity.StateOfValidation, entity.Quantity, entity.GetId(), list);
         }
     }
 }

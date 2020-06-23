@@ -5,6 +5,7 @@
  ***********************************************************************/
 
 using System;
+using Model.AllActors;
 
 namespace Model.Doctor
 {
@@ -12,7 +13,7 @@ namespace Model.Doctor
     {
         private bool taken;
         private int id;
-        private Model.AllActors.Patient patient;
+        private AllActors.Patient patient;
 
         public bool Taken { get => taken; set => taken = value; }
         public AllActors.Patient Patient { get => patient; set => patient = value; }

@@ -15,8 +15,8 @@ namespace Model.Term
         private String shortDescription;
         private int id;
         private Room room;
-        private Model.AllActors.Doctor doctor;
-        public Model.AllActors.Patient patient;
+        private AllActors.Doctor doctor;
+        public AllActors.Patient patient;
 
         public bool Urgency { get => urgency; set => urgency = value; }
         public string ShortDescription { get => shortDescription; set => shortDescription = value; }

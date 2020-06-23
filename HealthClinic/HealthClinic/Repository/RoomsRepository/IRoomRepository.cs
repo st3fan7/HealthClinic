@@ -8,11 +8,11 @@ using System;
 
 namespace Repository.RoomsRepository
 {
-   public interface IRoomRepository : IRepository<Renovation,int>
-   {
-      Model.Term.Term GetLastTermForRoom(Model.Term.Room room);
-      
-      Boolean GetOccupancyStatus(Model.Term.Room room, DateTime time);
-   
-   }
+    public interface IRoomRepository : IRepository<Renovation, int>
+    {
+        Model.Term.Term GetLastTermForRoom(Model.Term.Room room);
+
+        Boolean GetOccupancyStatus(Model.Term.Room room, DateTime time);
+
+    }
 }

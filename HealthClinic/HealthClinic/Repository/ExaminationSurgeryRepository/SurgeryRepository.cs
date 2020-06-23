@@ -14,8 +14,8 @@ using System.Collections.Generic;
 
 namespace Repository.ExaminationSurgeryRepository
 {
-   public class SurgeryRepository : CSVRepository<Surgery,int>, ISurgeryRepository
-   {
+    public class SurgeryRepository : CSVRepository<Surgery, int>, ISurgeryRepository
+    {
         private string path;
 
         public SurgeryRepository(ICSVStream<Surgery> stream, ISequencer<int> sequencer)

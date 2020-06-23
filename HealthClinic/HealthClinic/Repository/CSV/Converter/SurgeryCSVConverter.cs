@@ -17,16 +17,17 @@ namespace Repository.Csv.Converter
         {
             this.delimiter = delimiter;
         }
-        
+
+        public string ConvertEntityToCSVFormat(Surgery entity)
+        {
+            return string.Join(delimiter, entity.GetId(), entity.Urgency, entity.ShortDescription, entity.Room.GetId(), entity.DoctorSpecialist.GetId(), entity.Patient.GetId());
+        }
+
         public Surgery ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
             return new Surgery(int.Parse(tokens[0]), bool.Parse(tokens[1]), tokens[2], new Room(int.Parse(tokens[3])), (Model.Doctor.DoctorSpecialist)new User(int.Parse(tokens[4])), (Patient)new User(int.Parse(tokens[5])));
         }
 
-        public string ConvertEntityToCSVFormat(Surgery entity)
-        {
-            return string.Join(delimiter, entity.GetId(), entity.Urgency, entity.ShortDescription, entity.Room.GetId(), entity.DoctorSpecialist.GetId(), entity.Patient.GetId());
-        }
     }
 }
