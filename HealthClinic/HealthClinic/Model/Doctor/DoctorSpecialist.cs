@@ -11,12 +11,16 @@ namespace Model.Doctor
    public class DoctorSpecialist : Model.AllActors.Doctor
    {
       public System.Collections.ArrayList specialitation;
-      
-      /// <summary>
-      /// Property for collection of Specialitation
-      /// </summary>
-      /// <pdGenerated>Default opposite class collection property</pdGenerated>
-      public System.Collections.ArrayList Specialitation
+
+        public DoctorSpecialist()
+        {
+        }
+
+        /// <summary>
+        /// Property for collection of Specialitation
+        /// </summary>
+        /// <pdGenerated>Default opposite class collection property</pdGenerated>
+        public System.Collections.ArrayList Specialitation
       {
          get
          {

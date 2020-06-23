@@ -16,7 +16,10 @@ namespace Model.AllActors
         private String name;
 
         public ArrayList articles;
-        private int id { get; set; }
+
+        private int id;
+
+        public string Name { get => name; set => name = value; }
 
         public Blog(int id)
         {
@@ -27,11 +30,17 @@ namespace Model.AllActors
         {
         }
 
-        public Blog(string name, ArrayList articles, int id)
+        public Blog(int id, string name, ArrayList articles)
         {
             this.Name = name;
             this.articles = articles;
             this.id = id;
+        }
+
+        public Blog(string name, ArrayList articles)
+        {
+            this.Name = name;
+            this.articles = articles;
         }
 
         /// <summary>
@@ -57,7 +66,7 @@ namespace Model.AllActors
             }
         }
 
-        public string Name { get => name; set => name = value; }
+        
 
 
         /// <summary>

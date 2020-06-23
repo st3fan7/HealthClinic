@@ -10,8 +10,10 @@ namespace Model.Doctor
 {
     public class Specialitation : IIdentifiable<int>
     {
-        private String specialitation { get; set; }
+        private String specialitationForDoctor; // promenio sam naziv
         private int id;
+
+        public string SpecialitationForDoctor { get => specialitationForDoctor; set => specialitationForDoctor = value; }
 
         public Specialitation(int id)
         {
@@ -22,10 +24,15 @@ namespace Model.Doctor
         {
         }
 
-        public Specialitation(string specialitation, int id)
+        public Specialitation(int id, string specialitation)
         {
-            this.specialitation = specialitation;
+            this.SpecialitationForDoctor = specialitation;
             this.id = id;
+        }
+
+        public Specialitation(string specialitation)
+        {
+            this.SpecialitationForDoctor = specialitation;
         }
 
         public int GetId()

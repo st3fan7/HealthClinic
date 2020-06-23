@@ -13,13 +13,13 @@ namespace Model.Term
 {
     public class Room : Term, IIdentifiable<int>
     {
-        private String roomID { get; set; }
-
+        private String roomID;
         private int id;
-
-        public TypeOfRoom typeOfRoom { get; set; }
-
+        private TypeOfRoom typeOfRoom;
         public System.Collections.ArrayList equipment;
+
+        public string RoomID { get => roomID; set => roomID = value; }
+        public TypeOfRoom TypeOfRoom { get => typeOfRoom; set => typeOfRoom = value; }
 
         public Room(int id)
         {
@@ -30,11 +30,18 @@ namespace Model.Term
         {
         }
 
-        public Room(string roomID, int id, TypeOfRoom typeOfRoom, ArrayList equipment)
+        public Room(int id, string roomID, TypeOfRoom typeOfRoom, ArrayList equipment)
         {
-            this.roomID = roomID;
+            this.RoomID = roomID;
             this.id = id;
-            this.typeOfRoom = typeOfRoom;
+            this.TypeOfRoom = typeOfRoom;
+            this.equipment = equipment;
+        }
+
+        public Room(string roomID, TypeOfRoom typeOfRoom, ArrayList equipment)
+        {
+            this.RoomID = roomID;
+            this.TypeOfRoom = typeOfRoom;
             this.equipment = equipment;
         }
 

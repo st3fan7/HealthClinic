@@ -21,6 +21,8 @@ namespace Model.BlogAndNotification
 
         public System.Collections.ArrayList comments;
 
+        public string Title { get => title; set => title = value; }
+
         public Article(int id)
         {
             this.id = id;
@@ -30,10 +32,17 @@ namespace Model.BlogAndNotification
         {
         }
 
-        public Article(string title, int id, Blog blog, ArrayList comments)
+        public Article(int id, string title, Blog blog, ArrayList comments)
         {
             this.Title = title;
             this.id = id;
+            this.blog = blog;
+            this.comments = comments;
+        }
+
+        public Article(string title, Blog blog, ArrayList comments)
+        {
+            this.Title = title;
             this.blog = blog;
             this.comments = comments;
         }
@@ -137,6 +146,6 @@ namespace Model.BlogAndNotification
             }
         }
 
-        public string Title { get => title; set => title = value; }
+        
     }
 }

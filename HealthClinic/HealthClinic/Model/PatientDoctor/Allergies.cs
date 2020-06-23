@@ -24,10 +24,15 @@ namespace Model.PatientDoctor
         {
         }
 
-        public Allergies(string name, int id)
+        public Allergies(int id, string name)
         {
             this.Name = name;
             this.id = id;
+        }
+
+        public Allergies(string name)
+        {
+            this.Name = name;
         }
 
         public int GetId()

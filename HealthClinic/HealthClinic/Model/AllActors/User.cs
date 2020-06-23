@@ -11,10 +11,12 @@ namespace Model.AllActors
 {
    public class User : Person, IIdentifiable<int>
     {
-        private String userName { get; set; }
-        private String password { get; set; }
-        
+        private String userName;
+        private String password;       
         private int id;
+
+        public string UserName { get => userName; set => userName = value; }
+        public string Password { get => password; set => password = value; }
 
         public User(int id)
         {
@@ -25,11 +27,17 @@ namespace Model.AllActors
         {
         }
 
-        public User(string userName, string password, int id)
+        public User(int id, string userName, string password)
         {
-            this.userName = userName;
-            this.password = password;
+            this.UserName = userName;
+            this.Password = password;
             this.id = id;
+        }
+
+        public User(string userName, string password)
+        {
+            this.UserName = userName;
+            this.Password = password;
         }
 
         public int GetId()

@@ -13,11 +13,13 @@ namespace Model.BlogAndNotification
 {
     public class Notification : Content, IIdentifiable<int>
     {
-        private String title { get; set; }
+        private String title;
         private int id;
-        public User sendNotificationByUser { get; set; }
-
+        private User sendNotificationByUser;
         public System.Collections.ArrayList receiveNotifications;
+
+        public string Title { get => title; set => title = value; }
+        public User SendNotificationByUser { get => sendNotificationByUser; set => sendNotificationByUser = value; }
 
         public Notification(int id)
         {
@@ -28,11 +30,18 @@ namespace Model.BlogAndNotification
         {
         }
 
-        public Notification(string title, int id, User sendNotificationByUser, ArrayList receiveNotifications)
+        public Notification(int id, string title, User sendNotificationByUser, ArrayList receiveNotifications)
         {
-            this.title = title;
+            this.Title = title;
             this.id = id;
-            this.sendNotificationByUser = sendNotificationByUser;
+            this.SendNotificationByUser = sendNotificationByUser;
+            this.receiveNotifications = receiveNotifications;
+        }
+
+        public Notification(string title, User sendNotificationByUser, ArrayList receiveNotifications)
+        {
+            this.Title = title;
+            this.SendNotificationByUser = sendNotificationByUser;
             this.receiveNotifications = receiveNotifications;
         }
 

@@ -10,10 +10,11 @@ namespace Model.PatientDoctor
 {
     public class Anamnesis
     {
-        private String description { get; set; }
-
+        private String description;
         public System.Collections.ArrayList diagnosis;
         public System.Collections.ArrayList symptoms;
+
+        public string Description { get => description; set => description = value; }
 
         public Anamnesis()
         {
@@ -21,7 +22,7 @@ namespace Model.PatientDoctor
 
         public Anamnesis(string description, ArrayList diagnosis, ArrayList symptoms)
         {
-            this.description = description;
+            this.Description = description;
             this.diagnosis = diagnosis;
             this.symptoms = symptoms;
         }

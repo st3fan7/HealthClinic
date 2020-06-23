@@ -11,13 +11,16 @@ namespace Model.Term
 {
     public class Renovation : Term, IIdentifiable<int>
     {
-        private String descriptionOfRenovation { get; set; }
-        private Boolean separateOnTwoParts { get; set; }
-        private Boolean connectTwoParts { get; set; }
-        
+        private String descriptionOfRenovation;
+        private Boolean separateOnTwoParts;
+        private Boolean connectTwoParts;       
         private int id;
+        private Room room;
 
-        public Room room { get; set; }
+        public string DescriptionOfRenovation { get => descriptionOfRenovation; set => descriptionOfRenovation = value; }
+        public bool SeparateOnTwoParts { get => separateOnTwoParts; set => separateOnTwoParts = value; }
+        public bool ConnectTwoParts { get => connectTwoParts; set => connectTwoParts = value; }
+        public Room Room { get => room; set => room = value; }
 
         public Renovation(int id)
         {
@@ -28,13 +31,21 @@ namespace Model.Term
         {
         }
 
-        public Renovation(string descriptionOfRenovation, bool separateOnTwoParts, bool connectTwoParts, int id, Room room)
+        public Renovation(int id, string descriptionOfRenovation, bool separateOnTwoParts, bool connectTwoParts, Room room)
         {
-            this.descriptionOfRenovation = descriptionOfRenovation;
-            this.separateOnTwoParts = separateOnTwoParts;
-            this.connectTwoParts = connectTwoParts;
+            this.DescriptionOfRenovation = descriptionOfRenovation;
+            this.SeparateOnTwoParts = separateOnTwoParts;
+            this.ConnectTwoParts = connectTwoParts;
             this.id = id;
-            this.room = room;
+            this.Room = room;
+        }
+
+        public Renovation(string descriptionOfRenovation, bool separateOnTwoParts, bool connectTwoParts, Room room)
+        {
+            this.DescriptionOfRenovation = descriptionOfRenovation;
+            this.SeparateOnTwoParts = separateOnTwoParts;
+            this.ConnectTwoParts = connectTwoParts;
+            this.Room = room;
         }
 
         public int GetId()

@@ -12,13 +12,16 @@ namespace Model.AllActors
     public class City
     {
         private String name;
-        private int postCode { get; set; }
-        private String adress { get; set; }
-        public Country country { get; set; }
+        private int postCode;
+        private String adress;
+        private Country country;
+        public System.Collections.ArrayList person;
 
         public string Name { get => name; set => name = value; }
+        public int PostCode { get => postCode; set => postCode = value; }
+        public string Adress { get => adress; set => adress = value; }
+        public Country Country { get => country; set => country = value; }
 
-        public System.Collections.ArrayList person;
 
         public City()
         {
@@ -27,9 +30,9 @@ namespace Model.AllActors
         public City(string name, int postCode, string adress, Country country, ArrayList person)
         {
             this.Name = name;
-            this.postCode = postCode;
-            this.adress = adress;
-            this.country = country;
+            this.PostCode = postCode;
+            this.Adress = adress;
+            this.Country = country;
             this.person = person;
         }
 
@@ -57,8 +60,6 @@ namespace Model.AllActors
                 }
             }
         }
-
-       
 
         /// <summary>
         /// Add a new Person in the collection

@@ -13,13 +13,15 @@ namespace Model.Doctor
 {
     public class IssueOfMedicaments : IIdentifiable<int>
     {
-        private String receipt { get; set; }
-
+        private String receipt;
         private int id;
-        public PatientDoctor.MedicalRecord medicalRecord { get; set; }
-        public AllActors.Doctor doctor { get; set; }
-
+        private PatientDoctor.MedicalRecord medicalRecord;
+        private AllActors.Doctor doctor;
         public System.Collections.ArrayList medicament;
+
+        public string Receipt { get => receipt; set => receipt = value; }
+        public MedicalRecord MedicalRecord { get => medicalRecord; set => medicalRecord = value; }
+        public AllActors.Doctor Doctor { get => doctor; set => doctor = value; }
 
         public IssueOfMedicaments(int id)
         {
@@ -30,12 +32,20 @@ namespace Model.Doctor
         {
         }
 
-        public IssueOfMedicaments(string receipt, int id, MedicalRecord medicalRecord, AllActors.Doctor doctor, ArrayList medicament)
+        public IssueOfMedicaments(int id, string receipt, MedicalRecord medicalRecord, AllActors.Doctor doctor, ArrayList medicament)
         {
-            this.receipt = receipt;
+            this.Receipt = receipt;
             this.id = id;
-            this.medicalRecord = medicalRecord;
-            this.doctor = doctor;
+            this.MedicalRecord = medicalRecord;
+            this.Doctor = doctor;
+            this.medicament = medicament;
+        }
+
+        public IssueOfMedicaments(string receipt, MedicalRecord medicalRecord, AllActors.Doctor doctor, ArrayList medicament)
+        {
+            this.Receipt = receipt;
+            this.MedicalRecord = medicalRecord;
+            this.Doctor = doctor;
             this.medicament = medicament;
         }
 

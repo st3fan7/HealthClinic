@@ -13,14 +13,13 @@ namespace Model.PatientDoctor
     public class MedicalRecord : IIdentifiable<int>
     {
         private int id;
-
-        public Model.AllActors.Patient patient { get; set; }
-
-        public Anamnesis anamnesis { get; set; }
-
+        private Model.AllActors.Patient patient;
+        private Anamnesis anamnesis;
         public System.Collections.ArrayList allergies;
-
         public System.Collections.ArrayList medicament;
+
+        public AllActors.Patient Patient { get => patient; set => patient = value; }
+        public Anamnesis Anamnesis { get => anamnesis; set => anamnesis = value; }
 
         public MedicalRecord(int id)
         {
@@ -33,8 +32,16 @@ namespace Model.PatientDoctor
 
         public MedicalRecord(int id, AllActors.Patient patient, Anamnesis anamnesis, ArrayList allergies, ArrayList medicament) : this(id)
         {
-            this.patient = patient;
-            this.anamnesis = anamnesis;
+            this.Patient = patient;
+            this.Anamnesis = anamnesis;
+            this.allergies = allergies;
+            this.medicament = medicament;
+        }
+
+        public MedicalRecord(AllActors.Patient patient, Anamnesis anamnesis, ArrayList allergies, ArrayList medicament)
+        {
+            this.Patient = patient;
+            this.Anamnesis = anamnesis;
             this.allergies = allergies;
             this.medicament = medicament;
         }

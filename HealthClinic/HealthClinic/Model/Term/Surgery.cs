@@ -12,15 +12,17 @@ namespace Model.Term
 {
     public class Surgery : Term, IIdentifiable<int>
     {
-        private bool urgency { get; set; }
-        private String shortDescription { get; set; }
-
+        private bool urgency;
+        private String shortDescription;
         private int id;
-
-        public Room room { get; set; }
-        public Model.Doctor.DoctorSpecialist doctorSpecialist { get; set; }
-
+        private Room room;
+        private Model.Doctor.DoctorSpecialist doctorSpecialist;
         public Model.AllActors.Patient patient;
+
+        public bool Urgency { get => urgency; set => urgency = value; }
+        public string ShortDescription { get => shortDescription; set => shortDescription = value; }
+        public Room Room { get => room; set => room = value; }
+        public DoctorSpecialist DoctorSpecialist { get => doctorSpecialist; set => doctorSpecialist = value; }
 
         public Surgery(int id)
         {
@@ -31,16 +33,24 @@ namespace Model.Term
         {
         }
 
-        public Surgery(bool urgency, string shortDescription, int id, Room room, DoctorSpecialist doctorSpecialist, AllActors.Patient patient)
+        public Surgery(int id, bool urgency, string shortDescription, Room room, DoctorSpecialist doctorSpecialist, AllActors.Patient patient)
         {
-            this.urgency = urgency;
-            this.shortDescription = shortDescription;
+            this.Urgency = urgency;
+            this.ShortDescription = shortDescription;
             this.id = id;
-            this.room = room;
-            this.doctorSpecialist = doctorSpecialist;
+            this.Room = room;
+            this.DoctorSpecialist = doctorSpecialist;
             this.patient = patient;
         }
 
+        public Surgery(bool urgency, string shortDescription, Room room, DoctorSpecialist doctorSpecialist, AllActors.Patient patient)
+        {
+            this.Urgency = urgency;
+            this.ShortDescription = shortDescription;
+            this.Room = room;
+            this.DoctorSpecialist = doctorSpecialist;
+            this.patient = patient;
+        }
 
         /// <summary>
         /// Property for Model.AllActors.Patient

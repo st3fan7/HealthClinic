@@ -29,6 +29,12 @@ namespace Model.BlogAndNotification
             this.doctor = doctor;
         }
 
+        public Comment(AllActors.Patient patient, AllActors.Doctor doctor)
+        {
+            this.patient = patient;
+            this.doctor = doctor;
+        }
+
         public int GetId()
         {
             return id;

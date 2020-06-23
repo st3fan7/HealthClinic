@@ -12,15 +12,17 @@ namespace Model.Patient
 {
     public class Survey : IIdentifiable<int>
     {
-        private String title { get; set; }
-        private DateTime publishingDate { get; set; }
-        private String commentSurvey { get; set; }
-
+        private String title;
+        private DateTime publishingDate;
+        private String commentSurvey;
         private int id;
-
-        public Model.AllActors.Patient patient { get; set; }
-
+        private Model.AllActors.Patient patient;
         public System.Collections.ArrayList question;
+
+        public string Title { get => title; set => title = value; }
+        public DateTime PublishingDate { get => publishingDate; set => publishingDate = value; }
+        public string CommentSurvey { get => commentSurvey; set => commentSurvey = value; }
+        public AllActors.Patient Patient { get => patient; set => patient = value; }
 
         public Survey(int id)
         {
@@ -31,13 +33,22 @@ namespace Model.Patient
         {
         }
 
-        public Survey(string title, DateTime publishingDate, string commentSurvey, int id, AllActors.Patient patient, ArrayList question)
+        public Survey(int id, string title, DateTime publishingDate, string commentSurvey, AllActors.Patient patient, ArrayList question)
         {
-            this.title = title;
-            this.publishingDate = publishingDate;
-            this.commentSurvey = commentSurvey;
+            this.Title = title;
+            this.PublishingDate = publishingDate;
+            this.CommentSurvey = commentSurvey;
             this.id = id;
-            this.patient = patient;
+            this.Patient = patient;
+            this.question = question;
+        }
+
+        public Survey(string title, DateTime publishingDate, string commentSurvey, AllActors.Patient patient, ArrayList question)
+        {
+            this.Title = title;
+            this.PublishingDate = publishingDate;
+            this.CommentSurvey = commentSurvey;
+            this.Patient = patient;
             this.question = question;
         }
 
