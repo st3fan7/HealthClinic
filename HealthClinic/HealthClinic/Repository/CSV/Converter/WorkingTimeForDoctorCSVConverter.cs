@@ -3,8 +3,11 @@
 // Created: ponedeljak, 25. maj 2020. 01:41:55
 // Purpose: Definition of Class WorkingTimeForDoctorCSVConverter
 
+using Model.AllActors;
+using Model.Manager;
 using Model.Term;
 using System;
+using System.Collections;
 
 namespace Repository.Csv.Converter
 {
@@ -19,12 +22,13 @@ namespace Repository.Csv.Converter
 
         public WorkingTimeForDoctor ConvertCSVFormatToEntity(string entityCSVFormat)
         {
-            throw new NotImplementedException();
+            string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
+            return new WorkingTimeForDoctor(int.Parse(tokens[0]), (DaysInWeek)Enum.Parse(typeof(DaysInWeek), tokens[1]), bool.Parse(tokens[2]), (Doctor)new User(int.Parse(tokens[3])));            
         }
 
         public string ConvertEntityToCSVFormat(WorkingTimeForDoctor entity)
         {
-            throw new NotImplementedException();
+            return string.Join(delimiter, entity.GetId(), entity.Day, entity.DoesWork, entity.Doctor.GetId());
         }
     }
 }

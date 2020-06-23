@@ -19,12 +19,13 @@ namespace Repository.Csv.Converter
 
         public User ConvertCSVFormatToEntity(string entityCSVFormat)
         {
-            throw new NotImplementedException();
+            string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
+            return new User(int.Parse(tokens[0]),  tokens[1], tokens[2]);
         }
 
         public string ConvertEntityToCSVFormat(User entity)
         {
-            throw new NotImplementedException();
+            return string.Join(delimiter, entity.GetId(), entity.UserName, entity.Password);
         }
     }
 }

@@ -21,6 +21,11 @@ namespace Model.DoctorMenager
 
         public System.Collections.ArrayList ingredient;
 
+        public Medicament(int id)
+        {
+            this.id = id;
+        }
+
         public Medicament(int id, string code, string name, string producer, State stateOfValidation, int quantity, ArrayList ingredient)
         {
             this.code = code;
