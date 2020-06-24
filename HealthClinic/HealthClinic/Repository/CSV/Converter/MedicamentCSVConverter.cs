@@ -18,6 +18,17 @@ namespace Repository.Csv.Converter
             this.delimiter = delimiter;
         }
 
+        public string ConvertEntityToCSVFormat(Medicament entity)
+        {
+            String listOfMedicaments = "";
+            foreach (Ingredient ingredient in entity.Ingredients)
+            {
+                listOfMedicaments += string.Join(delimiter, ingredient);
+                listOfMedicaments += delimiter;
+            }
+            return string.Join(delimiter, entity.GetId(), entity.Code, entity.Name, entity.Producer, entity.StateOfValidation, entity.Quantity, listOfMedicaments);
+        }
+
         public Medicament ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
@@ -28,26 +39,14 @@ namespace Repository.Csv.Converter
 
         private void FillList(List<Ingredient> ingredients, string[] tokens)
         {
-            int i = 5;
+            int i = 6;
             while (i < tokens.Length - 1)
             {
-                ingredients.Add(new Ingredient()); // izmeni
+                ingredients.Add(new Ingredient(tokens[i]));
                 i++;
             }
         }
 
-        public string ConvertEntityToCSVFormat(Medicament entity)
-        {
-            String listOfMedicaments = "";
 
-            foreach (Ingredient ingredient in entity.Ingredient)
-            {
-                listOfMedicaments += string.Join(delimiter, ingredient);
-                listOfMedicaments += delimiter; //??
-
-            }
-
-            return string.Join(delimiter, entity.Code, entity.Name, entity.Producer, entity.StateOfValidation, entity.Quantity, entity.GetId(), listOfMedicaments);
-        }
     }
 }

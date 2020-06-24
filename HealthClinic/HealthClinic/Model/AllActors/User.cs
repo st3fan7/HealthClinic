@@ -27,7 +27,8 @@ namespace Model.AllActors
         {
         }
 
-        public User(int id, string username, string password)
+        public User(int id, string username, string password, string name, string surname, string jmbg, DateTime dateOfBirth, string contactNumber, string emailAddress, City city) 
+            : base(name, surname, jmbg, dateOfBirth, contactNumber, emailAddress, city)
         {
             this.username = username;
             this.Password = password;
