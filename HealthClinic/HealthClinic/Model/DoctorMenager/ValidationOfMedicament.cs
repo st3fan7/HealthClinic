@@ -14,14 +14,14 @@ namespace Model.DoctorMenager
         private bool approved;
         private int id;
         private Medicament medicament;
-        private List<AllActors.Doctor> doctors;
+        private Model.AllActors.Doctor doctor;
 
         private FeedbackOfValidation feedbackOfValidation;
 
         public bool Approved { get => approved; set => approved = value; }
         public Medicament Medicament { get => medicament; set => medicament = value; }
         public FeedbackOfValidation FeedbackOfValidation { get => feedbackOfValidation; set => feedbackOfValidation = value; }
-        public List<AllActors.Doctor> Doctors { get => doctors; set => doctors = value; }
+        public Model.AllActors.Doctor Doctor { get => doctor; set => doctor = value; }
 
         public ValidationOfMedicament(int id)
         {
@@ -32,22 +32,22 @@ namespace Model.DoctorMenager
         {
         }
 
-        public ValidationOfMedicament(int id, bool approved, Medicament medicament, FeedbackOfValidation feedbackOfValidation, List<AllActors.Doctor> doctors)
+        public ValidationOfMedicament(int id, bool approved, Medicament medicament, FeedbackOfValidation feedbackOfValidation, Model.AllActors.Doctor doctor)
         {
             this.Approved = approved;
             this.id = id;
             this.Medicament = medicament;
             this.FeedbackOfValidation = feedbackOfValidation;
-            this.doctors = doctors;
+            this.doctor = doctor;
         }
 
 
-        public ValidationOfMedicament(bool approved, Medicament medicament, FeedbackOfValidation feedbackOfValidation, List<AllActors.Doctor> doctors)
+        public ValidationOfMedicament(bool approved, Medicament medicament, FeedbackOfValidation feedbackOfValidation, Model.AllActors.Doctor doctor)
         {
             this.Approved = approved;
             this.Medicament = medicament;
             this.FeedbackOfValidation = feedbackOfValidation;
-            this.doctors = doctors;
+            this.doctor = doctor;
         }
 
         public int GetId()

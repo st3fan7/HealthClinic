@@ -5,6 +5,7 @@
 
 using Model.AllActors;
 using Model.Patient;
+using Repository.UsersRepository;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -24,9 +25,9 @@ namespace Repository.Csv.Converter
         public string ConvertEntityToCSVFormat(Survey entity)
         {
             String questionsCSV = "";
-            foreach (Question doctor in entity.Question)
+            foreach (Question question in entity.Question)
             {
-                questionsCSV += string.Join(delimiter, doctor.GetId());
+                questionsCSV += string.Join(delimiter, question.QuestionText);
                 questionsCSV += delimiter;
             }
             return string.Join(delimiter, entity.GetId(), entity.Title, entity.PublishingDate, entity.CommentSurvey, entity.Patient, questionsCSV);
@@ -37,8 +38,8 @@ namespace Repository.Csv.Converter
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
             List<Question> questions = new List<Question>();
             FillList(questions, tokens);
-            return new Survey(int.Parse(tokens[0]), tokens[1], Convert.ToDateTime(tokens[2]), tokens[3], (Patient)new User(int.Parse(tokens[3])), questions);
-
+            return new Survey(int.Parse(tokens[0]), tokens[1], Convert.ToDateTime(tokens[2]), tokens[3], 
+                (Patient)UserRepository.Instance().GetEntity(int.Parse(tokens[4])), questions);
         }
 
         private void FillList(List<Question> questions, string[] tokens)
@@ -46,8 +47,7 @@ namespace Repository.Csv.Converter
             int i = 4;
             while (i < tokens.Length - 1)
             {
-                int id = int.Parse(tokens[i]);
-                questions.Add(new Question(id));
+                questions.Add(new Question(tokens[i]));
                 i++;
             }
         }

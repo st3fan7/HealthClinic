@@ -20,13 +20,13 @@ namespace Repository.Csv.Converter
 
         public string ConvertEntityToCSVFormat(Medicament entity)
         {
-            String listOfMedicaments = "";
+            String listOfIngredients = "";
             foreach (Ingredient ingredient in entity.Ingredients)
             {
-                listOfMedicaments += string.Join(delimiter, ingredient);
-                listOfMedicaments += delimiter;
+                listOfIngredients += string.Join(delimiter, ingredient);
+                listOfIngredients += delimiter;
             }
-            return string.Join(delimiter, entity.GetId(), entity.Code, entity.Name, entity.Producer, entity.StateOfValidation, entity.Quantity, listOfMedicaments);
+            return string.Join(delimiter, entity.GetId(), entity.Code, entity.Name, entity.Producer, entity.StateOfValidation, entity.Quantity, listOfIngredients);
         }
 
         public Medicament ConvertCSVFormatToEntity(string entityCSVFormat)

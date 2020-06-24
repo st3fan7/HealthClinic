@@ -17,15 +17,16 @@ namespace Repository.Csv.Converter
             this.delimiter = delimiter;
         }
 
-        public Renovation ConvertCSVFormatToEntity(string entityCSVFormat)
-        {
-            string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
-            return new Renovation(int.Parse(tokens[0]), tokens[1], new Room(int.Parse(tokens[2])), DateTime.Parse(tokens[3]), DateTime.Parse(tokens[4]));
-        }
-
         public string ConvertEntityToCSVFormat(Renovation entity)
         {
             return string.Join(delimiter, entity.GetId(), entity.DescriptionOfRenovation, entity.Room.GetId(), entity.FromDateTime, entity.ToDateTime);
         }
+
+        public Renovation ConvertCSVFormatToEntity(string entityCSVFormat)
+        {
+            string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
+            return new Renovation(int.Parse(tokens[0]), tokens[1], RoomsRepository.RoomRepository.Instance().GetEntity(int.Parse(tokens[2])), DateTime.Parse(tokens[3]), DateTime.Parse(tokens[4]));
+        }
+
     }
 }

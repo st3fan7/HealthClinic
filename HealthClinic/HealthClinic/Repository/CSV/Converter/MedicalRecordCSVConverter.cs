@@ -6,6 +6,7 @@
 using Model.AllActors;
 using Model.DoctorMenager;
 using Model.PatientDoctor;
+using Repository.UsersRepository;
 using System;
 using System.Collections.Generic;
 
@@ -37,8 +38,6 @@ namespace Repository.Csv.Converter
                 listOfMedicaments += "-";
             }
 
-            //public MedicalRecord(int id, AllActors.Patient patient, Anamnesis anamnesis, List<Allergies> allergies, List<Medicament> medicament) : this(id)
-
             return string.Join(delimiter, entity.GetId(), entity.Patient.GetId(), entity.Anamnesis, listOfAllergies, listOfMedicaments);
         }
 
@@ -51,7 +50,7 @@ namespace Repository.Csv.Converter
             List<Medicament> listOfMedicaments = new List<Medicament>();
             fillMedicaments(listOfMedicaments, tokens);
 
-            return new MedicalRecord(int.Parse(tokens[0]), new Patient(int.Parse(tokens[1])), new Anamnesis(tokens[2]), listOfAllergies, listOfMedicaments);
+            return new MedicalRecord(int.Parse(tokens[0]), (Patient)UserRepository.Instance().GetEntity(int.Parse(tokens[1])), new Anamnesis(tokens[2]), listOfAllergies, listOfMedicaments);
         }
 
         private void fillAllergies(List<Allergies> allergies, string[] tokens) //id,1,string,1-2-3,1-2-3
