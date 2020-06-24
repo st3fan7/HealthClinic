@@ -17,6 +17,10 @@ namespace Model.Term
 
         public string DescriptionOfRenovation { get => descriptionOfRenovation; set => descriptionOfRenovation = value; }
         public Room Room { get => room; set => room = value; }
+        private DateTime fromDateTime;
+        private DateTime toDateTime;
+        public DateTime FromDateTime { get => fromDateTime; set => fromDateTime = value; }
+        public DateTime ToDateTime { get => toDateTime; set => toDateTime = value; }
 
         public Renovation(int id)
         {
@@ -27,17 +31,21 @@ namespace Model.Term
         {
         }
 
-        public Renovation(int id, string descriptionOfRenovation, Room room)
+        public Renovation(int id, string descriptionOfRenovation, Room room, DateTime fromDateTime, DateTime toDateTime)
         {
             this.DescriptionOfRenovation = descriptionOfRenovation;
             this.id = id;
             this.Room = room;
+            this.FromDateTime = fromDateTime;
+            this.ToDateTime = toDateTime;
         }
 
-        public Renovation(string descriptionOfRenovation,  Room room)
+        public Renovation(string descriptionOfRenovation,  Room room, DateTime fromDateTime, DateTime toDateTime)
         {
             this.DescriptionOfRenovation = descriptionOfRenovation;
             this.Room = room;
+            this.FromDateTime = fromDateTime;
+            this.ToDateTime = toDateTime;
         }
 
         public int GetId()

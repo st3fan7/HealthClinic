@@ -25,6 +25,15 @@ namespace Model.AllActors
             this.medicalRecord = medicalRecord;
         }
 
+        public Patient(string username, string password, string name, string surname, string jmbg, DateTime dateOfBirth, string contactNumber, string emailAddress, City city,
+            bool guestAccount, MedicalRecord medicalRecord)
+            : base(username, password, name, surname, jmbg, dateOfBirth, contactNumber, emailAddress, city)
+
+        {
+            this.guestAccount = guestAccount;
+            this.medicalRecord = medicalRecord;
+        }      
+
         public Patient(int id) : base(id)
         {
         }

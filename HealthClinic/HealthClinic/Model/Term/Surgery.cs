@@ -23,6 +23,10 @@ namespace Model.Term
         public string ShortDescription { get => shortDescription; set => shortDescription = value; }
         public Room Room { get => room; set => room = value; }
         public DoctorSpecialist DoctorSpecialist { get => doctorSpecialist; set => doctorSpecialist = value; }
+        private DateTime fromDateTime;
+        private DateTime toDateTime;
+        public DateTime FromDateTime { get => fromDateTime; set => fromDateTime = value; }
+        public DateTime ToDateTime { get => toDateTime; set => toDateTime = value; }
 
         public Surgery(int id)
         {
@@ -33,7 +37,7 @@ namespace Model.Term
         {
         }
 
-        public Surgery(int id, bool urgency, string shortDescription, Room room, DoctorSpecialist doctorSpecialist, AllActors.Patient patient)
+        public Surgery(int id, bool urgency, string shortDescription, Room room, DoctorSpecialist doctorSpecialist, AllActors.Patient patient, DateTime fromDateTime, DateTime toDateTime)
         {
             this.Urgency = urgency;
             this.ShortDescription = shortDescription;
@@ -41,15 +45,19 @@ namespace Model.Term
             this.Room = room;
             this.DoctorSpecialist = doctorSpecialist;
             this.patient = patient;
+            this.FromDateTime = fromDateTime;
+            this.ToDateTime = toDateTime;
         }
 
-        public Surgery(bool urgency, string shortDescription, Room room, DoctorSpecialist doctorSpecialist, AllActors.Patient patient)
+        public Surgery(bool urgency, string shortDescription, Room room, DoctorSpecialist doctorSpecialist, AllActors.Patient patient, DateTime fromDateTime, DateTime toDateTime)
         {
             this.Urgency = urgency;
             this.ShortDescription = shortDescription;
             this.Room = room;
             this.DoctorSpecialist = doctorSpecialist;
             this.patient = patient;
+            this.FromDateTime = fromDateTime;
+            this.ToDateTime = toDateTime;
         }
 
         /// <summary>
