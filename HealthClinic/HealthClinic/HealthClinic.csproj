@@ -157,6 +157,9 @@
     <Compile Include="Service\UsersServices\SpetialitationService.cs" />
     <Compile Include="Service\UsersServices\UserService.cs" />
     <Compile Include="Service\UsersServices\WorkingTimeForDoctorService.cs" />
+    <Compile Include="View\DijalogAnamnezaKodPregleda.xaml.cs">
+      <DependentUpon>DijalogAnamnezaKodPregleda.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DijalogBolnickoLecenje.xaml.cs">
       <DependentUpon>DijalogBolnickoLecenje.xaml</DependentUpon>
     </Compile>
@@ -168,6 +171,9 @@
     </Compile>
     <Compile Include="View\DijalogIzmenaDijagnoze.xaml.cs">
       <DependentUpon>DijalogIzmenaDijagnoze.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DijalogLekoviPregled.xaml.cs">
+      <DependentUpon>DijalogLekoviPregled.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DijalogLekoviUklinici.xaml.cs">
       <DependentUpon>DijalogLekoviUklinici.xaml</DependentUpon>
@@ -181,7 +187,23 @@
     <Compile Include="View\DijalogZakazivanjePregleda.xaml.cs">
       <DependentUpon>DijalogZakazivanjePregleda.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Entiteti\Izvestaj.cs" />
+    <Compile Include="View\Entiteti\Lek.cs" />
+    <Compile Include="View\Entiteti\Lekovi.cs" />
     <Compile Include="View\Entiteti\Pacijent.cs" />
+    <Compile Include="View\Entiteti\Pacijenti.cs" />
+    <Compile Include="View\PageClanci.xaml.cs">
+      <DependentUpon>PageClanci.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageDodajClanak.xaml.cs">
+      <DependentUpon>PageDodajClanak.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PagePitanjaxaml.xaml.cs">
+      <DependentUpon>PagePitanjaxaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControlBlog.xaml.cs">
+      <DependentUpon>UserControlBlog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControlIzdavanjeRecepta.xaml.cs">
       <DependentUpon>UserControlIzdavanjeRecepta.xaml</DependentUpon>
     </Compile>
@@ -199,6 +221,9 @@
     </Compile>
     <Compile Include="View\UserControlValidacijaLeka.xaml.cs">
       <DependentUpon>UserControlValidacijaLeka.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowWizard.xaml.cs">
+      <DependentUpon>WindowWizard.xaml</DependentUpon>
     </Compile>
     <Page Include="Login.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -236,6 +261,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\DijalogAnamnezaKodPregleda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\DijalogBolnickoLecenje.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -252,6 +281,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\DijalogLekoviPregled.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\DijalogLekoviUklinici.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -265,6 +298,22 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\DijalogZakazivanjePregleda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PageClanci.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PageDodajClanak.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PagePitanjaxaml.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControlBlog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -289,6 +338,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\UserControlValidacijaLeka.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WindowWizard.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

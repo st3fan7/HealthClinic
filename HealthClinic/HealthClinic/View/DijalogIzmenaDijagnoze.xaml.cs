@@ -23,9 +23,20 @@ namespace HealthClinic
         {
             InitializeComponent();
 
-            ListBox.Items.Add(UserControlPregled.selectedPatient.Dijagnoza);
+           // if(UserControlPregled.selectedPatient != null)
+            //ListBox.Items.Add(UserControlPregled.selectedPatient.Dijagnoza);
         }
 
-       
+        private void ButtonObrisi_Click(object sender, RoutedEventArgs e)
+        {
+            ListBox.Items.Remove(ListBox.SelectedItem);
+        }
+
+        private void ButtonDodaj_Click(object sender, RoutedEventArgs e)
+        {
+            ListBox.Items.Add(NovaDijagnoza.Text);
+            //UserControlPregled.selectedPatient.Dijagnoza = (NovaDijagnoza.Text);
+        }
+
     }
 }

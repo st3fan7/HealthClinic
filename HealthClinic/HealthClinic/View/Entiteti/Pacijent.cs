@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace HealthClinic.Entiteti
 {
     public class Pacijent : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         protected virtual void OnPropertyChanged(string name)
         {
             if (PropertyChanged != null)
@@ -26,7 +28,28 @@ namespace HealthClinic.Entiteti
         private string _sala;
         private string _hitnost;
         private string _kratakProblem;
+       // private static List<string> _dijagnoza;
+        private string _prosliPregled;
         private string _dijagnoza;
+        private string _anamneza;
+
+        public ObservableCollection<string> Lekovi
+        {
+            get;
+            set;
+        }
+
+        public ObservableCollection<string> Alergije
+        {
+            get;
+            set;
+        }
+
+        public ObservableCollection<string> Simptomi
+        {
+            get;
+            set;
+        }
 
         public string Datum
         {
@@ -182,7 +205,7 @@ namespace HealthClinic.Entiteti
             }
         }
 
-        public string Dijagnoza
+        public  string Dijagnoza
         {
             get
             {
@@ -194,6 +217,38 @@ namespace HealthClinic.Entiteti
                 {
                     _dijagnoza = value;
                     OnPropertyChanged("Dijagnoza");
+                }
+            }
+        }
+
+        public string ProsliPregled
+        {
+            get
+            {
+                return _prosliPregled;
+            }
+            set
+            {
+                if (value != _prosliPregled)
+                {
+                    _prosliPregled = value;
+                    OnPropertyChanged("ProsliPregled");
+                }
+            }
+        }
+
+        public string Anamenza
+        {
+            get
+            {
+                return _anamneza;
+            }
+            set
+            {
+                if (value != _anamneza)
+                {
+                    _anamneza = value;
+                    OnPropertyChanged("Anamenza");
                 }
             }
         }

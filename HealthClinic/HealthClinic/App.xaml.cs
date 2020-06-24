@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-﻿using System;
-=======
+using System;
 ﻿using Controller;
 using Controller.BlogNotificationControlers;
 using Controller.ExaminationSurgeryControlers;
@@ -32,7 +30,6 @@ using Service.MedicamentService;
 using Service.RoomsServices;
 using Service.UsersServices;
 using System;
->>>>>>> develop
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -47,9 +44,6 @@ namespace HealthClinic
     /// </summary>
     public partial class App : Application
     {
-<<<<<<< HEAD
-       
-=======
         private const string ARTICLE_FILE = "../../Resources/Data/articles.csv";
         private const string NOTIFICATION_FILE = "../../Resources/Data/notifications.csv";
         private const string SURVEY_FILE = "../../Resources/Data/surveys.csv";
@@ -191,6 +185,5 @@ namespace HealthClinic
         public IController<User, int> UserController { get; private set; }
         public IController<WorkingTimeForDoctor, int> WorkingTimeForDoctorController { get; private set; }
 
->>>>>>> develop
     }
 }

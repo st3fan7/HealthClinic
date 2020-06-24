@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:HealthClinic"
        
         mc:Ignorable="d"
-        Title="DijalogZakazivanjeOperacije" Height="840" Width="520" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="DijalogZakazivanjeOperacije" Height="820" Width="520" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="WhiteSmoke" MinHeight="800" MinWidth="510" >
 
         <Label Content="Zakazivanje operacije" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="134,36,122.6,724.4" Height="50" Width="257"/>
@@ -41,13 +41,13 @@
 
 
 
-        <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Margin="0,400,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="160" Width="400" AcceptsReturn="True" TextWrapping="Wrap" 
+        <TextBox x:Name="Razlog" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Margin="0,400,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="160" Width="400" AcceptsReturn="True" TextWrapping="Wrap" 
              VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="Razlog operacije/Napomena" FontSize="16" TextChanged="TextBox_TextChanged"/>
-        <Button Content="Potvrda" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="250,680,0,0" BorderBrush="Black" Background="{x:Null}" materialDesign:ShadowAssist.ShadowDepth="Depth3" Width="110"/>
+        <Button Content="Potvrda" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="250,680,0,0" BorderBrush="Black" Background="{x:Null}" materialDesign:ShadowAssist.ShadowDepth="Depth3" Width="110" Click="Button_Click_1"/>
         <Button Content="Izlaz" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30,680,300,0" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderBrush="Black" Background="{x:Null}" Width="84" Click="Button_Click"/>
 
 
-        <DatePicker Width="100"  materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"
+        <DatePicker x:Name="datePicker" Width="100"  materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"
                     Margin="0,0,10,325"/>
 
 

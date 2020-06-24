@@ -12,7 +12,7 @@
             <materialDesign:PackIcon Kind="ArrowLeftBoldCircleOutline" Height="50" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Button>
 
-        <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Nazad na pregled" FontSize="14" Margin="65,20,0,0"/>
+        <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Nazad na pregled" FontSize="14" Margin="65,25,0,0"/>
         <Label VerticalAlignment="Top" HorizontalAlignment="Center" Content="Izdavanje recepta" FontSize="20"  Margin="0,10,0,0" FontWeight="Bold"/>
         <Label VerticalAlignment="Top" HorizontalAlignment="Center" Content="Pacijent:" FontSize="18" Margin="0,60,150,0"/>
         <TextBox VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="18" Margin="200,60,0,0" Width="260"  IsReadOnly="True" x:Name="PacijentTextBox"/>
@@ -22,16 +22,15 @@
         <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Content="Lek za izdavanje:" Margin="500,0,0,200"/>
         <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Content="Proizvođač:" Margin="900,0,0,200"/>
 
-        <ListView Width="200" Height="200" FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,100,800,0" BorderBrush="Black" BorderThickness="2" >
+        <ListView x:Name="LekoviPacijenta" Width="200" Height="200" FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,100,800,0" BorderBrush="Black" BorderThickness="2" >
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <Setter Property="BorderBrush" Value="Black" />
                     <Setter Property="BorderThickness" Value="0.5,0.5,0.5,0.5" />
                 </Style>
             </ListView.ItemContainerStyle>
-            <ListViewItem >
-                L1
-            </ListViewItem>
+               
+            
             
         </ListView>
 
@@ -42,19 +41,24 @@
                     <Setter Property="BorderThickness" Value="0.5,0.5,0.5,0.5" />
                 </Style>
             </ListView.ItemContainerStyle>
-            <ListViewItem >
-                A1
-            </ListViewItem>
+            
 
         </ListView>
 
-        <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Margin="500,0,0,100" FontSize="18"/>
+        <TextBox x:Name="LekText"  KeyUp="TextBox_KeyUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Margin="500,0,0,100" FontSize="18"/>
+        
+        <Border Width="200" Height="100" BorderBrush="Black"   
+        BorderThickness="1" Margin="500,48,0,0" Visibility="Collapsed" Panel.ZIndex="1" Background="LightGreen">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Name="resultStack"></StackPanel>
+            </ScrollViewer>
+        </Border>
         <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Margin="950,0,0,100" FontSize="18"/>
         
         <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Margin="600,210,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="250" Width="360" AcceptsReturn="True" TextWrapping="Wrap" 
-             VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="Recept" FontSize="18"/>
-        <Button Content="Potvrda" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1080,100,0,0" BorderBrush="Black" Background="{x:Null}" materialDesign:ShadowAssist.ShadowDepth="Depth3" Width="100"/>
-        <Button Content="Odustani" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1080,200,0,0" BorderBrush="Black" Background="{x:Null}" materialDesign:ShadowAssist.ShadowDepth="Depth3" Width="100"/>
+             VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="Recept" FontSize="18" Panel.ZIndex="0"/>
+        <Button x:Name="potvrda" Content="Potvrda" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1080,100,0,0" BorderBrush="Black" Background="{x:Null}" materialDesign:ShadowAssist.ShadowDepth="Depth3" Width="100" ToolTip="Pacijentu ćete izdati recept" Click="Potvrda_Click"/>
+        <Button x:Name="odustani" Content="Odustani" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1080,200,0,0" BorderBrush="Black" Background="{x:Null}" materialDesign:ShadowAssist.ShadowDepth="Depth3" Width="100" ToolTip="Vratićete se na pregled pacijenta" Click="Odustani_Click"/>
 
 
 

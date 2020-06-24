@@ -22,6 +22,16 @@ namespace HealthClinic
         public DijalogLekoviUklinici()
         {
             InitializeComponent();
+
+            /*
+            for (int i = 0; i < UserControlValidacijaLeka.selectedLekUklinici.Sastav.Count; i++)
+            {
+                Sastav.Items.Add(UserControlValidacijaLeka.selectedLekUklinici.Sastav[i]);
+            }
+
+            Izvestaj.Text = UserControlValidacijaLeka.selectedLekUklinici.Izvestaj;
+            */
+            DaCheck.IsChecked = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

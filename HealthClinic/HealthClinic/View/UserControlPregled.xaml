@@ -22,7 +22,7 @@
         </Separator>
 
         <Grid Grid.Column="0">
-            <ListView x:Name="ListViewPregledPacijenti" Grid.Column="0" ItemsSource="{Binding Path=Pacijenti}" SelectionChanged="ListViewPregledPacijenti_SelectionChanged" >
+            <ListView x:Name="ListViewPregledPacijenti" Grid.Column="0" ItemsSource="{Binding Path=Pacijents}" SelectionChanged="ListViewPregledPacijenti_SelectionChanged" >
                 <ListView.ItemTemplate >
                     <DataTemplate >
                         <WrapPanel Height="30" >
@@ -43,7 +43,7 @@
 
                 </ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <materialDesign:PackIcon Kind="ArrowLeftBoldCircleOutline" VerticalAlignment="Top" Margin="10,10,0,0" Height="50" Width="50"/>
+            <!-- Kind="ArrowLeftBoldCircleOutline" VerticalAlignment="Top" Margin="10,10,0,0" Height="50" Width="50"/-->
 
             <materialDesign:PackIcon Kind="AccountCircle" Height="110" Width="117" Foreground="#FF8EEA9F" BorderBrush="Black"
                                          HorizontalAlignment="Left" VerticalAlignment="Center" Margin="104,31,0,403.8"/>
@@ -74,8 +74,8 @@
             <Button x:Name="ButtonZakaziPregled"  Width="150"  BorderThickness="2" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="99,234,101.4,278.8"  Background="#FFCAFFD4" materialDesign:ShadowAssist.ShadowDepth="Depth3" Click="ButtonZakaziPregled_Click">Zakaži pregled</Button>
             <Button Width="150" Background="#FFCAFFD4" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="2" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="98,280,102.4,232.8" Click="ButtonIzdavanjeRecepta_Click">Izdavanje recepta</Button>
             <Button Width="150" Background="#FFCAFFD4" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="2" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="98,329,102.4,183.8" Click="ButtonBolnickoLecenje_Click">Bolničko lečenje</Button>
-            <Button Width="150" Background="#FFCAFFD4" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="2" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="98,378,102.4,134.8">Izveštaj</Button>
-            <Button Width="150" Background="#FFCAFFD4" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="2" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="98,428,102.4,84.8" Click="ButtonUput_Click">Izdavanje uputa</Button>
+            <Button Width="150" Background="#FFCAFFD4" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="2" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="98,378,102.4,134.8" x:Name="buttonIzvesta" ToolTip="Generisanje izveštaja za anamnezu i lekove tokom pregleda" Click="ButtonIzvesta_Click">Izveštaj</Button>
+            <Button Width="150" Background="#FFCAFFD4" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="2" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="98,428,102.4,84.8" Click="ButtonUput_Click" x:Name="buttonUput" ToolTip="Zakazivanje pregleda kod lekara specijaliste">Izdavanje uputa</Button>
             <Button Width="150" Background="#FFCAFFD4" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="2" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="98,479,102.4,33.8" Click="ButtonZakaziOperaciju_Click">Zakaži operaciju</Button>
 
             <Grid Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -101,34 +101,31 @@
 
                 <Grid Grid.Row="1">
                     <GroupBox Header="Lekovi" HorizontalAlignment="Left" Height="124" Margin="44,67,0,263.4" VerticalAlignment="Center" Width="200" FontSize="15" Background="{x:Null}" Foreground="{x:Null}">
-                        <ListView FontSize="14">
-                            <ListViewItem>
-                                <TextBlock Text="Bromazepam"></TextBlock>
-                            </ListViewItem>
+                        <ListView FontSize="14" x:Name="LekoviPregled">
                         </ListView>
                     </GroupBox>
 
-                    <Button Width="67" Height="43" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="244,67,0,344.4" Background="{x:Null}" BorderBrush="{x:Null}" >
+                    <Button Width="67" Height="43" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="244,67,0,344.4" Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonLekovi_Click">
                         <materialDesign:PackIcon Kind="CircleEditOutline" Height="40" Width="37"/>
                     </Button>
 
                     <GroupBox Header="Alergije" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Height="130" Margin="44,261,0,63.4">
-                        <ListView FontSize="14">
-                            <ListViewItem>
-                                <TextBlock Text="Polen"></TextBlock>
-                            </ListViewItem>
+                        <ListView FontSize="14" x:Name="ListaAlergija">
                         </ListView>
                     </GroupBox>
 
-                    <Button Width="67" Height="43" VerticalAlignment="Center" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Margin="244,261,0,150.4" Click="ButtonAlergija_Click">
+                    <Button ToolTip="Dodaj/obriši alergiju" Width="67" Height="43" VerticalAlignment="Center" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Margin="244,261,0,150.4" Click="ButtonAlergija_Click">
                         <materialDesign:PackIcon Kind="CircleEditOutline" Height="40" Width="37"/>
                     </Button>
 
                     <GroupBox Header="Anamneza i terapija" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,27,66.6,205.4" Width="230" Height="222" FontSize="15">
-
+                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                            <TextBlock TextWrapping="Wrap" FontSize="14" x:Name="AnamenzaPregled" Width="200" Height="150" Margin="10,10,10,10" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                            </TextBlock>
+                        </ScrollViewer>
                     </GroupBox>
 
-                    <Button Width="67" Height="43" VerticalAlignment="Center" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,27,-0.4,384.4">
+                    <Button Width="67" Height="43" VerticalAlignment="Center" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,27,-0.4,384.4" Click="ButtonAnamneza_Click">
                         <materialDesign:PackIcon Kind="CircleEditOutline" Height="40" Width="37"/>
                     </Button>
 
@@ -140,7 +137,7 @@
                         </ListView>
                     </GroupBox>
 
-                    <Button Width="67" Height="43" VerticalAlignment="Center" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,279,-0.4,132.4" Click="ButtonDijanoza_Click" >
+                    <Button ToolTip="Dodaj/Obriši dijagnozu" x:Name="buttonDijagnoza" Width="67" Height="43" VerticalAlignment="Center" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,279,-0.4,132.4" Click="ButtonDijanoza_Click" >
                         <materialDesign:PackIcon Kind="CircleEditOutline" Height="40" Width="37"/>
                     </Button>
 

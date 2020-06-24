@@ -14,15 +14,15 @@
             
         </ListBox>
 
-        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,123,26.6,0" Width="92" BorderBrush="Black" BorderThickness="1" Content="Obrisi" Background="{x:Null}" Height="42">
+        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,123,26.6,0" Width="92" BorderBrush="Black" BorderThickness="1" Content="Obrisi" Background="{x:Null}" Height="42" Click="ButtonObrisi_Click">
         </Button>
 
-        <Label HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="Nova dijagnoza:" FontSize="14" Margin="53,0,0,72.4"></Label>
-        <TextBox HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="25" Width="218" Background="White" Margin="160,0,135.6,72.4">
+        <Label HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="Nova dijagnoza:" FontSize="14" Margin="10,0,0,72.4"></Label>
+        <TextBox x:Name="NovaDijagnoza" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="240" Background="White" Margin="0,200,0,0">
 
         </TextBox>
 
-        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="92" BorderBrush="Black" BorderThickness="1" Content="Dodaj" Background="{x:Null}" Margin="0,0,26.6,68.4" Height="37">
+        <Button HorizontalAlignment="Right" Click="ButtonDodaj_Click" VerticalAlignment="Bottom" Width="92" BorderBrush="Black" BorderThickness="1" Content="Dodaj" Background="{x:Null}" Margin="0,0,26.6,68.4" Height="37">
         </Button>
 
 

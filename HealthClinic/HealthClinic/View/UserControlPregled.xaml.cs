@@ -23,25 +23,74 @@ namespace HealthClinic
     /// </summary>
     public partial class UserControlPregled : UserControl
     {
+      /*
         public ObservableCollection<Pacijent> Pacijenti
         {
             get;
             set;
         }
+        */
 
-        public static Pacijent selectedPatient = null;
+      //  public static Pacijent selectedPatient = null;
+
 
         public UserControlPregled()
         {
             InitializeComponent();
-            this.DataContext = this;
-            Pacijenti = UserControlPocetna.Pacijenti;
+          //  this.DataContext = MainWindow.Pacijenti;
+            //Pacijenti = UserControlPocetna.Pacijenti;
+            _UserControlPregled = this;
+            
+
+            /*
+            if (UserControlPocetna.staticPacijent != null)
+            {
+                ListViewPregledPacijenti.SelectedItem = UserControlPocetna.staticPacijent;
+            }
+            */
+
+
+            if(UserControlPocetna.userControlPocetna.ToolTipButto.IsChecked == true)
+            {
+                ToolTipService.SetIsEnabled(buttonUput, true);
+                ToolTipService.SetIsEnabled(buttonIzvesta, true);
+                ToolTipService.SetIsEnabled(buttonDijagnoza, true);
+            
+            }
+            else
+            {
+                ToolTipService.SetIsEnabled(buttonUput, false);
+                ToolTipService.SetIsEnabled(buttonIzvesta, false);
+                ToolTipService.SetIsEnabled(buttonDijagnoza, false);
+            }
+            
         }
+
+        public static UserControlPregled _UserControlPregled = new UserControlPregled();
 
         private void ListViewPregledPacijenti_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            GridPregled.Visibility = Visibility.Visible;
-            selectedPatient = (Pacijent)ListViewPregledPacijenti.SelectedItem;
+            GridPregled.Visibility = Visibility.Visible;        
+           // selectedPatient = (Pacijent)ListViewPregledPacijenti.SelectedItem;
+
+            LekoviPregled.Items.Clear();
+            ListaAlergija.Items.Clear();
+           
+
+            /*
+            for (int i = 0; i < selectedPatient.Lekovi.Count; i++)
+            {
+                LekoviPregled.Items.Add(selectedPatient.Lekovi[i]);
+            }
+
+            for (int i = 0; i < selectedPatient.Alergije.Count; i++)
+            {
+                ListaAlergija.Items.Add(selectedPatient.Alergije[i]);
+            }
+
+            AnamenzaPregled.Text = selectedPatient.Anamenza;
+            */
+
         }
 
         private void ButtonDijanoza_Click(object sender, RoutedEventArgs e)
@@ -82,6 +131,27 @@ namespace HealthClinic
         {
             DijalogBolnickoLecenje dijalogBolnickoLecenje = new DijalogBolnickoLecenje();
             dijalogBolnickoLecenje.ShowDialog();
+        }
+
+        private void ButtonLekovi_Click(object sender, RoutedEventArgs e)
+        {
+            DijalogLekoviPregled dijalogLekoviPregled = new DijalogLekoviPregled();
+            dijalogLekoviPregled.ShowDialog();
+        }
+
+        private void ButtonAnamneza_Click(object sender, RoutedEventArgs e)
+        {
+            DijalogAnamnezaKodPregleda dijalog = new DijalogAnamnezaKodPregleda();
+            dijalog.ShowDialog();
+        }
+
+        private void ButtonIzvesta_Click(object sender, RoutedEventArgs e)
+        {
+           /* if (selectedPatient != null)
+            {
+                Izvestaj izvestaj = new Izvestaj(selectedPatient);
+            }
+            */
         }
     }
 }

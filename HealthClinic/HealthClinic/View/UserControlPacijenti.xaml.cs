@@ -22,17 +22,23 @@ namespace HealthClinic
     /// </summary>
     public partial class UserControlPacijenti : UserControl
     {
-        public ObservableCollection<Pacijent> Pacijenti
-        {
-            get;
-            set;
-        }
+        //public ObservableCollection<Pacijent> Pacijenti
+        //{
+         //   get;
+         //   set;
+//        }
 
         public UserControlPacijenti()
         {
             InitializeComponent();
-            this.DataContext = this;
-            Pacijenti = UserControlPocetna.Pacijenti;
+            //this.DataContext = this;
+  //          this.DataContext = MainWindow.Pacijenti;
+            //Pacijenti = UserControlPocetna.Pacijenti;
+        }
+
+        private void ButtonPocetna_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow._MainWindow.GridMain.Children.Add(new UserControlPocetna());
         }
     }
 }

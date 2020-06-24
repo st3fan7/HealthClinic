@@ -23,6 +23,22 @@ namespace HealthClinic
         {
             InitializeComponent();
             Vremena();
+
+            Specijalizacija.Items.Add("Kardiohirurg");
+            Specijalizacija.Items.Add("Hirurg");
+            Specijalizacija.Items.Add("Pedijatar");
+            Specijalizacija.Items.Add("Urolog");
+
+            ListaLekara.Items.Add("dr. Nikola Nikolić");
+            ListaLekara.Items.Add("dr. Stefan Stefanović");
+            ListaLekara.Items.Add("dr. Predrag Kon");
+            /*
+            if (UserControlPregled.selectedPatient != null)
+            {
+                Ime.Text = UserControlPregled.selectedPatient.Ime;
+                Prezime.Text = UserControlPregled.selectedPatient.Prezime;
+            }
+            */
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

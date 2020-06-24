@@ -15,33 +15,34 @@ using System.Windows.Shapes;
 namespace HealthClinic
 {
     /// <summary>
-    /// Interaction logic for DijalogIzmenaAlergije.xaml
+    /// Interaction logic for DijalogLekoviPregled.xaml
     /// </summary>
-    public partial class DijalogIzmenaAlergije : Window
+    public partial class DijalogLekoviPregled : Window
     {
-        public DijalogIzmenaAlergije()
+        public DijalogLekoviPregled()
         {
             InitializeComponent();
             /*
-            if (UserControlPregled.selectedPatient != null)
+            if(UserControlPregled.selectedPatient != null)
             {
-                foreach (String lergija in UserControlPregled.selectedPatient.Alergije)
+                foreach (String lek in UserControlPregled.selectedPatient.Lekovi)
                 {
-                    ListBox.Items.Add(lergija);
+                    ListBox.Items.Add(lek);
                 }
             }
-           */
+            */
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ListBox.Items.Add(NovaAlergija.Text);
-            //UserControlPregled.selectedPatient.Alergije.Add(NovaAlergija.Text);
+            ListBox.Items.Add(NovLek.Text);
+           // UserControlPregled.selectedPatient.Lekovi.Add(NovLek.Text);
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ButtonObrisi_Click(object sender, RoutedEventArgs e)
         {
-           // UserControlPregled.selectedPatient.Alergije.Remove(ListBox.SelectedItem.ToString());
+            //UserControlPregled.selectedPatient.Lekovi.Remove(ListBox.SelectedItem.ToString());
             ListBox.Items.Remove(ListBox.SelectedItem);
         }
     }

@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HealthClinic"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d"
+        mc:Ignorable="d" PreviewKeyDown="WindowKeyDown"
         Title="HealthClinic" Height="650" Width="1280" MinHeight="650" MinWidth="1280" WindowStartupLocation="CenterScreen">
+    
     <Window.Resources>
         <Storyboard x:Key="TBOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridTB">
@@ -71,8 +72,17 @@
         <Grid Height="35" VerticalAlignment="Top" Background="#FFCAFFD4" Margin="70,0,0,0">
             <DockPanel  VerticalAlignment="Top" Height="35" Margin="0,0,0,0" >
                 <Menu DockPanel.Dock="Top"  Background="#FFCAFFD4" Height="auto" Margin="0,0,1,0">
-                    <MenuItem Header="_Prikaži" BorderBrush="#FF030000" BorderThickness="1" Height="35" FontWeight="Bold" Width="200" >
-
+                    <MenuItem Header="_Prikaži" BorderBrush="#FF030000" BorderThickness="1" Height="35" FontWeight="Bold" Width="200" x:Name="menuPrikazi" >
+                        <MenuItem.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,0">Osnovne funkcionalnosti</TextBlock>
+                                <TextBlock>
+                                Ovde možete da pronađete osnovne funkcionalnosti
+                                <LineBreak />
+                               Pregled pacijenta, validaciju leka itd.
+                                </TextBlock>
+                            </StackPanel>
+                        </MenuItem.ToolTip>
                         <MenuItem x:Name="menuPocetna" Header="_Početna" InputGestureText="Ctrl+P" Click="MenuPocetna_Click" >
                         </MenuItem>
                         <MenuItem x:Name="menuPacijenti" Header="P_acijenti" InputGestureText="Ctrl+A" Click="MenuPacijenti_Click">
@@ -82,17 +92,39 @@
                         <MenuItem x:Name="menuLekValidacija" Header="_Lek za validaciju" InputGestureText="Ctrl+L" Click="MenuValidacijaLeka_Click"/>
                         <MenuItem x:Name="menuZdravstveniKarton" Header="_Zdravstveni karton" InputGestureText="Ctrl+Z" />
                     </MenuItem>
-                    <MenuItem Header="_Zakaži" Height="35"  BorderBrush="#FF030000" BorderThickness="1" FontWeight="Bold" Width="200" >
-                        <MenuItem x:Name="menuZakaziPregled" Header="_Pregled" InputGestureText="Ctrl+P" Click="MenuZakaziPregled_Click"/>
+                    <MenuItem Header="_Zakaži" Height="35"  BorderBrush="#FF030000" BorderThickness="1" FontWeight="Bold" Width="200" x:Name="menuZakazi" >
+                        <MenuItem.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,0">Zakazivanje </TextBlock>
+                                <TextBlock>
+                                Ovde možete da zakažete pregled, operaciju
+                                <LineBreak />
+                                Izdate uput i bolničko lečenje
+                                </TextBlock>
+                            </StackPanel>
+                        </MenuItem.ToolTip>
+                        <MenuItem x:Name="menuZakaziPregled" Header="_Pregled" InputGestureText="Ctrl+E" Click="MenuZakaziPregled_Click"/>
                         <MenuItem x:Name="menuOperacija" Header="_Operacija" InputGestureText="Ctrl+O" Click="MenuOperacija_Click"/>
                         <MenuItem x:Name="menuUput" Header="_Uput" InputGestureText="Ctrl+U" Click="MenuUput_Click"/>
                         <MenuItem x:Name="menuBolnickoLecenje" Header="_Bolničko lečenje"  InputGestureText="Ctrl+B" Click="MenuBolnickoLecenje_Click"/>
                        
                     </MenuItem>
-                    <MenuItem Header="_Obaveštenja" Height="35"  BorderBrush="#FF030000" BorderThickness="1" FontWeight="Bold" Width="204" Click="MenuItemObavestenja_Click"/>
-                    <MenuItem Header="_Blog" Height="35"  BorderBrush="#FF030000" BorderThickness="1" FontWeight="Bold" Width="200"/>
-                    <MenuItem Header="_Pomoć" Height="35"  BorderBrush="#FF030000" BorderThickness="1" FontWeight="Bold" Width="200"/>
-                    <MenuItem Header="_Nalog" Height="35"  BorderBrush="#FF030000" BorderThickness="1" FontWeight="Bold" Width="190" Click="MenuItemNalog_Click"/>
+                    <MenuItem Header="_Obaveštenja" Height="35"  BorderBrush="#FF030000" BorderThickness="1" FontWeight="Bold" Width="204" Click="MenuItemObavestenja_Click" ToolTip="Vaša obaveštenja" x:Name="menuObavestenja"/>
+                    <MenuItem Header="_Blog" Height="35"  BorderBrush="#FF030000" BorderThickness="1" FontWeight="Bold" Width="200" Click="MenuItemBlog_Click"/>
+                    <MenuItem Header="_Pomoć" Height="35"  BorderBrush="#FF030000" BorderThickness="1" FontWeight="Bold" Width="200" x:Name="MenuPomoc" Click="MenuPomoc_Click">
+                        <MenuItem.ToolTip>
+                        <StackPanel>
+                                <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,0">Pomoć u vidu wizard-a</TextBlock>
+                            <TextBlock>
+                               Klikom na ovo dugme će Vam se pojaviti wizard.
+                                <LineBreak />
+                               On će vas sprovesti kroz zakazivanje pregleda pacijenta.
+                            </TextBlock>
+                        </StackPanel>
+                        </MenuItem.ToolTip>
+
+                    </MenuItem>
+                    <MenuItem Header="_Nalog" x:Name="nalogItem" Height="35"  BorderBrush="#FF030000" BorderThickness="1" FontWeight="Bold" Width="190" Click="MenuItemNalog_Click" ToolTip="Vaši podaci" ToolTipService.IsEnabled="{Binding ElementName=ToolTipButton, Path=isChecked}" />
 
                 </Menu>
 
@@ -116,31 +148,31 @@
                     </StackPanel>
                 </Grid>
                 <ListView Foreground="black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" Height="426" Margin="0,0,0.4,0">
-                    <ListViewItem Height="60" x:Name="ItemPocetna">
+                    <ListViewItem Height="60" x:Name="ItemPocetna" ToolTip="Početna stranica">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Home" Width="25" Height="25" VerticalAlignment="Center" Margin="10"/>
                             <TextBlock Text="Početna" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60" x:Name="ItemPacijenti">
+                    <ListViewItem Height="60" x:Name="ItemPacijenti" ToolTip="Vaši pacijenti">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Users" Width="25" Height="25" VerticalAlignment="Center"  Margin="10"/>
                             <TextBlock Text="Pacijenti" VerticalAlignment="Center" Margin="20 8.5"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60" x:Name="ItemPregled">
+                    <ListViewItem Height="60" x:Name="ItemPregled" ToolTip="Pregled pacijenta">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="MedicalBag" Width="25" Height="25" VerticalAlignment="Center"  Margin="10"/>
                             <TextBlock Text="Pregled" VerticalAlignment="Center" Margin="20 8.5"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60" x:Name="ItemValidacijaLeka">
+                    <ListViewItem Height="60" x:Name="ItemValidacijaLeka" ToolTip="Validacija leka">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="HealthPotion" Width="25" Height="25" VerticalAlignment="Center"  Margin="10"/>
                             <TextBlock Text="Validacija leka" VerticalAlignment="Center" Margin="20 8.5"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60" x:Name="ItemOdjava">
+                    <ListViewItem Height="60" x:Name="ItemOdjava" ToolTip="Odjavite se!">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Logout" Width="25" Height="24" VerticalAlignment="Center"  Margin="10" />
                             <TextBlock Text="Odjava" VerticalAlignment="Center" Margin="20 8.5"/>

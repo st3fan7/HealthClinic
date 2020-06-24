@@ -10,26 +10,21 @@
     <Grid Background="WhiteSmoke">
         <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="Sastav:" FontSize="20" Margin="0,0,600,280"/>
 
-        <ListView Width="250" Height="200" FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,550,0" BorderBrush="Black" BorderThickness="2" >
+        <ListView x:Name="Sastav" Width="250" Height="200" FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,550,0" BorderBrush="Black" BorderThickness="2" >
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <Setter Property="BorderBrush" Value="Black" />
                     <Setter Property="BorderThickness" Value="0.5,0.5,0.5,0.5" />
                 </Style>
             </ListView.ItemContainerStyle>
-            <ListViewItem >
-                S1
-            </ListViewItem>
-            <ListViewItem >
-                S2
-            </ListViewItem>
+            
         </ListView>
 
         <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Content="Lek je validan:" Margin="140,0,0,280"/>
-        <CheckBox Style="{StaticResource MaterialDesignCheckBox}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="320,0,0,280" FontSize="16" x:Name="DaCheck">Da</CheckBox>
-        <CheckBox Style="{StaticResource MaterialDesignCheckBox}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="450,0,0,280" FontSize="16" x:Name="NeCheck" >Ne</CheckBox>
+        <CheckBox Style="{StaticResource MaterialDesignCheckBox}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="320,0,0,280" FontSize="16" x:Name="DaCheck" Focusable="False" IsHitTestVisible="False" >Da</CheckBox>
+        <CheckBox Style="{StaticResource MaterialDesignCheckBox}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="450,0,0,280" FontSize="16" x:Name="NeCheck"  Focusable="False" IsHitTestVisible="False">Ne</CheckBox>
 
-        <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Margin="390,90,0,90" VerticalAlignment="Center" HorizontalAlignment="Center" Height="160" Width="360" AcceptsReturn="True" TextWrapping="Wrap" 
+        <TextBox x:Name="Izvestaj"  Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Margin="390,90,0,90" VerticalAlignment="Center" HorizontalAlignment="Center" Height="160" Width="360" AcceptsReturn="True" TextWrapping="Wrap" 
              VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="Izveštaj o validnosti leka" FontSize="16" IsReadOnly="True"/>
 
         <Button Content="Izlaz" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="400,240,0,0" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderBrush="Black" Background="{x:Null}" Click="Button_Click" />

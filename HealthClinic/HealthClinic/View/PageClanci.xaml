@@ -1,0 +1,20 @@
+﻿<Page x:Class="HealthClinic.PageClanci"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HealthClinic"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageClanci">
+
+    <Grid Background="WhiteSmoke">
+        <TextBox IsReadOnly="True" Text="Brza hrana" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,350"></TextBox>
+        <Border BorderThickness="1" BorderBrush="DarkGreen" Width="700" Height="240" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0">
+            <TextBlock x:Name="tekst" TextWrapping="Wrap" FontSize="18" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Center"  HorizontalAlignment="Center" IsEnabled="False" Width="670" Height="220" ></TextBlock>
+        </Border>
+        
+        <Image Source="/images/Fast-Food-2.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="100"  Margin="545,0,0,250"></Image>
+        <Button Content="otvori" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="600,380,0,0" Background="{x:Null}" BorderThickness="1" BorderBrush="black"></Button>
+    </Grid>
+</Page>

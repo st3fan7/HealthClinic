@@ -21,31 +21,57 @@ namespace HealthClinic
     /// </summary>
     public partial class DijalogZakazivanjePregleda : Window
     {
-        Pacijent pacijent = new Pacijent();
+        //Pacijent pacijent = new Pacijent();
+        
+        
+            
         public DijalogZakazivanjePregleda()
         {
             InitializeComponent();
+            
+
             Vremena();
 
+            /*
             if (UserControlPregled.selectedPatient == null)
             {
                 Ime.Text = null;
                 Prezime.Text = null;
-                
-            }else
-            {
-                Ime.Text = UserControlPregled.selectedPatient.Ime;
-                Prezime.Text = UserControlPregled.selectedPatient.Prezime;
-                
-            }
+                pacijent.ProsliPregled = "";
+                pacijent.Lekovi = new ObservableCollection<string>();
+                pacijent.Alergije = new ObservableCollection<string>();
+                pacijent.Simptomi = new ObservableCollection<string>();
+                pacijent.Dijagnoza = "";
 
-            
-            
+
+
+            }
+            else
+            {
+                pacijent = UserControlPregled.selectedPatient;
+                
+                
+                Ime.Text = UserControlPregled.selectedPatient.Ime;
+                Prezime.Text = UserControlPregled.selectedPatient.Prezime;             
+                pacijent.ProsliPregled = UserControlPregled.selectedPatient.Datum;
+                pacijent.Dijagnoza = UserControlPregled.selectedPatient.Dijagnoza;
+                
+
+            }
+            */         
+
+
+            Sala.Items.Add("1001");
+            Sala.Items.Add("20B");
+            Sala.Items.Add("30A");
+
+
+
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            pacijent.KratakProblem = Razlog.Text.ToString();
+            //pacijent.KratakProblem = Razlog.Text.ToString();
         }
 
        
@@ -65,7 +91,7 @@ namespace HealthClinic
         {
             if (DaChecked.IsChecked == true)
             {
-                pacijent.Hitnost = "Da";
+               // pacijent.Hitnost = "Da";
                 NeChecked.IsChecked = false;
                 NeChecked.IsEnabled = false;
             }
@@ -84,7 +110,7 @@ namespace HealthClinic
         {
             if (NeChecked.IsChecked == true)
             {
-                pacijent.Hitnost = "Ne";
+               // pacijent.Hitnost = "Ne";
                 DaChecked.IsChecked = false;
                 DaChecked.IsEnabled = false;
             }
@@ -106,15 +132,35 @@ namespace HealthClinic
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            /*
             pacijent.Ime = Ime.Text;
             pacijent.Prezime = Prezime.Text;
-            pacijent.Datum = datePicker.SelectedDate.Value.ToShortDateString();
+            pacijent.Datum = datePicker.SelectedDate.Value.ToString("dd.MM.yyyy");
             pacijent.Vreme = ListVremena.SelectedItem.ToString();
-            pacijent.Sala = "101";
+            pacijent.Sala = Sala.SelectedItem.ToString();
             pacijent.Zadatak = "Pregled";
            
-            pacijent.Dijagnoza = "asndjas";
-            UserControlPocetna.Pacijenti.Add(pacijent);
+
+            pacijent.KratakProblem = Razlog.Text;
+           
+
+            */
+
+            MessageBoxResult result = MessageBox.Show("Da li ste sigurni da ste dobro uneli podatke?\nAko jeste, potvrdite.", "Zakazivanje pregleda", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                /*
+                if (UserControlPregled.selectedPatient == null)
+                {
+                    MainWindow.Pacijenti.dodajPacijenta(pacijent);
+                }
+                else
+                {
+                    UserControlPregled.selectedPatient = pacijent;
+                }
+                */
+                this.Close();
+            }
         }
     }
 }

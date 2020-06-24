@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
         <Separator Height="3" Background="Black" Margin="0,45,4.8,492" Grid.ColumnSpan="2" VerticalAlignment="Top" />
         <materialDesign:PackIcon Kind="User" Margin="0,15,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Top"/>
-        <Label Height="30" HorizontalContentAlignment="Left" VerticalAlignment="Top" Margin="21,10,385,0" Content="Zdravo dr. Dusan"/>
+        <Label Height="30" HorizontalContentAlignment="Left" VerticalAlignment="Top" Margin="21,10,385,0" Content="Zdravo dr. Petar"/>
         <DatePicker x:Name="DP"
                         Width="100"
                         materialDesign:HintAssist.Hint="Pick Date" HorizontalAlignment="Center" VerticalAlignment="Top"
@@ -26,17 +26,17 @@
 
         <Label Content="RASPORED" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Center" Width="110" Height="30" Grid.Row="0" Margin="90">
         </Label>
-        <ComboBox materialDesign:HintAssist.Hint="Search" IsEditable="True" materialDesign:HintAssist.HintOpacity=".26" HorizontalAlignment="Center" VerticalAlignment="Top" 
-                  Margin="432,90,9.6,0" Width="160" Height="25" ItemsSource="{Binding Path=Pacijenti}" DisplayMemberPath="Prezime" SelectedValuePath="Pacijenti">
+        <TextBox materialDesign:HintAssist.Hint="Search"  materialDesign:HintAssist.HintOpacity=".26" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                  Margin="432,90,9.6,0" Width="160" Height="25" TextChanged="ComboBox_SelectionChanged" x:Name="search">
 
-        </ComboBox>
+        </TextBox>
 
-        <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=Pacijenti}" IsReadOnly="True" Margin="10,129,9.8,128" AutoGenerateColumns="False" DataGridCell.Selected="dgrPocetnaEvent">
+        <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=Pacijents}" IsReadOnly="True" Margin="10,129,9.8,128" AutoGenerateColumns="False" DataGridCell.Selected="dgrPocetnaEvent">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Datum" Binding="{Binding Path=Datum}"/>
                 <DataGridTextColumn Header="Ime" Binding="{Binding Path=Ime}"/>
                 <DataGridTextColumn Header="Prezime" Binding="{Binding Path=Prezime}"/>
-                <DataGridTextColumn Header="Godine" Binding="{Binding Path=Godine}"/>
+                <!--DataGridTextColumn Header="Godine" Binding="{Binding Path=Godine}"/-->
                 <DataGridTextColumn Header="Zadatak" Binding="{Binding Path=Zadatak}"/>
                 <DataGridTextColumn Header="Vreme" Binding="{Binding Path=Vreme}"/>
                 <DataGridTextColumn Header="Sala" Binding="{Binding Path=Sala}"/>
@@ -45,8 +45,8 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Content="Prikazi sve" BorderBrush="Black" BorderThickness="2" Background="{x:Null}" Foreground="Black" Margin="0,0,20.4,91" Height="30"  VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100"/>
-        <Button Content="Unos" BorderBrush="Black" BorderThickness="2" Background="{x:Null}" Foreground="Black" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="30" Width="70" Margin="10,0,0,91"/>
+        <!--Button Content="Prikazi sve" BorderBrush="Black" BorderThickness="2" Background="{x:Null}" Foreground="Black" Margin="0,0,20.4,91" Height="30"  VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100"/-->
+        <Button x:Name="buttonUnos" Content="Unos" BorderBrush="Black" BorderThickness="2" Background="{x:Null}" Foreground="Black" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="30" Width="70" Margin="10,0,0,91" ToolTip="Brzo zakazivanje pregleda" Click="ButtonUnos_Click"/>
 
         <Grid Grid.Column="1" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}">
             <Grid.RowDefinitions>
@@ -57,7 +57,7 @@
             </Grid.RowDefinitions>
             
             <ToggleButton Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton" IsChecked="True"
-                          VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,38.8,0" Width="55" />
+                          VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,38.8,0" Width="55" x:Name="ToolTipButto" Checked="ToolTipButto_Checked" Unchecked="ToolTipButto_Unchecked" />
             <Label Content="Tooltip off/on" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Right" Width="80" Height="22" Grid.Row="0" Margin="0,22,23,0"/>
             
             <Grid Grid.Row="1" x:Name="GridPocentaVidljiv" Visibility="Collapsed">
@@ -92,7 +92,7 @@
                         FontSize="15"
                         />
 
-                <Button HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,166,20.6,293.2" Background="#FFCAFFD4" materialDesign:ShadowAssist.ShadowDepth="Depth3" Click="ButtonIzvrsiPregled_Click">
+                <Button x:Name="ButtonPregled" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,166,20.6,293.2" Background="#FFCAFFD4" materialDesign:ShadowAssist.ShadowDepth="Depth3" Click="ButtonIzvrsiPregled_Click" ToolTip="Izvršite pregleda za ovog pacijenta">
                     Izvrši pregled</Button>
                 <Button HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,223,20.6,236.2" Background="#FFCAFFD4" materialDesign:ShadowAssist.ShadowDepth="Depth3" >
                     Uvid u karton</Button>

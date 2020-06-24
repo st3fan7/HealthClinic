@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthClinic.Entiteti;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,14 @@ namespace HealthClinic
     /// </summary>
     public partial class MainWindow : Window
     {
+        //public static Pacijenti Pacijenti = null;
+        //public static Lekovi Lekovi = null;
+
         public MainWindow()
         {
+          //  Pacijenti = new Pacijenti();
+           // Lekovi = new Lekovi();
+
             InitializeComponent();
             _MainWindow = this;
             ItemPocetna.IsSelected = true;
@@ -168,6 +175,16 @@ namespace HealthClinic
             }
         }
 
+        private void MenuItemBlog_Click(object sender, RoutedEventArgs e)
+        {
+            UserControl uscB = new UserControlBlog();
+            if(usc != uscB)
+            {
+               // GridMain.Children.Clear();
+                GridMain.Children.Add(uscB);
+            }
+        }
+
         private void MenuItemNalog_Click(object sender, RoutedEventArgs e)
         {
 
@@ -215,6 +232,64 @@ namespace HealthClinic
         {
             DijalogBolnickoLecenje dijalogBolnickoLecenje = new DijalogBolnickoLecenje();
             dijalogBolnickoLecenje.ShowDialog();
+        }
+
+        private void WindowKeyDown(object sender, KeyEventArgs e)
+
+        {
+
+            if (e.Key == Key.P && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                UserControlPocetna userControlPocetna = new UserControlPocetna();
+                GridMain.Children.Add(userControlPocetna);
+                
+            }else if (e.Key == Key.A && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                UserControlPacijenti userControlPocetna = new UserControlPacijenti();
+                GridMain.Children.Add(userControlPocetna);
+
+            }else if (e.Key == Key.R && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                UserControlPregled userControlPocetna = new UserControlPregled();
+                GridMain.Children.Add(userControlPocetna);
+
+            }
+            else if (e.Key == Key.L && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                UserControlValidacijaLeka userControlPocetna = new UserControlValidacijaLeka();
+                GridMain.Children.Add(userControlPocetna);
+
+            }
+            else if (e.Key == Key.O && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                DijalogZakazivanjeOperacije dijalogZakazivanjeOperacije = new DijalogZakazivanjeOperacije();
+                dijalogZakazivanjeOperacije.ShowDialog();
+
+            }
+            else if (e.Key == Key.U && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                DijalogIzdavanjeUputa dijalogIzdavanjeUputa = new DijalogIzdavanjeUputa();
+                dijalogIzdavanjeUputa.ShowDialog();
+
+            }
+            else if (e.Key == Key.B && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                DijalogBolnickoLecenje dijalogBolnickoLecenje = new DijalogBolnickoLecenje();
+                dijalogBolnickoLecenje.ShowDialog();
+            }
+            else if (e.Key == Key.E && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                DijalogZakazivanjePregleda dijalogZakazivanjePregleda = new DijalogZakazivanjePregleda();
+                dijalogZakazivanjePregleda.ShowDialog();
+            }
+
+
+        }
+
+        private void MenuPomoc_Click(object sender, RoutedEventArgs e)
+        {
+            WindowWizard windowWizard = new WindowWizard();
+            windowWizard.ShowDialog();
         }
     }
 }

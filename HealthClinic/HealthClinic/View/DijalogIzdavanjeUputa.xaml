@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:HealthClinic"
         mc:Ignorable="d"
-        Title="DijalogIzdavanjeUputa"  Height="840" Width="520" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="DijalogIzdavanjeUputa"  Height="825" Width="520" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="WhiteSmoke" MinHeight="800" MinWidth="510" >
 
         <Label Content="Izdavanje uputa" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="136,0,120.6,760.4" Height="50" Width="257"/>
