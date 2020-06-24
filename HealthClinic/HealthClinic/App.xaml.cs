@@ -164,26 +164,27 @@ namespace HealthClinic
             UserController = new UserController(userService);
             WorkingTimeForDoctorController = new WorkingTimeForDoctorController(workingTimeForDoctorService);
 
+           
         }
 
-        public IController<Article, int> ArticleController { get; private set; }
-        public IController<Notification, int> NotificationController { get; private set; }
-        public IController<Survey, int> SurveyController { get; private set; }
-        public IController<Hospitalitation, int> HospitalitationController { get; private set; }
-        public IController<MedicalExamination, int> MedicalExaminationController { get; private set; }
-        public IController<Surgery, int> SurgeryController { get; private set; }
-        public IController<Allergies, int> AllergiesController { get; private set; }
-        public IController<Diagnosis, int> DiagnosisController { get; private set; }
-        public IController<MedicalRecord, int> MedicalRecordController { get; private set; }
-        public IController<Symptoms, int> SymptomsController { get; private set; }
-        public IController<IssueOfMedicaments, int> IssueOfMedicamentsController { get; private set; }
-        public IController<Medicament, int> MedicamentController { get; private set; }
-        public IController<ValidationOfMedicament, int> ValidationOfMedicamentController { get; private set; }
-        public IController<Equipment, int> EquipmentController { get; private set; }
-        public IController<Renovation, int> RenovationController { get; private set; }
-        public IController<Room, int> RoomController { get; private set; }
-        public IController<User, int> UserController { get; private set; }
-        public IController<WorkingTimeForDoctor, int> WorkingTimeForDoctorController { get; private set; }
+        public ArticleController ArticleController { get; private set; }
+        public NotificationController NotificationController { get; private set; }
+        public SurveyController SurveyController { get; private set; }
+        public HospitalitationController HospitalitationController { get; private set; }
+        public MedicalExaminationController MedicalExaminationController { get; private set; }
+        public SurgeryController SurgeryController { get; private set; }
+        public AllergiesController AllergiesController { get; private set; }
+        public DiagnosisController DiagnosisController { get; private set; }
+        public MedicalRecordController MedicalRecordController { get; private set; }
+        public SymptomsController SymptomsController { get; private set; }
+        public IssueMedicamentsController IssueOfMedicamentsController { get; private set; }
+        public MedicamentController MedicamentController { get; private set; }
+        public ValidationMedicamentController ValidationOfMedicamentController { get; private set; }
+        public EquipmentController EquipmentController { get; private set; }
+        public RenovationController RenovationController { get; private set; }
+        public RoomController RoomController { get; private set; }
+        public UserController UserController { get; private set; }
+        public WorkingTimeForDoctorController WorkingTimeForDoctorController { get; private set; }
 
     }
 }

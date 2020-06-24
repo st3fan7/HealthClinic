@@ -16,10 +16,15 @@ namespace Model.Term
         protected DateTime FromDateTime { get => fromDateTime; set => fromDateTime = value; }
         protected DateTime ToDateTime { get => toDateTime; set => toDateTime = value; }
 
-        /*protected Term(DateTime fromDateTime, DateTime toDateTime)
+        public Term(DateTime fromDateTime, DateTime toDateTime)
         {
             this.fromDateTime = fromDateTime;
             this.toDateTime = toDateTime;
-        }*/
+        }
+
+        public Term()
+        {
+            
+        }
     }
 }
