@@ -1,1 +1,3 @@
-﻿
+﻿1,Model.AllActors.Patient,pera,123,Pera,Perić,1919045667111,6/6/1996,063/555-333,pera@test.com,Novi Sad,Cara Dusana,Srbija,false,1
+2,Model.AllActors.Patient,mika,123,Mika,Mikic,2019045667111,6/6/1996,063/555-333,mika@test.com,Novi Sad,Cara Dusana,Srbija,false,2
+3,Model.AllActors.Doctor,duca,123,Dusan,Dusko,6919045667111,6/6/1996,063/555-333,duca@test.com,Novi Sad,Cara Dusana,Srbija,1

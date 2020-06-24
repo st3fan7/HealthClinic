@@ -16,7 +16,7 @@ namespace Model.Term
         private int id;
         private Room room;
         private AllActors.Doctor doctor;
-        public AllActors.Patient patient;
+        public AllActors.Patient Patient { get; set; }
 
         public bool Urgency { get => urgency; set => urgency = value; }
         public string ShortDescription { get => shortDescription; set => shortDescription = value; }
@@ -43,7 +43,7 @@ namespace Model.Term
             this.id = id;
             this.Room = room;
             this.Doctor = doctor;
-            this.patient = patient;
+            Patient = patient;
             this.FromDateTime = fromDateTime;
             this.ToDateTime = toDateTime;
         }
@@ -54,7 +54,7 @@ namespace Model.Term
             this.ShortDescription = shortDescription;
             this.Room = room;
             this.Doctor = doctor;
-            this.patient = patient;
+            Patient = patient;
             this.FromDateTime = fromDateTime;
             this.ToDateTime = toDateTime;
         }
@@ -63,6 +63,8 @@ namespace Model.Term
         /// Property for Model.AllActors.Patient
         /// </summary>
         /// <pdGenerated>Default opposite class property</pdGenerated>
+        /// 
+        /*
         public Model.AllActors.Patient Patient
         {
             get
@@ -73,7 +75,7 @@ namespace Model.Term
             {
                 this.patient = value;
             }
-        }
+        }*/
 
         public int GetId()
         {

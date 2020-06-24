@@ -45,6 +45,7 @@ namespace Model.Term
             this.Equipment = equipment;
             this.FromDateTime = fromDateTime;
             this.ToDateTime = toDateTime;
+           
         }
 
         public Room(string roomID, TypeOfRoom typeOfRoom, List<Equipment> equipment)

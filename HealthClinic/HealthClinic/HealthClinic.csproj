@@ -84,6 +84,7 @@
     <Compile Include="Repository\CSV\Converter\NotificationCSVConverter.cs" />
     <Compile Include="Repository\CSV\Converter\RenovationCSVConverter.cs" />
     <Compile Include="Repository\CSV\Converter\RoomCSVConverter.cs" />
+    <Compile Include="Repository\CSV\Converter\SpecialitationCSVConverter.cs" />
     <Compile Include="Repository\CSV\Converter\SurgeryCSVConverter.cs" />
     <Compile Include="Repository\CSV\Converter\SurveyCSVConverter.cs" />
     <Compile Include="Repository\CSV\Converter\SymptomsCSVConverter.cs" />
@@ -256,6 +257,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Resources\Data\allergies.csv" />
+    <None Include="Resources\Data\anamnesis.csv" />
     <None Include="Resources\Data\articles.csv" />
     <None Include="Resources\Data\diagnosis.csv" />
     <None Include="Resources\Data\equipment.csv" />

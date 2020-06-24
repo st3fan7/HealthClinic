@@ -49,6 +49,11 @@ namespace Model.DoctorMenager
             this.ingredients = ingredients;
         }
 
+        public Medicament(string name)
+        {           
+            this.name = name;         
+        }
+
         public int GetId()
         {
             return id;

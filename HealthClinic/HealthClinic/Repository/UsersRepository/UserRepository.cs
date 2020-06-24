@@ -7,6 +7,7 @@
 using Model.AllActors;
 using Model.Doctor;
 using Repository.Csv;
+using Repository.Csv.Converter;
 using Repository.Csv.Stream;
 using Repository.IDSequencer;
 using System;
@@ -17,6 +18,21 @@ namespace Repository.UsersRepository
     public class UserRepository : CSVRepository<User, int>, IUserRepository
     {
         private String path;
+        private const string USER_FILE = "../../Resources/Data/users.csv";
+        private static UserRepository instance;
+
+        public static UserRepository Instance()
+        {
+            if (instance == null)
+            {
+                instance = new UserRepository(
+               new CSVStream<User>(USER_FILE, new UserCSVConverter(",")),
+               new IntSequencer());
+            }
+            return instance;
+
+
+        }
 
         public UserRepository(ICSVStream<User> stream, ISequencer<int> sequencer)
          : base(stream, sequencer)

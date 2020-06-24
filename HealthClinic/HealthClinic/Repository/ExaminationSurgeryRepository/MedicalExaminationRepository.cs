@@ -7,6 +7,7 @@
 using Model.AllActors;
 using Model.Term;
 using Repository.Csv;
+using Repository.Csv.Converter;
 using Repository.Csv.Stream;
 using Repository.IDSequencer;
 using System;
@@ -17,6 +18,21 @@ namespace Repository.ExaminationSurgeryRepository
     public class MedicalExaminationRepository : CSVRepository<MedicalExamination, int>, IMedicalExaminationRepository
     {
         private string path;
+        private const string MEDICALEXAMINATION_FILE = "../../Resources/Data/medicalexaminations.csv";
+        private static MedicalExaminationRepository instance;
+
+        public static MedicalExaminationRepository Instance()
+        {
+            if(instance == null)
+            {
+                instance = new MedicalExaminationRepository(
+                new CSVStream<MedicalExamination>(MEDICALEXAMINATION_FILE, new MedicalExaminationCSVConverter(",")),
+                new IntSequencer());
+            }        
+                return instance;
+
+           
+        }
 
         public MedicalExaminationRepository(ICSVStream<MedicalExamination> stream, ISequencer<int> sequencer)
             : base(stream, sequencer)

@@ -35,7 +35,7 @@ namespace Repository.Csv.Converter
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
             List<Equipment> equipments = new List<Equipment>();
             FillList(equipments, tokens);
-            return new Room(int.Parse(tokens[0]), tokens[1], (TypeOfRoom)Enum.Parse(typeof(TypeOfRoom), tokens[2]), DateTime.Parse(tokens[3]), DateTime.Parse(tokens[4]), equipments);
+            return new Room(int.Parse(tokens[0]), tokens[1], new TypeOfRoom(tokens[2]), DateTime.Parse(tokens[3]), DateTime.Parse(tokens[4]), equipments);
         }
 
         private void FillList(List<Equipment> equipment, string[] tokens)

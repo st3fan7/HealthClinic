@@ -30,5 +30,17 @@ namespace Model.PatientDoctor
             this.Symptoms = symptoms;
         }
 
+        public Anamnesis(int id, string description, List<Diagnosis> diagnosis, List<Symptoms> symptoms)
+        {
+            this.Description = description;
+            this.Diagnosis = diagnosis;
+            this.Symptoms = symptoms;
+        }
+
+        public Anamnesis(string description)
+        {
+            this.Description = description;
+            
+        }
     }
 }

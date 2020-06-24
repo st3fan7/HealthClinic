@@ -10,16 +10,16 @@ namespace Model.Term
 {
     public abstract class Term
     {
-        private DateTime fromDateTime;
-        private DateTime toDateTime;
+       // private DateTime fromDateTime;
+       // private DateTime toDateTime;
 
-        protected DateTime FromDateTime { get => fromDateTime; set => fromDateTime = value; }
-        protected DateTime ToDateTime { get => toDateTime; set => toDateTime = value; }
+        protected static DateTime FromDateTime;
+        protected static DateTime ToDateTime;
 
         public Term(DateTime fromDateTime, DateTime toDateTime)
         {
-            this.fromDateTime = fromDateTime;
-            this.toDateTime = toDateTime;
+            FromDateTime = fromDateTime;
+            ToDateTime = toDateTime;
         }
 
         public Term()

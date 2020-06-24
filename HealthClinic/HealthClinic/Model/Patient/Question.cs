@@ -13,6 +13,7 @@ namespace Model.Patient
         private String questionText;
         private GradeOfQuestion answer;
         private int id;
+       
 
         public string QuestionText { get => questionText; set => questionText = value; }
         public GradeOfQuestion Answer { get => answer; set => answer = value; }
