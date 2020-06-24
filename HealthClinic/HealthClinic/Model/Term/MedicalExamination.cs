@@ -22,6 +22,10 @@ namespace Model.Term
         public string ShortDescription { get => shortDescription; set => shortDescription = value; }
         public Room Room { get => room; set => room = value; }
         public AllActors.Doctor Doctor { get => doctor; set => doctor = value; }
+        private DateTime fromDateTime;
+        private DateTime toDateTime;
+        public DateTime FromDateTime { get => fromDateTime; set => fromDateTime = value; }
+        public DateTime ToDateTime { get => toDateTime; set => toDateTime = value; }
 
         public MedicalExamination(int id)
         {
@@ -32,7 +36,7 @@ namespace Model.Term
         {
         }
 
-        public MedicalExamination(int id, bool urgency, string shortDescription, Room room, AllActors.Doctor doctor, AllActors.Patient patient)
+        public MedicalExamination(int id, bool urgency, string shortDescription, Room room, AllActors.Doctor doctor, AllActors.Patient patient, DateTime fromDateTime, DateTime toDateTime)
         {
             this.Urgency = urgency;
             this.ShortDescription = shortDescription;
@@ -40,15 +44,19 @@ namespace Model.Term
             this.Room = room;
             this.Doctor = doctor;
             this.patient = patient;
+            this.FromDateTime = fromDateTime;
+            this.ToDateTime = toDateTime;
         }
 
-        public MedicalExamination(bool urgency, string shortDescription, Room room, AllActors.Doctor doctor, AllActors.Patient patient)
+        public MedicalExamination(bool urgency, string shortDescription, Room room, AllActors.Doctor doctor, AllActors.Patient patient, DateTime fromDateTime, DateTime toDateTime)
         {
             this.Urgency = urgency;
             this.ShortDescription = shortDescription;
             this.Room = room;
             this.Doctor = doctor;
             this.patient = patient;
+            this.FromDateTime = fromDateTime;
+            this.ToDateTime = toDateTime;
         }
 
         /// <summary>

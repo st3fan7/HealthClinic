@@ -20,15 +20,10 @@ namespace Controller.RoomsControlers
             this.equipmentService = equipmentService;
         }
 
-        public bool AddExistingEquipment(String equipmentID, int quantity)
-        {
-            return equipmentService.AddExistingEquipment(equipmentID, quantity);
-        }
-
-        public Medicament TakeMedicament(Medicament medicament)
+        /*public Medicament TakeMedicament(Medicament medicament)
         {
             return equipmentService.TakeMedicament(medicament);
-        }
+        }*/
 
         public Equipment GetEntity(int id)
         {
@@ -53,6 +48,16 @@ namespace Controller.RoomsControlers
         public void DeleteEntity(Equipment entity)
         {
             equipmentService.DeleteEntity(entity);
+        }
+
+        public bool ExistEquipmentWithCode(String code)
+        {
+            return equipmentService.ExistEquipmentWithCode(code);
+        }
+
+        public Equipment AddExistingEquipmnet(String code, int amount)
+        {
+            return equipmentService.AddExistingEquipmnet(code, amount);
         }
 
     }

@@ -22,14 +22,14 @@ namespace Repository.Csv.Converter
         public string ConvertEntityToCSVFormat(Hospitalitation entity)
         {
             return string.Join(delimiter, entity.GetId(), entity.Urgency, entity.ShortDescription, entity.Room.GetId(),
-                entity.Doctor.GetId(), entity.BedForLaying.GetId());
+                entity.Doctor.GetId(), entity.BedForLaying.GetId(), entity.FromDateTime, entity.ToDateTime);
         }
 
         public Hospitalitation ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
             return new Hospitalitation(int.Parse(tokens[0]), bool.Parse(tokens[1]), tokens[2], new Room(int.Parse(tokens[3])),
-                (Doctor) new User(int.Parse(tokens[4])), new Bed(int.Parse(tokens[5]))); 
+                (Doctor) new User(int.Parse(tokens[4])), new Bed(int.Parse(tokens[5])), DateTime.Parse(tokens[6]), DateTime.Parse(tokens[7])); 
         }
 
     }

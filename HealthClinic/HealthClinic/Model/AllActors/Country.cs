@@ -26,5 +26,10 @@ namespace Model.AllActors
             this.Code = code;
         }
 
+        public Country(string name)
+        {
+            this.Name = name;
+        }
+
     }
 }
