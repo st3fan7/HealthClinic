@@ -1,4 +1,6 @@
 ﻿using Controller;
+using HealthClinic.View.Converter;
+using HealthClinic.View.ViewModel;
 using Model.DoctorMenager;
 using System;
 using System.Collections.Generic;
@@ -26,7 +28,7 @@ namespace HealthClinic.View
 
         private readonly IController<Medicament, int> medicamentController;
 
-        public static ObservableCollection<Medicament> MedicamentsView { get; set; }
+        public static ObservableCollection<ViewMedicament> MedicamentsView { get; set; }
 
         public Medicaments()
         {
@@ -41,7 +43,8 @@ namespace HealthClinic.View
 
             medicamentController = app.MedicamentController;
 
-            MedicamentsView = new ObservableCollection<Medicament>(medicamentController.GetAllEntities().ToList());          
+            MedicamentsView = new ObservableCollection<ViewMedicament>(MedicamentConverter.ConvertMedicamentListToMedicamentViewList(
+                medicamentController.GetAllEntities().ToList()));
         }
 
         private void Button_Click_Dodaj(object sender, RoutedEventArgs e)

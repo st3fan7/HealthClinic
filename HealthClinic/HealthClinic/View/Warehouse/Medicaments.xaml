@@ -46,11 +46,11 @@
         <DataGrid x:Name="DataGridMedicaments" Grid.Row="1" ItemsSource="{Binding MedicamentsView}" AutoGenerateColumns="False"
                   SelectionMode="Single" IsReadOnly="True" Margin="10,0,10,1" BorderThickness="1" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Šifra" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Naziv" Binding="{Binding Code}"/>
-                <DataGridTextColumn Header="Proizvođač" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Količina" Binding="{Binding Producer}" />
-                <DataGridTextColumn Header="Sastojci" Binding="{Binding Quantity}" Width="*"/>
+                <DataGridTextColumn Header="Šifra" Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="Naziv" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Proizvođač" Binding="{Binding Producer}"/>
+                <DataGridTextColumn Header="Količina" Binding="{Binding Quantity}" />
+                <DataGridTextColumn Header="Sastojci" Binding="{Binding Ingredients}" Width="*"/>
                 <DataGridTemplateColumn Header="Obriši lek">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
