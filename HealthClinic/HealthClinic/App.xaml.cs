@@ -63,7 +63,7 @@ namespace HealthClinic
         private const string USER_FILE = "../../Resources/Data/users.csv";
         private const string WORKINGTIMEFORDOCTOR_FILE = "../../Resources/Data/workingtimefordoctor.csv";
 
-        private const string CSV_DELIMITER = ";";
+        private const string CSV_DELIMITER = ",";
 
         private const string DATETIME_FORMAT = "dd.MM.yyyy.";
 

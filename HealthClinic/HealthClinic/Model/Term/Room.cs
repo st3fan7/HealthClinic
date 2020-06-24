@@ -14,8 +14,8 @@ namespace Model.Term
 {
     public class Room : Term, IIdentifiable<int>
     {
-        private String roomID;
         private int id;
+        private String roomID;
         private TypeOfRoom typeOfRoom;
         private List<Equipment> equipment;
 
@@ -35,7 +35,7 @@ namespace Model.Term
         public Room(int id, string roomID, TypeOfRoom typeOfRoom, List<Equipment> equipment)
         {
             this.RoomID = roomID;
-            this.id = id;
+            this.id = id;            
             this.TypeOfRoom = typeOfRoom;
             this.Equipment = equipment;
         }

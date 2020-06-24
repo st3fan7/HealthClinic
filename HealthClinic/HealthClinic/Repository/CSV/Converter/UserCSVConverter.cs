@@ -25,7 +25,8 @@ namespace Repository.Csv.Converter
         public User ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
-            return new User(int.Parse(tokens[0]), tokens[1], tokens[2]);
+            return null;
+            //return new User(int.Parse(tokens[0]), tokens[1], tokens[2]);  // Ispraviti
         }
     }
 }
