@@ -41,8 +41,7 @@ namespace HealthClinic.View
 
             medicamentController = app.MedicamentController;
 
-            MedicamentsView = new ObservableCollection<Medicament>(medicamentController.GetAllEntities().ToList());
-           
+            MedicamentsView = new ObservableCollection<Medicament>(medicamentController.GetAllEntities().ToList());          
         }
 
         private void Button_Click_Dodaj(object sender, RoutedEventArgs e)

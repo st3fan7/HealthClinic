@@ -43,13 +43,13 @@
             </Grid>
         </Grid>
 
-        <DataGrid x:Name="DataGridEquipment" Grid.Row="1" ItemsSource="{Binding }" AutoGenerateColumns="False" 
+        <DataGrid x:Name="DataGridEquipment" Grid.Row="1" ItemsSource="{Binding EquipmentView}" AutoGenerateColumns="False" 
                   SelectionMode="Single" IsReadOnly="True" Margin="10,0,10,1" BorderThickness="1" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Šifra" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Vrsta opreme" Binding="{Binding }" />
-                <DataGridTextColumn Header="Naziv" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Količina" Binding="{Binding }" Width="*" />
+                <DataGridTextColumn Header="Šifra" Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="Vrsta opreme" Binding="{Binding TypeOfEquipment}" />
+                <DataGridTextColumn Header="Naziv" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Količina" Binding="{Binding Amount}" Width="*" />
                 <DataGridTemplateColumn Header="Obriši opremu">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
