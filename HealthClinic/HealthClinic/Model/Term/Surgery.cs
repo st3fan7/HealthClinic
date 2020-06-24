@@ -5,35 +5,68 @@
  ***********************************************************************/
 
 using HealthClinic.Repository;
+using Model.Doctor;
 using System;
 
 namespace Model.Term
 {
-   public class Surgery : Term, IIdentifiable<int>
+    public class Surgery : Term, IIdentifiable<int>
     {
-      private bool urgency;
-      private String shortDescription;
-      private int id;
-      
-      public Room room;
-      public Model.Doctor.DoctorSpecialist doctorSpecialist;
-      public Model.AllActors.Patient patient;
-      
-      /// <summary>
-      /// Property for Model.AllActors.Patient
-      /// </summary>
-      /// <pdGenerated>Default opposite class property</pdGenerated>
-      public Model.AllActors.Patient Patient
-      {
-         get
-         {
-            return patient;
-         }
-         set
-         {
-            this.patient = value;
-         }
-      }
+        private bool urgency;
+        private String shortDescription;
+        private int id;
+        private Room room;
+        private DoctorSpecialist doctorSpecialist;
+        public AllActors.Patient patient;
+
+        public bool Urgency { get => urgency; set => urgency = value; }
+        public string ShortDescription { get => shortDescription; set => shortDescription = value; }
+        public Room Room { get => room; set => room = value; }
+        public DoctorSpecialist DoctorSpecialist { get => doctorSpecialist; set => doctorSpecialist = value; }
+
+        public Surgery(int id)
+        {
+            this.id = id;
+        }
+
+        public Surgery()
+        {
+        }
+
+        public Surgery(int id, bool urgency, string shortDescription, Room room, DoctorSpecialist doctorSpecialist, AllActors.Patient patient)
+        {
+            this.Urgency = urgency;
+            this.ShortDescription = shortDescription;
+            this.id = id;
+            this.Room = room;
+            this.DoctorSpecialist = doctorSpecialist;
+            this.patient = patient;
+        }
+
+        public Surgery(bool urgency, string shortDescription, Room room, DoctorSpecialist doctorSpecialist, AllActors.Patient patient)
+        {
+            this.Urgency = urgency;
+            this.ShortDescription = shortDescription;
+            this.Room = room;
+            this.DoctorSpecialist = doctorSpecialist;
+            this.patient = patient;
+        }
+
+        /// <summary>
+        /// Property for Model.AllActors.Patient
+        /// </summary>
+        /// <pdGenerated>Default opposite class property</pdGenerated>
+        public Model.AllActors.Patient Patient
+        {
+            get
+            {
+                return patient;
+            }
+            set
+            {
+                this.patient = value;
+            }
+        }
 
         public int GetId()
         {

@@ -8,7 +8,7 @@ using System;
 
 namespace Repository.BlogNotificationRepository
 {
-   public interface IArticleRepository : IRepository<Article,int>
-   {
-   }
+    public interface IArticleRepository : IRepository<Article, int>
+    {
+    }
 }

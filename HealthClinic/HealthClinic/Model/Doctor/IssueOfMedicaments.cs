@@ -5,76 +5,51 @@
  ***********************************************************************/
 
 using HealthClinic.Repository;
+using Model.DoctorMenager;
+using Model.PatientDoctor;
 using System;
+using System.Collections.Generic;
 
 namespace Model.Doctor
 {
-   public class IssueOfMedicaments : IIdentifiable<int>
+    public class IssueOfMedicaments : IIdentifiable<int>
     {
-        private String receipt;
         private int id;
-      
-      public System.Collections.ArrayList medicament;
-      
-      /// <summary>
-      /// Property for collection of Model.DoctorMenager.Medicament
-      /// </summary>
-      /// <pdGenerated>Default opposite class collection property</pdGenerated>
-      public System.Collections.ArrayList Medicament
-      {
-         get
-         {
-            if (medicament == null)
-               medicament = new System.Collections.ArrayList();
-            return medicament;
-         }
-         set
-         {
-            RemoveAllMedicament();
-            if (value != null)
-            {
-               foreach (Model.DoctorMenager.Medicament oMedicament in value)
-                  AddMedicament(oMedicament);
-            }
-         }
-      }
-      
-      /// <summary>
-      /// Add a new Model.DoctorMenager.Medicament in the collection
-      /// </summary>
-      /// <pdGenerated>Default Add</pdGenerated>
-      public void AddMedicament(Model.DoctorMenager.Medicament newMedicament)
-      {
-         if (newMedicament == null)
-            return;
-         if (this.medicament == null)
-            this.medicament = new System.Collections.ArrayList();
-         if (!this.medicament.Contains(newMedicament))
-            this.medicament.Add(newMedicament);
-      }
-      
-      /// <summary>
-      /// Remove an existing Model.DoctorMenager.Medicament from the collection
-      /// </summary>
-      /// <pdGenerated>Default Remove</pdGenerated>
-      public void RemoveMedicament(Model.DoctorMenager.Medicament oldMedicament)
-      {
-         if (oldMedicament == null)
-            return;
-         if (this.medicament != null)
-            if (this.medicament.Contains(oldMedicament))
-               this.medicament.Remove(oldMedicament);
-      }
-      
-      /// <summary>
-      /// Remove all instances of Model.DoctorMenager.Medicament from the collection
-      /// </summary>
-      /// <pdGenerated>Default removeAll</pdGenerated>
-      public void RemoveAllMedicament()
-      {
-         if (medicament != null)
-            medicament.Clear();
-      }
+        private String receipt;
+        private MedicalRecord medicalRecord;
+        private AllActors.Doctor doctor;
+        private List<Medicament> medicaments;
+
+        public string Receipt { get => receipt; set => receipt = value; }
+        public MedicalRecord MedicalRecord { get => medicalRecord; set => medicalRecord = value; }
+        public AllActors.Doctor Doctor { get => doctor; set => doctor = value; }
+        public List<Medicament> Medicaments { get => medicaments; set => medicaments = value; }
+
+        public IssueOfMedicaments(int id)
+        {
+            this.id = id;
+        }
+
+        public IssueOfMedicaments()
+        {
+        }
+
+        public IssueOfMedicaments(int id, string receipt, MedicalRecord medicalRecord, AllActors.Doctor doctor, List<Medicament> medicaments)
+        {
+            this.Receipt = receipt;
+            this.id = id;
+            this.MedicalRecord = medicalRecord;
+            this.Doctor = doctor;
+            this.medicaments = medicaments;
+        }
+
+        public IssueOfMedicaments(string receipt, MedicalRecord medicalRecord, AllActors.Doctor doctor, List<Medicament> medicaments)
+        {
+            this.Receipt = receipt;
+            this.MedicalRecord = medicalRecord;
+            this.Doctor = doctor;
+            this.medicaments = medicaments;
+        }
 
         public int GetId()
         {
@@ -84,10 +59,7 @@ namespace Model.Doctor
         public void SetId(int id)
         {
             this.id = id;
-        }
+        }          
 
-        public Model.PatientDoctor.MedicalRecord medicalRecord;
-      public Model.AllActors.Doctor doctor;
-   
-   }
+    }
 }

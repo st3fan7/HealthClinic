@@ -8,10 +8,10 @@ using System;
 
 namespace Model.Patient
 {
-   public enum GradeOfQuestion
-   {
-      Poor,
-      Good,
-      Excellent
-   }
+    public enum GradeOfQuestion
+    {
+        Poor,
+        Good,
+        Excellent
+    }
 }

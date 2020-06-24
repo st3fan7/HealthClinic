@@ -5,49 +5,56 @@
  ***********************************************************************/
 
 using Model.PatientDoctor;
+using Service.MedicalRecordService;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
 
 namespace Controller.MedicalRecordControlers
 {
-   public class MedicalRecordController : IController<MedicalRecord,int>
-   {
-      public Model.PatientDoctor.MedicalRecord OpenMedicalRecord(Model.PatientDoctor.MedicalRecord medicalRecord)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Model.PatientDoctor.MedicalRecord GetMedicalRecordByPatient(Model.AllActors.Patient patient)
-      {
-         throw new NotImplementedException();
-      }
+    public class MedicalRecordController : IController<MedicalRecord, int>
+    {
+        public MedicalRecordService medicalRecordService;
+
+        public MedicalRecordController(MedicalRecordService medicalRecordService)
+        {
+            this.medicalRecordService = medicalRecordService;
+        }
+
+        public MedicalRecord OpenMedicalRecord(MedicalRecord medicalRecord)
+        {
+            return medicalRecordService.OpenMedicalRecord(medicalRecord);
+        }
+
+        public MedicalRecord GetMedicalRecordByPatient(Patient patient)
+        {
+            return medicalRecordService.GetMedicalRecordByPatient(patient);
+        }
 
         public MedicalRecord GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return medicalRecordService.GetEntity(id);
         }
 
         public IEnumerable<MedicalRecord> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return medicalRecordService.GetAllEntities();
         }
 
         public MedicalRecord AddEntity(MedicalRecord entity)
         {
-            throw new NotImplementedException();
+            return medicalRecordService.AddEntity(entity);
         }
 
         public void UpdateEntity(MedicalRecord entity)
         {
-            throw new NotImplementedException();
+            medicalRecordService.UpdateEntity(entity);
         }
 
         public void DeleteEntity(MedicalRecord entity)
         {
-            throw new NotImplementedException();
+            medicalRecordService.DeleteEntity(entity);
         }
 
-        public Service.MedicalRecordService.MedicalRecordService medicalRecordService;
-   
-   }
+    }
 }

@@ -14,8 +14,8 @@ using System.Collections.Generic;
 
 namespace Repository.UsersRepository
 {
-   public class UserRepository : CSVRepository<User,int>, IUserRepository
-   {
+    public class UserRepository : CSVRepository<User, int>, IUserRepository
+    {
         private String path;
 
         public UserRepository(ICSVStream<User> stream, ISequencer<int> sequencer)

@@ -37,7 +37,7 @@ namespace Repository.RoomsRepository
             throw new NotImplementedException();
         }
 
-        IEnumerable<Room> IRepository<Room, int>.GetAllEntities()
+        /*IEnumerable<Room> IRepository<Room, int>.GetAllEntities()
         {
             throw new NotImplementedException();
         }
@@ -45,6 +45,6 @@ namespace Repository.RoomsRepository
         Room IRepository<Room, int>.GetEntity(int id)
         {
             throw new NotImplementedException();
-        }
+        }*/
     }
 }

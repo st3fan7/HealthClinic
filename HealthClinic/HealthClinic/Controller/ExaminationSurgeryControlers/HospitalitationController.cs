@@ -13,32 +13,36 @@ namespace Controller.ExaminationSurgeryControlers
 {
    public class HospitalitationController : IController<Hospitalitation,int>
    {
-
         public HospitalitationService hospitalitationService;
+
+        public HospitalitationController(HospitalitationService hospitalitationService)
+        {
+            this.hospitalitationService = hospitalitationService;
+        }
 
         public Hospitalitation AddEntity(Hospitalitation entity)
         {
-            throw new NotImplementedException();
+            return hospitalitationService.AddEntity(entity);
         }
 
         public void DeleteEntity(Hospitalitation entity)
         {
-            throw new NotImplementedException();
+            hospitalitationService.DeleteEntity(entity);
         }
 
         public IEnumerable<Hospitalitation> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return hospitalitationService.GetAllEntities();
         }
 
         public Hospitalitation GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return hospitalitationService.GetEntity(id);
         }
 
         public void UpdateEntity(Hospitalitation entity)
         {
-            throw new NotImplementedException();
+            hospitalitationService.UpdateEntity(entity);
         }
     }
 }

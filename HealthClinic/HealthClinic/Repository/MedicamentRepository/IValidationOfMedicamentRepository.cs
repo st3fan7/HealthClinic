@@ -9,9 +9,9 @@ using System.Collections.Generic;
 
 namespace Repository.MedicamentRepository
 {
-   public interface IValidationOfMedicamentRepository : IRepository<ValidationOfMedicament,int>
-   {
-      List<ValidationOfMedicament> GetMedicamentsOnValidationForDoctor(Model.AllActors.Doctor doctor);
-   
-   }
+    public interface IValidationOfMedicamentRepository : IRepository<ValidationOfMedicament, int>
+    {
+        List<ValidationOfMedicament> GetMedicamentsOnValidationForDoctor(Model.AllActors.Doctor doctor);
+
+    }
 }

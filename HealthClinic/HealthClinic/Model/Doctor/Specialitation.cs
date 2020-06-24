@@ -8,10 +8,32 @@ using System;
 
 namespace Model.Doctor
 {
-   public class Specialitation : IIdentifiable<int>
+    public class Specialitation : IIdentifiable<int>
     {
-      private String specialitation;
-      private int id;
+        private int id;
+        private String specialitationForDoctor; // promenjen naziv
+
+        public string SpecialitationForDoctor { get => specialitationForDoctor; set => specialitationForDoctor = value; }
+
+        public Specialitation(int id)
+        {
+            this.id = id;
+        }
+
+        public Specialitation()
+        {
+        }
+
+        public Specialitation(int id, string specialitation)
+        {
+            this.SpecialitationForDoctor = specialitation;
+            this.id = id;
+        }
+
+        public Specialitation(string specialitation)
+        {
+            this.SpecialitationForDoctor = specialitation;
+        }
 
         public int GetId()
         {

@@ -12,37 +12,42 @@ namespace Service.MedicamentService
 {
     public class IssueMedicamentsService : IService<IssueOfMedicaments, int>
     {
-        public Model.Doctor.IssueOfMedicaments IssueOfMedicaments(Model.Doctor.IssueOfMedicaments issueOfMedicaments)
+        public IIssueOfMedicamentRepository issueOfMedicamentRepository;
+
+        public IssueMedicamentsService(IIssueOfMedicamentRepository issueOfMedicamentRepository)
+        {
+            this.issueOfMedicamentRepository = issueOfMedicamentRepository;
+        }
+
+        public IssueOfMedicaments IssueOfMedicaments(IssueOfMedicaments issueOfMedicaments) // Ne treba
         {
             throw new NotImplementedException();
         }
 
         public IssueOfMedicaments GetEntity(int id)
         {
-            throw new NotImplementedException();
+            return issueOfMedicamentRepository.GetEntity(id);
         }
 
         public IEnumerable<IssueOfMedicaments> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return issueOfMedicamentRepository.GetAllEntities();
         }
 
         public IssueOfMedicaments AddEntity(IssueOfMedicaments entity)
         {
-            throw new NotImplementedException();
+            return issueOfMedicamentRepository.AddEntity(entity);
         }
 
         public void UpdateEntity(IssueOfMedicaments entity)
         {
-            throw new NotImplementedException();
+            issueOfMedicamentRepository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(IssueOfMedicaments entity)
         {
-            throw new NotImplementedException();
+            issueOfMedicamentRepository.DeleteEntity(entity);
         }
-
-        public IIssueOfMedicamentRepository issueOfMedicamentRepository;
 
     }
 }

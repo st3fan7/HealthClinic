@@ -361,7 +361,25 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Resources\Data\allergies.csv" />
+    <None Include="Resources\Data\articles.csv" />
+    <None Include="Resources\Data\diagnosis.csv" />
+    <None Include="Resources\Data\equipment.csv" />
+    <None Include="Resources\Data\hospitalitations.csv" />
+    <None Include="Resources\Data\issueofmedicaments.csv" />
+    <None Include="Resources\Data\medicalexaminations.csv" />
+    <None Include="Resources\Data\medicalrecords.csv" />
     <None Include="Resources\Data\medicaments.csv" />
+    <None Include="Resources\Data\notifications.csv" />
+    <None Include="Resources\Data\renovation.csv" />
+    <None Include="Resources\Data\room.csv" />
+    <None Include="Resources\Data\specialitation.csv" />
+    <None Include="Resources\Data\surgeries.csv" />
+    <None Include="Resources\Data\surveys.csv" />
+    <None Include="Resources\Data\symptoms.csv" />
+    <None Include="Resources\Data\users.csv" />
+    <None Include="Resources\Data\validationofmedicament.csv" />
+    <None Include="Resources\Data\workingtimefordoctor.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -8,9 +8,21 @@ using System;
 
 namespace Model.Term
 {
-   public class TypeOfRoom
-   {
-      private String nameOfType;
-   
-   }
+    public class TypeOfRoom
+    {
+        private String nameOfType;
+
+        public string NameOfType { get => nameOfType; set => nameOfType = value; }
+
+        public TypeOfRoom()
+        {
+        }
+
+        public TypeOfRoom(string nameOfType)
+        {
+            this.NameOfType = nameOfType;
+        }
+
+        
+    }
 }

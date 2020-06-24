@@ -7,13 +7,13 @@ using System;
 
 namespace Repository.IDSequencer
 {
-   public class IntSequencer : ISequencer<int>
-   {
-      private int nextID;
+    public class IntSequencer : ISequencer<int>
+    {
+        private int nextID;
 
         public int GenerateID()
         {
-             return ++nextID;
+            return ++nextID;
         }
 
         public void Initialize(int initID)
