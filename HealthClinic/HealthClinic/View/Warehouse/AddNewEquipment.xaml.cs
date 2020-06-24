@@ -21,7 +21,7 @@ namespace HealthClinic.View
     /// </summary>
     public partial class AddNewEquipment : Window
     {
-        private readonly IController<Model.Manager.Equipment, int> equipmentController;
+        private readonly EquipmentController equipmentController;
 
         public AddNewEquipment()
         {
@@ -51,7 +51,7 @@ namespace HealthClinic.View
                 return;
             }
 
-            if (ExistEquipmentWithCode(InputCodeOfEquipment.Text)) // Pozovi iz kontrolera metodu od dole
+            if (equipmentController.ExistEquipmentWithCode(InputCodeOfEquipment.Text)) 
             {
                 MessageBox.Show("Oprema sa šifrom koju ste uneli već postoji", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -63,16 +63,6 @@ namespace HealthClinic.View
                 MessageBox.Show("Usepešno ste dodali novu opremu", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);               
             }
             
-        }
-
-        private bool ExistEquipmentWithCode(String code)
-        {
-            foreach(Model.Manager.Equipment equipmnent in equipmentController.GetAllEntities())
-            {
-                if (equipmnent.Code.Equals(code))
-                    return true;
-            }
-            return false;
         }
 
         private void Button_Click_Odustani(object sender, RoutedEventArgs e)

@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Controller.RoomsControlers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,7 +24,7 @@ namespace HealthClinic.View
     {
         public static RoutedCommand helpSchortcut = new RoutedCommand();
 
-        private readonly IController<Model.Manager.Equipment, int> equipmentController;
+        private readonly EquipmentController equipmentController;
 
         public static ObservableCollection<Model.Manager.Equipment> EquipmentView { get; set; }
 

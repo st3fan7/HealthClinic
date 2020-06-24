@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Controller.RoomsControlers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,7 +22,7 @@ namespace HealthClinic.View
     /// </summary>
     public partial class AddEquipment : Window
     {
-        private readonly IController<Model.Manager.Equipment, int> equipmentController;
+        private readonly EquipmentController equipmentController;
 
         public AddEquipment()
         {
@@ -45,30 +46,24 @@ namespace HealthClinic.View
                 return;
             }
 
-            Model.Manager.Equipment equipment = AddExistingEquipmnet(InputCodeOfEquipment.Text, int.Parse(InputAmountOfEquipment.Text));
-            if(equipment == null)
+            Model.Manager.Equipment existingEquipment = equipmentController.AddExistingEquipmnet(InputCodeOfEquipment.Text, int.Parse(InputAmountOfEquipment.Text));
+            if(existingEquipment == null)
             {
                 MessageBox.Show("Uneli ste nepostojeću šifru opreme", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             } else
             {
+                foreach (Model.Manager.Equipment equipment in Equipment.EquipmentView) // Izmeni
+                {
+                    if (equipment.Code.Equals(InputCodeOfEquipment.Text))
+                    {
+                        equipment.Amount += int.Parse(InputAmountOfEquipment.Text);
+                        break;
+                    }
+                }
                 this.Close();
                 MessageBox.Show("Uspešno ste dodali novu količinu opreme", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-        }
-
-        private Model.Manager.Equipment AddExistingEquipmnet(String code, int amount)
-        {
-            foreach(Model.Manager.Equipment equipment in equipmentController.GetAllEntities())
-            {
-                if (equipment.Code.Equals(code))
-                {
-                    equipment.Amount += amount;
-                    equipmentController.UpdateEntity(equipment);
-                    return equipment;
-                }
-            }
-            return null;
         }
 
         private void Button_Click_Odustani(object sender, RoutedEventArgs e)

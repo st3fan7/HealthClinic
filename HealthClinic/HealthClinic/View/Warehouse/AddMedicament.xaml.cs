@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Controller.MedicamentControlers;
 using Model.DoctorMenager;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace HealthClinic.View
     /// </summary>
     public partial class AddMedicament : Window
     {
-        private readonly IController<Medicament, int> medicamentController;
+        private readonly MedicamentController medicamentController;
 
         public AddMedicament()
         {
@@ -35,10 +36,27 @@ namespace HealthClinic.View
 
         private void Button_Click_Potvrdi(object sender, RoutedEventArgs e)
         {
-            String code = InputCodeOfMedicament.Text;
-            //String kolicina = InputAmountOfMedicament.Text;    
+            try
+            {
+                int.Parse(InputAmountOfMedicament.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Morate uneti broj za količinu", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
-            //medicamentController.AddEntity(new Medicament(2, code, "nameeee", "prozvssd", 5));   
+            /*Medicament medicament = AddExistingMedicament(InputCodeOfMedicament.Text, int.Parse(InputAmountOfMedicament.Text));
+            if (medicament == null)
+            {
+                MessageBox.Show("Uneli ste nepostojeću šifru leka", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            else
+            {   // Refresuj prikaz tabele
+                this.Close();
+                MessageBox.Show("Uspešno ste dodali novu količinu leka", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }*/
         }
 
         private void Button_Click_Odustani(object sender, RoutedEventArgs e)
