@@ -23,12 +23,18 @@ namespace Service.UsersServices
 
         public User Login(String username, String password)
         {
-            throw new NotImplementedException();
+            if (password.Equals(FindPasswordByUsername(username)))
+                return userRepository.GetUserByUsername(username);
+            else
+                return null;
         }
 
-        public bool IsUsernameValid(String username)
+        public String FindPasswordByUsername(String username)
         {
-            throw new NotImplementedException();
+            foreach(User user in this.GetAllEntities())
+                if (user.UserName.Equals(username))
+                    return user.Password;
+            return "";
         }
 
         public bool IsPasswordValid(String password)
@@ -36,14 +42,34 @@ namespace Service.UsersServices
             throw new NotImplementedException();
         }
 
-        public void DeactivateAccount(Model.AllActors.User user)
+        public bool IsUsernameExist(String username)
         {
-            throw new NotImplementedException();
+            foreach (User user in this.GetAllEntities())
+                if (user.UserName.Equals(username))
+                    return true;
+            return false;
+        }
+
+        public void DeactivateAccount(User user)
+        {
+            foreach(User oneUser in GetAllEntities())
+            {
+                if (oneUser.UserName.Equals(user.UserName))
+                {
+                    DeleteEntity(user);
+                    return;
+                }
+            }
         }
 
         public bool DoesJmbgExsist(String jmbg)
         {
-            throw new NotImplementedException();
+            foreach (User user in GetAllEntities())
+            {
+                if (user.Jmbg.Equals(jmbg))
+                    return true;
+            }
+            return false;
         }
 
         public List<Doctor> GetAllDoctors()
@@ -61,20 +87,21 @@ namespace Service.UsersServices
             return userRepository.GetAllSecretaries();
         }
 
-        public List<DoctorSpecialist> GetDoctorBySpecialitation(Model.Doctor.Specialitation specialitation)
+        public List<Manager> GetAllManagers()
+        {
+            return userRepository.GetAllManagers();
+        }
+
+        public List<Doctor> GetDoctorBySpecialitation(Specialitation specialitation)
+        {
+            return userRepository.GetDoctorBySpecialitation(specialitation);
+        }
+
+        public Patient TransformGuestAccount(Patient patient)
         {
             throw new NotImplementedException();
         }
 
-        public Model.AllActors.Patient TransformGuestAccount(Model.AllActors.Patient patient)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Boolean GetOccupancyStatus(Model.AllActors.Doctor doctor, DateTime time)
-        {
-            throw new NotImplementedException();
-        }
 
         public User GetEntity(int id)
         {

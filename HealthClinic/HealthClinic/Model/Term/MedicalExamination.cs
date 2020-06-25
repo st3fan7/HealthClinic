@@ -16,16 +16,12 @@ namespace Model.Term
         private int id;
         private Room room;
         private AllActors.Doctor doctor;
-        public AllActors.Patient patient;
+        public AllActors.Patient Patient { get; set; }
 
         public bool Urgency { get => urgency; set => urgency = value; }
         public string ShortDescription { get => shortDescription; set => shortDescription = value; }
         public Room Room { get => room; set => room = value; }
         public AllActors.Doctor Doctor { get => doctor; set => doctor = value; }
-        private DateTime fromDateTime;
-        private DateTime toDateTime;
-        public DateTime FromDateTime { get => fromDateTime; set => fromDateTime = value; }
-        public DateTime ToDateTime { get => toDateTime; set => toDateTime = value; }
 
         public MedicalExamination(int id)
         {
@@ -37,42 +33,25 @@ namespace Model.Term
         }
 
         public MedicalExamination(int id, bool urgency, string shortDescription, Room room, AllActors.Doctor doctor, AllActors.Patient patient, DateTime fromDateTime, DateTime toDateTime)
+            : base(fromDateTime, toDateTime)
         {
             this.Urgency = urgency;
             this.ShortDescription = shortDescription;
             this.id = id;
             this.Room = room;
             this.Doctor = doctor;
-            this.patient = patient;
-            this.FromDateTime = fromDateTime;
-            this.ToDateTime = toDateTime;
+            Patient = patient;
         }
 
         public MedicalExamination(bool urgency, string shortDescription, Room room, AllActors.Doctor doctor, AllActors.Patient patient, DateTime fromDateTime, DateTime toDateTime)
+            : base(fromDateTime, toDateTime)
         {
             this.Urgency = urgency;
             this.ShortDescription = shortDescription;
             this.Room = room;
             this.Doctor = doctor;
-            this.patient = patient;
-            this.FromDateTime = fromDateTime;
-            this.ToDateTime = toDateTime;
-        }
+            Patient = patient;
 
-        /// <summary>
-        /// Property for Model.AllActors.Patient
-        /// </summary>
-        /// <pdGenerated>Default opposite class property</pdGenerated>
-        public Model.AllActors.Patient Patient
-        {
-            get
-            {
-                return patient;
-            }
-            set
-            {
-                this.patient = value;
-            }
         }
 
         public int GetId()

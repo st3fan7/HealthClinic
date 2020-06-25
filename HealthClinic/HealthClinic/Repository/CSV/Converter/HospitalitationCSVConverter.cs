@@ -7,6 +7,8 @@ using Model.Term;
 using Model.AllActors;
 using Model.Doctor;
 using System;
+using Repository.RoomsRepository;
+using Repository.UsersRepository;
 
 namespace Repository.Csv.Converter
 {
@@ -28,8 +30,8 @@ namespace Repository.Csv.Converter
         public Hospitalitation ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
-            return new Hospitalitation(int.Parse(tokens[0]), bool.Parse(tokens[1]), tokens[2], new Room(int.Parse(tokens[3])),
-                (Doctor) new User(int.Parse(tokens[4])), new Bed(int.Parse(tokens[5])), DateTime.Parse(tokens[6]), DateTime.Parse(tokens[7])); 
+            return new Hospitalitation(int.Parse(tokens[0]), bool.Parse(tokens[1]), tokens[2], RoomRepository.Instance().GetEntity(int.Parse(tokens[3])),
+                (Doctor)UserRepository.Instance().GetEntity(int.Parse(tokens[4])), new Bed(int.Parse(tokens[5])), DateTime.Parse(tokens[6]), DateTime.Parse(tokens[7])); 
         }
 
     }

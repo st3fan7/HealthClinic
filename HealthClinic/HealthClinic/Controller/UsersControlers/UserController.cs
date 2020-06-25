@@ -5,6 +5,7 @@
  ***********************************************************************/
 
 using Model.AllActors;
+using Model.Doctor;
 using Service.UsersServices;
 using System;
 using System.Collections.Generic;
@@ -20,14 +21,14 @@ namespace Controller.UsersControlers
             this.userService = userService;
         }
 
-        public Model.AllActors.User Login(String username, String password)
+        public User Login(String username, String password)
         {
             return userService.Login(username, password);
         }
 
-        public bool IsUsernameValid(String username)
+        public String FindPasswordByUsername(String username)
         {
-            return userService.IsUsernameValid(username);
+            return userService.FindPasswordByUsername(username);
         }
 
         public bool IsPasswordValid(String password)
@@ -40,14 +41,39 @@ namespace Controller.UsersControlers
             userService.DeactivateAccount(user);
         }
 
-        public Model.AllActors.User ChangeUserData(User user)
+        public User ChangeUserData(User user)
         {
             throw new NotImplementedException();
         }
 
-        public Model.AllActors.Patient TransformGuestAccount(Patient patient)
+        public Patient TransformGuestAccount(Patient patient)
         {           
             return userService.TransformGuestAccount(patient);
+        }
+
+        public List<Doctor> GetDoctorBySpecialitation(Specialitation specialitation)
+        {
+            return userService.GetDoctorBySpecialitation(specialitation);
+        }
+
+        public List<Doctor> GetAllDoctors()
+        {
+            return userService.GetAllDoctors();
+        }
+
+        public List<Patient> GetAllPatients()
+        {
+            return userService.GetAllPatients();
+        }
+
+        public List<Secretary> GetAllSecretaries()
+        {
+            return userService.GetAllSecretaries();
+        }
+
+        public List<Manager> GetAllManagers()
+        {
+            return userService.GetAllManagers();
         }
 
         public User GetEntity(int id)

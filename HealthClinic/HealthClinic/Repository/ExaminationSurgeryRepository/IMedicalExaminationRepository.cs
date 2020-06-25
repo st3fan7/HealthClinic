@@ -15,13 +15,11 @@ namespace Repository.ExaminationSurgeryRepository
 
         List<MedicalExamination> GetAllMedicalExaminationsByPatient(Model.AllActors.Patient patient);
 
-        List<MedicalExamination> GetAllMedicalExaminationsByPatient(Model.Term.Room room);
-
-        List<MedicalExamination> GetAllMedicalExaminationsByPatient2(DateTime time);
+        List<MedicalExamination> GetAllMedicalExaminationsByRoom(Room room);
 
         MedicalExamination GetPreviousMedicalExemination(Model.AllActors.Patient patient);
 
-        Boolean GetOccupancyStatus(Model.Term.MedicalExamination medicalExamination);
+        Boolean GetOccupancyStatus(MedicalExamination medicalExamination);
 
     }
 }

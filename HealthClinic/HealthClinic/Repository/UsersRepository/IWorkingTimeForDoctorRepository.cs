@@ -12,6 +12,5 @@ namespace Repository.UsersRepository
     public interface IWorkingTimeForDoctorRepository : IRepository<WorkingTimeForDoctor, int>
     {
         List<WorkingTimeForDoctor> GetWorkTimeForDoctor(Model.AllActors.Doctor doctor);
-
     }
 }

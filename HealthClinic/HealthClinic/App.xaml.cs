@@ -16,6 +16,7 @@ using Model.Term;
 using Repository.BlogNotificationRepository;
 using Repository.Csv.Converter;
 using Repository.Csv.Stream;
+using Repository.CSV.Converter;
 using Repository.ExaminationSurgeryRepository;
 using Repository.IDSequencer;
 using Repository.MedicalRecordRepository;
@@ -60,7 +61,7 @@ namespace HealthClinic
         private const string EQUIPMENT_FILE = "../../Resources/Data/equipment.csv";
         private const string RENOVATION_FILE = "../../Resources/Data/renovation.csv";
         private const string ROOM_FILE = "../../Resources/Data/room.csv";
-        //private const string SPECIALITATION_FILE = "../../Resources/Data/specialitation.csv";
+        private const string SPECIALITATION_FILE = "../../Resources/Data/specialitation.csv";
         private const string USER_FILE = "../../Resources/Data/users.csv";
         private const string WORKINGTIMEFORDOCTOR_FILE = "../../Resources/Data/workingtimefordoctor.csv";
 
@@ -170,6 +171,10 @@ namespace HealthClinic
             var workingTimeForDoctorRepository = new WorkingTimeForDoctorRepository(
                new CSVStream<WorkingTimeForDoctor>(WORKINGTIMEFORDOCTOR_FILE, new WorkingTimeForDoctorCSVConverter(CSV_DELIMITER)),
                new IntSequencer());
+            var specialitationRepository = new SpecialitationRepository(
+               new CSVStream<Specialitation>(SPECIALITATION_FILE, new SpecialitationCSVConverter(CSV_DELIMITER)),
+               new IntSequencer());
+
 
             var articleService = new ArticleService(articleRepository);
             var notificationService = new NotificationService(notificationRepository);
@@ -189,6 +194,7 @@ namespace HealthClinic
             var roomService = new RoomService(roomRepository);
             var userService = new UserService(userRepository);
             var workingTimeForDoctorService = new WorkingTimeForDoctorService(workingTimeForDoctorRepository);
+            var spetialitationService = new SpetialitationService(specialitationRepository);
 
             ArticleController = new ArticleController(articleService);
             NotificationController = new NotificationController(notificationService);
@@ -208,7 +214,7 @@ namespace HealthClinic
             RoomController = new RoomController(roomService);
             UserController = new UserController(userService);
             WorkingTimeForDoctorController = new WorkingTimeForDoctorController(workingTimeForDoctorService);
-
+            SpetialitationController = new SpetialitationController(spetialitationService);
            
         }
 
@@ -230,6 +236,7 @@ namespace HealthClinic
         public RoomController RoomController { get; private set; }
         public UserController UserController { get; private set; }
         public WorkingTimeForDoctorController WorkingTimeForDoctorController { get; private set; }
+        public SpetialitationController SpetialitationController { get; private set; }
 
     }
 }

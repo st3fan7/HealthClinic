@@ -19,11 +19,6 @@ namespace Service.MedicamentService
             this.issueOfMedicamentRepository = issueOfMedicamentRepository;
         }
 
-        public IssueOfMedicaments IssueOfMedicaments(IssueOfMedicaments issueOfMedicaments) // Ne treba
-        {
-            throw new NotImplementedException();
-        }
-
         public IssueOfMedicaments GetEntity(int id)
         {
             return issueOfMedicamentRepository.GetEntity(id);
