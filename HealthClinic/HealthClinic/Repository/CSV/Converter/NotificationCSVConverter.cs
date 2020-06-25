@@ -5,6 +5,7 @@
 
 using Model.AllActors;
 using Model.BlogAndNotification;
+using Repository.UsersRepository;
 using System;
 using System.Collections.Generic;
 
@@ -36,7 +37,7 @@ namespace Repository.Csv.Converter
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
             List<User> receiveNotifications = new List<User>();
             FillList(receiveNotifications, tokens);
-            return new Notification(int.Parse(tokens[0]), tokens[1], new User(int.Parse(tokens[2])), receiveNotifications);
+            return new Notification(int.Parse(tokens[0]), tokens[1], UserRepository.Instance().GetEntity(int.Parse(tokens[2])), receiveNotifications);
         }
 
         private void FillList(List<User> receiveNotifications, string[] tokens)
@@ -45,7 +46,7 @@ namespace Repository.Csv.Converter
             while (i < tokens.Length - 1)
             {
                 int id = int.Parse(tokens[i]);
-                receiveNotifications.Add(new User(id));     
+                receiveNotifications.Add(UserRepository.Instance().GetEntity(int.Parse(tokens[i])));     
                 i++;
             }
         }

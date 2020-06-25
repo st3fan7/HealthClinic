@@ -19,7 +19,7 @@ namespace Model.Doctor
         private MedicalRecord medicalRecord;
         private AllActors.Doctor doctor;
         private List<Medicament> medicaments;
-
+ 
         public string Receipt { get => receipt; set => receipt = value; }
         public MedicalRecord MedicalRecord { get => medicalRecord; set => medicalRecord = value; }
         public AllActors.Doctor Doctor { get => doctor; set => doctor = value; }

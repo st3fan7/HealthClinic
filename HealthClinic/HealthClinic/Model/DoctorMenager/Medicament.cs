@@ -13,22 +13,20 @@ namespace Model.DoctorMenager
 {
     public class Medicament : IIdentifiable<int>
     {
+        private int id;
         private String code;
         private String name;
         private String producer;
         private State stateOfValidation;
         private int quantity;
-        private int id;      
-
-        private List<Ingredient> ingredients;
-        public List<Ingredient> Ingredients { get => ingredients; set => ingredients = value; }
+        private String ingredients;
 
         public Medicament(int id)
         {
             this.id = id;
         }
 
-        public Medicament(int id, string code, string name, string producer, State stateOfValidation, int quantity, List<Ingredient> ingredients)
+        public Medicament(int id, string code, string name, string producer, State stateOfValidation, int quantity, string ingredients)
         {
             this.code = code;
             this.name = name;
@@ -36,17 +34,22 @@ namespace Model.DoctorMenager
             this.stateOfValidation = stateOfValidation;
             this.quantity = quantity;
             this.id = id;
-            this.ingredients = ingredients;
+            this.Ingredients = ingredients;
         }
 
-        public Medicament(string code, string name, string producer, State stateOfValidation, int quantity, List<Ingredient> ingredients)
+        public Medicament(string code, string name, string producer, State stateOfValidation, int quantity, string ingredients)
         {
             this.code = code;
             this.name = name;
             this.producer = producer;
             this.stateOfValidation = stateOfValidation;
             this.quantity = quantity;
-            this.ingredients = ingredients;
+            this.Ingredients = ingredients;
+        }
+
+        public Medicament(String name)
+        {
+            this.name = name;
         }
 
         public int GetId()
@@ -88,5 +91,6 @@ namespace Model.DoctorMenager
             set { quantity = value; }
         }
 
+        public string Ingredients { get => ingredients; set => ingredients = value; }
     }
 }

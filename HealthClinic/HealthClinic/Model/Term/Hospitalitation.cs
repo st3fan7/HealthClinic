@@ -25,11 +25,6 @@ namespace Model.Term
         public AllActors.Doctor Doctor { get => doctor; set => doctor = value; }
         public Bed BedForLaying { get => bedForLaying; set => bedForLaying = value; }
 
-        private DateTime fromDateTime;
-        private DateTime toDateTime;
-        public DateTime FromDateTime { get => fromDateTime; set => fromDateTime = value; }
-        public DateTime ToDateTime { get => toDateTime; set => toDateTime = value; }
-
         public Hospitalitation(int id)
         {
             this.id = id;
@@ -39,7 +34,8 @@ namespace Model.Term
         {
         }
 
-        public Hospitalitation(int id, bool urgency, string shortDescription, Room room, AllActors.Doctor doctor, Bed bedForLaying, DateTime fromDateTime, DateTime toDateTime)
+        public Hospitalitation(int id, bool urgency, string shortDescription, Room room, AllActors.Doctor doctor, Bed bedForLaying, DateTime fromDateTime, DateTime toDateTime) 
+            : base(fromDateTime, toDateTime)
         {
             this.Urgency = urgency;
             this.ShortDescription = shortDescription;
@@ -47,19 +43,16 @@ namespace Model.Term
             this.Room = room;
             this.Doctor = doctor;
             this.BedForLaying = bedForLaying;
-            this.FromDateTime = fromDateTime;
-            this.ToDateTime = toDateTime;
         }
 
         public Hospitalitation(bool urgency, string shortDescription, Room room, AllActors.Doctor doctor, Bed bedForLaying, DateTime fromDateTime, DateTime toDateTime)
+            : base(fromDateTime, toDateTime)
         {
             this.Urgency = urgency;
             this.ShortDescription = shortDescription;
             this.Room = room;
             this.Doctor = doctor;
             this.BedForLaying = bedForLaying;
-            this.FromDateTime = fromDateTime;
-            this.ToDateTime = toDateTime;
         }
 
         public int GetId()

@@ -5,6 +5,7 @@
 
 using Model.Manager;
 using Model.Term;
+using Repository.RoomsRepository;
 using System;
 using System.Collections.Generic;
 
@@ -27,7 +28,7 @@ namespace Repository.Csv.Converter
                 equipmentCSV += string.Join(delimiter, equipment.GetId());
                 equipmentCSV += delimiter;
             }
-            return string.Join(delimiter, entity.GetId(), entity.RoomID, entity.TypeOfRoom, entity.FromDateTime, entity.ToDateTime, equipmentCSV);
+            return string.Join(delimiter, entity.GetId(), entity.RoomID, entity.TypeOfRoom.NameOfType, entity.FromDateTime, entity.ToDateTime, equipmentCSV);
         }
 
         public Room ConvertCSVFormatToEntity(string entityCSVFormat)
@@ -35,7 +36,7 @@ namespace Repository.Csv.Converter
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
             List<Equipment> equipments = new List<Equipment>();
             FillList(equipments, tokens);
-            return new Room(int.Parse(tokens[0]), tokens[1], (TypeOfRoom)Enum.Parse(typeof(TypeOfRoom), tokens[2]), DateTime.Parse(tokens[3]), DateTime.Parse(tokens[4]), equipments);
+            return new Room(int.Parse(tokens[0]), tokens[1], new TypeOfRoom(tokens[2]), DateTime.Parse(tokens[3]), DateTime.Parse(tokens[4]), equipments);
         }
 
         private void FillList(List<Equipment> equipment, string[] tokens)
@@ -44,7 +45,7 @@ namespace Repository.Csv.Converter
             while (i < tokens.Length - 1)
             {
                 int id = int.Parse(tokens[i]);
-                equipment.Add(new Equipment(id)); 
+                equipment.Add(EquipmentRepository.Instance().GetEntity(id)); 
                 i++;
             }
         }

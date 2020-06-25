@@ -20,11 +20,6 @@ namespace Controller.MedicamentControlers
             this.issueMedicamentsService = issueMedicamentsService;
         }
 
-        public IssueOfMedicaments IssueOfMedicaments(IssueOfMedicaments issueOfMedicaments)
-        {
-            return issueMedicamentsService.IssueOfMedicaments(issueOfMedicaments);
-        }
-
         public IssueOfMedicaments GetEntity(int id)
         {
             return issueMedicamentsService.GetEntity(id);
