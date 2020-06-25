@@ -19,9 +19,24 @@ namespace Controller.MedicamentControlers
             this.medicamentService = medicamentService;
         }
 
-        public void AddExistingMedicament(String medicamentID, int quantity)
+        public List<Medicament> GetComfirmedMedicaments()
         {
-            medicamentService.AddExistingMedicament(medicamentID, quantity);
+            return medicamentService.GetComfirmedMedicaments();
+        }
+
+        public Medicament AddExistingMedicament(String medicamentID, int quantity)
+        {
+            return medicamentService.AddExistingMedicament(medicamentID, quantity);
+        }
+
+        public Medicament GetMedicamentByCode(String code)
+        {
+            return medicamentService.GetMedicamentByCode(code);
+        }
+
+        public bool ExistMedicamentWithCode(String code)
+        {
+            return medicamentService.ExistMedicamentWithCode(code);
         }
 
         public Medicament GetEntity(int id)
