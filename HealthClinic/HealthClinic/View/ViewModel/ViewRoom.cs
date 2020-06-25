@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HealthClinic.View.ViewModel
 {
-    public class ViewMedicament : INotifyPropertyChanged
+    public class ViewRoom : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -17,11 +17,9 @@ namespace HealthClinic.View.ViewModel
         }
 
         private int id;
-        private String code;
-        private String name;
-        private String producer;
-        private int quantity;
-        private String ingredients;
+        private String roomID;
+        private String typeOfRoom;
+        private String equipment;
 
         public int Id
         {
@@ -35,66 +33,43 @@ namespace HealthClinic.View.ViewModel
                 }
             }
         }
-        public String Code
+        public String RoomID
         {
-            get { return code; }
+            get { return roomID; }
             set
             {
-                if (code != value)
+                if (roomID != value)
                 {
-                    code = value;
+                    roomID = value;
                     OnPropertyChanged();
                 }
             }
         }
-        public String Name
+        public String TypeOfRoom
         {
-            get { return name; }
+            get { return typeOfRoom; }
             set
             {
-                if (name != value)
+                if (typeOfRoom != value)
                 {
-                    name = value;
+                    typeOfRoom = value;
                     OnPropertyChanged();
                 }
             }
         }
-        public String Producer
+        public String Equipment
         {
-            get { return producer; }
+            get { return equipment; }
             set
             {
-                if (producer != value)
+                if (equipment != value)
                 {
-                    producer = value;
+                    equipment = value;
                     OnPropertyChanged();
                 }
             }
         }
-        public int Quantity
-        {
-            get { return quantity; }
-            set
-            {
-                if (quantity != value)
-                {
-                    quantity = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-        public String Ingredients
-        {
-            get { return ingredients; }
-            set
-            {
-                if (ingredients != value)
-                {
-                    ingredients = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+
 
     }
 }

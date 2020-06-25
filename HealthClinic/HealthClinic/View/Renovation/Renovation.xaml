@@ -36,15 +36,14 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Label FontSize="15" VerticalAlignment="Center" Margin="10,0,0,0">Izaberite salu za renoviranje:</Label>
-                    <ComboBox Grid.Column="1" Margin="0,0,2,0" x:Name="ComboBoxNumbersOfRooms">
-                        <ComboBoxItem x:Name="firstItem" Content="101a"/>
-                        <ComboBoxItem Content="102a"/>
-                        <ComboBoxItem Content="103a"/>
-                        <ComboBoxItem Content="108a"/>
-                        <ComboBoxItem Content="108b"/>
-                        <ComboBoxItem Content="201a"/>
-                        <ComboBoxItem Content="207a"/>
-                        <ComboBoxItem Content="301a"/>
+                    <ComboBox x:Name="ComboBoxDoctors" ItemsSource="{Binding Path=RoomsView}" Grid.Column="1" Margin="0,3,6,3" SelectedIndex="0">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path=RoomID}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
                     </ComboBox>
                 </Grid>
                 <Grid Grid.Row="2">

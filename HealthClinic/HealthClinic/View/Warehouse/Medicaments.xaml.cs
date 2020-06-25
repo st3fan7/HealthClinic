@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Controller.MedicamentControlers;
 using HealthClinic.View.Converter;
 using HealthClinic.View.ViewModel;
 using Model.DoctorMenager;
@@ -26,7 +27,7 @@ namespace HealthClinic.View
     {
         public static RoutedCommand helpSchortcut = new RoutedCommand();
 
-        private readonly IController<Medicament, int> medicamentController;
+        private readonly MedicamentController medicamentController;
 
         public static ObservableCollection<ViewMedicament> MedicamentsView { get; set; }
 
@@ -40,11 +41,19 @@ namespace HealthClinic.View
             InputSearch.SelectAll();
 
             var app = Application.Current as App;
-
             medicamentController = app.MedicamentController;
 
             MedicamentsView = new ObservableCollection<ViewMedicament>(MedicamentConverter.ConvertMedicamentListToMedicamentViewList(
-                medicamentController.GetAllEntities().ToList()));
+                GetComfirmedMedicaments())); // pozvati iz kontrolera
+        }
+
+        private List<Medicament> GetComfirmedMedicaments() // U servis
+        {
+            List<Medicament> confirmedMedicaments = new List<Medicament>();
+            foreach (Medicament medicament in medicamentController.GetAllEntities())
+                if (medicament.StateOfValidation == State.Confirmed)
+                    confirmedMedicaments.Add(medicament);
+            return confirmedMedicaments;
         }
 
         private void Button_Click_Dodaj(object sender, RoutedEventArgs e)
@@ -61,7 +70,15 @@ namespace HealthClinic.View
 
         private void Button_Click_Obrisi(object sender, RoutedEventArgs e)
         {
-            
+            ViewMedicament selectedMedicament = (ViewMedicament)DataGridMedicaments.SelectedItem;
+            Medicament medicament = medicamentController.GetEntity(selectedMedicament.Id);
+            if (MessageBox.Show("Da li ste sigurni da želite da obrišete lek?", "Pitanje", MessageBoxButton.YesNo, MessageBoxImage.Question)
+                == MessageBoxResult.Yes)
+            {
+                medicamentController.DeleteEntity(medicament);
+                MedicamentsView.Remove(selectedMedicament);
+                MessageBox.Show("Uspešno ste obrisali lek", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void Button_Click_PocetnaStrana(object sender, RoutedEventArgs e)

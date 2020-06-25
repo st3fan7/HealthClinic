@@ -1,5 +1,7 @@
 ﻿using Controller;
 using Controller.MedicamentControlers;
+using HealthClinic.View.Converter;
+using HealthClinic.View.ViewModel;
 using Model.DoctorMenager;
 using System;
 using System.Collections.Generic;
@@ -46,14 +48,23 @@ namespace HealthClinic.View
                 return;
             }
 
-            /*Medicament medicament = AddExistingMedicament(InputCodeOfMedicament.Text, int.Parse(InputAmountOfMedicament.Text));
-            if (medicament == null)
+            /*ViewMedicament existingMedicament = MedicamentConverter.ConvertMedicamentToMedicamentView(
+                medicamentController.AddExistingMedicament(InputCodeOfMedicament.Text, int.Parse(InputAmountOfMedicament.Text)));
+            if (existingMedicament == null)
             {
                 MessageBox.Show("Uneli ste nepostojeću šifru leka", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             else
-            {   // Refresuj prikaz tabele
+            {
+                foreach (ViewMedicament medicament in Medicaments.MedicamentsView)
+                {
+                    if (medicament.Code.Equals(InputCodeOfMedicament.Text))
+                    {
+                        medicament.Quantity += int.Parse(InputAmountOfMedicament.Text);
+                        break;
+                    }
+                }
                 this.Close();
                 MessageBox.Show("Uspešno ste dodali novu količinu leka", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
             }*/

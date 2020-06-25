@@ -1,5 +1,7 @@
 ﻿using Controller;
 using Controller.RoomsControlers;
+using HealthClinic.View.Converter;
+using HealthClinic.View.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -26,7 +28,7 @@ namespace HealthClinic.View
 
         private readonly EquipmentController equipmentController;
 
-        public static ObservableCollection<Model.Manager.Equipment> EquipmentView { get; set; }
+        public static ObservableCollection<ViewEquipment> EquipmentView { get; set; }
 
         public Equipment()
         {
@@ -38,10 +40,10 @@ namespace HealthClinic.View
             InputSearch.SelectAll();
 
             var app = Application.Current as App;
-
             equipmentController = app.EquipmentController;
 
-            EquipmentView = new ObservableCollection<Model.Manager.Equipment>(equipmentController.GetAllEntities().ToList());
+            EquipmentView = new ObservableCollection<ViewEquipment>(EquipmentConverter.ConvertEquipmnetListToEquipmentViewList(
+                equipmentController.GetAllEntities().ToList()));
         }
 
         private void Button_Click_Dodaj(object sender, RoutedEventArgs e)
@@ -58,14 +60,15 @@ namespace HealthClinic.View
 
         private void Button_Click_Obrisi(object sender, RoutedEventArgs e)
         {
-            Model.Manager.Equipment selectedEquipment = (Model.Manager.Equipment)DataGridEquipment.SelectedItem;
+            ViewEquipment selectedEquipment = (ViewEquipment)DataGridEquipment.SelectedItem;
+            Model.Manager.Equipment equipment = equipmentController.GetEntity(selectedEquipment.Id);
             if (MessageBox.Show("Da li ste sigurni da želite da obrišete lek?", "Pitanje", MessageBoxButton.YesNo, MessageBoxImage.Question)
                 == MessageBoxResult.Yes)
             {
-                equipmentController.DeleteEntity(selectedEquipment);
+                equipmentController.DeleteEntity(equipment);
                 EquipmentView.Remove(selectedEquipment);
                 MessageBox.Show("Uspešno ste obrisali lek", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
-            }                     
+            }
         }
 
         private void Button_Click_PocetnaStrana(object sender, RoutedEventArgs e)

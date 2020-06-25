@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-1,O121,Kreveti,Nameštaj,13
-2,O212,Stolovi,Nameštaj,12
-3,O321,Stolice,Nameštaj,154
-=======
-﻿1,O212,Krevet,Nameštaj,8
+1,O212,Krevet,Nameštaj,10
 2,O321,Stolovi,Nameštaj,7
 3,O121,Stolice,Nameštaj,12
 4,O322,Respiratori,Medicinska oprema,7
->>>>>>> develop
+5,O421,Stalak za infuziju,Medicinska oprema,18

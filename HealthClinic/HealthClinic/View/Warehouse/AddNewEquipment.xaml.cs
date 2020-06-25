@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Controller.RoomsControlers;
+using HealthClinic.View.Converter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,12 +58,11 @@ namespace HealthClinic.View
                 return;
             } else
             {
-                Equipment.EquipmentView.Add(equipmentController.AddEntity(new Model.Manager.Equipment(InputCodeOfEquipment.Text, InputNameOfEquipment.Text,
-                InputTypeOfEquipment.Text, int.Parse(InputAmountOfEquipment.Text))));
+                Equipment.EquipmentView.Add(EquipmentConverter.ConvertEquipmentToEquipmentView(
+                    equipmentController.AddEntity(new Model.Manager.Equipment(InputCodeOfEquipment.Text, InputNameOfEquipment.Text,InputTypeOfEquipment.Text, int.Parse(InputAmountOfEquipment.Text)))));
                 this.Close();
                 MessageBox.Show("Usepešno ste dodali novu opremu", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);               
-            }
-            
+            }           
         }
 
         private void Button_Click_Odustani(object sender, RoutedEventArgs e)

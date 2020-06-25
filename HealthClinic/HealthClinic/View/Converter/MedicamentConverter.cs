@@ -14,25 +14,16 @@ namespace HealthClinic.View.Converter
         {
             return new ViewMedicament
             {
+                Id = medicament.GetId(),
                 Code = medicament.Code,
                 Name = medicament.Name,
                 Producer = medicament.Producer,
                 Quantity = medicament.Quantity,
-                Ingredients = IngredientsToView(medicament)
+                Ingredients = medicament.Ingredients
             };
         }
 
         public static IList<ViewMedicament> ConvertMedicamentListToMedicamentViewList(IList<Medicament> medicaments)
             => ConvertEntityListToViewList(medicaments, ConvertMedicamentToMedicamentView);
-
-        private static String IngredientsToView(Medicament medicament)
-        {
-            String ret = "";
-            foreach (Ingredient ingredient in medicament.Ingredients)
-            {
-                ret += ingredient.Name + ", ";
-            }
-            return ret.Substring(0, ret.Length - 2);
-        }
     }
 }

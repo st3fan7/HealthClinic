@@ -1,5 +1,12 @@
-﻿using System;
+﻿using Controller.MedicamentControlers;
+using Controller.UsersControlers;
+using HealthClinic.View.Converter;
+using HealthClinic.View.ViewModel;
+using Model.AllActors;
+using Model.DoctorMenager;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,16 +26,91 @@ namespace HealthClinic.View
     /// </summary>
     public partial class AddNewMedicament : Window
     {
+        private readonly ValidationMedicamentController validationMedicamentController;
+        private readonly MedicamentController medicamentController;
+        private readonly UserController userController;
+        public static ObservableCollection<ViewMedicamentOnValidation> MedicamentsOnValidationView { get; set; }
+        public static ObservableCollection<Doctor> DoctorsView { get; set; }
+
         public AddNewMedicament()
         {
             InitializeComponent();
-            ComboBoxDoctors.Focus();
-            ComboBoxDoctors.SelectedItem = firstItem;
+            this.DataContext = this;
+
+            var app = Application.Current as App;
+            validationMedicamentController = app.ValidationOfMedicamentController;
+            medicamentController = app.MedicamentController;
+            userController = app.UserController;
+
+            MedicamentsOnValidationView = new ObservableCollection<ViewMedicamentOnValidation>(MedicamentOnValidationConverter.ConvertMedicamentListToMedicamentViewList(
+                validationMedicamentController.GetAllEntities().ToList()));
+
+            DoctorsView = new ObservableCollection<Doctor>(userController.GetAllDoctors());
+
+            /*foreach(ViewMedicamentOnValidation medicamentOnValidation in MedicamentsOnValidationView)
+            {
+                if (medicamentOnValidation.State.Equals("Validan"))
+                {
+                    this.AddValidMedicament(validationMedicamentController.GetEntity(medicamentOnValidation.Id));                                          
+                }
+            }*/
+        }
+
+        private void AddValidMedicament(ValidationOfMedicament medicamentOnValidation) // Napraviti u servisu
+        {
+            medicamentController.AddEntity(medicamentOnValidation.Medicament);
         }
 
         private void Button_Click_PosaljiLekaru(object sender, RoutedEventArgs e)
         {
-            
+            if (InputNameOfMedicament.Text.Equals("") || InputProducerOfMedicament.Text.Equals("") ||
+                 InputCodeOfMedicament.Text.Equals("") || InputIngredientsOfMedicament.Text.Equals(""))
+            {
+                MessageBox.Show("Morate popuniti sva polja", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            try
+            {
+                int.Parse(InputAmountOfMedicament.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Morate uneti broj za količinu", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (ExistMedicamentWithCode(InputCodeOfMedicament.Text)) // Pozvati iz kontrolera
+            {
+                MessageBox.Show("Lek sa šifrom koju ste uneli već postoji", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            else
+            {
+                medicamentController.AddEntity(new Medicament(InputCodeOfMedicament.Text, InputNameOfMedicament.Text, InputProducerOfMedicament.Text,
+                    State.OnValidation, int.Parse(InputAmountOfMedicament.Text), InputIngredientsOfMedicament.Text));
+                MedicamentsOnValidationView.Add(MedicamentOnValidationConverter.ConvertMedicamentToMedicamentView(
+                    validationMedicamentController.AddEntity( new ValidationOfMedicament(false,
+                    GetMedicamentByCode(InputCodeOfMedicament.Text),  // Pozovi iz kontrolera
+                    new FeedbackOfValidation(""), (Doctor)ComboBoxDoctors.SelectedItem))));                
+                MessageBox.Show("Usepešno ste poslali lek na validaciju", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private Medicament GetMedicamentByCode(String code)
+        {
+            foreach (Medicament medicament in medicamentController.GetAllEntities())
+                if (medicament.Code.Equals(code))
+                    return medicament;
+            return null;
+        }
+
+        private bool ExistMedicamentWithCode(String code)
+        {
+            foreach (Medicament medicament in medicamentController.GetAllEntities())
+                if (medicament.Code.Equals(code))
+                    return true;
+            return false;
         }
 
         private void Button_Click_Odustani(object sender, RoutedEventArgs e)

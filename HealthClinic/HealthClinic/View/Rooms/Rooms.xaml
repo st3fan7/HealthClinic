@@ -43,14 +43,12 @@
             </Grid>
         </Grid>
 
-        <DataGrid x:Name="DataGridRooms" FrozenColumnCount ="1" Grid.Row="1" ItemsSource="{Binding }" AutoGenerateColumns="False" 
+        <DataGrid x:Name="DataGridRooms" FrozenColumnCount ="1" Grid.Row="1" ItemsSource="{Binding RoomView}" AutoGenerateColumns="False" 
                   SelectionMode="Single" IsReadOnly="True" Margin="10,0,10,1" BorderThickness="1" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Broj sale" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Tip sale" Binding="{Binding }" />
-                <DataGridTextColumn Header="Kreveti" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Stolovi" Binding="{Binding }" />
-                <DataGridTextColumn Header="Stolice" Binding="{Binding }" Width="*"/>
+                <DataGridTextColumn Header="Broj sale" Binding="{Binding RoomID}"/>
+                <DataGridTextColumn Header="Tip sale" Binding="{Binding TypeOfRoom}" />
+                <DataGridTextColumn Header="Oprema" Binding="{Binding Equipment}" Width="*"/>
                 <DataGridTemplateColumn Header="Medicinska oprema">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

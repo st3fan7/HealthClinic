@@ -1,5 +1,7 @@
 ﻿using Controller;
 using Controller.RoomsControlers;
+using HealthClinic.View.Converter;
+using HealthClinic.View.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -46,14 +48,15 @@ namespace HealthClinic.View
                 return;
             }
 
-            Model.Manager.Equipment existingEquipment = equipmentController.AddExistingEquipmnet(InputCodeOfEquipment.Text, int.Parse(InputAmountOfEquipment.Text));
-            if(existingEquipment == null)
+            ViewEquipment existingEquipment = EquipmentConverter.ConvertEquipmentToEquipmentView(
+               equipmentController.AddExistingEquipmnet(InputCodeOfEquipment.Text, int.Parse(InputAmountOfEquipment.Text)));
+            if (existingEquipment == null)
             {
                 MessageBox.Show("Uneli ste nepostojeću šifru opreme", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             } else
             {
-                foreach (Model.Manager.Equipment equipment in Equipment.EquipmentView) // Izmeni
+                foreach (ViewEquipment equipment in Equipment.EquipmentView)
                 {
                     if (equipment.Code.Equals(InputCodeOfEquipment.Text))
                     {

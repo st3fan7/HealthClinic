@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HealthClinic.View.ViewModel
 {
-    public class ViewMedicament : INotifyPropertyChanged
+    public class ViewEquipment : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -19,9 +19,8 @@ namespace HealthClinic.View.ViewModel
         private int id;
         private String code;
         private String name;
-        private String producer;
-        private int quantity;
-        private String ingredients;
+        private String typeOfEquipment;
+        private int amount;
 
         public int Id
         {
@@ -59,38 +58,26 @@ namespace HealthClinic.View.ViewModel
                 }
             }
         }
-        public String Producer
+        public String TypeOfEquipment
         {
-            get { return producer; }
+            get { return typeOfEquipment; }
             set
             {
-                if (producer != value)
+                if (typeOfEquipment != value)
                 {
-                    producer = value;
+                    typeOfEquipment = value;
                     OnPropertyChanged();
                 }
             }
         }
-        public int Quantity
+        public int Amount
         {
-            get { return quantity; }
+            get { return amount; }
             set
             {
-                if (quantity != value)
+                if (amount != value)
                 {
-                    quantity = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-        public String Ingredients
-        {
-            get { return ingredients; }
-            set
-            {
-                if (ingredients != value)
-                {
-                    ingredients = value;
+                    amount = value;
                     OnPropertyChanged();
                 }
             }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HealthClinic.View.ViewModel
 {
-    public class ViewMedicament : INotifyPropertyChanged
+    public class ViewRenovation : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -17,11 +17,9 @@ namespace HealthClinic.View.ViewModel
         }
 
         private int id;
-        private String code;
-        private String name;
-        private String producer;
-        private int quantity;
-        private String ingredients;
+        private String room;
+        private String dataPeriod;
+        private String description;
 
         public int Id
         {
@@ -35,66 +33,41 @@ namespace HealthClinic.View.ViewModel
                 }
             }
         }
-        public String Code
+        public String Room
         {
-            get { return code; }
+            get { return room; }
             set
             {
-                if (code != value)
+                if (room != value)
                 {
-                    code = value;
+                    room = value;
                     OnPropertyChanged();
                 }
             }
         }
-        public String Name
+        public String DataPeriod
         {
-            get { return name; }
+            get { return dataPeriod; }
             set
             {
-                if (name != value)
+                if (dataPeriod != value)
                 {
-                    name = value;
+                    dataPeriod = value;
                     OnPropertyChanged();
                 }
             }
         }
-        public String Producer
+        public String Description
         {
-            get { return producer; }
+            get { return description; }
             set
             {
-                if (producer != value)
+                if (description != value)
                 {
-                    producer = value;
+                    description = value;
                     OnPropertyChanged();
                 }
             }
         }
-        public int Quantity
-        {
-            get { return quantity; }
-            set
-            {
-                if (quantity != value)
-                {
-                    quantity = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-        public String Ingredients
-        {
-            get { return ingredients; }
-            set
-            {
-                if (ingredients != value)
-                {
-                    ingredients = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
     }
 }
