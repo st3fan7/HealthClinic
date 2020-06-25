@@ -15,7 +15,7 @@ namespace Repository.BlogNotificationRepository
 {
     public class SurveyRepository : CSVRepository<Survey, int>, ISurveyRepository
     {
-        private const string SURVEY_FILE = "../../Resources/Data/surveys.csv";;
+        private const string SURVEY_FILE = "../../Resources/Data/surveys.csv";
         private static SurveyRepository instance;
 
         public static SurveyRepository Instance()
@@ -27,7 +27,6 @@ namespace Repository.BlogNotificationRepository
                 new IntSequencer());
             }
             return instance;
-
         }
 
         public SurveyRepository(ICSVStream<Survey> stream, ISequencer<int> sequencer)

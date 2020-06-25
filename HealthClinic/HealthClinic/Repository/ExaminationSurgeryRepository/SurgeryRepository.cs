@@ -30,8 +30,6 @@ namespace Repository.ExaminationSurgeryRepository
                 new IntSequencer());
             }
             return instance;
-
-
         }
 
         public SurgeryRepository(ICSVStream<Surgery> stream, ISequencer<int> sequencer)
@@ -39,24 +37,31 @@ namespace Repository.ExaminationSurgeryRepository
         {
         }
 
-        public List<Surgery> GetAllMedicalExaminationsByPatient(Room room)
+        public List<Surgery> GetAllSurgeryByRoom(Room room)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<Surgery> GetAllMedicalExaminationsByPatient2(DateTime time)
-        {
-            throw new NotImplementedException();
+            List<Surgery> surgeries = new List<Surgery>();
+            foreach (Surgery surgery in GetAllEntities())
+                if (surgery.Room.GetId() == room.GetId())
+                    surgeries.Add(surgery);
+            return surgeries;
         }
 
         public List<Surgery> GetAllSurgeryByDoctor(Doctor doctor)
         {
-            throw new NotImplementedException();
+            List<Surgery> surgeries = new List<Surgery>();
+            foreach (Surgery surgery in GetAllEntities())
+                if (surgery.DoctorSpecialist.GetId() == doctor.GetId())
+                    surgeries.Add(surgery);
+            return surgeries;
         }
 
         public List<Surgery> GetAllSurgeryByPatient(Patient patient)
         {
-            throw new NotImplementedException();
+            List<Surgery> surgeries = new List<Surgery>();
+            foreach (Surgery surgery in GetAllEntities())
+                if (surgery.Patient.GetId() == patient.GetId())
+                    surgeries.Add(surgery);
+            return surgeries;
         }
 
         public Surgery GetPreviousSurgery(Patient patient)

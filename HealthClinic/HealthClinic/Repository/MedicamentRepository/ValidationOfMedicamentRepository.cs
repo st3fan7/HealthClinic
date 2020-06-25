@@ -37,7 +37,11 @@ namespace Repository.MedicamentRepository
 
         public List<ValidationOfMedicament> GetMedicamentsOnValidationForDoctor(Doctor doctor)
         {
-            throw new NotImplementedException();
+            List<ValidationOfMedicament> medicamentsOnValidation = new List<ValidationOfMedicament>();
+            foreach (ValidationOfMedicament validationOfMedicament in GetAllEntities())
+                if (validationOfMedicament.Doctor.GetId() == doctor.GetId())
+                    medicamentsOnValidation.Add(validationOfMedicament);
+            return medicamentsOnValidation;
         }
     }
 }

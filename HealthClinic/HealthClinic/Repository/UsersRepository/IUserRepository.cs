@@ -18,11 +18,11 @@ namespace Repository.UsersRepository
 
         List<Secretary> GetAllSecretaries();
 
-        List<DoctorSpecialist> GetDoctorBySpecialitation(Model.Doctor.Specialitation specialitation);
+        List<Manager> GetAllManagers();
 
-        Model.AllActors.Patient GetPatientByJmbg(String jmbg);
+        User GetUserByUsername(String username);
 
-        Boolean GetOccupancyStatus(Model.AllActors.Doctor doctor, DateTime time);
+        List<Doctor> GetDoctorBySpecialitation(Specialitation specialitation);
 
     }
 }

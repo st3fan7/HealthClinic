@@ -27,7 +27,6 @@ namespace Repository.BlogNotificationRepository
                 new IntSequencer());
             }
             return instance;
-
         }
 
         public NotificationRepository(ICSVStream<Notification> stream, ISequencer<int> sequencer)

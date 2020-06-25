@@ -38,12 +38,20 @@ namespace Repository.ExaminationSurgeryRepository
 
         public List<Hospitalitation> GetAllHospitalitationsByRoom(Room room)
         {
-            throw new NotImplementedException();
+            List<Hospitalitation> hospitalitations = new List<Hospitalitation>();
+            foreach(Hospitalitation hospitalitation in GetAllEntities())
+                if(hospitalitation.Room.RoomID == room.RoomID)
+                    hospitalitations.Add(hospitalitation);
+            return hospitalitations;
         }
 
         public List<Hospitalitation> GetByDate(DateTime date)
         {
-            throw new NotImplementedException();
+            List<Hospitalitation> hospitalitations = new List<Hospitalitation>();
+            foreach (Hospitalitation hospitalitation in GetAllEntities())
+                if (hospitalitation.FromDateTime == date)
+                    hospitalitations.Add(hospitalitation);
+            return hospitalitations;
         }
     }
 }

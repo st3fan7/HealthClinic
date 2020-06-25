@@ -11,11 +11,11 @@ namespace Model.Manager
 {
     public class Equipment : IIdentifiable<int>
     {
+        private int id;
         private String code;
         private String name;
         private String typeOfEquipment;
         private int amount;
-        private int id;
 
         public string Code { get => code; set => code = value; }
         public string Name { get => name; set => name = value; }

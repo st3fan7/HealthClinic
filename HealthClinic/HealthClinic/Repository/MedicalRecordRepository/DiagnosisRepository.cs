@@ -28,7 +28,6 @@ namespace Repository.MedicalRecordRepository
                 new IntSequencer());
             }
             return instance;
-
         }
 
         public DiagnosisRepository(ICSVStream<Diagnosis> stream, ISequencer<int> sequencer)

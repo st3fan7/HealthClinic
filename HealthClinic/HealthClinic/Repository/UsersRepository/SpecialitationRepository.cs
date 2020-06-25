@@ -14,7 +14,6 @@ namespace Repository.UsersRepository
 {
     public class SpecialitationRepository : CSVRepository<Specialitation, int>, ISpecialitationRepository
     {
-        private string path;
         private const string SPECIALITATION_FILE = "../../Resources/Data/specialitation.csv";
         private static SpecialitationRepository instance;
 

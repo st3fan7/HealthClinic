@@ -17,7 +17,6 @@ namespace Repository.UsersRepository
 {
    public class WorkingTimeForDoctorRepository : CSVRepository<WorkingTimeForDoctor,int>, IWorkingTimeForDoctorRepository
    {
-        private string path;
         private const string WORKINGTIMEFORDOCTOR_FILE = "../../Resources/Data/workingtimefordoctor.csv";
         private static WorkingTimeForDoctorRepository instance;
 
@@ -30,8 +29,6 @@ namespace Repository.UsersRepository
                new IntSequencer());
             }
             return instance;
-
-
         }
 
         public WorkingTimeForDoctorRepository(ICSVStream<WorkingTimeForDoctor> stream, ISequencer<int> sequencer)
@@ -41,7 +38,11 @@ namespace Repository.UsersRepository
 
         public List<WorkingTimeForDoctor> GetWorkTimeForDoctor(Doctor doctor)
         {
-            throw new NotImplementedException();
+            List<WorkingTimeForDoctor> workingTimesForDoctor = new List<WorkingTimeForDoctor>();
+            foreach (WorkingTimeForDoctor workingTimeForDoctor in GetAllEntities())
+                if (workingTimeForDoctor.Doctor.GetId() == doctor.GetId())
+                    workingTimesForDoctor.Add(workingTimeForDoctor);
+            return workingTimesForDoctor;
         }
     }
 }

@@ -44,7 +44,7 @@ namespace Repository.Csv.Converter
 
         private void FillList(List<Question> questions, string[] tokens)
         {
-            int i = 4;
+            int i = 5;
             while (i < tokens.Length - 1)
             {
                 questions.Add(new Question(tokens[i]));

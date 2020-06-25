@@ -11,6 +11,7 @@ using Repository.Csv.Converter;
 using Repository.Csv.Stream;
 using Repository.IDSequencer;
 using System;
+using System.Collections.Generic;
 
 namespace Repository.MedicalRecordRepository
 {
@@ -29,7 +30,6 @@ namespace Repository.MedicalRecordRepository
                new IntSequencer());
             }
             return instance;
-
         }
 
         public MedicalRecordRepository(ICSVStream<MedicalRecord> stream, ISequencer<int> sequencer)
@@ -39,7 +39,10 @@ namespace Repository.MedicalRecordRepository
 
         public MedicalRecord GetMedicalRecordByPatient(Patient patient)
         {
-            throw new NotImplementedException();
+            foreach (MedicalRecord medicalRecord in GetAllEntities())
+                if (medicalRecord.Patient.GetId() == patient.GetId())
+                    return medicalRecord;
+            return null;
         }
     }
 }

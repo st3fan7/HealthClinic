@@ -6,6 +6,7 @@
 
 using Model.Term;
 using Repository.Csv;
+using Repository.Csv.Converter;
 using Repository.Csv.Stream;
 using Repository.IDSequencer;
 using System;
@@ -15,14 +16,26 @@ namespace Repository.RoomsRepository
 {
     public class RenovationRepository : CSVRepository<Renovation, int>, IRenovationRepository
     {
-        private string path;
+        private const string RENOVATION_FILE = "../../Resources/Data/renovation.csv";
+        private static RenovationRepository instance;
+
+        public static RenovationRepository Instance()
+        {
+            if (instance == null)
+            {
+                instance = new RenovationRepository(
+               new CSVStream<Renovation>(RENOVATION_FILE, new RenovationCSVConverter(",")),
+               new IntSequencer());
+            }
+            return instance;
+        }
 
         public RenovationRepository(ICSVStream<Renovation> stream, ISequencer<int> sequencer)
            : base(stream, sequencer)
         {
         }
 
-        public Room AddEntity(Room entity)
+        /*public Room AddEntity(Room entity)
         {
             throw new NotImplementedException();
         }
@@ -37,12 +50,12 @@ namespace Repository.RoomsRepository
             throw new NotImplementedException();
         }
 
-        /*IEnumerable<Room> IRepository<Room, int>.GetAllEntities()
+        IEnumerable<Renovation> IRepository<Renovation, int>.GetAllEntities()
         {
             throw new NotImplementedException();
         }
 
-        Room IRepository<Room, int>.GetEntity(int id)
+        Renovation IRepository<Renovation, int>.GetEntity(int id)
         {
             throw new NotImplementedException();
         }*/

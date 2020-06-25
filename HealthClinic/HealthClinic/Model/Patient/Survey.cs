@@ -13,10 +13,10 @@ namespace Model.Patient
 {
     public class Survey : IIdentifiable<int>
     {
+        private int id;
         private String title;
         private DateTime publishingDate;
         private String commentSurvey;
-        private int id;
         private Model.AllActors.Patient patient;
         private List<Question> question;
 

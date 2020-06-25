@@ -17,7 +17,6 @@ namespace Repository.UsersRepository
 {
     public class UserRepository : CSVRepository<User, int>, IUserRepository
     {
-        private String path;
         private const string USER_FILE = "../../Resources/Data/users.csv";
         private static UserRepository instance;
 
@@ -30,8 +29,6 @@ namespace Repository.UsersRepository
                new IntSequencer());
             }
             return instance;
-
-
         }
 
         public UserRepository(ICSVStream<User> stream, ISequencer<int> sequencer)
@@ -41,22 +38,67 @@ namespace Repository.UsersRepository
 
         public List<Doctor> GetAllDoctors()
         {
-            throw new NotImplementedException();
+            List<Doctor> doctors = new List<Doctor>();
+            foreach(User user in this.GetAllEntities())
+            {
+                if (user.GetType() == typeof(Doctor))
+                    doctors.Add((Doctor)user);
+            }
+            return doctors;
         }
 
         public List<Patient> GetAllPatients()
         {
-            throw new NotImplementedException();
+            List<Patient> patients = new List<Patient>();
+            foreach (User user in this.GetAllEntities())
+            {
+                if (user.GetType() == typeof(Patient))
+                    patients.Add((Patient)user);
+            }
+            return patients;
         }
 
         public List<Secretary> GetAllSecretaries()
         {
-            throw new NotImplementedException();
+            List<Secretary> secretaries = new List<Secretary>();
+            foreach (User user in this.GetAllEntities())
+            {
+                if (user.GetType() == typeof(Secretary))
+                    secretaries.Add((Secretary)user);
+            }
+            return secretaries;
         }
 
-        public List<DoctorSpecialist> GetDoctorBySpecialitation(Specialitation specialitation)
+        public List<Manager> GetAllManagers()
         {
-            throw new NotImplementedException();
+            List<Manager> managers = new List<Manager>();
+            foreach (User user in this.GetAllEntities())
+            {
+                if (user.GetType() == typeof(Manager))
+                    managers.Add((Manager)user);
+            }
+            return managers;
+        }
+
+        public User GetUserByUsername(String username)
+        {
+            foreach (User user in this.GetAllEntities())
+            {
+                if (user.UserName.Equals(username))
+                    return user;
+            }
+            return null;
+        }
+
+        public List<Doctor> GetDoctorBySpecialitation(Specialitation specialitation)
+        {
+            List<Doctor> doctors = new List<Doctor>();
+            foreach (Doctor doctor in this.GetAllDoctors())
+            {
+                if (doctor.Specialitation.Equals(specialitation))
+                    doctors.Add(doctor);
+            }
+            return doctors;
         }
 
         public bool GetOccupancyStatus(Doctor doctor, DateTime time)
@@ -64,9 +106,5 @@ namespace Repository.UsersRepository
             throw new NotImplementedException();
         }
 
-        public Patient GetPatientByJmbg(string jmbg)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

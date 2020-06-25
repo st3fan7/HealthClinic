@@ -15,11 +15,9 @@ namespace Repository.ExaminationSurgeryRepository
 
         List<Surgery> GetAllSurgeryByPatient(Model.AllActors.Patient patient);
 
-        List<Surgery> GetAllMedicalExaminationsByPatient(Model.Term.Room room);
+        List<Surgery> GetAllSurgeryByRoom(Room room);
 
-        List<Surgery> GetAllMedicalExaminationsByPatient2(DateTime time);
-
-        Model.Term.Surgery GetPreviousSurgery(Model.AllActors.Patient patient);
+        Surgery GetPreviousSurgery(Model.AllActors.Patient patient);
 
     }
 }

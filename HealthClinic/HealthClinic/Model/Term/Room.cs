@@ -18,16 +18,11 @@ namespace Model.Term
         private String roomID;
         private TypeOfRoom typeOfRoom;
         private List<Equipment> equipment;
-        private DateTime fromDateTime;
-        private DateTime toDateTime;
-        public DateTime FromDateTime { get => fromDateTime; set => fromDateTime = value; }
-        public DateTime ToDateTime { get => toDateTime; set => toDateTime = value; }
 
         public string RoomID { get => roomID; set => roomID = value; }
         public TypeOfRoom TypeOfRoom { get => typeOfRoom; set => typeOfRoom = value; }
         public List<Equipment> Equipment { get => equipment; set => equipment = value; }
       
-
         public Room(int id)
         {
             this.id = id;
@@ -42,10 +37,7 @@ namespace Model.Term
             this.RoomID = roomID;
             this.id = id;            
             this.TypeOfRoom = typeOfRoom;
-            this.Equipment = equipment;
-            this.FromDateTime = fromDateTime;
-            this.ToDateTime = toDateTime;
-           
+            this.Equipment = equipment;         
         }
 
         public Room(string roomID, TypeOfRoom typeOfRoom, List<Equipment> equipment)

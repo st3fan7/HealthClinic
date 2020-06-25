@@ -11,11 +11,10 @@ namespace Model.DoctorMenager
 {
     public class ValidationOfMedicament : IIdentifiable<int>
     {
-        private bool approved;
         private int id;
+        private bool approved;
         private Medicament medicament;
         private Model.AllActors.Doctor doctor;
-
         private FeedbackOfValidation feedbackOfValidation;
 
         public bool Approved { get => approved; set => approved = value; }

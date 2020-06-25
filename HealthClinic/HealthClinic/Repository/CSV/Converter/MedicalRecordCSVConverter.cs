@@ -28,13 +28,13 @@ namespace Repository.Csv.Converter
 
             foreach (Allergies allergie in entity.Allergies)
             {
-                listOfAllergies += string.Join("-", allergie);
+                listOfAllergies += string.Join("-", allergie.Name);
                 listOfAllergies += ",";
             }
 
             foreach (Medicament medicament in entity.Medicament)
             {
-                listOfMedicaments += string.Join("-", medicament);
+                listOfMedicaments += string.Join("-", medicament.Name);
                 listOfMedicaments += "-";
             }
 
@@ -56,18 +56,18 @@ namespace Repository.Csv.Converter
         private void fillAllergies(List<Allergies> allergies, string[] tokens) //id,1,string,1-2-3,1-2-3
         {
             String[] parts = tokens[3].Split('-');
-            foreach(String p in parts)
+            foreach(String name in parts)
             {
-                allergies.Add(new Allergies(p));
+                allergies.Add(new Allergies(name));
             }
         }
 
         private void fillMedicaments(List<Medicament> medicaments, string[] tokens)
         {
             String[] parts = tokens[4].Split('-');
-            foreach (String p in parts)
+            foreach (String name in parts)
             {
-                medicaments.Add(new Medicament(p));
+                medicaments.Add(new Medicament(name));
             }
         }
 
