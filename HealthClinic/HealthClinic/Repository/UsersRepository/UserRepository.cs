@@ -90,6 +90,16 @@ namespace Repository.UsersRepository
             return null;
         }
 
+        public User GetUserByJMBG(String jmbg)
+        {
+            foreach (User user in this.GetAllEntities())
+            {
+                if (user.Jmbg.Equals(jmbg))
+                    return user;
+            }
+            return null;
+        }
+
         public List<Doctor> GetDoctorBySpecialitation(Specialitation specialitation)
         {
             List<Doctor> doctors = new List<Doctor>();

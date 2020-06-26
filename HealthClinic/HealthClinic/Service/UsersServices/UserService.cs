@@ -97,6 +97,16 @@ namespace Service.UsersServices
             return userRepository.GetDoctorBySpecialitation(specialitation);
         }
 
+        public User GetUserByUsername(String username)
+        {
+            return userRepository.GetUserByUsername(username);
+        }
+
+        public User GetUserByJMBG(String jmbg)
+        {
+            return userRepository.GetUserByJMBG(jmbg);
+        }
+
         public Patient TransformGuestAccount(Patient patient)
         {
             throw new NotImplementedException();

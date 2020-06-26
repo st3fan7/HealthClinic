@@ -24,5 +24,7 @@ namespace Repository.UsersRepository
 
         List<Doctor> GetDoctorBySpecialitation(Specialitation specialitation);
 
+        User GetUserByJMBG(String jmbg);
+
     }
 }
