@@ -6,6 +6,11 @@ using Controller.MedicalRecordControlers;
 using Controller.MedicamentControlers;
 using Controller.RoomsControlers;
 using Controller.UsersControlers;
+using HealthClinic.Controller.RoomsControlers;
+using HealthClinic.Model.Manager;
+using HealthClinic.Repository.CSV.Converter;
+using HealthClinic.Repository.RoomsRepository;
+using HealthClinic.Service.RoomsServices;
 using Model.AllActors;
 using Model.BlogAndNotification;
 using Model.Doctor;
@@ -64,6 +69,7 @@ namespace HealthClinic
         private const string SPECIALITATION_FILE = "../../Resources/Data/specialitation.csv";
         private const string USER_FILE = "../../Resources/Data/users.csv";
         private const string WORKINGTIMEFORDOCTOR_FILE = "../../Resources/Data/workingtimefordoctor.csv";
+        private const string INVENTARY_FILE = "../../Resources/Data/inventaryRoom.csv";
 
         private const string CSV_DELIMITER = ",";
 
@@ -129,6 +135,9 @@ namespace HealthClinic
             var specialitationRepository = new SpecialitationRepository(
                new CSVStream<Specialitation>(SPECIALITATION_FILE, new SpecialitationCSVConverter(CSV_DELIMITER)),
                new IntSequencer());
+            var inventaryRoomRepository = new InventaryRoomRepository(
+                new CSVStream<InventaryRoom>(INVENTARY_FILE, new InventaryRoomCSVConverter(CSV_DELIMITER)),
+                new IntSequencer());
 
 
             var articleService = new ArticleService(articleRepository);
@@ -150,6 +159,7 @@ namespace HealthClinic
             var userService = new UserService(userRepository);
             var workingTimeForDoctorService = new WorkingTimeForDoctorService(workingTimeForDoctorRepository);
             var spetialitationService = new SpetialitationService(specialitationRepository);
+            var inventaryRoomService = new InventaryRoomService(inventaryRoomRepository);
 
             ArticleController = new ArticleController(articleService);
             NotificationController = new NotificationController(notificationService);
@@ -170,8 +180,7 @@ namespace HealthClinic
             UserController = new UserController(userService);
             WorkingTimeForDoctorController = new WorkingTimeForDoctorController(workingTimeForDoctorService);
             SpetialitationController = new SpetialitationController(spetialitationService);
-
-           
+            InventaryRoomController = new InventaryRoomController(inventaryRoomService);
 
         }
 
@@ -194,6 +203,7 @@ namespace HealthClinic
         public UserController UserController { get; private set; }
         public WorkingTimeForDoctorController WorkingTimeForDoctorController { get; private set; }
         public SpetialitationController SpetialitationController { get; private set; }
+        public InventaryRoomController InventaryRoomController { get; private set; }
 
     }
 }
