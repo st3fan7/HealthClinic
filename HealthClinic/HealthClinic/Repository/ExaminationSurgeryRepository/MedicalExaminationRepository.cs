@@ -46,6 +46,7 @@ namespace Repository.ExaminationSurgeryRepository
             return medicalExaminations;
         }
 
+
         public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Patient patient)
         {
             List<MedicalExamination> medicalExaminations = new List<MedicalExamination>();
