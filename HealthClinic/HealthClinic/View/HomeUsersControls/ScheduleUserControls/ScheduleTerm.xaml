@@ -245,20 +245,18 @@
                     Background="#FF8CA8BF" 
                     OpacityMask="#FFC5D4E3"
                       Height="44"
-                          SelectionChanged="cmbxDoctor_SelectionChanged">
-                    <!--<ComboBoxItem IsSelected="True" 
-                              HorizontalContentAlignment="Center"
-                              x:Name="item31">
-                        Ana Anić
-                    </ComboBoxItem>
-                    <ComboBoxItem HorizontalContentAlignment="Center"
-                              x:Name="item32">
-                        Miša Kiš
-                    </ComboBoxItem>
-                    <ComboBoxItem  HorizontalContentAlignment="Center"
-                               x:Name="item33">
-                        Petar Perić
-                    </ComboBoxItem>-->
+                          SelectionChanged="cmbxDoctor_SelectionChanged"
+                          ItemsSource="{Binding Path= Doctors}"
+                          SelectedIndex="0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path= Name}"/>
+                                <TextBlock Text=" "/>
+                                <TextBlock Text="{Binding Path= Surname}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
 
                 </ComboBox>
 

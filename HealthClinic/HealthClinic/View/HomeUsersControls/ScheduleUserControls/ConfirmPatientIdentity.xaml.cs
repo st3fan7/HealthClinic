@@ -1,6 +1,9 @@
 ﻿using HealthClinic.View.Dialogues;
+using HealthClinic.View.ViewModel;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,23 +25,28 @@ namespace HealthClinic.View
     public partial class ConfirmPatientIdentity : UserControl
     {
         //Pacijent pac = new Pacijent();
+
         //Termin terminKojiSeZakazuje = new Termin();
-        private static List<String> doctorsFromCmbx = new List<String>();
-        public ConfirmPatientIdentity(string selectedDate, List<String> doctors)
+
+        Model.AllActors.Patient patient = new Model.AllActors.Patient();
+        ViewTerm termForSchedule = new ViewTerm();
+        ObservableCollection<User> doctorsFromCmbx = new ObservableCollection<User>();
+        
+        public ConfirmPatientIdentity(string selectedDate, Model.AllActors.Patient patient, ViewTerm term)
         {
             InitializeComponent();
-            //terminKojiSeZakazuje = term;
+            termForSchedule = term;
             dateLabel.Content = selectedDate;
-            //nameLabel2.Content = pacijent.Name;
-            //lastNameLabel2.Content = pacijent.Surname;
-            //jmbgLabel2.Content = pacijent.Id;
-            
-            //if(!pacijent.Username.Equals(""))
-            //{
-            //    usernameLabel2.Content = pacijent.Username;
-            //}
-            //pac = pacijent;
-            doctorsFromCmbx = doctors;
+            nameLabel2.Content = patient.Name;
+            lastNameLabel2.Content = patient.Surname;
+            jmbgLabel2.Content = patient.Id;
+
+            if (!patient.UserName.Equals(""))
+            {
+                usernameLabel2.Content = patient.UserName;
+            }
+            this.patient = patient;
+            doctorsFromCmbx = MedicalExaminationRooms.DoctorsForMedicalExamination;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -84,7 +92,7 @@ namespace HealthClinic.View
         private void yesBtn_Click(object sender, RoutedEventArgs e)
         {
 
-            UserControl usc = new ScheduleTerm(dateLabel.Content.ToString(),doctorsFromCmbx);
+            UserControl usc = new ScheduleTerm(dateLabel.Content.ToString(), termForSchedule, patient);
             (this.Parent as Panel).Children.Add(usc);
         }
 

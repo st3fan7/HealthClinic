@@ -1,7 +1,11 @@
-﻿using HealthClinic.View.Dialogues;
+﻿using Controller.UsersControlers;
+using HealthClinic.View.Dialogues;
+using HealthClinic.View.ViewModel;
 using MaterialDesignThemes.Wpf;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,14 +28,22 @@ namespace HealthClinic.View
     public partial class PatientValidation : UserControl
     {
         //Termin terminKojiSeZakazuje = new Termin();
-        private static List<String> doctorsFromCmbx = new List<String>();
-        public PatientValidation(string selectedDate)
+        //private static List<String> doctorsFromCmbx = new List<String>();
+
+        private readonly UserController userController;
+
+        ViewTerm termForSchedule = new ViewTerm();
+        ObservableCollection<User> doctorsFromCmbx = new ObservableCollection<User>();
+        public PatientValidation(string selectedDate, ViewTerm term)
         {
             InitializeComponent();
-            //terminKojiSeZakazuje = term;
+            termForSchedule = term;
             dateLabel.Content = selectedDate;
             textWarning.Visibility = textWarningHidden;
-            //doctorsFromCmbx = doctors;
+            doctorsFromCmbx = MedicalExaminationRooms.DoctorsForMedicalExamination;
+
+            var app = Application.Current as App;
+            userController = app.UserController;
 
         }
 
@@ -88,7 +100,23 @@ namespace HealthClinic.View
                 confirmBtn.BorderThickness = (Thickness)thic.ConvertFrom("1");
 
                 UserControl usc = null;
-                //foreach (Pacijent pacijent in Loading.pacijenti)
+                Model.AllActors.Patient patient = new Model.AllActors.Patient(); // OVO NE TREBA VEC CES POSLATI PACIJENTA KOJEG CES DOBITI IZ getPatientByUsername(string username)
+                // ima nalog
+                if (userController.userService.IsUsernameExist(usernameTextBox.Text)) // napravi metodu
+                {
+                    usc = new ConfirmPatientIdentity(dateLabel.Content.ToString(), patient, termForSchedule); // datum ne moras ovako vec datum od termina uzmi
+                    (this.Parent as Panel).Children.Add(usc);
+                    return;
+                }
+                // ima guest account
+                if (userController.userService.IsUsernameExist(usernameTextBox.Text)) // napravi metodu
+                {
+                    usc = new ConfirmPatientIdentity(dateLabel.Content.ToString(), patient, termForSchedule);
+                    (this.Parent as Panel).Children.Add(usc);
+                    return;
+                }
+
+
                 //{
                 //    // ima nalog
                 //    if (!pacijent.Username.Equals(""))
@@ -113,8 +141,10 @@ namespace HealthClinic.View
                 //        return;
                 //    }
                 //}
-                //// nema nalog
-                usc = new GuestAccount(dateLabel.Content.ToString(), usernameTextBox.Text, doctorsFromCmbx);
+
+
+                // nema nalog
+                usc = new GuestAccount(dateLabel.Content.ToString(), usernameTextBox.Text);
                 (this.Parent as Panel).Children.Add(usc);
             } else
             {

@@ -1,7 +1,9 @@
 ﻿using HealthClinic.View.Dialogues;
+using HealthClinic.View.ViewModel;
 using Model.Term;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,25 +27,28 @@ namespace HealthClinic.View
         //public static List<Termin> trenutniTermini = new List<Termin>(); // da vidim iz relocation2
         //Termin termForRelocation = new Termin();
         //public static Termin termForCanceling = new Termin();
-        private static List<String> roomsFromCmbx = new List<String>();
+        private ViewTerm termForCanceling = new ViewTerm();
+
+        private static ObservableCollection<Room> roomsFromCmbx = new ObservableCollection<Room>();
+
         public RelocationTerm()
         {
 
         }
-        public RelocationTerm(string selectedDate)
+        public RelocationTerm(string selectedDate, ViewTerm term)
         {
             
             InitializeComponent();
             datePickerSchedule.DisplayDateStart = DateTime.Now;
             textWarning.Visibility = textWarningVisible;
             dateLabel.Content = selectedDate;
-            //timeLabel.Content = term.Vreme;
-            //roomLabel.Content = term.Sala;
-            //doctorLabel.Content = term.Lekar;
-            //patientLabel.Content = term.Pacijent;
-            //termForCanceling = term;
-            //roomsFromCmbx = rooms;
-            //Console.WriteLine("Termin pre izmene: Datum: " + RelocationTerm.termForCanceling.Datum + " Vreme: " + RelocationTerm.termForCanceling.Vreme + " Sala: " + RelocationTerm.termForCanceling.Sala + " Lekar: " + RelocationTerm.termForCanceling.Lekar + " Pacijent: " + RelocationTerm.termForCanceling.Pacijent + " Status: " + RelocationTerm.termForCanceling.Status + " Zadatak: " + RelocationTerm.termForCanceling.Zadatak);
+            timeLabel.Content = term.Time;
+            roomLabel.Content = term.Room;
+            doctorLabel.Content = term.Doctor;
+            patientLabel.Content = term.Patient;
+            termForCanceling = term;
+            roomsFromCmbx = MedicalExaminationRooms.RoomsComboBox;
+           // Console.WriteLine("Termin pre izmene: Datum: " + RelocationTerm.termForCanceling.Datum + " Vreme: " + RelocationTerm.termForCanceling.Vreme + " Sala: " + RelocationTerm.termForCanceling.Sala + " Lekar: " + RelocationTerm.termForCanceling.Lekar + " Pacijent: " + RelocationTerm.termForCanceling.Pacijent + " Status: " + RelocationTerm.termForCanceling.Status + " Zadatak: " + RelocationTerm.termForCanceling.Zadatak);
         }
 
         private void homeBtn2_Click(object sender, RoutedEventArgs e)

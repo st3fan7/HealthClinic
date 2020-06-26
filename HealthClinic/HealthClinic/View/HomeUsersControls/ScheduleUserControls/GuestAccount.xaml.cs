@@ -1,6 +1,8 @@
 ﻿using HealthClinic.View.Dialogues;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -23,8 +25,9 @@ namespace HealthClinic.View
     public partial class GuestAccount : UserControl
     {
         //Termin terminKojiSeZakazuje = new Termin();
-        private static List<String> doctorsFromCmbx = new List<String>();
-        public GuestAccount(string selectedDate, string enteredData, List<String> doctors)
+        //private static List<String> doctorsFromCmbx = new List<String>();
+        ObservableCollection<User> doctorsFromCmbx = new ObservableCollection<User>();
+        public GuestAccount(string selectedDate, string enteredData)
         {
             InitializeComponent();
             textWarning.Visibility = textWarningHidden;
@@ -34,7 +37,7 @@ namespace HealthClinic.View
             //terminKojiSeZakazuje = term;
             dateLabel.Content = selectedDate;
             inputLabel.Content = enteredData;
-            doctorsFromCmbx = doctors;
+            doctorsFromCmbx = MedicalExaminationRooms.DoctorsForMedicalExamination;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -152,7 +155,7 @@ namespace HealthClinic.View
 
                 //Loading.pacijenti.Add(pacijent);
 
-                UserControl usc = new ScheduleTerm(dateLabel.Content.ToString(), doctorsFromCmbx);
+                UserControl usc = new ScheduleTerm(dateLabel.Content.ToString(), null, null); // STAVI TERMIN I PACIJENTA
                 (this.Parent as Panel).Children.Add(usc);
             }
             else

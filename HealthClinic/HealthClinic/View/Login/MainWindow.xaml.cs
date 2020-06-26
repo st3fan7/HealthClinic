@@ -49,8 +49,8 @@ namespace HealthClinic
             //    {
             //        if (passwordTextBox.Password.ToString().Equals(secretary.Password))
             //        {
-            //            UserControl usc = new Home();
-            //            GridMain.Children.Add(usc);
+            UserControl usc = new Home();
+            GridMain.Children.Add(usc);
             //        }
             //        else
             //        {
@@ -74,8 +74,8 @@ namespace HealthClinic
             //        return;
             //    }
             //}
-            
-       
+
+
         }
         private Visibility textWarningVisible
         {

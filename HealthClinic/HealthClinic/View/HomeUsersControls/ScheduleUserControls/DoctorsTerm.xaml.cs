@@ -228,7 +228,7 @@ namespace HealthClinic.View
             //    rooms.Add(s.Soba);
             //}
 
-            UserControl usc = new PatientValidation(dateLabel.Content.ToString());
+            UserControl usc = new PatientValidation(dateLabel.Content.ToString(), null);
             btnRelocate.IsEnabled = false;
             btnCanceling.IsEnabled = false;
             btnSchedule.IsEnabled = false;
@@ -251,7 +251,7 @@ namespace HealthClinic.View
             //    return;
             //fillTermWithDataFromSelectedRow(term);
 
-            UserControl usc = new RelocationTerm(dateLabel.Content.ToString());
+            UserControl usc = new RelocationTerm(dateLabel.Content.ToString(), null);
             btnRelocate.IsEnabled = false;
             btnCanceling.IsEnabled = false;
             btnSchedule.IsEnabled = false;

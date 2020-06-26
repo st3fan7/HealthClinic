@@ -29,31 +29,31 @@
 
     <Grid  x:Name="GridMedicalExaminationRooms" Background="{DynamicResource color}">
         <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="55"/>
-            <RowDefinition Height="170"/>
-            <RowDefinition Height="55*"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="55"/>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="170"/>
+                <RowDefinition Height="55*"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="55"/>
+            </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="86"/>
-            <ColumnDefinition Width="86"/>
-            <ColumnDefinition Width="86"/>
-            <ColumnDefinition Width="86"/>
-            <ColumnDefinition Width="86"/>
-        </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+            </Grid.ColumnDefinitions>
 
 
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="5"
+            <StackPanel Grid.Row="0" Grid.ColumnSpan="5"
                     Background="#FF8CA8BF"
                     Height="55" 
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Right"
                     Width="430">
 
-            <Grid  Width="430" Height="55">
+                <Grid  Width="430" Height="55">
 
                     <Label Content="{x:Static language:Language.examinations}" 
                        HorizontalContentAlignment="Center"
@@ -61,7 +61,7 @@
                        Height="55"
                        Margin="111,0,109,0"
                        FontFamily="Helvatic"/>
-                <Button Name="backBtn"
+                    <Button Name="backBtn"
                     HorizontalAlignment="Left"
                     Width="140"
                     Height="56"
@@ -70,13 +70,13 @@
                     BorderBrush="{x:Null}"
                     Foreground="#DD000000"
                     Margin="0,0,0,-1" Click="backBtn_Click" >
-                    <DockPanel Width="140" Margin="-15,0,0,0">
-                        <materialDesign:PackIcon Kind="ChevronLeft"
+                        <DockPanel Width="140" Margin="-15,0,0,0">
+                            <materialDesign:PackIcon Kind="ChevronLeft"
                                              Width="33"
                                              Height="47"
                                              Margin="1,0,0,0"
                                              HorizontalAlignment="Left"/>
-                        <Label Padding="0" 
+                            <Label Padding="0" 
                                Content="{x:Static language:Language.back}" 
                                FontSize="20" 
                                FontFamily="Helvatic"
@@ -84,8 +84,8 @@
                                VerticalContentAlignment="Center"
                                Width="86"
                                Margin="0,0,30,0"/>
-                    </DockPanel>
-                </Button>
+                        </DockPanel>
+                    </Button>
                     <TextBox  
                     x:Name="searchTextBox"
                     BorderThickness="2"
@@ -101,7 +101,7 @@
                     CaretBrush="#FF131619" Background="#FFB9C8D6"
                     
                     KeyUp="searchTextBox_KeyUp"/>
-                <Button  x:Name="btnSearch"
+                    <Button  x:Name="btnSearch"
                          Background="{x:Null}"
                          BorderBrush="{x:Null}"
                          HorizontalAlignment="Right"
@@ -109,13 +109,13 @@
                          Margin="0,0,1,3" 
                          Width="70"
                          Height="55" Click="btnSearch_Click"  >
-                    <materialDesign:PackIcon Kind="Search"
+                        <materialDesign:PackIcon Kind="Search"
                                             Height="35"
                                             Width="35"
                                             Foreground="#FF1A1C1E"
                                             HorizontalAlignment="Right"
                                             VerticalAlignment="Center"  />
-                </Button>
+                    </Button>
                     <Button  x:Name="btnClose"
                          Click="btnClose_Click"
                          Background="{x:Null}"
@@ -134,10 +134,10 @@
                                             VerticalAlignment="Center"  />
                     </Button>
                 </Grid>
-        </StackPanel>
+            </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="5">
-            <Label x:Name="dateLabel"
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="5">
+                <Label x:Name="dateLabel"
                         Height="50"
                        Width="390"
                        FontSize="28"
@@ -161,11 +161,11 @@
                        Height="68"
                        Width="390"
                        Margin="20,-15,20,0">
-            </TextBox>
+                </TextBox>
 
 
 
-            <ComboBox BorderThickness="1"
+                <ComboBox BorderThickness="1"
                     materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}"
                     Margin="140,-30,140,0"
                     Width="150"
@@ -178,23 +178,23 @@
                     OpacityMask="#FFC5D4E3" 
                       Height="42" 
                        SelectionChanged="cmbx_SelectionChanged"
-                      x:Name="cmbx">
-                <ComboBoxItem IsSelected="True" 
-                              HorizontalContentAlignment="Center"
-                              x:Name="E1">
-                   E1
-                </ComboBoxItem>
-                    <ComboBoxItem HorizontalContentAlignment="Center"
-                              x:Name="E2">
-                        E2
-                    </ComboBoxItem>
+                      x:Name="roomCmbx"
+                      ItemsSource="{Binding Path= RoomsComboBox}" 
+                      SelectedIndex="0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path= RoomID}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
                 </ComboBox>
 
 
-        </StackPanel>
+            </StackPanel>
 
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="5">
-                <DataGrid ItemsSource="{Binding theList}" 
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="5">
+                <DataGrid ItemsSource="{Binding termsForDatagrid}" 
                           RowStyle="{StaticResource dgs1 }"
                           Name="dgTerms" HorizontalScrollBarVisibility="Auto" 
                           BorderThickness="2" 
@@ -211,50 +211,50 @@
                           ScrollViewer.CanContentScroll="True" 
                           ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="dgTerms_SelectionChanged">
                     <DataGrid.Columns >
-                    <DataGridTextColumn Header="Name" Width="*" Visibility="Collapsed" />
+                        <DataGridTextColumn Header="Name" Width="*" Visibility="Collapsed" />
 
-                </DataGrid.Columns>
-                <DataGrid.RowDetailsTemplate>
-                    <DataTemplate >
+                    </DataGrid.Columns>
+                    <DataGrid.RowDetailsTemplate>
+                        <DataTemplate >
 
-                        <DockPanel Background="#FF8CA8BF" >
-                           
-                            <Grid Margin="10,10,0,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
+                            <DockPanel Background="#FF8CA8BF" >
+
+                                <Grid Margin="10,10,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
 
                                     <TextBlock Text="{x:Static language:Language.time}"   FontWeight="Bold" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0" />
-                                <TextBlock Text="{Binding Vreme}" Grid.Column="1" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
+                                    <TextBlock Text="{Binding Time}" Grid.Column="1" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
                                     <TextBlock Text="{x:Static language:Language.room}"   FontWeight="Bold" Grid.Row="1" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0"/>
-                                <TextBlock Text="{Binding Sala}" Grid.Column="1" Grid.Row="1" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
+                                    <TextBlock Text="{Binding Room}" Grid.Column="1" Grid.Row="1" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
                                     <TextBlock Text="{x:Static language:Language.doctor}"  FontWeight="Bold" Grid.Row="2" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0"/>
-                                <TextBlock Text="{Binding Lekar}" Grid.Column="1" Grid.Row="2" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
+                                    <TextBlock Text="{Binding Doctor}" Grid.Column="1" Grid.Row="2" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
                                     <TextBlock Text="{x:Static language:Language.patient}"  FontWeight="Bold" Grid.Row="3" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0"/>
-                                <TextBlock Text="{Binding Pacijent}" Grid.Column="1" Grid.Row="3" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
-                                <TextBlock Text="Status: " FontWeight="Bold" Grid.Row="4" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0"/>
-                                <TextBlock Text="{Binding Status}" Grid.Column="1" Grid.Row="4" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
-                            </Grid>
-                        </DockPanel>
+                                    <TextBlock Text="{Binding Patient}" Grid.Column="1" Grid.Row="3" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
+                                    <TextBlock Text="Status: " FontWeight="Bold" Grid.Row="4" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0"/>
+                                    <TextBlock Text="{Binding Status}" Grid.Column="1" Grid.Row="4" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
+                                </Grid>
+                            </DockPanel>
 
-                    </DataTemplate>
-                </DataGrid.RowDetailsTemplate>
-            </DataGrid>
+                        </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
+                </DataGrid>
 
 
 
-        </StackPanel>
+            </StackPanel>
 
-        <StackPanel Grid.Row="3" Grid.ColumnSpan="5">
-            <Button  x:Name="btnSchedule"
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="5">
+                <Button  x:Name="btnSchedule"
                          Content="{x:Static language:Language.setUp}" 
                          Background="#FF8CA8BF"
                          BorderBrush="Black"
@@ -266,7 +266,7 @@
                          Foreground="#FF020207"
                          FontSize="28"
                          FontFamily="Helvatic" Click="btnSchedule_Click"/>
-            <Button  x:Name="btnRelocate"
+                <Button  x:Name="btnRelocate"
                          Content="{x:Static language:Language.relocate}" 
                          Background="#FF8CA8BF"
                          BorderBrush="Black"
@@ -278,7 +278,7 @@
                          Foreground="#FF020207"
                          FontSize="28"
                          FontFamily="Helvatic" Click="btnRelocate_Click"/>
-            <Button  x:Name="btnCanceling"
+                <Button  x:Name="btnCanceling"
                          Content="{x:Static language:Language.cancel}" 
                          Background="#FF8CA8BF"
                          BorderBrush="Black"
@@ -291,10 +291,10 @@
                          FontSize="28"
                          FontFamily="Helvatic"
                          Click="btnCanceling_Click"/>
-        </StackPanel>
+            </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="0">
-            <Button Name="settingsBtn2"
+            <StackPanel Grid.Row="4" Grid.Column="0">
+                <Button Name="settingsBtn2"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Width="86"
@@ -305,20 +305,20 @@
                     Background="#FF8CA8BF"
                     Click="settingsBtn2_Click">
 
-                <DockPanel Width="86"
+                    <DockPanel Width="86"
                                Height="55"
                                HorizontalAlignment="Center">
-                    <materialDesign:PackIcon Kind="Settings"
+                        <materialDesign:PackIcon Kind="Settings"
                                              Width="84"
                                              Height="45"
                                              Margin="0,0,0,0"
                                              HorizontalAlignment="Center"/>
-                </DockPanel>
-            </Button>
-        </StackPanel>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="1">
-            <Button Name="scheduleBtn2"
+            <StackPanel Grid.Row="4" Grid.Column="1">
+                <Button Name="scheduleBtn2"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Width="86"
@@ -328,20 +328,20 @@
                     Margin="0,0,0,0"
                     Background="#FF526A7E"
                     Click="scheduleBtn2_Click">
-                <DockPanel Width="86"
+                    <DockPanel Width="86"
                                Height="55"
                                HorizontalAlignment="Center">
-                    <materialDesign:PackIcon Kind="Calendar"
+                        <materialDesign:PackIcon Kind="Calendar"
                                              Width="84"
                                              Height="45"
                                              Margin="0,0,0,0"
                                              HorizontalAlignment="Center"/>
-                </DockPanel>
-            </Button>
-        </StackPanel>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="2">
-            <Button Name="homeBtn2"
+            <StackPanel Grid.Row="4" Grid.Column="2">
+                <Button Name="homeBtn2"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Width="86"
@@ -351,20 +351,20 @@
                     Margin="0,0,0,0"
                     Background="#FF8CA8BF"
                     Click="homeBtn2_Click">
-                <DockPanel Width="86"
+                    <DockPanel Width="86"
                                Height="55"
                                HorizontalAlignment="Center">
-                    <materialDesign:PackIcon Kind="Home"
+                        <materialDesign:PackIcon Kind="Home"
                                              Width="84"
                                              Height="45"
                                              Margin="0,0,0,0"
                                              HorizontalAlignment="Center"/>
-                </DockPanel>
-            </Button>
-        </StackPanel>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="3">
-            <Button Name="patienstBtn2"
+            <StackPanel Grid.Row="4" Grid.Column="3">
+                <Button Name="patienstBtn2"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Width="86"
@@ -374,20 +374,20 @@
                     Margin="0,0,0,0"
                     Background="#FF8CA8BF"
                     Click="patienstBtn2_Click">
-                <DockPanel Width="86"
+                    <DockPanel Width="86"
                                Height="55"
                                HorizontalAlignment="Center">
-                    <materialDesign:PackIcon Kind="UserGroup"
+                        <materialDesign:PackIcon Kind="UserGroup"
                                              Width="84"
                                              Height="45"
                                              Margin="0,0,0,0"
                                              HorizontalAlignment="Center"/>
-                </DockPanel>
-            </Button>
-        </StackPanel>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="4">
-            <Button Name="reportBtn2"
+            <StackPanel Grid.Row="4" Grid.Column="4">
+                <Button Name="reportBtn2"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Width="86"
@@ -397,17 +397,17 @@
                     Margin="0,0,0,0"
                     Background="#FF8CA8BF"
                     Click="reportBtn_Click">
-                <DockPanel Width="86"
+                    <DockPanel Width="86"
                                Height="55"
                                HorizontalAlignment="Center">
-                    <materialDesign:PackIcon Kind="FileDocumentBox"
+                        <materialDesign:PackIcon Kind="FileDocumentBox"
                                              Width="84"
                                              Height="45"
                                              Margin="0,0,0,0"
                                              HorizontalAlignment="Center"/>
-                </DockPanel>
-            </Button>
-        </StackPanel>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
 
         </Grid>
     </Grid>

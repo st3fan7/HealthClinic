@@ -1,6 +1,10 @@
-﻿using HealthClinic.View.Dialogues;
+﻿using Controller.UsersControlers;
+using HealthClinic.View.Dialogues;
+using HealthClinic.View.ViewModel;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,18 +29,29 @@ namespace HealthClinic.View
         //Pacijent pacijentKomeSeZakazujeTermin = new Pacijent();
         //private List<Lekar> lekari = new List<Lekar>();
         //private List<Sobe> sobe = new List<Sobe>();
-        private static List<String> doctorsFromCmbx = new List<String>();
-        public ScheduleTerm(string selectedDate, List<String> doctors)
+        //private static List<String> doctorsFromCmbx = new List<String>();
+
+        //public static ObservableCollection<User> doctorsFromCmbx = new ObservableCollection<User>();
+        Model.AllActors.Patient patient = new Model.AllActors.Patient();
+        ViewTerm termForSchedule = new ViewTerm();
+
+        public static ObservableCollection<User> Doctors{ get; set; }
+        //private readonly UserController userController;
+
+        public ScheduleTerm(string selectedDate, ViewTerm term, Model.AllActors.Patient patient)
         {
             InitializeComponent();
             dateLabel.Content = selectedDate;
-            //terminKojiSeZakazuje = term;
-            //l11.Content = term.Vreme;
-            //l22.Content = term.Zadatak;
-            //l33.Content = pacijent.Name + " " + pacijent.Surname; 
-            //pacijentKomeSeZakazujeTermin = pacijent;
+            termForSchedule = term;
+            l11.Content = term.Time;
+            l22.Content = term.Task;
+            l33.Content = patient.Name + " " + patient.Surname; 
+            this.patient = patient;
             confirmBtn.IsEnabled = false;
-            doctorsFromCmbx = doctors.Distinct().ToList();
+            
+
+
+
 
             l4.Visibility = Visibility.Hidden;
             l5.Visibility = Visibility.Hidden;
@@ -53,47 +68,52 @@ namespace HealthClinic.View
             cmbxDoctor.Visibility = Visibility.Hidden;
 
 
-            //if (!terminKojiSeZakazuje.Sala.Equals(""))
-            //{
-            //    l44.Content = term.Sala;
-            //    l4.Visibility = Visibility.Visible;
+            if (!termForSchedule.Room.Equals(""))
+            {
+                l44.Content = term.Room;
+                l4.Visibility = Visibility.Visible;
 
-            //    // ako sala postoji treba doktor da se bira
-            //    cmbxDoctor.Visibility = Visibility.Visible;
-            //    cmbxDoctor.IsHitTestVisible = true;
-            //    cmbxDoctor.Focusable = true;
-            //    label3.Visibility = Visibility.Visible;
+                // ako sala postoji treba doktor da se bira
+                cmbxDoctor.Visibility = Visibility.Visible;
+                cmbxDoctor.IsHitTestVisible = true;
+                cmbxDoctor.Focusable = true;
+                label3.Visibility = Visibility.Visible;
 
-            //    List<String> lekariKojePunim = new List<String>();
-            //    if (term.Zadatak == "Operacija")
-            //    {
-            //        foreach (Lekar d in Loading.lekariSpecijaliste)
-            //        {
-            //            lekariKojePunim.Add(d.Doktor);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        foreach (Lekar d in Loading.lekari)
-            //        {
-            //            lekariKojePunim.Add(d.Doktor);
-            //        }
-            //    }
+                List<String> lekariKojePunim = new List<String>();
+                if (term.Task == "Operacija")
+                {
+                    //NABAVI SVE LEKARE SPECIJALISTE
+                    // Doctors = MedicalExaminationRooms.DoctorsForMedicalExamination; // MORA DA SE PROSLEDJUJE ILI NEKAKO DA VIDIS DA LI JE OPERACIJA ILI PREGLED
 
-            //    lekari.Clear();
-            //    foreach (String d in lekariKojePunim)
-            //    {
-            //        Console.WriteLine("Doktor: " + d);
-            //        lekari.Add(new Lekar() { Doktor = d });
-            //    }
+                    //foreach (Lekar d in Loading.lekariSpecijaliste)
+                    //{
+                    //    lekariKojePunim.Add(d.Doktor);
+                    //}
+                }
+                else
+                {
+                    // NABAVI SVE LEKARE OPSTE PRAKSE
+                    Doctors = MedicalExaminationRooms.DoctorsForMedicalExamination; // MORA DA SE PROSLEDJUJE ILI NEKAKO DA VIDIS DA LI JE OPERACIJA ILI PREGLED
+                    //foreach (Lekar d in Loading.lekari)
+                    //{
+                    //    lekariKojePunim.Add(d.Doktor);
+                    //}
+                }
+
+                //lekari.Clear();
+                //foreach (String d in lekariKojePunim)
+                //{
+                //    Console.WriteLine("Doktor: " + d);
+                //    lekari.Add(new Lekar() { Doktor = d });
+                //}
 
 
-            //    cmbxDoctor.ItemsSource = lekari;
-            //    cmbxDoctor.DisplayMemberPath = "Doktor";
+                //cmbxDoctor.ItemsSource = lekari;
+                //cmbxDoctor.DisplayMemberPath = "Doktor";
 
                 //Console.WriteLine("Poslao sam doktora: " + lekari.Count);
 
-            //}
+            }
             //else
             //{
             //    // imamo doktora
@@ -118,7 +138,7 @@ namespace HealthClinic.View
             //            sobeKojimaSePuni.Add(s.Soba);
             //        }
             //    }
-                
+
 
             //    sobe.Clear();
             //    foreach (String r in sobeKojimaSePuni)
@@ -181,7 +201,7 @@ namespace HealthClinic.View
 
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
         {
-            // treba da se uradi update termina
+            // UPIS TERMINA U FAJL I NA VIEW
 
 
             //Console.WriteLine("Termin pre izmene: Datum: " + terminKojiSeZakazuje.Datum + " Vreme: " + terminKojiSeZakazuje.Vreme + " Sala: " + terminKojiSeZakazuje.Sala + " Lekar: " + terminKojiSeZakazuje.Lekar + " Pacijent: " + terminKojiSeZakazuje.Pacijent + " Status: " + terminKojiSeZakazuje.Status + " Zadatak: " + terminKojiSeZakazuje.Zadatak);

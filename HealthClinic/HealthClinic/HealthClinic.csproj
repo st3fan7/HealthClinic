@@ -189,6 +189,12 @@
     <Compile Include="Controller\UsersControlers\SpetialitationController.cs" />
     <Compile Include="Controller\UsersControlers\UserController.cs" />
     <Compile Include="Controller\UsersControlers\WorkingTimeForDoctorController.cs" />
+    <Compile Include="View\Converter\AbstractConverter.cs" />
+    <Compile Include="View\Converter\MedicalExaminationConverter.cs" />
+    <Compile Include="View\Converter\SurgeryConverter.cs" />
+    <Compile Include="View\Dialogues\Loading.xaml.cs">
+      <DependentUpon>Loading.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Dialogues\LogoutDialog.xaml.cs">
       <DependentUpon>LogoutDialog.xaml</DependentUpon>
     </Compile>
@@ -330,6 +336,7 @@
     <Compile Include="View\Login\UserControlForgotPassword.xaml.cs">
       <DependentUpon>UserControlForgotPassword.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewModel\ViewTerm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\AllActors\Blog.cs" />
@@ -439,6 +446,10 @@
     <Page Include="Properties\Themes\LightTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Dialogues\Loading.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Dialogues\LogoutDialog.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -164,7 +164,7 @@ namespace HealthClinic.View
             //    doctors.Add(l.Doktor);
             //}
 
-            UserControl usc = new PatientValidation(dateLabel.Content.ToString());
+            UserControl usc = new PatientValidation(dateLabel.Content.ToString(), null);
             dgTerms.UnselectAllCells();
             btnRelocate.IsEnabled = false;
             btnCanceling.IsEnabled = false;
@@ -192,7 +192,7 @@ namespace HealthClinic.View
             //    return;
             //fillTermWithDataFromSelectedRow(term);
 
-            UserControl usc = new RelocationTerm(dateLabel.Content.ToString());
+            UserControl usc = new RelocationTerm(dateLabel.Content.ToString(), null);
             dgTerms.UnselectAllCells();
             btnRelocate.IsEnabled = false;
             btnCanceling.IsEnabled = false;
