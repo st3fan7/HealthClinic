@@ -65,6 +65,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\RoomsControlers\InventaryRoomController.cs" />
+    <Compile Include="Model\Manager\InventaryRoom.cs" />
     <Compile Include="Repository\BlogNotificationRepository\ArticleRepository.cs" />
     <Compile Include="Repository\BlogNotificationRepository\IArticleRepository.cs" />
     <Compile Include="Repository\BlogNotificationRepository\INotificationRepository.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Repository\CSV\Converter\EquipmentCSVConverter.cs" />
     <Compile Include="Repository\CSV\Converter\HospitalitationCSVConverter.cs" />
     <Compile Include="Repository\CSV\Converter\ICSVConverter.cs" />
+    <Compile Include="Repository\CSV\Converter\InventaryRoomCSVConverter.cs" />
     <Compile Include="Repository\CSV\Converter\IssueMedicamentCSVConverter.cs" />
     <Compile Include="Repository\CSV\Converter\MedicalExaminationCSVConverter.cs" />
     <Compile Include="Repository\CSV\Converter\MedicalRecordCSVConverter.cs" />
@@ -120,6 +123,8 @@
     <Compile Include="Repository\MedicamentRepository\ValidationOfMedicamentRepository.cs" />
     <Compile Include="Repository\RoomsRepository\EquipmentRepository.cs" />
     <Compile Include="Repository\RoomsRepository\IEquipmentRepository.cs" />
+    <Compile Include="Repository\RoomsRepository\IInventaryRoomRepository.cs" />
+    <Compile Include="Repository\RoomsRepository\InventaryRoomRepository.cs" />
     <Compile Include="Repository\RoomsRepository\IRenovationRepository.cs" />
     <Compile Include="Repository\RoomsRepository\IRoomRepository.cs" />
     <Compile Include="Repository\RoomsRepository\RenovationRepository.cs" />
@@ -150,6 +155,7 @@
     <Compile Include="Service\MedicamentService\MedicamentService.cs" />
     <Compile Include="Service\MedicamentService\ValidationMedicamentService.cs" />
     <Compile Include="Service\RoomsServices\EquipmentService.cs" />
+    <Compile Include="Service\RoomsServices\InventaryRoomService.cs" />
     <Compile Include="Service\RoomsServices\RenovationService.cs" />
     <Compile Include="Service\RoomsServices\RoomService.cs" />
     <Compile Include="Service\UsersServices\SpetialitationService.cs" />
@@ -262,6 +268,7 @@
     <None Include="Resources\Data\diagnosis.csv" />
     <None Include="Resources\Data\equipment.csv" />
     <None Include="Resources\Data\hospitalitations.csv" />
+    <None Include="Resources\Data\inventaryRoom.csv" />
     <None Include="Resources\Data\issueofmedicaments.csv" />
     <None Include="Resources\Data\medicalexaminations.csv" />
     <None Include="Resources\Data\medicalrecords.csv" />
