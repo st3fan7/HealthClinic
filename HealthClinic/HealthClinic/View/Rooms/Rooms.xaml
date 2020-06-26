@@ -49,13 +49,6 @@
                 <DataGridTextColumn Header="Broj sale" Binding="{Binding RoomID}"/>
                 <DataGridTextColumn Header="Tip sale" Binding="{Binding TypeOfRoom}" />
                 <DataGridTextColumn Header="Oprema" Binding="{Binding Equipment}" Width="*"/>
-                <DataGridTemplateColumn Header="Medicinska oprema">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Prikaži" Click="Button_Click_Prikazi"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Brisanje sale">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

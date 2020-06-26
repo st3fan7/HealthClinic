@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HealthClinic.View.ViewModel;
+using Model.AllActors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,21 @@ namespace HealthClinic.View
     /// </summary>
     public partial class DoctorAccount : Window
     {
-        public DoctorAccount()
+        public DoctorAccount(ViewDoctor doctor)
         {
             InitializeComponent();
+            LabelName.Content = doctor.Name;
+            LabelSurname.Content = doctor.Surname;
+            LabelJmbg.Content = doctor.Jmbg;
+            LabelDateOfBirthday.Content = doctor.DateOfBirthday;
+            LabelCity.Content = doctor.City;
+            LabelAddress.Content = doctor.Address;
+            LabelCountry.Content = doctor.Country;
+            LabelEmailAddress.Content = doctor.EmailAddress;
+            LabelMobilePhone.Content = doctor.PhoneNumber;
+            LabelVocation.Content = doctor.Spetialitation;
+            LabelUsername.Content = doctor.Username;
+            LabelPassword.Content = doctor.Password;
         }
 
         private void Button_Click_URedu(object sender, RoutedEventArgs e)

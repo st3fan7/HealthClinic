@@ -48,7 +48,7 @@ namespace HealthClinic.View
                 return;
             }
 
-            /*ViewMedicament existingMedicament = MedicamentConverter.ConvertMedicamentToMedicamentView(
+            ViewMedicament existingMedicament = MedicamentConverter.ConvertMedicamentToMedicamentView(
                 medicamentController.AddExistingMedicament(InputCodeOfMedicament.Text, int.Parse(InputAmountOfMedicament.Text)));
             if (existingMedicament == null)
             {
@@ -67,7 +67,7 @@ namespace HealthClinic.View
                 }
                 this.Close();
                 MessageBox.Show("Uspešno ste dodali novu količinu leka", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
-            }*/
+            }
         }
 
         private void Button_Click_Odustani(object sender, RoutedEventArgs e)

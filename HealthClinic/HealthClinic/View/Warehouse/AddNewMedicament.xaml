@@ -153,7 +153,7 @@
                         <DataGridTextColumn Header="Šifra" Binding="{Binding Code}"/>
                         <DataGridTextColumn Header="Naziv" Binding="{Binding Name}"/>
                         <DataGridTextColumn Header="Lekar" Binding="{Binding Doctor}" />
-                        <DataGridTextColumn Header="Validnost" Binding="{Binding Validation}" />
+                        <DataGridTextColumn Header="Validnost" Binding="{Binding State}" />
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

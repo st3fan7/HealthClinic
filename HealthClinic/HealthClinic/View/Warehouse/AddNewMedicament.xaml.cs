@@ -46,14 +46,6 @@ namespace HealthClinic.View
                 validationMedicamentController.GetAllEntities().ToList()));
 
             DoctorsView = new ObservableCollection<Doctor>(userController.GetAllDoctors());
-
-            /*foreach(ViewMedicamentOnValidation medicamentOnValidation in MedicamentsOnValidationView)
-            {
-                if (medicamentOnValidation.State.Equals("Validan"))
-                {
-                    this.AddValidMedicament(validationMedicamentController.GetEntity(medicamentOnValidation.Id));                                          
-                }
-            }*/
         }
 
         private void AddValidMedicament(ValidationOfMedicament medicamentOnValidation) // Napraviti u servisu
@@ -80,7 +72,7 @@ namespace HealthClinic.View
                 return;
             }
 
-            if (ExistMedicamentWithCode(InputCodeOfMedicament.Text)) // Pozvati iz kontrolera
+            if (medicamentController.ExistMedicamentWithCode(InputCodeOfMedicament.Text))
             {
                 MessageBox.Show("Lek sa šifrom koju ste uneli već postoji", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -91,26 +83,10 @@ namespace HealthClinic.View
                     State.OnValidation, int.Parse(InputAmountOfMedicament.Text), InputIngredientsOfMedicament.Text));
                 MedicamentsOnValidationView.Add(MedicamentOnValidationConverter.ConvertMedicamentToMedicamentView(
                     validationMedicamentController.AddEntity( new ValidationOfMedicament(false,
-                    GetMedicamentByCode(InputCodeOfMedicament.Text),  // Pozovi iz kontrolera
+                    medicamentController.GetMedicamentByCode(InputCodeOfMedicament.Text), 
                     new FeedbackOfValidation(""), (Doctor)ComboBoxDoctors.SelectedItem))));                
                 MessageBox.Show("Usepešno ste poslali lek na validaciju", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-        }
-
-        private Medicament GetMedicamentByCode(String code)
-        {
-            foreach (Medicament medicament in medicamentController.GetAllEntities())
-                if (medicament.Code.Equals(code))
-                    return medicament;
-            return null;
-        }
-
-        private bool ExistMedicamentWithCode(String code)
-        {
-            foreach (Medicament medicament in medicamentController.GetAllEntities())
-                if (medicament.Code.Equals(code))
-                    return true;
-            return false;
         }
 
         private void Button_Click_Odustani(object sender, RoutedEventArgs e)

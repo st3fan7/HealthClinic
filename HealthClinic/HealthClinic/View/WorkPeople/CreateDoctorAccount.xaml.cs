@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Controller.UsersControlers;
+using HealthClinic.View.Converter;
+using Model.AllActors;
+using Model.Doctor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,16 +23,33 @@ namespace HealthClinic.View
     /// </summary>
     public partial class CreateDoctorAccount : Window
     {
+        private readonly UserController userController;
+
         public CreateDoctorAccount()
         {
             InitializeComponent();
             InputName.Focus();
             InputName.SelectAll();
+            var app = Application.Current as App;
+            userController = app.UserController;
         }
 
         private void Button_Click_Potvrdi(object sender, RoutedEventArgs e)
         {
-            
+            if (InputName.Text.Equals("") || InputSurname.Text.Equals("") || InputJmbg.Text.Equals("") || InputDateOfBirthday.Equals("") ||
+                InputAddress.Text.Equals("") || InputCity.Text.Equals("") || InputCountry.Text.Equals("") || InputMobilePhone.Text.Equals("") ||
+                InputEmailAddress.Text.Equals("") || InputVocation.Text.Equals("") || InputUsername.Text.Equals("") || InputPassword.Text.Equals(""))
+            {
+                MessageBox.Show("Morate popuniti sva polja", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            DoctorAccounts.DoctorsView.Add(DoctorConverter.ConvertDoctorToDoctorView(
+               (Doctor)userController.AddEntity(new Doctor(InputUsername.Text, InputPassword.Text, InputName.Text, InputSurname.Text, InputJmbg.Text,
+               DateTime.Parse(InputDateOfBirthday.Text), InputMobilePhone.Text, InputEmailAddress.Text,
+               new City(InputCity.Text, InputCity.Text, new Country(InputCountry.Text)), new Specialitation(InputMobilePhone.Text)))));
+            this.Close();
+            MessageBox.Show("Uspešno ste kreirali nalog lekaru", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Button_Click_Odustani(object sender, RoutedEventArgs e)

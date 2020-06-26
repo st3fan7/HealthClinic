@@ -36,7 +36,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Label FontSize="15" VerticalAlignment="Center" Margin="10,0,0,0">Izaberite salu za renoviranje:</Label>
-                    <ComboBox x:Name="ComboBoxDoctors" ItemsSource="{Binding Path=RoomsView}" Grid.Column="1" Margin="0,3,6,3" SelectedIndex="0">
+                    <ComboBox x:Name="ComboBoxRooms" ItemsSource="{Binding Path=RoomsView}" Grid.Column="1" Margin="0,3,6,3" SelectedIndex="0">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -136,12 +136,12 @@
 
                 <TextBlock Grid.Row="0" Text="Sale koje se trenutno renoviraju" FontSize="23" VerticalAlignment="Center" Margin="5,0,10,0" FontWeight="Bold"/>
 
-                <DataGrid x:Name="DataGridRenovation" Grid.Row="1" ItemsSource="{Binding }" AutoGenerateColumns="False" 
+                <DataGrid x:Name="DataGridRenovation" Grid.Row="1" ItemsSource="{Binding RenovationView}" AutoGenerateColumns="False" 
                   SelectionMode="Single" IsReadOnly="True" Margin="5,0,10,2" BorderThickness="1">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Broj sale" Binding="{Binding }"/>
-                        <DataGridTextColumn Header="Period renoviranja" Binding="{Binding }" />
-                        <DataGridTextColumn Header="Opis renoviranja" Binding="{Binding }" />
+                        <DataGridTextColumn Header="Broj sale" Binding="{Binding Room}"/>
+                        <DataGridTextColumn Header="Period renoviranja" Binding="{Binding DatePeriod}" />
+                        <DataGridTextColumn Header="Opis renoviranja" Binding="{Binding Description}" />
 
                     </DataGrid.Columns>
                 </DataGrid>

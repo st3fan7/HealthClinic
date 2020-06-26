@@ -180,11 +180,13 @@
     <Compile Include="Controller\UsersControlers\UserController.cs" />
     <Compile Include="Controller\UsersControlers\WorkingTimeForDoctorController.cs" />
     <Compile Include="View\Converter\AbstractConverter.cs" />
+    <Compile Include="View\Converter\DoctorConverter.cs" />
     <Compile Include="View\Converter\EquipmentConverter.cs" />
     <Compile Include="View\Converter\MedicamentConverter.cs" />
     <Compile Include="View\Converter\MedicamentOnValidationConverter.cs" />
     <Compile Include="View\Converter\RenovationConverter.cs" />
     <Compile Include="View\Converter\RoomConverter.cs" />
+    <Compile Include="View\Converter\WorkingTimeForDoctorCOnverter.cs" />
     <Compile Include="View\Home\Account.xaml.cs">
       <DependentUpon>Account.xaml</DependentUpon>
     </Compile>
@@ -242,11 +244,13 @@
     <Compile Include="View\Rooms\Rooms.xaml.cs">
       <DependentUpon>Rooms.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewModel\ViewDoctor.cs" />
     <Compile Include="View\ViewModel\ViewEquipment.cs" />
     <Compile Include="View\ViewModel\ViewMedicament.cs" />
     <Compile Include="View\ViewModel\ViewMedicamentOnValidation.cs" />
     <Compile Include="View\ViewModel\ViewRenovation.cs" />
     <Compile Include="View\ViewModel\ViewRoom.cs" />
+    <Compile Include="View\ViewModel\ViewWorkingTimeForDoctor.cs" />
     <Compile Include="View\Warehouse\AddEquipment.xaml.cs">
       <DependentUpon>AddEquipment.xaml</DependentUpon>
     </Compile>

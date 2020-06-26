@@ -44,16 +44,7 @@ namespace HealthClinic.View
             medicamentController = app.MedicamentController;
 
             MedicamentsView = new ObservableCollection<ViewMedicament>(MedicamentConverter.ConvertMedicamentListToMedicamentViewList(
-                GetComfirmedMedicaments())); // pozvati iz kontrolera
-        }
-
-        private List<Medicament> GetComfirmedMedicaments() // U servis
-        {
-            List<Medicament> confirmedMedicaments = new List<Medicament>();
-            foreach (Medicament medicament in medicamentController.GetAllEntities())
-                if (medicament.StateOfValidation == State.Confirmed)
-                    confirmedMedicaments.Add(medicament);
-            return confirmedMedicaments;
+                medicamentController.GetComfirmedMedicaments())); 
         }
 
         private void Button_Click_Dodaj(object sender, RoutedEventArgs e)

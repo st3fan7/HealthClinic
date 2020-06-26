@@ -43,12 +43,12 @@
             </Grid>
         </Grid>
 
-        <DataGrid x:Name="DataGridDoctors" Grid.Row="1" ItemsSource="{Binding }" AutoGenerateColumns="False" 
+        <DataGrid x:Name="DataGridDoctors" Grid.Row="1" ItemsSource="{Binding DoctorsView}" AutoGenerateColumns="False" 
                   SelectionMode="Single" IsReadOnly="True" Margin="10,0,10,1" BorderThickness="1" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Ime" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Prezime" Binding="{Binding }" />
-                <DataGridTextColumn Header="Zvanje" Binding="{Binding }" Width="*"/>
+                <DataGridTextColumn Header="Ime" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Prezime" Binding="{Binding Surname}" />
+                <DataGridTextColumn Header="Zvanje" Binding="{Binding Spetialitation}" Width="*"/>
                 <DataGridTemplateColumn Header="Prikaži ceo nalog">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
