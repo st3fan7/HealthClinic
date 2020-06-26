@@ -25,9 +25,9 @@ namespace Service.MedicalRecordService
             throw new NotImplementedException();
         }
 
-        public Model.PatientDoctor.MedicalRecord GetMedicalRecordByPatient(Model.AllActors.Patient patient)
+        public MedicalRecord GetMedicalRecordByPatient(Model.AllActors.Patient patient)
         {
-            throw new NotImplementedException();
+            return medicalRecordRepository.GetMedicalRecordByPatient(patient);
         }
 
         public MedicalRecord GetEntity(int id)

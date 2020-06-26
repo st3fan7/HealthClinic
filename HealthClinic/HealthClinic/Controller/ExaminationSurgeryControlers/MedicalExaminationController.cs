@@ -21,9 +21,9 @@ namespace Controller.ExaminationSurgeryControlers
             this.medicalExaminationService = medicalExaminationService;
         }
 
-        public void GetByDate(DateTime date)
+        public List<MedicalExamination> GetByDate(DateTime date)
         {
-            medicalExaminationService.GetByDate(date);
+            return medicalExaminationService.GetByDate(date);
         }
 
         public List<MedicalExamination> GetAllMedicalExaminationsByDoctor(Doctor doctor)
