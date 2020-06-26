@@ -8,6 +8,7 @@ using Model.Term;
 using Model.Manager;
 using Service.RoomsServices;
 using System;
+using System.Collections.Generic;
 
 namespace Controller.RoomsControlers
 {
@@ -41,6 +42,11 @@ namespace Controller.RoomsControlers
         public Room GetEntity(int id)
         {
             return roomService.GetEntity(id);
+        }
+
+        public List<Room> GetAllRoomForMedicalExamination()
+        {
+            return roomService.GetAllRoomForMedicalExamination();
         }
 
         public System.Collections.Generic.IEnumerable<Room> GetAllEntities()
