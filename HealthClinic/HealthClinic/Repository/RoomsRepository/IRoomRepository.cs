@@ -10,9 +10,5 @@ namespace Repository.RoomsRepository
 {
     public interface IRoomRepository : IRepository<Room, int>
     {
-        Model.Term.Term GetLastTermForRoom(Model.Term.Room room);
-
-        Boolean GetOccupancyStatus(Model.Term.Room room, DateTime time);
-
     }
 }

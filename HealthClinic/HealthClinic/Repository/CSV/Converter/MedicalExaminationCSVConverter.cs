@@ -5,6 +5,7 @@
 
 using Model.AllActors;
 using Model.Term;
+using Repository.UsersRepository;
 using System;
 
 namespace Repository.Csv.Converter
@@ -12,6 +13,7 @@ namespace Repository.Csv.Converter
     public class MedicalExaminationCSVConverter : ICSVConverter<MedicalExamination>
     {
         private readonly string delimiter;
+        private const string DATETIME_FORMAT = "dd.MM.yyyy. HH:mm";
 
         public MedicalExaminationCSVConverter(string delimiter)
         {
@@ -21,14 +23,15 @@ namespace Repository.Csv.Converter
         public string ConvertEntityToCSVFormat(MedicalExamination entity)
         {
             return string.Join(delimiter, entity.GetId(), entity.Urgency, entity.ShortDescription, entity.Room.GetId(),
-                entity.Doctor.GetId(), entity.Patient.GetId(), entity.FromDateTime, entity.ToDateTime);
+                entity.Doctor.GetId(), entity.Patient.GetId(), entity.FromDateTime.ToString(DATETIME_FORMAT), entity.ToDateTime.ToString(DATETIME_FORMAT));
         }
 
         public MedicalExamination ConvertCSVFormatToEntity(string entityCSVFormat)
         {
-            string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
-            return new MedicalExamination(int.Parse(tokens[0]), bool.Parse(tokens[1]), tokens[2], new Room(int.Parse(tokens[3])),
-                (Doctor) new User(int.Parse(tokens[4])), (Patient) new User(int.Parse(tokens[5])), DateTime.Parse(tokens[6]), DateTime.Parse(tokens[7]));
+            string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());           
+            return new MedicalExamination(int.Parse(tokens[0]), bool.Parse(tokens[1]), tokens[2], RoomsRepository.RoomRepository.Instance().GetEntity(int.Parse(tokens[3])),
+            (Doctor)UserRepository.Instance().GetEntity(int.Parse(tokens[4])), (Patient)UserRepository.Instance().GetEntity(int.Parse(tokens[5])), 
+            DateTime.Parse(tokens[6]), DateTime.Parse(tokens[7]));
         }
 
     }

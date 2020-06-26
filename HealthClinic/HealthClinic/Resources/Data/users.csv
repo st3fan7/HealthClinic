@@ -1,1 +1,6 @@
-﻿
+﻿1,Model.AllActors.Patient,pera,123,Pera,Perić,1919045667111,6/6/1996,063/555-333,pera@test.com,Novi Sad,Cara Dusana,Srbija,false,1
+2,Model.AllActors.Patient,mika,123,Mika,Mikić,2019045667111,6/6/1996,063/555-333,mika@test.com,Novi Sad,Cara Dusana,Srbija,true,2
+3,Model.AllActors.Doctor,dusan,123,Dušan,Dučić,6319045667111,6/6/1996,063/555-333,dufa@test.com,Novi Sad,Cara Dusana,Srbija,1
+4,Model.AllActors.Doctor,milos,123,Miloš,Petrović,2919045667111,6/6/1996,063/555-333,ducf@test.com,Novi Sad,Cara Dusana,Srbija,3
+5,Model.AllActors.Manager,petar,123,Petar,Simić,6519045667111,6/6/1996,063/555-333,ducs@test.com,Novi Sad,Cara Dusana,Srbija
+6,Model.AllActors.Secretary,jovan,123,Jovan,Jović,6019045667111,6/6/1996,063/555-333,duwa@test.com,Novi Sad,Cara Dusana,Srbija

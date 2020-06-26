@@ -20,33 +20,14 @@ namespace Repository.Csv.Converter
 
         public string ConvertEntityToCSVFormat(Medicament entity)
         {
-            String listOfMedicaments = "";
-            foreach (Ingredient ingredient in entity.Ingredients)
-            {
-                listOfMedicaments += string.Join(delimiter, ingredient);
-                listOfMedicaments += delimiter;
-            }
-            return string.Join(delimiter, entity.GetId(), entity.Code, entity.Name, entity.Producer, entity.StateOfValidation, entity.Quantity, listOfMedicaments);
+            return string.Join(delimiter, entity.GetId(), entity.Code, entity.Name, entity.Producer, entity.StateOfValidation, entity.Quantity, entity.Ingredients);
         }
 
         public Medicament ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
-            List<Ingredient> listOfIngredients = new List<Ingredient>();
-            FillList(listOfIngredients, tokens);
-            return new Medicament(int.Parse(tokens[0]), tokens[1], tokens[2], tokens[3], (State)Enum.Parse(typeof(State), tokens[4]), int.Parse(tokens[5]), listOfIngredients);
+            return new Medicament(int.Parse(tokens[0]), tokens[1], tokens[2], tokens[3], (State)Enum.Parse(typeof(State), tokens[4]), int.Parse(tokens[5]), tokens[6]);
         }
-
-        private void FillList(List<Ingredient> ingredients, string[] tokens)
-        {
-            int i = 6;
-            while (i < tokens.Length - 1)
-            {
-                ingredients.Add(new Ingredient(tokens[i]));
-                i++;
-            }
-        }
-
 
     }
 }

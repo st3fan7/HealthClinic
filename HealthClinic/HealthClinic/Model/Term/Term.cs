@@ -13,13 +13,13 @@ namespace Model.Term
         private DateTime fromDateTime;
         private DateTime toDateTime;
 
-        protected DateTime FromDateTime { get => fromDateTime; set => fromDateTime = value; }
-        protected DateTime ToDateTime { get => toDateTime; set => toDateTime = value; }
+        public DateTime FromDateTime { get => fromDateTime; set => fromDateTime = value; }
+        public DateTime ToDateTime { get => toDateTime; set => toDateTime = value; }
 
         public Term(DateTime fromDateTime, DateTime toDateTime)
         {
-            this.fromDateTime = fromDateTime;
-            this.toDateTime = toDateTime;
+            FromDateTime = fromDateTime;
+            ToDateTime = toDateTime;
         }
 
         public Term()

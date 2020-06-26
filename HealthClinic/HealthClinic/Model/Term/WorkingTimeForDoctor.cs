@@ -12,18 +12,14 @@ namespace Model.Term
 {
     public class WorkingTimeForDoctor : Term, IIdentifiable<int>
     {
+        private int id;
         private DaysInWeek day;
         private Boolean doesWork;
-        private int id;
         private AllActors.Doctor doctor;
 
         public DaysInWeek Day { get => day; set => day = value; }
         public bool DoesWork { get => doesWork; set => doesWork = value; }
         public AllActors.Doctor Doctor { get => doctor; set => doctor = value; }
-        private DateTime fromDateTime;
-        private DateTime toDateTime;
-        public DateTime FromDateTime { get => fromDateTime; set => fromDateTime = value; }
-        public DateTime ToDateTime { get => toDateTime; set => toDateTime = value; }
 
         public WorkingTimeForDoctor(int id)
         {
@@ -35,22 +31,20 @@ namespace Model.Term
         }
 
         public WorkingTimeForDoctor(int id, DaysInWeek day, bool doesWork, AllActors.Doctor doctor, DateTime fromDateTime, DateTime toDateTime)
+            : base(fromDateTime, toDateTime)
         {
             this.Day = day;
             this.DoesWork = doesWork;
             this.id = id;
             this.Doctor = doctor;
-            this.FromDateTime = fromDateTime;
-            this.ToDateTime = toDateTime;
         }
 
         public WorkingTimeForDoctor(DaysInWeek day, bool doesWork, AllActors.Doctor doctor, DateTime fromDateTime, DateTime toDateTime)
+            : base(fromDateTime, toDateTime)
         {
             this.Day = day;
             this.DoesWork = doesWork;
             this.Doctor = doctor;
-            this.FromDateTime = fromDateTime;
-            this.ToDateTime = toDateTime;
         }
 
         public int GetId()
