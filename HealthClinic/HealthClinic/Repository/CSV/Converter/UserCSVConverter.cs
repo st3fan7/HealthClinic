@@ -5,6 +5,7 @@
 
 using Model.AllActors;
 using Model.Doctor;
+using Repository.MedicalRecordRepository;
 using Repository.UsersRepository;
 using System;
 

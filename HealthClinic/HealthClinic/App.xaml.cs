@@ -171,6 +171,8 @@ namespace HealthClinic
             WorkingTimeForDoctorController = new WorkingTimeForDoctorController(workingTimeForDoctorService);
             SpetialitationController = new SpetialitationController(spetialitationService);
 
+           
+
         }
 
         public ArticleController ArticleController { get; private set; }
