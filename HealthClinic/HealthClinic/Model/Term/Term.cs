@@ -12,5 +12,19 @@ namespace Model.Term
     {
         private DateTime fromDateTime;
         private DateTime toDateTime;
+
+        public DateTime FromDateTime { get => fromDateTime; set => fromDateTime = value; }
+        public DateTime ToDateTime { get => toDateTime; set => toDateTime = value; }
+
+        public Term(DateTime fromDateTime, DateTime toDateTime)
+        {
+            FromDateTime = fromDateTime;
+            ToDateTime = toDateTime;
+        }
+
+        public Term()
+        {
+            
+        }
     }
 }

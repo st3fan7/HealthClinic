@@ -20,14 +20,28 @@ namespace Service.RoomsServices
             this.equipmentRepository = equipmentRepository;
         }
 
-        public bool AddExistingEquipment(String equipmentID, int quantity)
+        public bool ExistEquipmentWithCode(String code)
         {
-            throw new NotImplementedException();
+            foreach (Equipment equipment in this.GetAllEntities())
+            {
+                if (equipment.Code.Equals(code))
+                    return true;
+            }
+            return false;
         }
 
-        public Medicament TakeMedicament(Medicament medicament)
+        public Equipment AddExistingEquipmnet(String code, int amount)
         {
-            throw new NotImplementedException();
+            foreach (Equipment equipment in this.GetAllEntities())
+            {
+                if (equipment.Code.Equals(code))
+                {
+                    equipment.Amount += amount;
+                    this.UpdateEntity(equipment);
+                    return equipment;
+                }
+            }
+            return null;
         }
 
         public Equipment GetEntity(int id)
@@ -54,6 +68,6 @@ namespace Service.RoomsServices
         {
             equipmentRepository.DeleteEntity(entity);
         }
-
+        
     }
 }

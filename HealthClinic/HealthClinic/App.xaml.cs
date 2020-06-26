@@ -16,6 +16,7 @@ using Model.Term;
 using Repository.BlogNotificationRepository;
 using Repository.Csv.Converter;
 using Repository.Csv.Stream;
+using Repository.CSV.Converter;
 using Repository.ExaminationSurgeryRepository;
 using Repository.IDSequencer;
 using Repository.MedicalRecordRepository;
@@ -59,11 +60,11 @@ namespace HealthClinic
         private const string EQUIPMENT_FILE = "../../Resources/Data/equipment.csv";
         private const string RENOVATION_FILE = "../../Resources/Data/renovation.csv";
         private const string ROOM_FILE = "../../Resources/Data/room.csv";
-        //private const string SPECIALITATION_FILE = "../../Resources/Data/specialitation.csv";
+        private const string SPECIALITATION_FILE = "../../Resources/Data/specialitation.csv";
         private const string USER_FILE = "../../Resources/Data/users.csv";
         private const string WORKINGTIMEFORDOCTOR_FILE = "../../Resources/Data/workingtimefordoctor.csv";
 
-        private const string CSV_DELIMITER = ";";
+        private const string CSV_DELIMITER = ",";
 
         private const string DATETIME_FORMAT = "dd.MM.yyyy.";
 
@@ -124,6 +125,10 @@ namespace HealthClinic
             var workingTimeForDoctorRepository = new WorkingTimeForDoctorRepository(
                new CSVStream<WorkingTimeForDoctor>(WORKINGTIMEFORDOCTOR_FILE, new WorkingTimeForDoctorCSVConverter(CSV_DELIMITER)),
                new IntSequencer());
+            var specialitationRepository = new SpecialitationRepository(
+               new CSVStream<Specialitation>(SPECIALITATION_FILE, new SpecialitationCSVConverter(CSV_DELIMITER)),
+               new IntSequencer());
+
 
             var articleService = new ArticleService(articleRepository);
             var notificationService = new NotificationService(notificationRepository);
@@ -143,6 +148,7 @@ namespace HealthClinic
             var roomService = new RoomService(roomRepository);
             var userService = new UserService(userRepository);
             var workingTimeForDoctorService = new WorkingTimeForDoctorService(workingTimeForDoctorRepository);
+            var spetialitationService = new SpetialitationService(specialitationRepository);
 
             ArticleController = new ArticleController(articleService);
             NotificationController = new NotificationController(notificationService);
@@ -162,27 +168,29 @@ namespace HealthClinic
             RoomController = new RoomController(roomService);
             UserController = new UserController(userService);
             WorkingTimeForDoctorController = new WorkingTimeForDoctorController(workingTimeForDoctorService);
-
+            SpetialitationController = new SpetialitationController(spetialitationService);
+           
         }
 
-        public IController<Article, int> ArticleController { get; private set; }
-        public IController<Notification, int> NotificationController { get; private set; }
-        public IController<Survey, int> SurveyController { get; private set; }
-        public IController<Hospitalitation, int> HospitalitationController { get; private set; }
-        public IController<MedicalExamination, int> MedicalExaminationController { get; private set; }
-        public IController<Surgery, int> SurgeryController { get; private set; }
-        public IController<Allergies, int> AllergiesController { get; private set; }
-        public IController<Diagnosis, int> DiagnosisController { get; private set; }
-        public IController<MedicalRecord, int> MedicalRecordController { get; private set; }
-        public IController<Symptoms, int> SymptomsController { get; private set; }
-        public IController<IssueOfMedicaments, int> IssueOfMedicamentsController { get; private set; }
-        public IController<Medicament, int> MedicamentController { get; private set; }
-        public IController<ValidationOfMedicament, int> ValidationOfMedicamentController { get; private set; }
-        public IController<Equipment, int> EquipmentController { get; private set; }
-        public IController<Renovation, int> RenovationController { get; private set; }
-        public IController<Room, int> RoomController { get; private set; }
-        public IController<User, int> UserController { get; private set; }
-        public IController<WorkingTimeForDoctor, int> WorkingTimeForDoctorController { get; private set; }
+        public ArticleController ArticleController { get; private set; }
+        public NotificationController NotificationController { get; private set; }
+        public SurveyController SurveyController { get; private set; }
+        public HospitalitationController HospitalitationController { get; private set; }
+        public MedicalExaminationController MedicalExaminationController { get; private set; }
+        public SurgeryController SurgeryController { get; private set; }
+        public AllergiesController AllergiesController { get; private set; }
+        public DiagnosisController DiagnosisController { get; private set; }
+        public MedicalRecordController MedicalRecordController { get; private set; }
+        public SymptomsController SymptomsController { get; private set; }
+        public IssueMedicamentsController IssueOfMedicamentsController { get; private set; }
+        public MedicamentController MedicamentController { get; private set; }
+        public ValidationMedicamentController ValidationOfMedicamentController { get; private set; }
+        public EquipmentController EquipmentController { get; private set; }
+        public RenovationController RenovationController { get; private set; }
+        public RoomController RoomController { get; private set; }
+        public UserController UserController { get; private set; }
+        public WorkingTimeForDoctorController WorkingTimeForDoctorController { get; private set; }
+        public SpetialitationController SpetialitationController { get; private set; }
 
     }
 }

@@ -20,9 +20,45 @@ namespace Service.MedicamentService
             this.medicamentRepository = medicamentRepository;
         }
 
-        public void AddExistingMedicament(String medicamentID, int quantity)
+        public List<Medicament> GetComfirmedMedicaments() 
         {
-            throw new NotImplementedException();
+            List<Medicament> confirmedMedicaments = new List<Medicament>();
+            foreach (Medicament medicament in this.GetAllEntities())
+                if (medicament.StateOfValidation == State.Confirmed)
+                    confirmedMedicaments.Add(medicament);
+            return confirmedMedicaments;
+        }
+
+        public Medicament AddExistingMedicament(String code, int quantity)
+        {
+            foreach (Medicament medicament in this.GetAllEntities())
+            {
+                if (medicament.Code.Equals(code))
+                {
+                    medicament.Quantity += quantity;
+                    this.UpdateEntity(medicament);
+                    return medicament;
+                }
+            }
+            return null;
+        }
+
+        public bool ExistMedicamentWithCode(String code)
+        {
+            foreach (Medicament medicament in this.GetAllEntities())
+            {
+                if (medicament.Code.Equals(code))
+                    return true;
+            }
+            return false;
+        }
+
+        public Medicament GetMedicamentByCode(String code)
+        {
+            foreach (Medicament medicament in this.GetAllEntities())
+                if (medicament.Code.Equals(code))
+                    return medicament;
+            return null;
         }
 
         public Medicament GetEntity(int id)

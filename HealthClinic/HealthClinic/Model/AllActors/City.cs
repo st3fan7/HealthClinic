@@ -25,13 +25,20 @@ namespace Model.AllActors
         {
         }
 
+        public City(string name, string adress, Country country)
+        {
+            this.Name = name;
+            this.Adress = adress;
+            this.Country = country;
+        }
+
         public City(string name, int postCode, string adress, Country country)
         {
             this.Name = name;
             this.PostCode = postCode;
             this.Adress = adress;
             this.Country = country;
-        }        
+        }
 
     }
 }

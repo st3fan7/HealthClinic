@@ -10,9 +10,8 @@ namespace Model.PatientDoctor
 {
     public class Diagnosis : IIdentifiable<int>
     {
-        private String name;
-
         private int id;
+        private String name;
 
         public string Name { get => name; set => name = value; }
 

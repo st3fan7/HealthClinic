@@ -33,7 +33,8 @@ namespace Model.Term
         {
         }
 
-        public Surgery(int id, bool urgency, string shortDescription, Room room, DoctorSpecialist doctorSpecialist, AllActors.Patient patient)
+        public Surgery(int id, bool urgency, string shortDescription, Room room, DoctorSpecialist doctorSpecialist, AllActors.Patient patient, DateTime fromDateTime, DateTime toDateTime)
+            : base(fromDateTime, toDateTime)
         {
             this.Urgency = urgency;
             this.ShortDescription = shortDescription;
@@ -43,7 +44,8 @@ namespace Model.Term
             this.patient = patient;
         }
 
-        public Surgery(bool urgency, string shortDescription, Room room, DoctorSpecialist doctorSpecialist, AllActors.Patient patient)
+        public Surgery(bool urgency, string shortDescription, Room room, DoctorSpecialist doctorSpecialist, AllActors.Patient patient, DateTime fromDateTime, DateTime toDateTime)
+            : base(fromDateTime, toDateTime)
         {
             this.Urgency = urgency;
             this.ShortDescription = shortDescription;

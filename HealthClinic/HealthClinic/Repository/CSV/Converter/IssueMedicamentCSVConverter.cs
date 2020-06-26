@@ -7,6 +7,7 @@ using Model.AllActors;
 using Model.Doctor;
 using Model.DoctorMenager;
 using Model.PatientDoctor;
+using Repository.UsersRepository;
 using System;
 using System.Collections.Generic;
 
@@ -37,8 +38,8 @@ namespace Repository.Csv.Converter
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
             List<Medicament> medicaments = new List<Medicament>();
             FillList(medicaments, tokens);
-            return new IssueOfMedicaments(int.Parse(tokens[0]), tokens[1], new MedicalRecord(int.Parse(tokens[2])),
-                (Doctor) new User(int.Parse(tokens[3])), medicaments);
+            return new IssueOfMedicaments(int.Parse(tokens[0]), tokens[1], MedicalRecordRepository.MedicalRecordRepository.Instance().GetEntity(int.Parse(tokens[2])),
+                (Doctor)UserRepository.Instance().GetEntity(int.Parse(tokens[3])), medicaments);
         }
 
         private void FillList(List<Medicament> medicaments, string[] tokens)
@@ -47,7 +48,7 @@ namespace Repository.Csv.Converter
             while (i < tokens.Length - 1)
             {
                 int id = int.Parse(tokens[i]);
-                medicaments.Add(new Medicament(id));     
+                medicaments.Add(MedicamentRepository.MedicamentRepository.Instance().GetEntity(int.Parse(tokens[i])));     
                 i++;
             }
         }

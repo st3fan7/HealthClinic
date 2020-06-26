@@ -34,7 +34,8 @@ namespace Model.Term
         {
         }
 
-        public Hospitalitation(int id, bool urgency, string shortDescription, Room room, AllActors.Doctor doctor, Bed bedForLaying)
+        public Hospitalitation(int id, bool urgency, string shortDescription, Room room, AllActors.Doctor doctor, Bed bedForLaying, DateTime fromDateTime, DateTime toDateTime) 
+            : base(fromDateTime, toDateTime)
         {
             this.Urgency = urgency;
             this.ShortDescription = shortDescription;
@@ -44,7 +45,8 @@ namespace Model.Term
             this.BedForLaying = bedForLaying;
         }
 
-        public Hospitalitation(bool urgency, string shortDescription, Room room, AllActors.Doctor doctor, Bed bedForLaying)
+        public Hospitalitation(bool urgency, string shortDescription, Room room, AllActors.Doctor doctor, Bed bedForLaying, DateTime fromDateTime, DateTime toDateTime)
+            : base(fromDateTime, toDateTime)
         {
             this.Urgency = urgency;
             this.ShortDescription = shortDescription;

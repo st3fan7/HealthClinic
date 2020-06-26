@@ -14,15 +14,15 @@ namespace Model.Term
 {
     public class Room : Term, IIdentifiable<int>
     {
-        private String roomID;
         private int id;
+        private String roomID;
         private TypeOfRoom typeOfRoom;
         private List<Equipment> equipment;
 
         public string RoomID { get => roomID; set => roomID = value; }
         public TypeOfRoom TypeOfRoom { get => typeOfRoom; set => typeOfRoom = value; }
         public List<Equipment> Equipment { get => equipment; set => equipment = value; }
-
+      
         public Room(int id)
         {
             this.id = id;
@@ -32,12 +32,12 @@ namespace Model.Term
         {
         }
 
-        public Room(int id, string roomID, TypeOfRoom typeOfRoom, List<Equipment> equipment)
+        public Room(int id, string roomID, TypeOfRoom typeOfRoom, DateTime fromDateTime, DateTime toDateTime, List<Equipment> equipment) : base(fromDateTime, toDateTime)
         {
             this.RoomID = roomID;
-            this.id = id;
+            this.id = id;            
             this.TypeOfRoom = typeOfRoom;
-            this.Equipment = equipment;
+            this.Equipment = equipment;         
         }
 
         public Room(string roomID, TypeOfRoom typeOfRoom, List<Equipment> equipment)

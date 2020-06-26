@@ -13,21 +13,20 @@ namespace Model.DoctorMenager
 {
     public class Medicament : IIdentifiable<int>
     {
+        private int id;
         private String code;
         private String name;
         private String producer;
         private State stateOfValidation;
         private int quantity;
-        private int id;
-
-        private List<Ingredient> ingredient;
+        private String ingredients;
 
         public Medicament(int id)
         {
             this.id = id;
         }
 
-        public Medicament(int id, string code, string name, string producer, State stateOfValidation, int quantity, List<Ingredient> ingredient)
+        public Medicament(int id, string code, string name, string producer, State stateOfValidation, int quantity, string ingredients)
         {
             this.code = code;
             this.name = name;
@@ -35,23 +34,22 @@ namespace Model.DoctorMenager
             this.stateOfValidation = stateOfValidation;
             this.quantity = quantity;
             this.id = id;
-            Ingredient = ingredient;
+            this.Ingredients = ingredients;
         }
 
-        public Medicament(string code, string name, string producer, State stateOfValidation, int quantity, List<Ingredient> ingredient)
+        public Medicament(string code, string name, string producer, State stateOfValidation, int quantity, string ingredients)
         {
             this.code = code;
             this.name = name;
             this.producer = producer;
             this.stateOfValidation = stateOfValidation;
             this.quantity = quantity;
-            Ingredient = ingredient;
+            this.Ingredients = ingredients;
         }
 
-        public void RemoveAllIngredient()
+        public Medicament(String name)
         {
-            if (Ingredient != null)
-                Ingredient.Clear();
+            this.name = name;
         }
 
         public int GetId()
@@ -93,6 +91,6 @@ namespace Model.DoctorMenager
             set { quantity = value; }
         }
 
-        public List<Ingredient> Ingredient { get => ingredient; set => ingredient = value; }
+        public string Ingredients { get => ingredients; set => ingredients = value; }
     }
 }

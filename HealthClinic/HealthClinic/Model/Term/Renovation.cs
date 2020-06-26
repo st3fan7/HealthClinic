@@ -11,8 +11,8 @@ namespace Model.Term
 {
     public class Renovation : Term, IIdentifiable<int>
     {
-        private String descriptionOfRenovation;     
         private int id;
+        private String descriptionOfRenovation;     
         private Room room;
 
         public string DescriptionOfRenovation { get => descriptionOfRenovation; set => descriptionOfRenovation = value; }
@@ -27,17 +27,21 @@ namespace Model.Term
         {
         }
 
-        public Renovation(int id, string descriptionOfRenovation, Room room)
+        public Renovation(int id, string descriptionOfRenovation, Room room, DateTime fromDateTime, DateTime toDateTime)
+            : base(fromDateTime, toDateTime)
         {
-            this.DescriptionOfRenovation = descriptionOfRenovation;
             this.id = id;
+            this.DescriptionOfRenovation = descriptionOfRenovation;           
             this.Room = room;
         }
 
-        public Renovation(string descriptionOfRenovation,  Room room)
+        public Renovation(string descriptionOfRenovation,  Room room, DateTime fromDateTime, DateTime toDateTime)
+            : base(fromDateTime, toDateTime)
         {
             this.DescriptionOfRenovation = descriptionOfRenovation;
             this.Room = room;
+            this.FromDateTime = fromDateTime;
+            this.ToDateTime = toDateTime;
         }
 
         public int GetId()

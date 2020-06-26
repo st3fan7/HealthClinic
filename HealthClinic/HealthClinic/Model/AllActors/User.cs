@@ -12,26 +12,36 @@ namespace Model.AllActors
    public class User : Person, IIdentifiable<int>
     {
         private String username;
-        private String password;       
-        private int id;
+        private String password;
+        public int Id { get; set; }
 
         public string UserName { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
 
         public User(int id)
         {
-            this.id = id;
+            Id = id;
         }
 
         public User()
         {
         }
 
-        public User(int id, string username, string password)
+        public User(int id, string username, string password, string name, string surname, string jmbg, DateTime dateOfBirth, string contactNumber, string emailAddress, City city) 
+            : base(name, surname, jmbg, dateOfBirth, contactNumber, emailAddress, city)
         {
             this.username = username;
             this.Password = password;
-            this.id = id;
+            Id = id;
+        }
+
+
+        public User(string username, string password, string name, string surname, string jmbg, DateTime dateOfBirth, string contactNumber, string emailAddress, City city)
+           : base(name, surname, jmbg, dateOfBirth, contactNumber, emailAddress, city)
+        {
+            this.username = username;
+            this.Password = password;
+            
         }
 
         public User(string username, string password)
@@ -42,12 +52,12 @@ namespace Model.AllActors
 
         public int GetId()
         {
-            return id;
+            return Id;
         }
 
         public void SetId(int id)
         {
-            this.id = id;
+            Id = id;
         }
     }
 }
