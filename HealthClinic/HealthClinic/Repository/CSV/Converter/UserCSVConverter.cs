@@ -5,6 +5,7 @@
 
 using Model.AllActors;
 using Model.Doctor;
+using Repository.UsersRepository;
 using System;
 
 namespace Repository.Csv.Converter
@@ -57,7 +58,7 @@ namespace Repository.Csv.Converter
             if(tokens[1] == typeof(Doctor).ToString())
             {
                 return new Doctor(int.Parse(tokens[0]), tokens[2], tokens[3], tokens[4], tokens[5], tokens[6], DateTime.Parse(tokens[7]), tokens[8], tokens[9],
-                    new City(tokens[10], tokens[11], new Country(tokens[12])), new Specialitation(int.Parse(tokens[13])));
+                    new City(tokens[10], tokens[11], new Country(tokens[12])), SpecialitationRepository.Instance().GetEntity(int.Parse(tokens[13])));
 
             }else if (tokens[1] == typeof(Patient).ToString())
             {

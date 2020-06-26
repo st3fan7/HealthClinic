@@ -14,7 +14,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Controller.MedicalRecordControlers;
 using HealthClinic.Entiteti;
+using HealthClinic.View.ViewModel;
+using Model.PatientDoctor;
 
 namespace HealthClinic
 {
@@ -23,24 +26,26 @@ namespace HealthClinic
     /// </summary>
     public partial class UserControlPregled : UserControl
     {
-      /*
-        public ObservableCollection<Pacijent> Pacijenti
-        {
-            get;
-            set;
-        }
-        */
+        /*
+          public ObservableCollection<Pacijent> Pacijenti
+          {
+              get;
+              set;
+          }
+          */
 
-      //  public static Pacijent selectedPatient = null;
+        //  public static Pacijent selectedPatient = null;
 
+        public static MedicalRecord medicalRecord = null;
+        public static MedicalRecordController medicalRecordController;
 
         public UserControlPregled()
         {
             InitializeComponent();
-          //  this.DataContext = MainWindow.Pacijenti;
+            this.DataContext = MainWindow.ViewMedicalExaminations;
             //Pacijenti = UserControlPocetna.Pacijenti;
             _UserControlPregled = this;
-            
+
 
             /*
             if (UserControlPocetna.staticPacijent != null)
@@ -48,6 +53,15 @@ namespace HealthClinic
                 ListViewPregledPacijenti.SelectedItem = UserControlPocetna.staticPacijent;
             }
             */
+
+            ListViewPregledPacijenti.ItemsSource = MainWindow.ViewMedicalExaminations;
+
+            var app = Application.Current as App;
+            medicalRecordController = app.MedicalRecordController;
+            
+
+
+
 
 
             if(UserControlPocetna.userControlPocetna.ToolTipButto.IsChecked == true)
@@ -63,6 +77,20 @@ namespace HealthClinic
                 ToolTipService.SetIsEnabled(buttonIzvesta, false);
                 ToolTipService.SetIsEnabled(buttonDijagnoza, false);
             }
+
+            ButtonZakaziOperaciju.IsEnabled = false;
+            
+            if(Window1.ulogovaniDoctor.Specialitation.SpecialitationForDoctor.Equals("Opšta praksa"))
+            {
+                ButtonZakaziOperaciju.IsEnabled = false;
+            }
+            else
+            {
+                ButtonZakaziOperaciju.IsEnabled = true;
+            }
+
+            
+            
             
         }
 
@@ -70,12 +98,29 @@ namespace HealthClinic
 
         private void ListViewPregledPacijenti_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            GridPregled.Visibility = Visibility.Visible;        
-           // selectedPatient = (Pacijent)ListViewPregledPacijenti.SelectedItem;
+            GridPregled.Visibility = Visibility.Visible;
+            // selectedPatient = (Pacijent)ListViewPregledPacijenti.SelectedItem;
+            UserControlPocetna.viewMedicalExamination = (ViewMedicalExamination)ListViewPregledPacijenti.SelectedItem;
+
+            UserControlPocetna.MedicalExamination = UserControlPocetna.medicalExaminationController.GetEntity(UserControlPocetna.viewMedicalExamination.Id);
+            medicalRecord = medicalRecordController.GetMedicalRecordByPatient(UserControlPocetna.MedicalExamination.Patient);
+            AnamenzaPregled.Text = medicalRecord.Anamnesis.Description;
+
 
             LekoviPregled.Items.Clear();
             ListaAlergija.Items.Clear();
            
+
+            for(int i = 0; i < medicalRecord.Medicament.Count; i++)
+            {
+                LekoviPregled.Items.Add(medicalRecord.Medicament[i].Name);
+            }
+
+            for (int i = 0; i < medicalRecord.Allergies.Count; i++)
+            {
+                ListaAlergija.Items.Add(medicalRecord.Allergies[i].Name);
+            }
+
 
             /*
             for (int i = 0; i < selectedPatient.Lekovi.Count; i++)

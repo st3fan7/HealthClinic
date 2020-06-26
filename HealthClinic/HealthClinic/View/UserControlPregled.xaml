@@ -22,13 +22,13 @@
         </Separator>
 
         <Grid Grid.Column="0">
-            <ListView x:Name="ListViewPregledPacijenti" Grid.Column="0" ItemsSource="{Binding Path=Pacijents}" SelectionChanged="ListViewPregledPacijenti_SelectionChanged" >
+            <ListView x:Name="ListViewPregledPacijenti" Grid.Column="0" ItemsSource="{Binding Path=ViewMedicalExaminations}" SelectionChanged="ListViewPregledPacijenti_SelectionChanged" >
                 <ListView.ItemTemplate >
                     <DataTemplate >
                         <WrapPanel Height="30" >
-                            <TextBlock Text="{Binding Path=Ime}" FontSize="18"/>
-                            <TextBlock Text=" "/>
-                            <TextBlock Text="{Binding Path=Prezime}" FontSize="18"/>
+                            <TextBlock Text="{Binding Path=Patient}" FontSize="18"/>
+                            <!--TextBlock Text=" "/-->
+                            <!--TextBlock Text="{Binding Path=Prezime}" FontSize="18"/-->
                         </WrapPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -51,21 +51,21 @@
             <Label HorizontalAlignment="Left" VerticalAlignment="Center" Width="172" Height="30" Margin="112,146,0,368.8" >
                 <TextBlock FontSize="18" >
                     <TextBlock.Text>
-                        <MultiBinding StringFormat="{}{0} {1}" >
-                            <Binding Path="Ime"/>
-                            <Binding Path="Prezime"/>
+                        <MultiBinding StringFormat="{}{0}" >
+                            <Binding Path="Patient"/>
+                            <!--Binding Path="Prezime"/-->
                         </MultiBinding>
                     </TextBlock.Text>
                 </TextBlock>
             </Label>
 
-            <Label HorizontalAlignment="Left" VerticalAlignment="Center" Width="210" Height="30" Margin="94,190,0,324.8">
+            <Label HorizontalAlignment="Left" VerticalAlignment="Center" Width="210" Height="30" Margin="94,190,0,324.8" >
                 <TextBlock FontSize="15" >
                     <TextBlock.Text>
-                        <MultiBinding StringFormat="{}{0}: {1}   {2}" >
-                            <Binding Path="Zadatak"/>
-                            <Binding Path="Vreme"/>
-                            <Binding Path="Datum"/>
+                        <MultiBinding StringFormat="{}{0} {1} " >
+                            <Binding Path="Date"/>
+                            <Binding Path="Time"/>
+                            
                         </MultiBinding>
                     </TextBlock.Text>
                 </TextBlock>
@@ -76,7 +76,7 @@
             <Button Width="150" Background="#FFCAFFD4" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="2" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="98,329,102.4,183.8" Click="ButtonBolnickoLecenje_Click">Bolničko lečenje</Button>
             <Button Width="150" Background="#FFCAFFD4" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="2" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="98,378,102.4,134.8" x:Name="buttonIzvesta" ToolTip="Generisanje izveštaja za anamnezu i lekove tokom pregleda" Click="ButtonIzvesta_Click">Izveštaj</Button>
             <Button Width="150" Background="#FFCAFFD4" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="2" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="98,428,102.4,84.8" Click="ButtonUput_Click" x:Name="buttonUput" ToolTip="Zakazivanje pregleda kod lekara specijaliste">Izdavanje uputa</Button>
-            <Button Width="150" Background="#FFCAFFD4" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="2" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="98,479,102.4,33.8" Click="ButtonZakaziOperaciju_Click">Zakaži operaciju</Button>
+            <Button Width="150" Background="#FFCAFFD4"  x:Name="ButtonZakaziOperaciju" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="2" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="98,479,102.4,33.8" Click="ButtonZakaziOperaciju_Click">Zakaži operaciju</Button>
 
             <Grid Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>

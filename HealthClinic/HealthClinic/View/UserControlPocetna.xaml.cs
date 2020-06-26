@@ -1,4 +1,10 @@
-﻿using HealthClinic.Entiteti;
+﻿using Controller.ExaminationSurgeryControlers;
+using Controller.UsersControlers;
+using HealthClinic.Entiteti;
+using HealthClinic.View.Converter;
+using HealthClinic.View.ViewModel;
+using Model.AllActors;
+using Model.Term;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -32,35 +38,40 @@ namespace HealthClinic
             set;
         }
         */
-      //  public static Pacijent staticPacijent = new Pacijent();
-        public static UserControlPocetna userControlPocetna = new UserControlPocetna(); 
+        //  public static Pacijent staticPacijent = new Pacijent();
+
+
+        public static MedicalExaminationController medicalExaminationController;
+        private readonly UserController userController;
+        public static UserControlPocetna userControlPocetna = new UserControlPocetna();
+        public static ViewMedicalExamination viewMedicalExamination = null;
+        public static Model.AllActors.Patient staticPatient = new Model.AllActors.Patient();
+        public static Model.Term.MedicalExamination MedicalExamination = null;
+
 
         public UserControlPocetna()
         {
             InitializeComponent();
         //    this.DataContext = MainWindow.Pacijenti;
             userControlPocetna = this;
+           
+            
+            var app = App.Current as App;
+            medicalExaminationController = app.MedicalExaminationController;
+            userController = app.UserController;
 
-            //Pacijenti Pacijenti = new Pacijenti();
-            /*
-              Pacijenti.Add(new Pacijent { Datum = DateTime.Now.ToString("dd.MM.yyyy"), Ime = "Petar", Prezime = "Petrovic", Godine = "60", Zadatak = "Pregled", Vreme = DateTime.Now.ToString("HH:mm"),
-                  Sala = "2B", Hitnost = "Ne", KratakProblem = "Disekcija aorte. Pacijent ima problem sa kardiovaskularnim sistemom i otežano diše.", Dijagnoza="Disekcija aorte"});
-              Pacijenti.Add(new Pacijent
-              {
-                  Datum = "21.1.2001",
-                  Ime = "Dusan",
-                  Prezime = "Svilar",
-                  Godine = "30",
-                  Zadatak = "Operacija",
-                  Vreme = DateTime.Now.ToString("HH:mm"),
-                  Sala = "1B",
-                  Hitnost = "Ne",
-                  KratakProblem = "Problem sa disanjem",
-                  Dijagnoza = "Ne zna se"
-              });
-              */
+            MainWindow.ViewMedicalExaminations = new ObservableCollection<ViewMedicalExamination>(MedicalExaminationConverter.ConvertMEListToMEViewList(
+               this.getAllMedicalExByDoctor(Window1.ulogovaniDoctor).ToList()));
+
 
             
+
+            this.DataContext = MainWindow.ViewMedicalExaminations;
+
+
+            dgrMain.ItemsSource = MainWindow.ViewMedicalExaminations;
+
+             
 
         }
 
@@ -69,13 +80,34 @@ namespace HealthClinic
         private void dgrPocetnaEvent(object sender, RoutedEventArgs e)
         {
             GridPocentaVidljiv.Visibility = Visibility.Visible;
+            viewMedicalExamination = (ViewMedicalExamination)dgrMain.SelectedItem;
+            MedicalExamination = medicalExaminationController.GetEntity(viewMedicalExamination.Id);
+            
+            staticPatient = (Patient)userController.GetEntity(MedicalExamination.Patient.Id);
+           
+
+        }
+
+        private List<MedicalExamination> getAllMedicalExByDoctor(Doctor doctor)
+        {
+            List<MedicalExamination> lista = new List<MedicalExamination>();
+            foreach(MedicalExamination m in medicalExaminationController.GetAllEntities())
+            {
+                if (m.Doctor.GetId().Equals(doctor.GetId()))
+                {
+                    lista.Add(m);
+                }
+            }
+
+            return lista;
         }
 
         private void ButtonIzvrsiPregled_Click(object sender, RoutedEventArgs e)
         {
 
-           // staticPacijent = (Pacijent) dgrMain.SelectedItem;
-            
+            // staticPacijent = (Pacijent) dgrMain.SelectedItem;
+           
+
             MainWindow._MainWindow.GridMain.Children.Clear();
             UserControl uscPregled = new UserControlPregled();
             MainWindow._MainWindow.ItemPregled.IsSelected = true;

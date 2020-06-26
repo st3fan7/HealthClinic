@@ -1,6 +1,9 @@
-﻿using HealthClinic.Entiteti;
+﻿using Controller.ExaminationSurgeryControlers;
+using HealthClinic.Entiteti;
+using Model.Term;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,10 +27,15 @@ namespace HealthClinic
         //public static Pacijenti Pacijenti = null;
         //public static Lekovi Lekovi = null;
 
+        
+        public ObservableCollection<MedicalExamination> medicalExaminations;
+        public static ObservableCollection<View.ViewModel.ViewMedicalExamination> ViewMedicalExaminations { get; set; }
+       
         public MainWindow()
         {
-          //  Pacijenti = new Pacijenti();
-           // Lekovi = new Lekovi();
+            //  Pacijenti = new Pacijenti();
+            // Lekovi = new Lekovi();
+            
 
             InitializeComponent();
             _MainWindow = this;

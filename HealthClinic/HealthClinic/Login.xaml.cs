@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controller.UsersControlers;
+using Model.AllActors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,14 @@ namespace HealthClinic
     /// </summary>
     public partial class Window1 : Window
     {
+        private readonly UserController userController;
+        public static Doctor ulogovaniDoctor = null;
+
         public Window1()
         {
             InitializeComponent();
+            var app = App.Current as App;
+            userController = app.UserController;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -31,6 +38,7 @@ namespace HealthClinic
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            /*
             if (txtUserName.Text.Equals("pera") && txtPassword.Password.ToString().Equals("pera"))
             {
                 
@@ -42,6 +50,15 @@ namespace HealthClinic
             {
                 MessageBox.Show("Username or password is not valid");
             }
+            */
+
+            
+            ulogovaniDoctor = (Doctor)userController.Login(txtUserName.Text, txtPassword.Password);
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+
+
         }
 
         

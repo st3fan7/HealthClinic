@@ -41,6 +41,17 @@ namespace HealthClinic
                 AnamenzaUnos.Text = "";
             }
             */
+
+            if(UserControlPregled.medicalRecord != null)
+            {
+                AnamenzaUnos.Text = UserControlPregled.medicalRecord.Anamnesis.Description;
+               
+            }
+            else
+            {
+                AnamenzaUnos.Text = "";
+               
+            }
             
 
         }
