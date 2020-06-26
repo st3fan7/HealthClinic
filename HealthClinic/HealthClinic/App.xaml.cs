@@ -1,12 +1,10 @@
-﻿using Controller;
-using Controller.BlogNotificationControlers;
+﻿using Controller.BlogNotificationControlers;
 using Controller.ExaminationSurgeryControlers;
 using Controller.MedicalRecordControlers;
 using Controller.MedicamentControlers;
 using Controller.RoomsControlers;
 using Controller.UsersControlers;
 using HealthClinic.Controller.RoomsControlers;
-using HealthClinic.Model.Manager;
 using HealthClinic.Repository.CSV.Converter;
 using HealthClinic.Repository.RoomsRepository;
 using HealthClinic.Service.RoomsServices;

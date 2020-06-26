@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace HealthClinic.View.Converter
 {
     class RenovationConverter : AbstractConverter
-    {
-        private const string DATE_FORMAT = "dd.MM.yyyy.";
+    { 
 
         public static ViewRenovation ConvertRenovationToRenovationView(Model.Term.Renovation renovation)
         {
@@ -17,7 +16,7 @@ namespace HealthClinic.View.Converter
             {
                 Id = renovation.GetId(),
                 Room = renovation.Room.RoomID,
-                DataPeriod = renovation.FromDateTime.ToString(DATE_FORMAT) + " - " + renovation.ToDateTime.ToString(DATE_FORMAT),
+                DatePeriod = renovation.FromDateTime.ToString("dd.MM.yyyy.") + " - " + renovation.ToDateTime.ToString("dd.MM.yyyy."),
                 Description = renovation.DescriptionOfRenovation
             };
         }

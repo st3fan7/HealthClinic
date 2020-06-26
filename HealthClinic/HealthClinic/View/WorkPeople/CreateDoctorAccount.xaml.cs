@@ -2,6 +2,7 @@
 using HealthClinic.View.Converter;
 using Model.AllActors;
 using Model.Doctor;
+using Repository.UsersRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,12 +45,18 @@ namespace HealthClinic.View
                 return;
             }
 
-            DoctorAccounts.DoctorsView.Add(DoctorConverter.ConvertDoctorToDoctorView(
-               (Doctor)userController.AddEntity(new Doctor(InputUsername.Text, InputPassword.Text, InputName.Text, InputSurname.Text, InputJmbg.Text,
-               DateTime.Parse(InputDateOfBirthday.Text), InputMobilePhone.Text, InputEmailAddress.Text,
-               new City(InputCity.Text, InputCity.Text, new Country(InputCountry.Text)), new Specialitation(InputMobilePhone.Text)))));
-            this.Close();
-            MessageBox.Show("Uspešno ste kreirali nalog lekaru", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            if(userController.GetUserByUsername(InputUsername.Text) == null)
+            {
+                DoctorAccounts.DoctorsView.Add(DoctorConverter.ConvertDoctorToDoctorView(
+                (Doctor)userController.AddEntity(new Doctor(InputUsername.Text, InputPassword.Text, InputName.Text, InputSurname.Text, InputJmbg.Text,
+                DateTime.Parse(InputDateOfBirthday.Text), InputMobilePhone.Text, InputEmailAddress.Text,
+                new City(InputCity.Text, InputCity.Text, new Country(InputCountry.Text)), new Specialitation(InputMobilePhone.Text)))));               
+                SpecialitationRepository.Instance().AddEntity(new Specialitation(InputMobilePhone.Text)); // dodaje specijalizaciju u fajl
+                this.Close();
+                MessageBox.Show("Uspešno ste kreirali nalog lekaru", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            } 
+            MessageBox.Show("Korisničko ime koje ste uneli već postoji", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void Button_Click_Odustani(object sender, RoutedEventArgs e)

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HealthClinic.View.ViewModel
 {
-    public class ViewRenovation : INotifyPropertyChanged
+    public class ViewInventaryRoom : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -17,9 +17,8 @@ namespace HealthClinic.View.ViewModel
         }
 
         private int id;
-        private String room;
-        private String datePeriod;
-        private String description;
+        private String name;
+        private int quantity;
 
         public int Id
         {
@@ -33,41 +32,30 @@ namespace HealthClinic.View.ViewModel
                 }
             }
         }
-        public String Room
+        public String Name
         {
-            get { return room; }
+            get { return name; }
             set
             {
-                if (room != value)
+                if (name != value)
                 {
-                    room = value;
+                    name = value;
                     OnPropertyChanged();
                 }
             }
         }
-        public String DatePeriod
+        public int Quantity
         {
-            get { return datePeriod; }
+            get { return quantity; }
             set
             {
-                if (datePeriod != value)
+                if (quantity != value)
                 {
-                    datePeriod = value;
+                    quantity = value;
                     OnPropertyChanged();
                 }
             }
         }
-        public String Description
-        {
-            get { return description; }
-            set
-            {
-                if (description != value)
-                {
-                    description = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+
     }
 }

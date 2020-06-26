@@ -13,13 +13,13 @@ namespace HealthClinic.View.Converter
 
         public static ViewWorkingTimeForDoctor ConvertWorkingTimeForDoctorToWorkingTimeForDoctorView(WorkingTimeForDoctor workingTimeForDoctor)
         {
-            return null;
-            /*return new ViewWorkingTimeForDoctor 
+            return new ViewWorkingTimeForDoctor 
             {
                 Id = workingTimeForDoctor.GetId(),
                 Doctor = workingTimeForDoctor.Doctor.Name + " " + workingTimeForDoctor.Doctor.Surname,
-                Monday = DayOfWork(workingTimeForDoctor.Day.ToString())
-            };*/
+                Day = DayOfWork(workingTimeForDoctor.Day.ToString()),
+                WorkingTime = GetWorkingTime(workingTimeForDoctor.DoesWork, workingTimeForDoctor.FromDateTime, workingTimeForDoctor.ToDateTime) 
+            };
         }
 
         public static IList<ViewWorkingTimeForDoctor> ConvertWorkingTimeForDoctorListToWorkingTimeForDoctorViewList(IList<WorkingTimeForDoctor> workingTimes)
@@ -43,6 +43,16 @@ namespace HealthClinic.View.Converter
             else if (day.Equals("Sunday"))
                 ret = "Nedelja";
             return ret;
+        }
+
+        private static String GetWorkingTime(bool doesWork, DateTime start, DateTime end)
+        {
+            String workingTime = "";
+            if (!doesWork)
+                workingTime = "Ne radi";
+            else
+                workingTime = start.ToString("HH:mm") + " - " + end.ToString("HH:mm");
+            return workingTime;
         }
     }
 }

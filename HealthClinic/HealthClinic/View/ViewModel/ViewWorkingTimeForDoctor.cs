@@ -18,13 +18,8 @@ namespace HealthClinic.View.ViewModel
 
         private int id;
         private String doctor;
-        private String monday;
-        private String tuesday;
-        private String wednesday;
-        private String thursday;
-        private String friday;
-        private String saturday;
-        private String sunday;
+        private String day;
+        private String workingTime;
 
         public int Id
         {
@@ -50,86 +45,26 @@ namespace HealthClinic.View.ViewModel
                 }
             }
         }
-        public String Monday
+        public String Day
         {
-            get { return monday; }
+            get { return day; }
             set
             {
-                if (monday != value)
+                if (day != value)
                 {
-                    monday = value;
+                    day = value;
                     OnPropertyChanged();
                 }
             }
-        }
-        public String Tuesday
+        }        
+        public String WorkingTime
         {
-            get { return tuesday; }
+            get { return workingTime; }
             set
             {
-                if (tuesday != value)
+                if (workingTime != value)
                 {
-                    tuesday = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-        public String Wednesday
-        {
-            get { return wednesday; }
-            set
-            {
-                if (wednesday != value)
-                {
-                    wednesday = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-        public String Thursday
-        {
-            get { return thursday; }
-            set
-            {
-                if (thursday != value)
-                {
-                    thursday = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-        public String Friday
-        {
-            get { return friday; }
-            set
-            {
-                if (friday != value)
-                {
-                    friday = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-        public String Saturday
-        {
-            get { return saturday; }
-            set
-            {
-                if (saturday != value)
-                {
-                    saturday = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-        public String Sunday
-        {
-            get { return sunday; }
-            set
-            {
-                if (sunday != value)
-                {
-                    sunday = value;
+                    workingTime = value;
                     OnPropertyChanged();
                 }
             }

@@ -1,4 +1,5 @@
 ﻿using HealthClinic.View.ViewModel;
+using Model.Manager;
 using Model.Term;
 using System;
 using System.Collections.Generic;
@@ -21,15 +22,23 @@ namespace HealthClinic.View.Converter
             };
         }
 
-        public static IList<ViewRoom> ConvertRoomListToRoomtViewList(IList<Room> equipments)
-            => ConvertEntityListToViewList(equipments, ConvertRoomToRoomView);
+        public static IList<ViewRoom> ConvertRoomListToRoomtViewList(IList<Room> rooms)
+            => ConvertEntityListToViewList(rooms, ConvertRoomToRoomView);
 
-        private static String EquipmentToString(List<Model.Manager.Equipment> equipmentInRoom)
+        private static String EquipmentToString(List<InventaryRoom> equipmentInRoom)
         {
             String ret = "";
-            foreach (Model.Manager.Equipment equipment in equipmentInRoom)
-                ret += equipment.Name + " - " + equipment.Amount.ToString() + ", ";      
-            return ret.Substring(0, ret.Length - 2);
+            if (equipmentInRoom.Count != 0)
+            {
+                foreach (InventaryRoom equipment in equipmentInRoom)
+                    ret += equipment.Name + " - " + equipment.Quantity.ToString() + ", ";
+                return ret.Substring(0, ret.Length - 2);
+            } else
+            {
+                ret = "Nema opreme";
+                return ret;
+            }
+            
         }
     }
 }

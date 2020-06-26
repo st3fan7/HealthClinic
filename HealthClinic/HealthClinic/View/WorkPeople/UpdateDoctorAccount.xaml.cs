@@ -73,7 +73,7 @@ namespace HealthClinic.View.WorkPeople
             doctorAccount.UserName = InputUsername.Text;
             doctorAccount.Password = InputPassword.Text;
 
-            userController.UpdateEntity(doctorAccount); // Izmeni i View Prikaz
+            userController.UpdateEntity(doctorAccount); // Dodaj da se izmeni i View
             /*foreach(ViewDoctor doctor in DoctorAccounts.DoctorsView)
             {
                 if (doctor.Id == doctorAccount.Id)

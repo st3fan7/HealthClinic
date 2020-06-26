@@ -32,18 +32,18 @@
                 <ColumnDefinition />
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name="DataGridEquipmentInRoom" Grid.Column="0" ItemsSource="{Binding }" AutoGenerateColumns="False" 
+            <DataGrid x:Name="DataGridEquipmentInRoom" Grid.Column="0" ItemsSource="{Binding InRoomView}" AutoGenerateColumns="False" 
                   SelectionMode="Single" IsReadOnly="True" BorderThickness="1" Margin="10,0,5,0">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Naziv opreme" Binding="{Binding }"/>
-                    <DataGridTextColumn Header="Količina" Binding="{Binding }"/>
+                    <DataGridTextColumn Header="Naziv opreme" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Količina" Binding="{Binding Quantity}"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid x:Name="DataGridEquipmentFromRoom" Grid.Column="1" ItemsSource="{Binding }" AutoGenerateColumns="False" 
+            <DataGrid x:Name="DataGridEquipmentFromRoom" Grid.Column="1" ItemsSource="{Binding FromRoomView}" AutoGenerateColumns="False" 
                   SelectionMode="Single" IsReadOnly="True" BorderThickness="1" Margin="5,0,10,0" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Naziv opreme" Binding="{Binding }"/>
-                    <DataGridTextColumn Header="Količina" Binding="{Binding }"/>
+                    <DataGridTextColumn Header="Naziv opreme" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Količina" Binding="{Binding Quantity}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
@@ -56,14 +56,14 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" FontSize="16" VerticalAlignment="Center" Margin="10,1,0,0">Izaberite salu u koju želite da dodate opremu:</TextBlock>
-            <ComboBox Grid.Column="1" Margin="0,2" x:Name="ComboBoxEquipmentInRoom" SelectionChanged="EquipmentInRoom_SelectionChanged">
-                <ComboBoxItem x:Name="firstItem">101a</ComboBoxItem>
-                <ComboBoxItem>102a</ComboBoxItem>
-                <ComboBoxItem>103a</ComboBoxItem>
-                <ComboBoxItem>103b</ComboBoxItem>
-                <ComboBoxItem>201a</ComboBoxItem>
-                <ComboBoxItem>202a</ComboBoxItem>
-                <ComboBoxItem>301a</ComboBoxItem>
+            <ComboBox x:Name="ComboBoxInRoom" ItemsSource="{Binding Path=RoomsView}" Grid.Column="1" Margin="0,3,6,3" SelectedIndex="0" SelectionChanged="EquipmentInRoom_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=RoomID}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
             </ComboBox>
         </Grid>
 
@@ -75,14 +75,14 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" FontSize="16" VerticalAlignment="Center" Margin="10,1,0,0">Izaberite salu iz koje želite da premestite opremu:</TextBlock>
-            <ComboBox Grid.Column="1" Margin="0,2" x:Name="ComboBoxEquipmentFromRoom" SelectionChanged="EquipmentFromRoom_SelectionChanged">
-                <ComboBoxItem IsSelected="True" Content="101a"/>
-                <ComboBoxItem>102a</ComboBoxItem>
-                <ComboBoxItem>103a</ComboBoxItem>
-                <ComboBoxItem>103b</ComboBoxItem>
-                <ComboBoxItem>201a</ComboBoxItem>
-                <ComboBoxItem>202a</ComboBoxItem>
-                <ComboBoxItem>301a</ComboBoxItem>
+            <ComboBox x:Name="ComboBoxfromRoom" ItemsSource="{Binding Path=RoomsView}" Grid.Column="1" Margin="0,3,6,3" SelectedIndex="0" SelectionChanged="EquipmentFromRoom_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=RoomID}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
             </ComboBox>
         </Grid>
 

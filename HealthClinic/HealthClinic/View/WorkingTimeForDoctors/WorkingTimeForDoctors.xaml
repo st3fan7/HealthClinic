@@ -43,17 +43,13 @@
             </Grid>
         </Grid>
 
-        <DataGrid x:Name="DataGridWorkingTimeForDoctors" Grid.Row="1" ItemsSource="{Binding }" AutoGenerateColumns="False" 
+        <DataGrid x:Name="DataGridWorkingTimeForDoctors" Grid.Row="1" ItemsSource="{Binding WorkingTimeForDoctorView}" AutoGenerateColumns="False" 
                   SelectionMode="Single" IsReadOnly="True" Margin="10,0,10,1" BorderThickness="1" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Lekar" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Ponedeljak" Binding="{Binding }" />
-                <DataGridTextColumn Header="Utorak" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Sreda" Binding="{Binding }" />
-                <DataGridTextColumn Header="Četvrtak" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Petak" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Subota" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Nedelja" Binding="{Binding }"/>
+                <DataGridTextColumn Header="Lekar" Binding="{Binding Doctor}"/>
+                <DataGridTextColumn Header="Radni dan" Binding="{Binding Day}" />
+                <DataGridTextColumn Header="Radno vreme" Binding="{Binding WorkingTime}"/>
+
             </DataGrid.Columns>
         </DataGrid>
 

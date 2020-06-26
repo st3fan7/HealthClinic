@@ -188,6 +188,7 @@
     <Compile Include="View\Converter\AbstractConverter.cs" />
     <Compile Include="View\Converter\DoctorConverter.cs" />
     <Compile Include="View\Converter\EquipmentConverter.cs" />
+    <Compile Include="View\Converter\InventaryRoomConverter.cs" />
     <Compile Include="View\Converter\MedicamentConverter.cs" />
     <Compile Include="View\Converter\MedicamentOnValidationConverter.cs" />
     <Compile Include="View\Converter\RenovationConverter.cs" />
@@ -252,6 +253,7 @@
     </Compile>
     <Compile Include="View\ViewModel\ViewDoctor.cs" />
     <Compile Include="View\ViewModel\ViewEquipment.cs" />
+    <Compile Include="View\ViewModel\ViewInventaryRoom.cs" />
     <Compile Include="View\ViewModel\ViewMedicament.cs" />
     <Compile Include="View\ViewModel\ViewMedicamentOnValidation.cs" />
     <Compile Include="View\ViewModel\ViewRenovation.cs" />

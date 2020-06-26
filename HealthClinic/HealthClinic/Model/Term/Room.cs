@@ -4,7 +4,7 @@
  * Purpose: Definition of the Class Term.Soba
  ***********************************************************************/
 
-using HealthClinic.Model.Manager;
+using Model.Manager;
 using HealthClinic.Repository;
 using Model.Manager;
 using System;
