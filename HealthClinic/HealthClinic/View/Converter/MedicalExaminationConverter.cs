@@ -16,8 +16,8 @@ namespace HealthClinic.View.Converter
             // treba i vreme
             return new ViewTerm
             {
-                Date = dateTimeParts[0],
-                Time = medicalExamination.FromDateTime + " - " + medicalExamination.ToDateTime,
+                Date = medicalExamination.FromDateTime.ToString("dd.MM.yyyy. HH:mm"),
+                Time = medicalExamination.FromDateTime.ToString("dd.MM.yyyy. HH:mm") + " - " + medicalExamination.ToDateTime.ToString("dd.MM.yyyy. HH:mm"),
                 Room = medicalExamination.Room.RoomID,
                 Doctor = medicalExamination.Doctor.Name + " " + medicalExamination.Doctor.Surname,
                 Patient = medicalExamination.Patient.Name + " " + medicalExamination.Patient.Surname,
