@@ -12,6 +12,7 @@ namespace Repository.Csv.Converter
     public class RenovationCSVConverter : ICSVConverter<Renovation>
     {
         private readonly string delimiter;
+        private const string DATETIME_FORMAT = "dd.MM.yyyy.";
 
         public RenovationCSVConverter(string delimiter)
         {
@@ -20,7 +21,7 @@ namespace Repository.Csv.Converter
 
         public string ConvertEntityToCSVFormat(Renovation entity)
         {
-            return string.Join(delimiter, entity.GetId(), entity.DescriptionOfRenovation, entity.Room.GetId(), entity.FromDateTime, entity.ToDateTime);
+            return string.Join(delimiter, entity.GetId(), entity.DescriptionOfRenovation, entity.Room.GetId(), entity.FromDateTime.ToString(DATETIME_FORMAT), entity.ToDateTime.ToString(DATETIME_FORMAT));
         }
 
         public Renovation ConvertCSVFormatToEntity(string entityCSVFormat)
