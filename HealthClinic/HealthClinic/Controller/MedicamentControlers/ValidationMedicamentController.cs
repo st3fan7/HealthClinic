@@ -20,6 +20,11 @@ namespace Controller.MedicamentControlers
             this.validationMedicamentService = validationMedicamentService;
         }
 
+        public ValidationOfMedicament GetMedicamentOnValidationByCodeOfMedicament(int medicamentID)
+        {
+            return validationMedicamentService.GetMedicamentOnValidationByCodeOfMedicament(medicamentID);
+        }
+
         public ValidationOfMedicament AddEntity(ValidationOfMedicament entity)
         {
             return validationMedicamentService.AddEntity(entity);

@@ -21,14 +21,19 @@ namespace Controller.UsersControlers
             this.workingTimeForDoctorService = workingTimeForDoctorService;
         }
 
-        public WorkingTimeForDoctor DetermineDoctorWorkTime(WorkingTimeForDoctor workingTimeForDoctor)
+        public WorkingTimeForDoctor GetWorkTimeForDoctorByDoctorAndDay(Doctor doctor, DayOfWeek day)
         {
-            return workingTimeForDoctorService.DetermineDoctorWorkTime(workingTimeForDoctor);
+            return workingTimeForDoctorService.GetWorkTimeForDoctorByDoctorAndDay(doctor, day);
         }
 
         public List<WorkingTimeForDoctor> GetWorkTimeForDoctor(Doctor doctor)
         {
             return workingTimeForDoctorService.GetWorkTimeForDoctor(doctor);
+        }
+
+        public WorkingTimeForDoctor GetWorkTimeForDoctorByDay(DayOfWeek day)
+        {
+            return workingTimeForDoctorService.GetWorkTimeForDoctorByDay(day);
         }
 
         public WorkingTimeForDoctor GetEntity(int id)

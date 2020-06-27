@@ -21,35 +21,42 @@ namespace Controller.RoomsControlers
             this.roomService = roomService;
         }
 
-        public bool DetermineTypeOfRoom(TypeOfRoom typeOfRoom)
+        public bool RoomWithRoomIDExist(String roomID)
         {
-            // return roomService.DetermineTypeOfRoom(typeOfRoom)
-            throw new NotImplementedException();
+            return roomService.RoomWithRoomIDExist(roomID);
         }
 
-        public bool AddEquipment(Equipment equipment)
+        public void DetermineTypeOfRoom(TypeOfRoom typeOfRoom, String roomID)
         {
-            //return roomService.add
-            throw new NotImplementedException();
+            roomService.DetermineTypeOfRoom(typeOfRoom, roomID);
         }
 
-        public Model.Manager.Equipment TakeEquipment(Equipment equipment)
+        public void AddEquipmentInRoom(InventaryRoom equipment, String roomID)
         {
-            //return roomService.take
-            throw new NotImplementedException();
+            roomService.AddEquipmentInRoom(equipment, roomID);
         }
 
-        public Room GetEntity(int id)
+        private List<InventaryRoom> GetEquipmentForRoom(Room room)
         {
-            return roomService.GetEntity(id);
+            return roomService.GetEquipmentForRoom(room);
         }
 
         public List<Room> GetAllRoomForMedicalExamination()
         {
             return roomService.GetAllRoomForMedicalExamination();
         }
+        public Room GetRoomByRoomID(String roomID)
+        {
+            return roomService.GetRoomByRoomID(roomID);
+        }
 
-        public System.Collections.Generic.IEnumerable<Room> GetAllEntities()
+
+        public Room GetEntity(int id)
+        {
+            return roomService.GetEntity(id);
+        }
+
+        public IEnumerable<Room> GetAllEntities()
         {
             return roomService.GetAllEntities();
         }
@@ -67,6 +74,11 @@ namespace Controller.RoomsControlers
         public void DeleteEntity(Room entity)
         {
             roomService.DeleteEntity(entity);
+        }
+
+        public Room GetFirstRoom(List<Room> rooms)
+        {
+            return roomService.GetFirstRoom(rooms);
         }
 
     }
