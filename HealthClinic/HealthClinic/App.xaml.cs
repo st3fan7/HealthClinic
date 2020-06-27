@@ -5,29 +5,29 @@ using Controller.MedicalRecordControlers;
 using Controller.MedicamentControlers;
 using Controller.RoomsControlers;
 using Controller.UsersControlers;
+using Model.Manager;
+using Repository.CSV.Converter;
+using Repository.RoomsRepository;
+using Service.RoomsServices;
 using Model.AllActors;
 using Model.BlogAndNotification;
 using Model.Doctor;
 using Model.DoctorMenager;
-using Model.Manager;
 using Model.Patient;
 using Model.PatientDoctor;
 using Model.Term;
 using Repository.BlogNotificationRepository;
 using Repository.Csv.Converter;
 using Repository.Csv.Stream;
-using Repository.CSV.Converter;
 using Repository.ExaminationSurgeryRepository;
 using Repository.IDSequencer;
 using Repository.MedicalRecordRepository;
 using Repository.MedicamentRepository;
-using Repository.RoomsRepository;
 using Repository.UsersRepository;
 using Service.BlogNotificationServices;
 using Service.ExaminationSurgeryServices;
 using Service.MedicalRecordService;
 using Service.MedicamentService;
-using Service.RoomsServices;
 using Service.UsersServices;
 using System;
 using System.Collections.Generic;
@@ -63,6 +63,7 @@ namespace HealthClinic
         private const string SPECIALITATION_FILE = "../../Resources/Data/specialitation.csv";
         private const string USER_FILE = "../../Resources/Data/users.csv";
         private const string WORKINGTIMEFORDOCTOR_FILE = "../../Resources/Data/workingtimefordoctor.csv";
+        private const string INVENTARY_FILE = "../../Resources/Data/inventaryRoom.csv";
 
         private const string CSV_DELIMITER = ",";
 
@@ -128,6 +129,9 @@ namespace HealthClinic
             var specialitationRepository = new SpecialitationRepository(
                new CSVStream<Specialitation>(SPECIALITATION_FILE, new SpecialitationCSVConverter(CSV_DELIMITER)),
                new IntSequencer());
+            var inventaryRoomRepository = new InventaryRoomRepository(
+                new CSVStream<InventaryRoom>(INVENTARY_FILE, new InventaryRoomCSVConverter(CSV_DELIMITER)),
+                new IntSequencer());
 
 
             var articleService = new ArticleService(articleRepository);
@@ -149,6 +153,7 @@ namespace HealthClinic
             var userService = new UserService(userRepository);
             var workingTimeForDoctorService = new WorkingTimeForDoctorService(workingTimeForDoctorRepository);
             var spetialitationService = new SpetialitationService(specialitationRepository);
+            var inventaryRoomService = new InventaryRoomService(inventaryRoomRepository);
 
             ArticleController = new ArticleController(articleService);
             NotificationController = new NotificationController(notificationService);
@@ -169,7 +174,8 @@ namespace HealthClinic
             UserController = new UserController(userService);
             WorkingTimeForDoctorController = new WorkingTimeForDoctorController(workingTimeForDoctorService);
             SpetialitationController = new SpetialitationController(spetialitationService);
-           
+            InventaryRoomController = new InventaryRoomController(inventaryRoomService);
+
         }
 
         public ArticleController ArticleController { get; private set; }
@@ -191,6 +197,7 @@ namespace HealthClinic
         public UserController UserController { get; private set; }
         public WorkingTimeForDoctorController WorkingTimeForDoctorController { get; private set; }
         public SpetialitationController SpetialitationController { get; private set; }
+        public InventaryRoomController InventaryRoomController { get; private set; }
 
     }
 }

@@ -56,6 +56,16 @@ namespace Controller.UsersControlers
             return userService.GetDoctorBySpecialitation(specialitation);
         }
 
+        public User GetUserByUsername(String username)
+        {
+            return userService.GetUserByUsername(username);
+        }
+
+        public User GetUserByJMBG(String jmbg)
+        {
+            return userService.GetUserByJMBG(jmbg);
+        }
+
         public List<Doctor> GetAllDoctors()
         {
             return userService.GetAllDoctors();
