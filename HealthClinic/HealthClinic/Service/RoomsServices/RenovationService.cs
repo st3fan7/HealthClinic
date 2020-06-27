@@ -4,6 +4,7 @@
  * Purpose: Definition of the Class Service.RenovationService
  ***********************************************************************/
 
+using Model.Manager;
 using Model.Term;
 using Repository.RoomsRepository;
 using System;
@@ -14,36 +15,58 @@ namespace Service.RoomsServices
     public class RenovationService : IService<Renovation, int>
     {
         public IRenovationRepository renovationRepository;
-        //public RoomService roomService;
+        public RoomService roomService;
 
-        public RenovationService(IRenovationRepository renovationRepository)
+        public RenovationService(IRenovationRepository renovationRepository, RoomService roomService)
         {
             this.renovationRepository = renovationRepository;
+            this.roomService = roomService;
         }
 
         public Renovation SeparateOnTwoParts(Renovation renovation)
         {
-            throw new NotImplementedException();
+            foreach(Room room in roomService.GetAllEntities())
+                if (room.RoomID.Equals(renovation.Room.RoomID))
+                {
+                    Room secondPartOfRoom = renovation.Room;
+                    secondPartOfRoom.RoomID.Replace("a", "b");
+                    secondPartOfRoom.Equipment.Clear();
+                    roomService.AddEntity(secondPartOfRoom);
+                    return renovationRepository.AddEntity(new Renovation(renovation.DescriptionOfRenovation, secondPartOfRoom,
+                        renovation.FromDateTime, renovation.ToDateTime));                   
+                }
+            return null;
         }
 
         public Renovation ConnectTwoParts(Renovation renovation)
         {
-            throw new NotImplementedException();
+            foreach (Room room in roomService.GetAllEntities())
+                if (room.RoomID.Equals(renovation.Room.RoomID))
+                {
+                    Room connectedRoom = roomService.GetRoomByRoomID(renovation.Room.RoomID);
+                    Room secondPartOfRoom = roomService.GetRoomByRoomID(renovation.Room.RoomID.Replace("a","b"));
+                    foreach(InventaryRoom equipment in roomService.GetEquipmentForRoom(secondPartOfRoom))
+                        roomService.AddEquipmentInRoom(equipment, connectedRoom.RoomID);
+                    roomService.DeleteEntity(secondPartOfRoom);
+                    renovation.Room = connectedRoom;
+                    return renovation;
+                }
+            return null;
         }
 
-        public bool IsRoomFreeForRenovation(Room room, Term term)
+        public bool IsRoomFreeForRenovation(Room room, DateTime term)
         {
-            throw new NotImplementedException();
+            if (room.ToDateTime > term)
+                return false;
+            return true;
         }
 
         public Room FindSecondPart(Room room)
         {
-            throw new NotImplementedException();
-        }
-
-        public Room RelocateHalfEquipment(Room fromRoom, Room toRoom)
-        {
-            throw new NotImplementedException();
+            foreach(Room oneRoom in roomService.GetAllEntities())
+                if (room.RoomID.Replace("a", "b").Equals(oneRoom.RoomID))
+                    return room;
+            return null;
         }
 
         public Renovation GetEntity(int id)

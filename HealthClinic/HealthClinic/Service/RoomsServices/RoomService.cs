@@ -21,24 +21,54 @@ namespace Service.RoomsServices
             this.roomRepository = roomRepository;
         }
 
-        public Term GetLastTermForRoom(Room room)
+        public List<Room> GetAllRoomForMedicalExamination()
         {
-            throw new NotImplementedException();
+            List<Room> medicalExaminationRooms = new List<Room>();
+            foreach (Room room in roomRepository.GetAllEntities())
+                if (room.TypeOfRoom.NameOfType.Equals("Soba za preglede"))
+                    medicalExaminationRooms.Add(room);
+            return medicalExaminationRooms;
+        }
+
+        public bool RoomWithRoomIDExist(String roomID)
+        {
+            foreach (Room room in roomRepository.GetAllEntities())
+                if (room.RoomID.Equals(roomID))
+                    return true;
+            return false;
         }
 
         public void DetermineTypeOfRoom(TypeOfRoom typeOfRoom, String roomID)
         {
-            throw new NotImplementedException();
+            foreach (Room room in roomRepository.GetAllEntities())
+                if (room.RoomID.Equals(roomID))
+                {
+                    room.TypeOfRoom = typeOfRoom;
+                    break;
+                }                   
         }
 
-        public bool AddEquipmentInRoom(Equipment equipment, String roomID)
+        public void AddEquipmentInRoom(InventaryRoom equipment, String roomID)
         {
-            throw new NotImplementedException();
+            foreach (Room room in roomRepository.GetAllEntities())
+                if (room.RoomID == roomID)
+                    room.Equipment.Add(equipment);        
         }
 
-        public List<Equipment> GetEquipmentFromRoom(String roomID)
+        public List<InventaryRoom> GetEquipmentForRoom(Room room) 
         {
-            throw new NotImplementedException();
+            foreach (Room oneRoom in roomRepository.GetAllEntities())
+                if (oneRoom.RoomID == room.RoomID)
+                    return oneRoom.Equipment;
+            return null;
+        }
+
+        public Room GetRoomByRoomID(String roomID)
+        {
+            foreach (Room oneRoom in roomRepository.GetAllEntities())
+                if (oneRoom.RoomID == roomID)
+                    return oneRoom;
+            return null;
         }
 
         public List<Room> GetAllFreeRoomsByDateTime(DateTime dateTime)
@@ -46,9 +76,14 @@ namespace Service.RoomsServices
             throw new NotImplementedException();
         }
 
-        public Boolean GetOccupancyStatus(Model.Term.Room room, DateTime time)
+        public Boolean GetOccupancyStatus(Room room, DateTime time)
         {
             throw new NotImplementedException();
+        }
+
+        public DateTime GetLastTermForRoom(Room room)
+        {
+            return room.ToDateTime;
         }
 
         public Room GetEntity(int id)
@@ -60,16 +95,7 @@ namespace Service.RoomsServices
         {
             return roomRepository.GetAllEntities();
         }
-
-        public List<Room> GetAllRoomForMedicalExamination()
-        {
-            List<Room> medicalExaminationRooms = new List<Room>();
-            foreach (Room room in GetAllEntities())
-                if (room.TypeOfRoom.NameOfType.Equals("Soba za preglede"))
-                    medicalExaminationRooms.Add(room);
-            return medicalExaminationRooms;
-        }
-
+       
         public Room AddEntity(Room entity)
         {
             return roomRepository.AddEntity(entity);
@@ -85,5 +111,11 @@ namespace Service.RoomsServices
             roomRepository.UpdateEntity(entity);
         }
 
+        public Room GetFirstRoom(List<Room> rooms) 
+        {
+            foreach (Room room in rooms)
+                return room;
+            return null;
+        }
     }
 }

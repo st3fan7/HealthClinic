@@ -148,8 +148,8 @@ namespace HealthClinic
             var medicamentService = new MedicamentService(medicamentRepository);
             var validationOfMedicamentService = new ValidationMedicamentService(validationOfMedicamentRepository);
             var equipmentService = new EquipmentService(equipmentRepository);
-            var renovationService = new RenovationService(renovationRepository);
             var roomService = new RoomService(roomRepository);
+            var renovationService = new RenovationService(renovationRepository, roomService);
             var userService = new UserService(userRepository);
             var workingTimeForDoctorService = new WorkingTimeForDoctorService(workingTimeForDoctorRepository);
             var spetialitationService = new SpetialitationService(specialitationRepository);

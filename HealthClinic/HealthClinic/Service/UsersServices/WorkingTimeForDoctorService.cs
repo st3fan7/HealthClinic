@@ -21,14 +21,29 @@ namespace Service.UsersServices
             this.workingTimeForDoctorRepository = workingTimeForDoctorRepository;
         }
 
-        public WorkingTimeForDoctor DetermineDoctorWorkTime(WorkingTimeForDoctor workingTimeForDoctor)
+        public WorkingTimeForDoctor GetWorkTimeForDoctorByDoctorAndDay(Doctor doctor, DayOfWeek day)
         {
-            throw new NotImplementedException();
+            foreach (WorkingTimeForDoctor workingTime in workingTimeForDoctorRepository.GetAllEntities())
+                if (workingTime.Doctor.Id == doctor.Id && workingTime.Day.ToString().Equals(day.ToString()))
+                    return workingTime;
+            return null;
         }
 
-        public List<WorkingTimeForDoctor> GetWorkTimeForDoctor(Doctor doctor)
+        public List<WorkingTimeForDoctor> GetWorkTimeForDoctor(Doctor doctor) 
         {
-            throw new NotImplementedException();
+            List<WorkingTimeForDoctor> workingTimeForDoctor = new List<WorkingTimeForDoctor>();
+            foreach (WorkingTimeForDoctor workingTime in workingTimeForDoctorRepository.GetAllEntities())
+                if (workingTime.Doctor.GetId() == doctor.GetId())
+                    workingTimeForDoctor.Add(workingTime);
+            return workingTimeForDoctor;
+        }
+
+        public WorkingTimeForDoctor GetWorkTimeForDoctorByDay(DayOfWeek day)
+        {
+            foreach (WorkingTimeForDoctor workingTime in workingTimeForDoctorRepository.GetAllEntities())
+                if (workingTime.Day.Equals(day))
+                    return workingTime;
+            return null;
         }
 
         public WorkingTimeForDoctor GetEntity(int id)
