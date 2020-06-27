@@ -537,6 +537,9 @@
   <data name="successfullyCanceling" xml:space="preserve">
     <value>Uspešno ste otkazali termin!</value>
   </data>
+  <data name="successfullyRelocation" xml:space="preserve">
+    <value>Uspešno ste premestili termin!</value>
+  </data>
   <data name="successfullySchedule" xml:space="preserve">
     <value>Uspešno ste zakazali pregled!</value>
   </data>

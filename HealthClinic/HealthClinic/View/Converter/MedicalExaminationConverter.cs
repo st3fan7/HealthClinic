@@ -24,7 +24,8 @@ namespace HealthClinic.View.Converter
                 Patient = medicalExamination.Patient.Name + " " + medicalExamination.Patient.Surname,
                 Status = "Zauzet",
                 Task = "Pregled",
-                MakeInDoctor = false
+                MakeInDoctor = false,
+                PatientJMBG = medicalExamination.Patient.Jmbg
             };
 
         }

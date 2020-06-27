@@ -236,17 +236,16 @@
                     Background="#FF8CA8BF" 
                     OpacityMask="#FFC5D4E3"
                       Height="42" 
-                          SelectionChanged="cmbx1_SelectionChanged">
-                   <!-- <ComboBoxItem IsSelected="True" 
-                              HorizontalContentAlignment="Center"
-                              x:Name="item11">
-                        O1
-                    </ComboBoxItem>
-                    <ComboBoxItem HorizontalContentAlignment="Center"
-                              x:Name="item12">
-                        O2
-                    </ComboBoxItem>
-                    -->
+                          ItemsSource="{Binding Path= RoomsComboBox}" 
+                          SelectionChanged="cmbx1_SelectionChanged"                      
+                      SelectedIndex="0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path= RoomID}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
                 </ComboBox>
 
                 <Label x:Name="label2"
@@ -273,7 +272,17 @@
                     Background="#FF8CA8BF" 
                     OpacityMask="#FFC5D4E3"
                       Height="42" 
-                          SelectionChanged="cmbx2_SelectionChanged">
+                          ItemsSource="{Binding Path=DoctorsForMedicalExamination}"
+                          SelectionChanged="cmbx2_SelectionChanged" SelectedIndex="0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path= Name}"/>
+                                <TextBlock Text=" "/>
+                                <TextBlock Text="{Binding Path= Surname}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>                
                 </ComboBox>
 
             </StackPanel >

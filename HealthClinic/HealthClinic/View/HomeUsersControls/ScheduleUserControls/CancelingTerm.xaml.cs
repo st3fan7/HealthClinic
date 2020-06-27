@@ -5,6 +5,7 @@ using HealthClinic.View.ViewModel;
 using Model.Term;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,6 +94,7 @@ namespace HealthClinic.View
 
                 ViewTerm termSearch = new ViewTerm();
 
+
                 foreach(ViewTerm viewTerm in Loading.currentMedicalExaminationTerms)
                 {
                     if(viewTerm.Id == termForCanceling.Id)
@@ -103,6 +105,20 @@ namespace HealthClinic.View
                 }
 
                 Loading.currentMedicalExaminationTerms.Remove(termSearch);
+
+                ObservableCollection<ViewTerm> viewTermsFree = new ObservableCollection<ViewTerm>();
+                foreach (ViewTerm viewTerm in Loading.currentMedicalExaminationTerms)
+                {
+                    if (viewTerm.Status.Equals("Slobodan"))
+                    {
+                        viewTermsFree.Add(viewTerm);
+                    }
+                }
+
+                foreach (ViewTerm viewTerm in viewTermsFree)
+                {
+                    Loading.currentMedicalExaminationTerms.Remove(viewTerm);
+                }
             }
 
 

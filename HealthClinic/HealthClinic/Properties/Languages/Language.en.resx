@@ -537,6 +537,9 @@
   <data name="successfullyCanceling" xml:space="preserve">
     <value>You have successfully cancel an examination!</value>
   </data>
+  <data name="successfullyRelocation" xml:space="preserve">
+    <value>You have successfully relocated an examination!</value>
+  </data>
   <data name="successfullySchedule" xml:space="preserve">
     <value>You have successfully scheduled an examination!</value>
   </data>

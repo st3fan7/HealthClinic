@@ -1321,6 +1321,15 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Uspešno ste premestili termin!.
+        /// </summary>
+        public static string successfullyRelocation {
+            get {
+                return ResourceManager.GetString("successfullyRelocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uspešno ste zakazali pregled!.
         /// </summary>
         public static string successfullySchedule {

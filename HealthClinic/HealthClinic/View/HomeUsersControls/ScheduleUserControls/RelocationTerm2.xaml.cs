@@ -1,6 +1,9 @@
 ﻿using HealthClinic.View.Dialogues;
+using HealthClinic.View.ViewModel;
+using Model.Term;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -23,24 +26,27 @@ namespace HealthClinic.View
     public partial class RelocationTerm2 : UserControl
     {
         //Termin termForRelocation = new Termin();
-        //Termin stari = new Termin();
+        ViewTerm odlTerm = new ViewTerm();
+        ViewTerm termForRelocation = new ViewTerm();
         private static int counter = 0;
-        private static List<String> roomsFromCmbx = new List<String>();
-        public RelocationTerm2(string selectedDate, List<String> rooms)
+        private static ObservableCollection<Room> roomsFromCmbx = new ObservableCollection<Room>();
+
+        private ObservableCollection<ViewTerm> currentTerms = new ObservableCollection<ViewTerm>();
+        public RelocationTerm2(string selectedDate, ViewTerm term, ViewTerm oldTerm, ObservableCollection<Room> rooms)
         {
             InitializeComponent();
             dateLabel.Content = selectedDate;
-            //timeLabel.Content = stariTermin.Vreme;
-            //roomLabel.Content = stariTermin.Sala;
-            //doctorLabel.Content = stariTermin.Lekar;
-            //patientLabel.Content = stariTermin.Pacijent;
-            //termForRelocation = term; // popunio sam mu datum, status i zadatak
-            //stari = stariTermin;
+            timeLabel.Content = oldTerm.Time;
+            roomLabel.Content = oldTerm.Room;
+            doctorLabel.Content = oldTerm.Doctor;
+            patientLabel.Content = oldTerm.Patient;
+            termForRelocation = term; // popunio sam mu datum, status i zadatak
+            this.odlTerm = oldTerm;
             textWarning.Visibility = textWarningHidden;
             counter = 0;
             roomsFromCmbx = rooms;
             textWarning.Visibility = textWarningHidden;
-            //Console.WriteLine("Termin pre izmene: Datum: " + termForRelocation.Datum + " Vreme: " + termForRelocation.Vreme + " Sala: " + termForRelocation.Sala + " Lekar: " + termForRelocation.Lekar + " Pacijent: " + termForRelocation.Pacijent + " Status: " + termForRelocation.Status + " Zadatak: " + termForRelocation.Zadatak);
+            
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -86,67 +92,18 @@ namespace HealthClinic.View
 
         private void nextBtn_Click(object sender, RoutedEventArgs e)
         {
+            String[] cmbxParts = cmbx.SelectedItem.ToString().Split(' ');
+            String[] timeParts = cmbxParts[1].Split('-');
 
-            //Console.WriteLine("Termin pre izmene: Datum: " + termForRelocation.Datum + " Vreme: " + termForRelocation.Vreme + " Sala: " + termForRelocation.Sala + " Lekar: " + termForRelocation.Lekar + " Pacijent: " + termForRelocation.Pacijent + " Status: " + termForRelocation.Status + " Zadatak: " + termForRelocation.Zadatak);
-            //termForRelocation.Vreme = cmbx.Text;
-                                                
-            //List<String> sale = new List<String>();
-            //if(termForRelocation.Zadatak == "Operacija")
-            //{
-            //    foreach(Sobe s in Loading.sobeZaOperaciju)
-            //    {
-            //        sale.Add(s.Soba);
-            //    }
-            //} else
-            //{
-            //    foreach (Sobe s in Loading.sobeZaPregled)
-            //    {
-            //        sale.Add(s.Soba);
-            //    }
-            //}
+            String timeStart = timeParts[0];
+            String timeEnd = timeParts[1];
 
-            //String novaSala;
-            //foreach(String s in sale)
-            //{
-            //    if (!s.Equals(termForRelocation.Sala))
-            //    {
-            //        novaSala = s;
-            //    }
-            //}
+            termForRelocation.Time = termForRelocation.Date + " " + timeStart + " - " + termForRelocation.Date + " " + timeEnd;
+            //Console.WriteLine("Vreme termina: " + termForRelocation.Time);
 
-            
-            //foreach (Termin term in Loading.termini)
-            //{
-            //    String salaTerminaZaPremestanje = termForRelocation.Sala;
+            UserControl usc = new RelocationTerm3(odlTerm, termForRelocation, roomsFromCmbx);
+            (this.Parent as Panel).Children.Add(usc);
 
-            //    if (term.Datum.Equals(termForRelocation.Datum) && term.Vreme.Equals(termForRelocation.Vreme) && term.Zadatak.Equals(termForRelocation.Zadatak))
-            //    {
-            //        if (term.Status == "Slobodan")
-            //        {
-            //            textWarning.Visibility = textWarningHidden;
-            //            Console.WriteLine("Termin pre izmene: Datum: " + termForRelocation.Datum + " Vreme: " + termForRelocation.Vreme + " Sala: " + termForRelocation.Sala + " Lekar: " + termForRelocation.Lekar + " Pacijent: " + termForRelocation.Pacijent + " Status: " + termForRelocation.Status + " Zadatak: " + termForRelocation.Zadatak);
-            //            UserControl usc = new RelocationTerm3(stari, termForRelocation, roomsFromCmbx);
-            //            (this.Parent as Panel).Children.Add(usc);
-            //            return;
-            //        }
-            //        else
-            //        {
-            //            textWarning.Visibility = textWarningVisible;
-            //            //Console.WriteLine("To vremee je zauzeto!");
-            //            //MessageBox.Show("Izabrano vreme je zauzeto!");
-            //            return;
-            //        }
-
-            //    }
-            //    else
-            //    {
-            //        textWarning.Visibility = textWarningVisible;
-            //    }
-            //}
-                
-                
-            
-   
         }
 
         private Visibility textWarningVisible

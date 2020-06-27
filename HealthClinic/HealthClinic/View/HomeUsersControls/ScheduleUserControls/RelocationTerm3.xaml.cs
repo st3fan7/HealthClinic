@@ -1,4 +1,11 @@
-﻿using HealthClinic.View.Dialogues;
+﻿using Controller;
+using Controller.ExaminationSurgeryControlers;
+using Controller.RoomsControlers;
+using Controller.UsersControlers;
+using HealthClinic.View.Dialogues;
+using HealthClinic.View.ViewModel;
+using Model.AllActors;
+using Model.Term;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,74 +31,46 @@ namespace HealthClinic.View
     /// </summary>
     public partial class RelocationTerm3 : UserControl//, INotifyPropertyChanged
     {
+        public static ObservableCollection<Room> RoomsComboBox { get; set; }
 
+        public static ObservableCollection<User> DoctorsForMedicalExamination { get; set; }
+        private readonly UserController userController;
 
-        //Termin termForRelocation = new Termin();
-        //Termin stari = new Termin();
-        private static List<String> roomsFromCmbx = new List<String>();
-        //private List<Sobe> sobe = new List<Sobe>();
-        //private List<Lekar> lekari = new List<Lekar>();
+        private readonly MedicalExaminationController medicalExaminationController;
 
-        public RelocationTerm3( List<String> rooms)
+        ViewTerm termForRelocation = new ViewTerm();
+        ViewTerm oldTerm = new ViewTerm();
+
+        private ObservableCollection<ViewTerm> currentTerms = new ObservableCollection<ViewTerm>();
+        public RelocationTerm3(ViewTerm oldTerm, ViewTerm term,  ObservableCollection<Room> rooms)
         {
             InitializeComponent();
-            //dateLabel.Content = stariTermin.Datum;
-            //timeLabel.Content = stariTermin.Vreme;
-            //roomLabel.Content = stariTermin.Sala;
-            //doctorLabel.Content = stariTermin.Lekar;
-            //patientLabel.Content = stariTermin.Pacijent;
-            //termForRelocation = term;
-            //stari = stariTermin;
-            //relocateBtn.IsEnabled = false;
-
-            //// vidi ovo za sobe da uradis kao za lekare
-            //roomsFromCmbx = rooms.Distinct().ToList();
+            dateLabel.Content = oldTerm.Date;
+            timeLabel.Content = oldTerm.Time;
+            roomLabel.Content = oldTerm.Room;
+            doctorLabel.Content = oldTerm.Doctor;
+            patientLabel.Content = oldTerm.Patient;
+            termForRelocation = term;
+            this.oldTerm = oldTerm;
+            relocateBtn.IsEnabled = false;
+            this.DataContext = this;
 
 
-            //sobe.Clear();
-            //foreach (String r in roomsFromCmbx)
-            //{
-            //    sobe.Add(new Sobe() { Soba = r });
-            //}
+            RoomsComboBox = rooms;
+
+            var app = Application.Current as App;
+            userController = app.UserController;
+            if (oldTerm.Task.Equals("Pregled"))
+            {
+                DoctorsForMedicalExamination = new ObservableCollection<User>(userController.GetAllDoctors().ToList()); // treba opste prakse
+            } else
+            {
+                // nabavi doktore specijaliste
+            }
+
+            medicalExaminationController = app.MedicalExaminationController;
 
 
-            //cmbx1.ItemsSource = sobe;
-            //cmbx1.DisplayMemberPath = "Soba";
-
-
-
-            //Console.WriteLine("Poslao sam soba: " + sobe.Count);
-
-
-            //Console.WriteLine("Poslao sam soba: " + sobe.Count);
-
-
-            //List<String> doctors = new List<String>();
-            //if(term.Zadatak == "Operacija")
-            //{
-            //    foreach (Lekar l in Loading.lekariSpecijaliste)
-            //    {
-            //        doctors.Add(l.Doktor);
-            //    }
-            //} else
-            //{
-            //    foreach (Lekar l in Loading.lekari)
-            //    {
-            //        doctors.Add(l.Doktor);
-            //    }
-            //}
-
-
-            //lekari.Clear();
-            //foreach (String d in doctors)
-            //{
-            //    Console.WriteLine("Doktor: " + d);
-            //    lekari.Add(new Lekar() { Doktor = d });
-            //}
-
-
-            //cmbx2.ItemsSource = lekari;
-            //cmbx2.DisplayMemberPath = "Doktor";
 
         }
 
@@ -139,78 +118,87 @@ namespace HealthClinic.View
 
         private void relocateBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+
+            MedicalExamination medicalExamination = new MedicalExamination();
+            if (oldTerm.Task.Equals("Pregled"))
+            {
+
+                medicalExamination.Urgency = false;
+                medicalExamination.ShortDescription = "";
 
 
-            //termForRelocation.Sala = cmbx1.Text; // ti stavi samo slobodne sale
-
-            //termForRelocation.Lekar = cmbx2.Text; // ti stavi samo slobodne lekare
-
-            
+                medicalExamination.Room = (Room)cmbx1.SelectedItem;
 
 
-            //foreach (Termin term in Loading.termini)
-            //{
-            //    if (term == RelocationTerm.termForCanceling)
-            //    {
-            //        term.Status = "Slobodan";
-            //        term.Pacijent = "";
-            //        if (term.StvaraSeKodDoktora == false)
-            //            term.Lekar = "";
-            //        else
-            //            term.Sala = "";
-                    
-            //        break;
-            //    }
-            //}
 
-           
+                String[] fromDateTimeParts = termForRelocation.Time.Split(' ');
+                medicalExamination.FromDateTime = DateTime.Parse(fromDateTimeParts[0] + " " + fromDateTimeParts[1]);
+                medicalExamination.ToDateTime = DateTime.Parse(fromDateTimeParts[3] + " " + fromDateTimeParts[4]);
+                medicalExamination.Doctor = (Doctor)cmbx2.SelectedItem;
 
-            //foreach (Termin term in Loading.termini)
-            //{
-            //    Console.WriteLine(term.Sala);
-            //    if(!term.Sala.Equals(""))
-            //    {
-                    
+                Patient patient = (Patient)userController.GetUserByJMBG(termForRelocation.PatientJMBG);
+                Console.WriteLine(patient.Jmbg);
+                medicalExamination.Patient = patient;
 
+                // provera da li je taj termin vec postoji
 
-            //        if (term.Datum.Equals(termForRelocation.Datum) && term.Vreme.Equals(termForRelocation.Vreme) && term.Sala.Equals(termForRelocation.Sala) && term.Zadatak.Equals(termForRelocation.Zadatak) && term.Status.Equals("Slobodan"))
-            //        {
+                foreach (MedicalExamination medicalE in medicalExaminationController.GetAllEntities())
+                {
+                    if (medicalE.ToDateTime.ToString() == medicalExamination.ToDateTime.ToString() && medicalE.FromDateTime.ToString() == medicalExamination.FromDateTime.ToString() && medicalE.Room.RoomID == medicalExamination.Room .RoomID &&
+                        medicalE.Doctor.GetId() == medicalExamination.Doctor.GetId() && medicalE.Patient.GetId() == medicalExamination.Patient.GetId())
+                    {
+                        MessageBox.Show("Termin sa ovim podacima je vec popunjen! Izmenite neke podatke za premestanje!");
+                        return;
+                    }
 
-                        
-            //            //Console.WriteLine("Termin pre izmene: Datum: " + term.Datum + " Vreme: " + term.Vreme + " Sala: " + term.Sala + " Lekar: " + term.Lekar + " Pacijent: " + term.Pacijent + " Status: " + term.Status + " Zadatak: " + term.Zadatak);
-            //            term.Lekar = termForRelocation.Lekar;
-            //            term.Pacijent = termForRelocation.Pacijent;
-            //            term.Status = termForRelocation.Status;
-            //            SurgeryRooms sr = new SurgeryRooms(dateLabel.Content.ToString());
-            //            // Console.WriteLine("Termin pre izmene: Datum: " + term.Datum + " Vreme: " + term.Vreme + " Sala: " + term.Sala + " Lekar: " + term.Lekar + " Pacijent: " + term.Pacijent + " Status: " + term.Status + " Zadatak: " + term.Zadatak);
-            //            (this.Parent as Panel).Children.RemoveRange(1, 6);
-            //            return;
+                }
 
+                MedicalExamination md = new MedicalExamination();
+                foreach (MedicalExamination medicalE in medicalExaminationController.GetAllEntities())
+                {
+                    if (medicalE.GetId() == oldTerm.Id)
+                    {
+                        md = medicalE;
+                        break;
+                    }
 
-            //        } 
-            //    } else
-            //    {
-            //        if (term.Datum.Equals(termForRelocation.Datum) && term.Vreme.Equals(termForRelocation.Vreme) && term.Lekar.Equals(termForRelocation.Lekar) && term.Zadatak.Equals(termForRelocation.Zadatak) && term.Status.Equals("Slobodan"))
-            //        {
+                }
 
-                        
-            //            //Console.WriteLine("Termin pre izmene: Datum: " + term.Datum + " Vreme: " + term.Vreme + " Sala: " + term.Sala + " Lekar: " + term.Lekar + " Pacijent: " + term.Pacijent + " Status: " + term.Status + " Zadatak: " + term.Zadatak);
-            //            term.Sala = termForRelocation.Sala;
-            //            term.Pacijent = termForRelocation.Pacijent;
-            //            term.Status = termForRelocation.Status;
-            //            SurgeryRooms sr = new SurgeryRooms(dateLabel.Content.ToString());
-            //            // Console.WriteLine("Termin pre izmene: Datum: " + term.Datum + " Vreme: " + term.Vreme + " Sala: " + term.Sala + " Lekar: " + term.Lekar + " Pacijent: " + term.Pacijent + " Status: " + term.Status + " Zadatak: " + term.Zadatak);
-            //            (this.Parent as Panel).Children.RemoveRange(1, 6);
-            //            return;
+                md.ToDateTime = medicalExamination.ToDateTime;
+                md.FromDateTime = medicalExamination.FromDateTime;
+                md.Doctor = medicalExamination.Doctor;
+                md.Room = medicalExamination.Room;
+                md.Patient = medicalExamination.Patient;
+
+                medicalExaminationController.UpdateEntity(md);
+            }
+            else
+            {
+                // za operaciju
+            }
 
 
-            //        }
-                   
-            //    }
-               
-            //}
-           
+            if (oldTerm.Status.Equals("Zauzet"))
+            {
+
+                ViewTerm termSearch = new ViewTerm();
+
+                foreach (ViewTerm viewTerm in Loading.currentMedicalExaminationTerms)
+                {
+                    if (viewTerm.Id == oldTerm.Id)
+                    {
+                        termSearch = viewTerm;
+                        break;
+                    }
+                }
+
+                Loading.currentMedicalExaminationTerms.Remove(termSearch);
+            }
+
+
+            GridRelocationTerm3.Children.Clear();
+            UserControl usc = new SuccessfullyRelocation();
+            GridRelocationTerm3.Children.Add(usc);
 
         }
 

@@ -210,6 +210,9 @@
     <Compile Include="View\Dialogues\SuccessfullyCanceling.xaml.cs">
       <DependentUpon>SuccessfullyCanceling.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Dialogues\SuccessfullyRelocation.xaml.cs">
+      <DependentUpon>SuccessfullyRelocation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Dialogues\SuccessfulySchedule.xaml.cs">
       <DependentUpon>SuccessfulySchedule.xaml</DependentUpon>
     </Compile>
@@ -473,6 +476,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Dialogues\SuccessfullyCanceling.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Dialogues\SuccessfullyRelocation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

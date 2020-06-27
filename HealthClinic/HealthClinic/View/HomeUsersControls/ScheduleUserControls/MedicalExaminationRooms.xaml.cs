@@ -81,7 +81,7 @@ namespace HealthClinic.View
             Console.WriteLine("--------------------------ISPIS-------------------------");
             foreach (ViewTerm vt in Loading.currentMedicalExaminationTerms)
             {
-                Console.WriteLine("Datum: " + vt.Date + " Doktor: " + vt.Doctor + " Pacijent: " + vt.Patient + " Sala: " + vt.Room + " Zadatak: " + vt.Task + " Vreme: " + vt.Time + " Status: " + vt.Status + " ID: " + vt.Id);
+                Console.WriteLine("Datum: " + vt.Date + " Doktor: " + vt.Doctor + " Pacijent: " + vt.Patient + " Sala: " + vt.Room + " Zadatak: " + vt.Task + " Vreme: " + vt.Time + " Status: " + vt.Status + " ID: " + vt.Id + " Pacijentov jmbg" + vt.PatientJMBG);
             }
             Console.WriteLine("---------------------------------------------------------");
             fillData(DisplayType.date);
@@ -128,6 +128,7 @@ namespace HealthClinic.View
                                     vt.Status = "Zauzet";
                                     vt.Task = "Pregled";
                                     vt.Id = viewTerm.Id;
+                                    vt.PatientJMBG = viewTerm.PatientJMBG;
                                     break;
                                 }
                             }
@@ -161,7 +162,7 @@ namespace HealthClinic.View
                 String[] toDateTimeParts = toDateTime.ToString().Split(' ');
                 String toTimeCut = toDateTimeParts[1].Remove(toDateTimeParts[1].Length - 3);
 
-                terms.Add(new ViewTerm() { Date = dateLabel.Content.ToString(), Time = fromDateTimeParts[0] + " " + fromTimeCut + " - " + toDateTimeParts[0] + " " + toTimeCut, Room = room, Doctor = "", Patient = "", Status = "Slobodan", Task = "Pregled", MakeInDoctor = false, Id = 0 });
+                terms.Add(new ViewTerm() { PatientJMBG = "", Date = dateLabel.Content.ToString(), Time = fromDateTimeParts[0] + " " + fromTimeCut + " - " + toDateTimeParts[0] + " " + toTimeCut, Room = room, Doctor = "", Patient = "", Status = "Slobodan", Task = "Pregled", MakeInDoctor = false, Id = 0 });
             }
             return terms;
         }
@@ -184,7 +185,7 @@ namespace HealthClinic.View
                 String[] toDateTimeParts = toDateTime.ToString().Split(' ');
                 String toTimeCut = toDateTimeParts[1].Remove(toDateTimeParts[1].Length - 3);
 
-                currentTerms.Add(new ViewTerm() { Date = dateLabel.Content.ToString(), Time = fromDateTimeParts[0] + " " + fromTimeCut + " - " + toDateTimeParts[0] + " " + toTimeCut, Room = room, Doctor = "", Patient = "", Status = "Slobodan", Task = "Pregled", MakeInDoctor = false, Id = 0 });
+                currentTerms.Add(new ViewTerm() { PatientJMBG = "", Date = dateLabel.Content.ToString(), Time = fromDateTimeParts[0] + " " + fromTimeCut + " - " + toDateTimeParts[0] + " " + toTimeCut, Room = room, Doctor = "", Patient = "", Status = "Slobodan", Task = "Pregled", MakeInDoctor = false, Id = 0 });
             }
 
         }
@@ -367,7 +368,6 @@ namespace HealthClinic.View
                             {
                                 if (viewTerm.Time.Equals(termInCurrentTerms.Time) && viewTerm.Status.Equals("Zauzet"))
                                 {
-                                    // treba da refreshujem samo taj iz current terms
                                     termInCurrentTerms.Status = viewTerm.Status;
                                     termInCurrentTerms.Doctor = viewTerm.Doctor;
                                     termInCurrentTerms.MakeInDoctor = viewTerm.MakeInDoctor;
@@ -420,6 +420,7 @@ namespace HealthClinic.View
                                         vt.Status = "Zauzet";
                                         vt.Task = "Pregled";
                                         vt.Id = viewTerm.Id;
+                                        vt.PatientJMBG = viewTerm.PatientJMBG;
                                         break;
                                     }
                                 }

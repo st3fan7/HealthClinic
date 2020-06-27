@@ -24,7 +24,24 @@ namespace HealthClinic.View.ViewModel
         private string _patient;
         private string _status; // SLOBODAN ILI ZAUZET
         private string _task;
+        private string patientJMBG;
         private bool _makeInDoctor;
+
+        public string PatientJMBG
+        {
+            get
+            {
+                return patientJMBG;
+            }
+            set
+            {
+                if (value != patientJMBG)
+                {
+                    patientJMBG = value;
+                    OnPropertyChanged("PatientJMBG");
+                }
+            }
+        }
 
         public int Id
         {
@@ -37,7 +54,7 @@ namespace HealthClinic.View.ViewModel
                 if (value != id)
                 {
                     id = value;
-                    OnPropertyChanged("MakeInDoctor");
+                    OnPropertyChanged("Id");
                 }
             }
         }

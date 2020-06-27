@@ -1,0 +1,230 @@
+﻿<UserControl x:Class="HealthClinic.View.Dialogues.SuccessfullyRelocation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HealthClinic.View.Dialogues"
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             xmlns:language="clr-namespace:HealthClinic.Properties.Languages"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="32"
+            TextElement.FontFamily="Helvatic"
+            TextOptions.TextFormattingMode="Ideal"
+            TextOptions.TextRenderingMode="Auto"
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource ResourceKey=MaterialDesignFont}"
+             d:DesignHeight="750" d:DesignWidth="430">
+
+    <Grid x:Name="GridHome" Background="{DynamicResource color}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="55"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+                <ColumnDefinition Width="86"/>
+            </Grid.ColumnDefinitions>
+
+
+
+            <StackPanel Grid.Row="0" Grid.ColumnSpan="5"
+                    Background="#FF8CA8BF"
+                    Height="55" 
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Right"
+                    Width="430">
+
+                <Grid  Width="430" Height="55">
+                    <Button  x:Name="btnNotification"
+                         Background="{x:Null}"
+                         BorderBrush="{x:Null}"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Center"
+                         Margin="0,0,1,3" 
+                         Width="70"
+                         Height="55"   >
+                        <materialDesign:PackIcon Kind="NotificationsNone"
+                                            Height="35"
+                                            Width="35"
+                                            Foreground="#FF1A1C1E"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"  />
+                    </Button>
+
+                    <Label Content="Health Clinic"
+                       FontStyle="Normal"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       Width="350" 
+                       Height="55" FontWeight="Bold"
+                       FontFamily="Helvatic"/>
+                </Grid>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="5">
+
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="5" Margin="0,35,0,0">
+                <TextBox Text="{x:Static language:Language.successfullyRelocation}"  
+                    TextWrapping="Wrap"
+                     AcceptsReturn="True"
+                       IsReadOnly="True"                          
+                       BorderBrush="{x:Null}"
+                     Background="{x:Null}"
+                     CaretBrush="{x:Null}"
+                     SelectionBrush="{x:Null}"
+                       FontSize="28"
+                         FontWeight="Bold"
+                       FontFamily="Helvatic"
+                       HorizontalAlignment="Center"
+                       VerticalContentAlignment="Center"                     
+                       TextAlignment="Center"
+                       Height="89"
+                       Width="390"
+                       Margin="20,100,20,-10">
+                </TextBox>
+                <Button Name="okBtn"
+                         Content="{x:Static language:Language.ok}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="133"
+                    Height="70"
+                    FontSize="28"
+                    Foreground="#DD000000"
+                    Margin="0,220,0,-1"
+                    Background="#FF8CA8BF"  BorderBrush="#FF020207" Click="okBtn_Click">
+
+                </Button>
+
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.Column="0">
+                <Button Name="settingsBtn2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="86"
+                    Height="55"
+                    FontSize="28"
+                    Foreground="#DD000000"
+                    Margin="0,0,0,0"
+                    Background="#FF8CA8BF"
+                   >
+
+                    <DockPanel Width="86"
+                               Height="55"
+                               HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="Settings"
+                                             Width="84"
+                                             Height="45"
+                                             Margin="0,0,0,0"
+                                             HorizontalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.Column="1">
+                <Button Name="scheduleBtn2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="86"
+                    Height="55"
+                    FontSize="28"
+                    Foreground="#DD000000"
+                    Margin="0,0,0,0"
+                    Background="#FF8CA8BF"
+                   >
+                    <DockPanel Width="86"
+                               Height="55"
+                               HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="Calendar"
+                                             Width="84"
+                                             Height="45"
+                                             Margin="0,0,0,0"
+                                             HorizontalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.Column="2">
+                <Button Name="homeBtn2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="86"
+                    Height="55"
+                    FontSize="28"
+                    Foreground="#DD000000"
+                    Margin="0,0,0,0"
+                    Background="#FF526A7E">
+                    <DockPanel Width="86"
+                               Height="55"
+                               HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="Home"
+                                             Width="84"
+                                             Height="45"
+                                             Margin="0,0,0,0"
+                                             HorizontalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.Column="3">
+                <Button Name="patienstBtn2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="86"
+                    Height="55"
+                    FontSize="28"
+                    Foreground="#DD000000"
+                    Margin="0,0,0,0"
+                    Background="#FF8CA8BF" >
+                    <DockPanel Width="86"
+                               Height="55"
+                               HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="UserGroup"
+                                             Width="84"
+                                             Height="45"
+                                             Margin="0,0,0,0"
+                                             HorizontalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.Column="4">
+                <Button Name="reportBtn2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="86"
+                    Height="55"
+                    FontSize="28"
+                    Foreground="#DD000000"
+                    Margin="0,0,0,0"
+                    Background="#FF8CA8BF"
+                       >
+                    <DockPanel Width="86"
+                               Height="55"
+                               HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="FileDocumentBox"
+                                             Width="84"
+                                             Height="45"
+                                             Margin="0,0,0,0"
+                                             HorizontalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</UserControl>

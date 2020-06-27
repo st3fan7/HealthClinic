@@ -24,12 +24,13 @@ namespace HealthClinic.View
     /// </summary>
     public partial class RelocationTerm : UserControl
     {
-        //public static List<Termin> trenutniTermini = new List<Termin>(); // da vidim iz relocation2
-        //Termin termForRelocation = new Termin();
-        //public static Termin termForCanceling = new Termin();
+
         private ViewTerm termForCanceling = new ViewTerm();
+        private ViewTerm termForRelocation = new ViewTerm();
 
         private static ObservableCollection<Room> roomsFromCmbx = new ObservableCollection<Room>();
+
+        public static ObservableCollection<ViewTerm> currentTerms = new ObservableCollection<ViewTerm>();
 
         public RelocationTerm()
         {
@@ -47,8 +48,11 @@ namespace HealthClinic.View
             doctorLabel.Content = term.Doctor;
             patientLabel.Content = term.Patient;
             termForCanceling = term;
-            roomsFromCmbx = MedicalExaminationRooms.RoomsComboBox;
-           // Console.WriteLine("Termin pre izmene: Datum: " + RelocationTerm.termForCanceling.Datum + " Vreme: " + RelocationTerm.termForCanceling.Vreme + " Sala: " + RelocationTerm.termForCanceling.Sala + " Lekar: " + RelocationTerm.termForCanceling.Lekar + " Pacijent: " + RelocationTerm.termForCanceling.Pacijent + " Status: " + RelocationTerm.termForCanceling.Status + " Zadatak: " + RelocationTerm.termForCanceling.Zadatak);
+
+            if(term.Task.Equals("Pregled"))
+                roomsFromCmbx = MedicalExaminationRooms.RoomsComboBox;
+            else
+                roomsFromCmbx = MedicalExaminationRooms.RoomsComboBox; // KAD URADIS OPERACIJU PROMENI OVO!!!
         }
 
         private void homeBtn2_Click(object sender, RoutedEventArgs e)
@@ -95,90 +99,127 @@ namespace HealthClinic.View
 
         private void nextBtn_Click(object sender, RoutedEventArgs e)
         {
-            //trenutniTermini.Clear();
+            if (datePickerSchedule.SelectedDate != null)
+            {
+
+
+                termForRelocation.Date = datePickerSchedule.Text;
+                termForRelocation.Task = termForCanceling.Task;
+                termForRelocation.Status = "Zauzet";
+                termForRelocation.Patient = termForCanceling.Patient;
+                termForRelocation.Time = "";
+                termForRelocation.Room = "";
+                termForRelocation.Id = 0; // NE TREBA OVDE ID mozda
+                termForRelocation.PatientJMBG = termForCanceling.PatientJMBG;
+                Console.WriteLine("Pacijent u terminu koji se premesta: " + termForRelocation.Patient);
+                UserControl usc = new RelocationTerm2(dateLabel.Content.ToString(), termForRelocation, termForCanceling, roomsFromCmbx); // sad imam datum kad ce se obaviti pregled // trenutni termini su public da ne moram da saljem
+                (this.Parent as Panel).Children.Add(usc);
+
+
+            }
+            else
+            {
+                textWarning.Visibility = textWarningHidden;
+
+            }
+
+
+            //currentTerms.Clear();
 
             //if (datePickerSchedule.SelectedDate != null)
             //{
-            //    //Termin term = new Termin();
-            //    //term.Vreme = timeLabel.Content.ToString();
-            //    //term.Sala = roomLabel.Content.ToString();
-            //    //term.Lekar = doctorLabel.Content.ToString();
-            //    //term.Pacijent = patientLabel.Content.ToString();
-            //    //term.Status = null;
 
-
-            //    foreach (Termin termin in Loading.termini)
+            //    Console.WriteLine("Broj termina na pocetku: " + Loading.currentMedicalExaminationTerms.Count);
+            //    foreach (ViewTerm term in Loading.currentMedicalExaminationTerms) // promeni naziv ili vidi sta ces jer nekad je operacija
             //    {
 
-
-            //        if (datePickerSchedule.Text.Equals(termin.Datum))
+            //        if (datePickerSchedule.Text.Equals(term.Date))
             //        {
-            //            trenutniTermini.Add(termin);
+            //            currentTerms.Add(term);
             //        }
             //    }
+            //    Console.WriteLine("Trenutno termina ima: " + currentTerms.Count);
 
-            //    if (trenutniTermini.Count == 0)
+            //    if (currentTerms.Count == 0)
             //    {
-
-            //        foreach (String room in roomsFromCmbx)
+            //        foreach(Room room in roomsFromCmbx)
             //        {
-            //            Console.WriteLine("Soba je: " + room);
-            //            Console.WriteLine("Zadatak je: " + termForCanceling.Zadatak);
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "08:00 - 08:30", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "08:30 - 09:00", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "09:00 - 09:30", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "09:30 - 10:00", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "10:00 - 10:30", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "10:30 - 11:00", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "11:00 - 11:30", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "11:30 - 12:00", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "12:00 - 12:30", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "12:30 - 13:00", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "13:00 - 13:30", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "13:30 - 14:00", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "14:00 - 14:30", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "14:30 - 15:00", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "15:00 - 15:30", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "15:30 - 16:00", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "16:00 - 16:30", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-            //            trenutniTermini.Add(new Termin() { Datum = datePickerSchedule.Text, Vreme = "16:30 - 17:00", Sala = room, Lekar = "", Pacijent = "", Status = "Slobodan", Zadatak = termForCanceling.Zadatak });
-
+            //            addNewTermsInDatagrid(room.RoomID);
             //        }
-            //        // pravljenje slobodnih termina za taj datum // vidi da li je operacija u pitanju ili sta vec
 
 
+            //        foreach (ViewTerm vt in currentTerms)
+            //            if (Loading.currentMedicalExaminationTerms.Any(p => p.Id == vt.Id) == false)
+            //                Loading.currentMedicalExaminationTerms.Add(vt);
+
+            //        Console.WriteLine("Posle pravljena praznih termina: " + currentTerms.Count);
             //        //Console.WriteLine("Svi: " + Loading.termini.Count);
-            //        foreach (Termin term in trenutniTermini)
-            //        {
-            //            Loading.termini.Add(term);
-            //        }
             //        //Console.WriteLine("Svi: " + Loading.termini.Count);
             //    }
-            //    //Console.WriteLine(trenutniTermini.Count);
-            //    trenutniTermini.Clear();
-            //  //  Console.WriteLine(trenutniTermini.Count); // obrisi kasnije to i trenutniTermini
-
-            //    foreach (Termin term in Loading.termini)
+            //    else
             //    {
-            //        if (datePickerSchedule.Text.Equals(term.Datum) && term.Status == "Slobodan" && term.Zadatak == termForCanceling.Zadatak)
+            //        foreach (Room room in roomsFromCmbx)
             //        {
-            //            trenutniTermini.Add(term); // svi slobodni termini za taj datum
+            //            ObservableCollection<ViewTerm> emptyTerms = getEmptyTerms(room.RoomID);
+            //            foreach (ViewTerm viewTerm in Loading.currentMedicalExaminationTerms)
+            //            {
+            //                if (viewTerm.Date.Equals(dateLabel.Content.ToString()) && viewTerm.Room == room.RoomID && viewTerm.Task.Equals("Pregled"))
+            //                {
+            //                    if (currentTerms.Count == 13) break;
+            //                    foreach (ViewTerm vt in emptyTerms)
+            //                    {
+            //                        if (vt.Time.Equals(viewTerm.Time))
+            //                        {
+            //                            vt.Doctor = viewTerm.Doctor;
+            //                            vt.Patient = viewTerm.Patient;
+            //                            vt.Status = "Zauzet";
+            //                            vt.Task = "Pregled";
+            //                            vt.Id = viewTerm.Id;
+            //                            break;
+            //                        }
+            //                    }
+
+            //                }
+
+            //            }
+            //            Console.WriteLine("Trenutno termina ima (ako ih je na pocetku bilo vise od jedan zauzet): " + currentTerms.Count);
+            //            currentTerms.Clear();
+            //            currentTerms = emptyTerms;
+
+            //            foreach (ViewTerm vt in currentTerms)
+            //                if (Loading.currentMedicalExaminationTerms.Any(p => p.Id == vt.Id) == false)
+            //                    Loading.currentMedicalExaminationTerms.Add(vt);
             //        }
+
+
             //    }
             //    //Console.WriteLine(trenutniTermini.Count);
-            //    if (trenutniTermini.Count > 0)
+            //    currentTerms.Clear();
+            //    //  Console.WriteLine(trenutniTermini.Count); // obrisi kasnije to i trenutniTermini
+            //    Console.WriteLine("Broj novih termina: " + Loading.currentMedicalExaminationTerms.Count);
+            //    foreach (ViewTerm term in Loading.currentMedicalExaminationTerms)
             //    {
-            //        termForRelocation.Datum = datePickerSchedule.Text;
-            //        termForRelocation.Zadatak = termForCanceling.Zadatak;
+            //        if (datePickerSchedule.Text.Equals(term.Date) && term.Status == "Slobodan" && term.Task == termForCanceling.Task)
+            //        {
+            //            currentTerms.Add(term); // svi slobodni termini za taj datum
+            //        }
+            //    }
+
+            //    //Console.WriteLine(trenutniTermini.Count);
+            //    if (currentTerms.Count > 0)
+            //    {
+            //        termForRelocation.Date = datePickerSchedule.Text;
+            //        termForRelocation.Task = termForCanceling.Task;
             //        termForRelocation.Status = "Zauzet";
-            //        termForRelocation.Pacijent = termForCanceling.Pacijent;
-            //        termForRelocation.Vreme = "";
-            //        termForRelocation.Sala = "";
-            //       // Console.WriteLine(termForRelocation.Pacijent);
+            //        termForRelocation.Patient = termForCanceling.Patient;
+            //        termForRelocation.Time = "";
+            //        termForRelocation.Room = "";
+            //        termForRelocation.Id = 0; // NE TREBA OVDE ID mozda
+            //        Console.WriteLine("Pacijent u terminu koji se premesta: " +termForRelocation.Patient);
             //        UserControl usc = new RelocationTerm2(dateLabel.Content.ToString(), termForRelocation, termForCanceling, roomsFromCmbx); // sad imam datum kad ce se obaviti pregled // trenutni termini su public da ne moram da saljem
             //        (this.Parent as Panel).Children.Add(usc);
             //    }
-                
+
             //}
             //else
             //{
@@ -186,7 +227,6 @@ namespace HealthClinic.View
 
             //}
         }
-
 
 
         private Visibility textWarningHidden
