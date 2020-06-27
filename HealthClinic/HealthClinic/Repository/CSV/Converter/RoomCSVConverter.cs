@@ -45,7 +45,7 @@ namespace Repository.Csv.Converter
         private void FillList(List<InventaryRoom> equipment, string[] tokens)
         {
             int i = 5;
-            while (i < tokens.Length)
+            while (i < tokens.Length - 1)
             {
                 int id = int.Parse(tokens[i]);
                 equipment.Add(InventaryRoomRepository.Instance().GetEntity(id)); 
