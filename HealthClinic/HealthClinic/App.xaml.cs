@@ -4,17 +4,10 @@ using Controller.MedicalRecordControlers;
 using Controller.MedicamentControlers;
 using Controller.RoomsControlers;
 using Controller.UsersControlers;
-<<<<<<< HEAD
-using HealthClinic.Controller.RoomsControlers;
-using HealthClinic.Repository.CSV.Converter;
-using HealthClinic.Repository.RoomsRepository;
-using HealthClinic.Service.RoomsServices;
-=======
 using Model.Manager;
 using Repository.CSV.Converter;
 using Repository.RoomsRepository;
 using Service.RoomsServices;
->>>>>>> develop
 using Model.AllActors;
 using Model.BlogAndNotification;
 using Model.Doctor;

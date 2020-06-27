@@ -25,9 +25,16 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Izaberite lekara čije radno vreme želite da izmenite:</TextBlock>
-            <ComboBox Grid.Column="1" x:Name="ComboBoxDoctors" Margin="0,1,10,1">
-                <ComboBoxItem x:Name="firstItem">Milan Petrović</ComboBoxItem>
-                <ComboBoxItem>Miloš Jović</ComboBoxItem>
+            <ComboBox x:Name="ComboBoxDoctors" ItemsSource="{Binding Path= DoctorsView}" Grid.Column="1" Margin="0,3,6,3" SelectedIndex="0" SelectedItem="0">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path= Name}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding Path= Surname}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
             </ComboBox>
         </Grid>
 
@@ -41,6 +48,11 @@
             <ComboBox Grid.Column="1"  Margin="1,0,10,1" x:Name="ComboBoxDaysOfTheWeek">
                 <ComboBoxItem IsSelected="True">Ponedeljak</ComboBoxItem>
                 <ComboBoxItem>Utorak</ComboBoxItem>
+                <ComboBoxItem>Sreda</ComboBoxItem>
+                <ComboBoxItem>Četvrtak</ComboBoxItem>
+                <ComboBoxItem>Petak</ComboBoxItem>
+                <ComboBoxItem>Subota</ComboBoxItem>
+                <ComboBoxItem>Nedelja</ComboBoxItem>
             </ComboBox>
         </Grid>
 

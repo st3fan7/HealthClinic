@@ -32,7 +32,7 @@ namespace HealthClinic.View.Converter
                 ret = "Ponedeljak";
             else if (day.Equals("Tuesday"))
                 ret = "Utorak";
-            else if (day.Equals("Wednwsday"))
+            else if (day.Equals("Wednesday"))
                 ret = "Sreda";
             else if (day.Equals("Thursday"))
                 ret = "Četvrtak";

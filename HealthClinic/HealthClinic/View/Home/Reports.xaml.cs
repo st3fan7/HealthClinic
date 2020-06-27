@@ -24,12 +24,18 @@ namespace HealthClinic.View
         {
             InitializeComponent();
             DataPickerFromDataTime.SelectedDate = DateTime.Now.Date;
-            DataPickerToDataTime.SelectedDate = DateTime.Now.Date; // Izmeni
+            DataPickerToDataTime.SelectedDate = DateTime.Now.Date; 
         }
 
         private void Button_Click_PocetnaStrana(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void FromDateTime_SelectedDataChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DataPickerFromDataTime != null)
+                DataPickerToDataTime.DisplayDateStart = DateTime.Parse(DataPickerFromDataTime.SelectedDate.ToString());
         }
     }
 }

@@ -26,6 +26,7 @@ namespace HealthClinic.View
     public partial class RelocationEquipmentFromRoom : Window
     {
         private readonly RoomController roomController;
+        private readonly InventaryRoomController inventaryRoomController;
 
         public static ObservableCollection<ViewInventaryRoom> InRoomView { get; set; }
         public static ObservableCollection<ViewInventaryRoom> FromRoomView { get; set; }
@@ -40,6 +41,7 @@ namespace HealthClinic.View
 
             var app = Application.Current as App;
             roomController = app.RoomController;
+            inventaryRoomController = app.InventaryRoomController;
 
             inRoom = (Room)ComboBoxInRoom.SelectedItem;
             fromRoom = (Room)ComboBoxfromRoom.SelectedItem;
@@ -52,7 +54,7 @@ namespace HealthClinic.View
             FromRoomView = new ObservableCollection<ViewInventaryRoom>(InventaryRoomConverter.ConvertInventaryRoomListToInventaryRoomViewList(fromRoom.Equipment));
         }
 
-        private Room GetFirstRoom(List<Room> rooms)
+        private Room GetFirstRoom(List<Room> rooms) // Dodaj u Service
         {
             foreach (Room room in rooms)
                 return room;
@@ -97,15 +99,22 @@ namespace HealthClinic.View
                     foreach (ViewInventaryRoom equipmentInRoom in InRoomView)
                     {
                         if (equipmentInRoom.Name.Equals(InputNameOfEquipment.Text))
-                        {
+                        {   // Premestanje opreme koja vec postoji u sali
                             equipmentForRelocate.Quantity -= int.Parse(InputAmountOfEquipment.Text);
                             equipmentInRoom.Quantity += int.Parse(InputAmountOfEquipment.Text);
+                            inventaryRoomController.UpdateEntity(inventaryRoomController.GetEntity(equipmentForRelocate.Id));
+                            inventaryRoomController.UpdateEntity(inventaryRoomController.GetEntity(equipmentInRoom.Id));
                             MessageBox.Show("Uspešno ste premestili opremu", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
                             return;
                         }
-                    } // Ako se premesta oprema koja ne postoji u prvoj sali
+                    } // Premestanje opreme koja ne postoji u prvoj sali
                     equipmentForRelocate.Quantity -= int.Parse(InputAmountOfEquipment.Text);
-                    InRoomView.Add(new ViewInventaryRoom() { Name = equipmentForRelocate.Name, Quantity = int.Parse(InputAmountOfEquipment.Text) });
+                    inventaryRoomController.UpdateEntity(inventaryRoomController.GetEntity(equipmentForRelocate.Id));
+                    InRoomView.Add(InventaryRoomConverter.ConvertInventaryRoomToInventaryRoomView(
+                        new InventaryRoom(equipmentForRelocate.Name, int.Parse(InputAmountOfEquipment.Text))));
+                    Room roomWithNewEquipment = roomController.GetEntity(inRoom.GetId());
+                    roomWithNewEquipment.Equipment.Add(new InventaryRoom(equipmentForRelocate.Name, int.Parse(InputAmountOfEquipment.Text)));
+                    roomController.UpdateEntity(roomWithNewEquipment);
                     MessageBox.Show("Uspešno ste premestili opremu", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }

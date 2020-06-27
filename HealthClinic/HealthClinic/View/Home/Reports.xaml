@@ -29,7 +29,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBlock VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Izaberite početni datum:</TextBlock>
-            <DatePicker x:Name="DataPickerFromDataTime" Grid.Column="1"></DatePicker>
+            <DatePicker x:Name="DataPickerFromDataTime" Grid.Column="1" SelectedDateChanged="FromDateTime_SelectedDataChanged"></DatePicker>
         </Grid>
 
         <Grid Grid.Row="2">

@@ -50,8 +50,8 @@ namespace HealthClinic.View
                 DoctorAccounts.DoctorsView.Add(DoctorConverter.ConvertDoctorToDoctorView(
                 (Doctor)userController.AddEntity(new Doctor(InputUsername.Text, InputPassword.Text, InputName.Text, InputSurname.Text, InputJmbg.Text,
                 DateTime.Parse(InputDateOfBirthday.Text), InputMobilePhone.Text, InputEmailAddress.Text,
-                new City(InputCity.Text, InputCity.Text, new Country(InputCountry.Text)), new Specialitation(InputMobilePhone.Text)))));               
-                SpecialitationRepository.Instance().AddEntity(new Specialitation(InputMobilePhone.Text)); // dodaje specijalizaciju u fajl
+                new City(InputCity.Text, InputCity.Text, new Country(InputCountry.Text)), new Specialitation(InputVocation.Text)))));               
+                SpecialitationRepository.Instance().AddEntity(new Specialitation(InputVocation.Text)); // Dodaje specijalizaciju u fajl
                 this.Close();
                 MessageBox.Show("Uspešno ste kreirali nalog lekaru", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;

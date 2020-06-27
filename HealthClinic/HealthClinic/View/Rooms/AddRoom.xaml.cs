@@ -57,7 +57,7 @@ namespace HealthClinic.View
             MessageBox.Show("Uspešno ste dodali novu sobu", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private bool RoomWithRoomIDExist(String roomID)
+        private bool RoomWithRoomIDExist(String roomID) // Dodaj u servis
         {
             foreach (Room room in roomController.GetAllEntities())
                 if (room.RoomID.Equals(roomID))

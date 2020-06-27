@@ -73,12 +73,28 @@ namespace HealthClinic.View
             }
 
             if (medicamentController.ExistMedicamentWithCode(InputCodeOfMedicament.Text))
-            {
+            {   // Slucaj kada salje lek koji je odbijen ponovo na validaciju
+                Medicament existingMedicament = medicamentController.GetMedicamentByCode(InputCodeOfMedicament.Text);
+                ValidationOfMedicament medicamentOnValidation = GetMedicamentOnValidationByCodeOfMedicament(existingMedicament.GetId()); // pozovi iz kontrolera
+                if (existingMedicament.StateOfValidation == State.Rejected)
+                {
+                    existingMedicament.StateOfValidation = State.OnValidation;
+                    medicamentOnValidation.Medicament.StateOfValidation = State.OnValidation;
+                    medicamentController.UpdateEntity(existingMedicament);
+                    foreach (ViewMedicamentOnValidation medicament in MedicamentsOnValidationView)
+                        if(medicament.Code.Equals(InputCodeOfMedicament.Text))
+                        {
+                            medicament.State = "Na validaciji";
+                            validationMedicamentController.UpdateEntity(medicamentOnValidation);
+                            MessageBox.Show("Uspešno ste poslali lek na validaciju", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
+                            return;
+                        }
+                }
                 MessageBox.Show("Lek sa šifrom koju ste uneli već postoji", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             else
-            {
+            {   // Slicaj kada salje novi lek
                 medicamentController.AddEntity(new Medicament(InputCodeOfMedicament.Text, InputNameOfMedicament.Text, InputProducerOfMedicament.Text,
                     State.OnValidation, int.Parse(InputAmountOfMedicament.Text), InputIngredientsOfMedicament.Text));
                 MedicamentsOnValidationView.Add(MedicamentOnValidationConverter.ConvertMedicamentToMedicamentView(
@@ -87,6 +103,14 @@ namespace HealthClinic.View
                     new FeedbackOfValidation(""), (Doctor)ComboBoxDoctors.SelectedItem))));                
                 MessageBox.Show("Usepešno ste poslali lek na validaciju", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+
+        private ValidationOfMedicament GetMedicamentOnValidationByCodeOfMedicament(int medicamentID) // DOdaj u servis
+        {
+            foreach (ValidationOfMedicament medicamentOnValidation in validationMedicamentController.GetAllEntities())
+                if (medicamentOnValidation.Medicament.GetId() == medicamentID)
+                    return medicamentOnValidation;
+            return null;
         }
 
         private void Button_Click_Odustani(object sender, RoutedEventArgs e)
