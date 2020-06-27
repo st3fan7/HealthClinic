@@ -3,8 +3,8 @@
 // Created: ponedeljak, 25. maj 2020. 01:41:55
 // Purpose: Definition of Class RoomCSVConverter
 
-using HealthClinic.Model.Manager;
-using HealthClinic.Repository.RoomsRepository;
+using Model.Manager;
+using Repository.RoomsRepository;
 using Model.Manager;
 using Model.Term;
 using Repository.RoomsRepository;

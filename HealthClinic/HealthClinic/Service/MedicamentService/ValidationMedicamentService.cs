@@ -20,6 +20,14 @@ namespace Service.MedicamentService
             this.validationOfMedicamentRepository = validationOfMedicamentRepository;
         }
 
+        public ValidationOfMedicament GetMedicamentOnValidationByCodeOfMedicament(int medicamentID) 
+        {
+            foreach (ValidationOfMedicament medicamentOnValidation in validationOfMedicamentRepository.GetAllEntities())
+                if (medicamentOnValidation.Medicament.GetId() == medicamentID)
+                    return medicamentOnValidation;
+            return null;
+        }
+
         public ValidationOfMedicament AddEntity(ValidationOfMedicament entity)
         {
             return validationOfMedicamentRepository.AddEntity(entity);

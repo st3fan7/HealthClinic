@@ -1,5 +1,5 @@
-﻿using HealthClinic.Model.Manager;
-using HealthClinic.Repository.CSV.Converter;
+﻿using Model.Manager;
+using Repository.CSV.Converter;
 using Repository.Csv;
 using Repository.Csv.Stream;
 using Repository.IDSequencer;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthClinic.Repository.RoomsRepository
+namespace Repository.RoomsRepository
 {
     public class InventaryRoomRepository : CSVRepository<InventaryRoom, int>, IInventaryRoomRepository
     {

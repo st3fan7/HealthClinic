@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthClinic.Model.Manager
+namespace Model.Manager
 {
     public class InventaryRoom : IIdentifiable<int>
     {
