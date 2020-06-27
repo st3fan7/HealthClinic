@@ -161,6 +161,7 @@
     <Compile Include="Service\UsersServices\SpetialitationService.cs" />
     <Compile Include="Service\UsersServices\UserService.cs" />
     <Compile Include="Service\UsersServices\WorkingTimeForDoctorService.cs" />
+    <Compile Include="View\Converter\MedicalExaminationConverter.cs" />
     <Compile Include="View\Dialogs\CancelAppointmentConfirmDialog.xaml.cs">
       <DependentUpon>CancelAppointmentConfirmDialog.xaml</DependentUpon>
     </Compile>
@@ -249,6 +250,7 @@
       <DependentUpon>UserProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Model\Appointments.cs" />
+    <Compile Include="View\Model\MedicalExaminationView.cs" />
     <Compile Include="View\Model\Term.cs" />
     <Compile Include="View\Validation\ValidationLogin.cs" />
     <Compile Include="View\Views\ChangeProfile.xaml.cs">

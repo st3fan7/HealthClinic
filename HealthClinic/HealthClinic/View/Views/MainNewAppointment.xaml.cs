@@ -148,7 +148,7 @@ namespace HealthClinic.Views
                 }
                 else if (i == 0)
                 {
-                    MainAppointmentFrame.Content = SchedulingAppointmentsUSC;
+                    MainAppointmentMessageFrame.Content = SchedulingAppointmentsUSC;
                     i += 1;
                 }
             }

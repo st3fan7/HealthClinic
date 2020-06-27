@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Controller.ExaminationSurgeryControlers;
+using HealthClinic.View.Converter;
+using HealthClinic.View.Model;
+using Model.Term;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -21,21 +25,31 @@ namespace HealthClinic.Layouts
     /// </summary>
     public partial class MyAppointments : UserControl
     {
-       private int colNum = 0;
-       public ObservableCollection<Model.Appointments>Pregledi
-        {
-            get;
-            set;
-        }
+        MedicalExaminationController medicalExaminationController;
+        IEnumerable<MedicalExamination> medicalExaminationsFromFile;
+
+        private int colNum = 0;
+        public ObservableCollection<MedicalExaminationView> MedicalExaminations { get; set; }
+
 
         public MyAppointments()
         {
             InitializeComponent();
             this.DataContext = this;
-            Pregledi = new ObservableCollection<Model.Appointments>();
-            Pregledi.Add(new Model.Appointments() { Datum = "07.06.2020.", Termin = "16:00-16:30", Lekar = "Pera Perić" });
-            Pregledi.Add(new Model.Appointments() { Datum = "25.11.2020.", Termin = "09:00-09:30", Lekar = "Pera Perić" });
-            Pregledi.Add(new Model.Appointments() { Datum = "02.03.2021.", Termin = "14:30-15:00", Lekar = "Pera Perić" });
+            MedicalExaminations = new ObservableCollection<MedicalExaminationView>();
+
+
+            var app = Application.Current as App;
+            medicalExaminationController = app.MedicalExaminationController;
+
+            medicalExaminationsFromFile = medicalExaminationController.GetAllEntities();
+
+            foreach (MedicalExamination m in medicalExaminationsFromFile)
+            {
+                Console.WriteLine(m.ToDateTime);
+                MedicalExaminations.Add(MedicalExaminationConverter.ConvertMedicalExaminationToMedicalExaminationView(m));
+            }
+           
         }
 
         private void generateColumns(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -45,5 +59,24 @@ namespace HealthClinic.Layouts
                 e.Column.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
         }
 
+        private void CancelMedicalExaminationButton_Click(object sender, RoutedEventArgs e)
+        {
+            medicalExaminationController.DeleteEntity(findSelectedMedicalExamination());
+        }
+
+        private void ReScheduleMedicalExamination_Click(object sender, RoutedEventArgs e)
+        {
+            medicalExaminationController.DeleteEntity(findSelectedMedicalExamination());
+
+        }
+
+        private MedicalExamination findSelectedMedicalExamination()
+        {
+            MedicalExaminationView selectedMedicalExamination = (MedicalExaminationView)MyMedicalExaminationsTable.SelectedItem;
+            foreach (MedicalExamination medicalExamination in medicalExaminationsFromFile)
+                if (medicalExamination.GetId() == selectedMedicalExamination.Id)
+                    return medicalExamination;
+            return null;
+        }
     }
 }

@@ -16,41 +16,38 @@
              Background="#FF303030"
              FontFamily="{DynamicResource MaterialDesignFont}"
              
-             d:DesignHeight="380" d:DesignWidth="480">
-    <Grid Background="#FF292929">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+             d:DesignHeight="380" d:DesignWidth="640">
+    <Grid x:Name="SchedulingAppointmentGrid">
+        <Grid Background="#FF292929">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="130"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="160"/>
+            </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Datum:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontFamily="Century Gothic"   />
-        <DatePicker Grid.Row="0" Grid.Column="1" Height="80" VerticalAlignment="Center" Background="#FF362F66" FontFamily="Century Gothic" FontSize="20"/>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Datum:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontFamily="Century Gothic"   />
+            <DatePicker x:Name="NewMedicalExaminationDatePicker" Grid.Row="0" Grid.Column="1" Height="80" VerticalAlignment="Center" Background="#FF362F66" FontFamily="Century Gothic" FontSize="20"/>
 
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Lekar:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontFamily="Century Gothic"   />
-        <ComboBox Grid.Row="1" Grid.Column="1" Height="80" Margin="0 0 0 0" VerticalAlignment="Center" Background="#FF362F66" FontFamily="Century Gothic" FontSize="20">
-            <ComboBoxItem Background="#FF362F66" BorderBrush="#FF362F66" Foreground="#FF362F66">
-                <TextBlock Text="Dr. Pera Perić" FontFamily="Century Gothic" Foreground="White"/>
-            </ComboBoxItem>
-            <ComboBoxItem Background="#FF362F66" BorderBrush="#FF362F66" Foreground="#FF362F66">
-                <TextBlock Text="Dr. Ivan Ivanović" FontFamily="Century Gothic" Foreground="White"/>
-            </ComboBoxItem>
-            <ComboBoxItem Background="#FF362F66" BorderBrush="#FF362F66" Foreground="#FF362F66">
-                <TextBlock Text="Dr. Marko Marković" FontFamily="Century Gothic" Foreground="White"/>
-            </ComboBoxItem>
-        </ComboBox>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Lekar:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontFamily="Century Gothic"   />
+            <ComboBox x:Name="NewMedicalExaminationComboBox" Grid.Row="1" Grid.Column="1" Height="80" Margin="0 0 0 0" VerticalAlignment="Center" ItemsSource="{Binding Doctors}" Background="#FF362F66" FontFamily="Century Gothic" FontSize="20" SelectionChanged="NewMedicalExaminationComboBox_SelectionChanged">
+                
+            </ComboBox>
 
-        <DataGrid Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="0 0 0 10" ItemsSource="{Binding Path=Termini}" AutoGenerateColumns="True" 
+            <DataGrid x:Name="NewMedicalExaminationTable" Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="0 0 0 10" ItemsSource="{Binding Path=Terms}" AutoGenerateColumns="True" 
                   SelectionMode="Single" IsReadOnly="True" />
 
 
+            <Button x:Name="OKButton" Grid.Row="3" Grid.Column="4" Height="80" VerticalAlignment="Bottom" Margin="10 0 10 10" Background="#FF362F66" BorderBrush="#FF3C3B45" Click="OKButton_Click">
+                <TextBlock Text="OK" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="20"/>
+            </Button>
 
-
+        </Grid>
     </Grid>
 </UserControl>

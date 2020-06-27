@@ -16,9 +16,23 @@
              Background="#FF303030"
              FontFamily="{DynamicResource MaterialDesignFont}"
              
-             d:DesignHeight="380" d:DesignWidth="480">
+             d:DesignHeight="380" d:DesignWidth="640">
     <Grid Background="#FF292929">
-        <DataGrid Grid.Row="1" Grid.Column="0" Margin="0 0 20 0" ItemsSource="{Binding Path=Pregledi}" AutoGenerateColumns="True" 
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="160"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="MyMedicalExaminationsTable" Grid.Row="1" Grid.Column="0" Margin="0 0 20 0" ItemsSource="{Binding Path=MedicalExaminations}" AutoGenerateColumns="True" 
                   SelectionMode="Single" IsReadOnly="True" />
+
+        <Button x:Name="CancelMedicalExaminationButton" Grid.Row="1" Grid.Column="4" Height="80" VerticalAlignment="Bottom" Margin="10 0 10 100" Background="#FF362F66" BorderBrush="#FF3C3B45" Click="CancelMedicalExaminationButton_Click">
+            <TextBlock Text="Otkaži" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="20"/>
+        </Button>
+
+        <Button x:Name="ReScheduleMedicalExamination" Grid.Row="1" Grid.Column="4" Height="80" VerticalAlignment="Bottom" Margin="10 0 10 10" Background="#FF362F66" BorderBrush="#FF3C3B45" Click="ReScheduleMedicalExamination_Click">
+            <TextBlock Text="Premesti" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="20"/>
+        </Button>
     </Grid>
 </UserControl>

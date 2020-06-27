@@ -121,7 +121,7 @@
                 <TextBlock Text="Premesti" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="20"/>
             </Button>
 
-            <Frame x:Name="MainReviewAppointmentFrame" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="1"/>
+            <Frame x:Name="MainReviewAppointmentFrame" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="1"/>
 
         </Grid>
     </Grid>
