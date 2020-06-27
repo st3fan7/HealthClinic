@@ -1,4 +1,4 @@
-﻿using HealthClinic.Model.Manager;
+﻿using Model.Manager;
 using Repository.Csv.Converter;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthClinic.Repository.CSV.Converter
+namespace Repository.CSV.Converter
 {
     public class InventaryRoomCSVConverter : ICSVConverter<InventaryRoom>
     {
