@@ -32,13 +32,13 @@ namespace HealthClinic.View
         //private static List<String> doctorsFromCmbx = new List<String>();
 
         //public static ObservableCollection<User> doctorsFromCmbx = new ObservableCollection<User>();
-        Model.AllActors.Patient patient = new Model.AllActors.Patient();
+        Patient patient = new Patient();
         ViewTerm termForSchedule = new ViewTerm();
 
         public static ObservableCollection<User> Doctors{ get; set; }
         //private readonly UserController userController;
 
-        public ScheduleTerm(string selectedDate, ViewTerm term, Model.AllActors.Patient patient)
+        public ScheduleTerm(string selectedDate, ViewTerm term, Patient patient)
         {
             InitializeComponent();
             dateLabel.Content = selectedDate;
@@ -181,7 +181,7 @@ namespace HealthClinic.View
         private void patienstBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridScheduleTerm.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridScheduleTerm.Children.Add(usc);
         }
 

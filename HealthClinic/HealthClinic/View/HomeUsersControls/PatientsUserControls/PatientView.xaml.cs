@@ -18,10 +18,10 @@ namespace HealthClinic.View
     /// <summary>
     /// Interaction logic for Patient.xaml
     /// </summary>
-    public partial class Patient : UserControl
+    public partial class PatientView : UserControl
     {
 
-        public Patient()
+        public PatientView()
         {
             InitializeComponent();
         }

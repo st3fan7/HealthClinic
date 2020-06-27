@@ -212,7 +212,7 @@ namespace HealthClinic.View.HomeUsersControls.ScheduleUserControls
         private void patienstBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridDoctorsTerms.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridDoctorsTerms.Children.Add(usc);
         }
 

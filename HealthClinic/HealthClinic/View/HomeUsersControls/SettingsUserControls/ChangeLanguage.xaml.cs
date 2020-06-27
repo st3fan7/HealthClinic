@@ -51,7 +51,7 @@ namespace HealthClinic.View
         private void patienstBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridChangeLanguage.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridChangeLanguage.Children.Add(usc);
         }
 

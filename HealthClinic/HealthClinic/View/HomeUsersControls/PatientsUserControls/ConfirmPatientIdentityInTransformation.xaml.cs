@@ -56,7 +56,7 @@ namespace HealthClinic.View
         private void patientsBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridPatientValidationInTransformation.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridPatientValidationInTransformation.Children.Add(usc);
         }
 

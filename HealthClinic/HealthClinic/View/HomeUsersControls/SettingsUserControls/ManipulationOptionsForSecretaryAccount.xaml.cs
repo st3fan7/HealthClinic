@@ -51,7 +51,7 @@ namespace HealthClinic.View
         private void patienstBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridManipulationOptionsForSecretaryAccount.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridManipulationOptionsForSecretaryAccount.Children.Add(usc);
         }
 

@@ -56,7 +56,7 @@ namespace HealthClinic.View
         private void patienstBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridScheduleTerm.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridScheduleTerm.Children.Add(usc);
         }
 

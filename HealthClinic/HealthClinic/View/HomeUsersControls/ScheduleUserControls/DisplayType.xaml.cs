@@ -81,7 +81,7 @@ namespace HealthClinic.View
         private void patienstBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridDisplayType.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridDisplayType.Children.Add(usc);
         }
 

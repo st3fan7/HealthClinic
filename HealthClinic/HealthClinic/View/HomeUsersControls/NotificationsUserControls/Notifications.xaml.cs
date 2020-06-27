@@ -62,7 +62,7 @@ namespace HealthClinic.View
         private void patienstBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridNotifications.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridNotifications.Children.Add(usc);
         }
 

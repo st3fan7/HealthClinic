@@ -22,22 +22,31 @@ namespace Service.ExaminationSurgeryServices
 
         public List<MedicalExamination> GetByDate(DateTime date)
         {
-            throw new NotImplementedException();
+            List<MedicalExamination> medicalExaminations = new List<MedicalExamination>();
+            foreach(MedicalExamination m in medicalExaminationRepository.GetAllEntities())
+            {
+                if (m.FromDateTime.Equals(date))
+                {
+                    medicalExaminations.Add(m);
+                }
+            }
+
+            return medicalExaminations;
         }
 
         public List<MedicalExamination> GetAllMedicalExaminationsByDoctor(Model.AllActors.Doctor doctor)
         {
-            throw new NotImplementedException();
+            return medicalExaminationRepository.GetAllMedicalExaminationsByDoctor(doctor);
         }
 
         public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Model.AllActors.Patient patient)
         {
-            throw new NotImplementedException();
+            return medicalExaminationRepository.GetAllMedicalExaminationsByPatient(patient);
         }
 
         public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Model.Term.Room room)
         {
-            throw new NotImplementedException();
+            return medicalExaminationRepository.GetAllMedicalExaminationsByRoom(room);
         }
 
         public List<MedicalExamination> GetAllMedicalExaminationsByPatient2(DateTime time)

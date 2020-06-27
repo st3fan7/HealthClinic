@@ -51,7 +51,7 @@ namespace HealthClinic.View
 
             var app = Application.Current as App;
             roomController = app.RoomController;
-            RoomsComboBox = new ObservableCollection<Room>(roomController.GetAllEntities().ToList()); //GetAllRoomForMedicalExamination
+            RoomsComboBox = new ObservableCollection<Room>(roomController.GetAllRoomForMedicalExamination().ToList()); //GetAllRoomForMedicalExamination
 
             userController = app.UserController;
             DoctorsForMedicalExamination = new ObservableCollection<User>(userController.GetAllDoctors().ToList()); // treba opste prakse
@@ -140,12 +140,12 @@ namespace HealthClinic.View
         private ObservableCollection<ViewTerm> getEmptyTerms(String room)
         {
             ObservableCollection<ViewTerm> terms = new ObservableCollection<ViewTerm>();
-            String[] dateParts = dateLabel.Content.ToString().Split('/');
+            String[] dateParts = dateLabel.Content.ToString().Split('.');
 
             int j = 7;
             for (int i = 0; i < 13; i++)
             {
-                DateTime fromDateTime = new DateTime(int.Parse(dateParts[2]), int.Parse(dateParts[0]), int.Parse(dateParts[1]), j++, 0, 0);
+                DateTime fromDateTime = new DateTime(int.Parse(dateParts[2]), int.Parse(dateParts[1]), int.Parse(dateParts[0]), j++, 0, 0);
                 DateTime toDateTime = fromDateTime.AddHours(1);
                 //String[] fromDateTimeParts = fromDateTime.ToString().Split(' ');
                 //String[] toDateTimeParts = toDateTime.ToString().Split(' ');
@@ -156,12 +156,14 @@ namespace HealthClinic.View
 
         private void addNewTermsInDatagrid(String room)
         {
-            String[] dateParts = dateLabel.Content.ToString().Split('/');
-
+            String[] dateParts = dateLabel.Content.ToString().Split('.');
+            Console.WriteLine(dateParts[0]);
+            Console.WriteLine(dateParts[1]);
+            Console.WriteLine(dateParts[2]);
             int j = 7;
             for (int i = 0; i < 13; i++)
             {
-                DateTime fromDateTime = new DateTime(int.Parse(dateParts[2]), int.Parse(dateParts[0]), int.Parse(dateParts[1]), j++, 0, 0);
+                DateTime fromDateTime = new DateTime(int.Parse(dateParts[2]), int.Parse(dateParts[1]), int.Parse(dateParts[0]), j++, 0, 0);
                 DateTime toDateTime = fromDateTime.AddHours(1);
                 //String[] fromDateTimeParts = fromDateTime.ToString().Split(' ');
                 //String[] toDateTimeParts = toDateTime.ToString().Split(' ');
@@ -196,7 +198,7 @@ namespace HealthClinic.View
         private void patienstBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridMedicalExaminationRooms.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridMedicalExaminationRooms.Children.Add(usc);
         }
 

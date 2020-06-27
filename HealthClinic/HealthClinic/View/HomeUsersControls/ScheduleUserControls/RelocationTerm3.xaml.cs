@@ -119,7 +119,7 @@ namespace HealthClinic.View
         private void patienstBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridRelocationTerm3.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridRelocationTerm3.Children.Add(usc);
         }
 

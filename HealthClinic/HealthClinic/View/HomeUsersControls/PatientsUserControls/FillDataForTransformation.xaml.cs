@@ -60,7 +60,7 @@ namespace HealthClinic.View
         private void patienstBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridFillDataForTransformation.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridFillDataForTransformation.Children.Add(usc);
         }
 
@@ -192,7 +192,7 @@ namespace HealthClinic.View
                 //}
 
                 GridFillDataForTransformation.Children.Clear();
-                usc = new Patient();
+                usc = new PatientView();
                 GridFillDataForTransformation.Children.Add(usc);
                 return;
 

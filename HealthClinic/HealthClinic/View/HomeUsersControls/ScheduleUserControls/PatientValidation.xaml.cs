@@ -64,7 +64,7 @@ namespace HealthClinic.View
         private void patienstBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridPatientValidation.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridPatientValidation.Children.Add(usc);
         }
 
@@ -100,7 +100,7 @@ namespace HealthClinic.View
                 confirmBtn.BorderThickness = (Thickness)thic.ConvertFrom("1");
 
                 UserControl usc = null;
-                Model.AllActors.Patient patient = new Model.AllActors.Patient(); // OVO NE TREBA VEC CES POSLATI PACIJENTA KOJEG CES DOBITI IZ getPatientByUsername(string username)
+               Patient patient = new Patient(); // OVO NE TREBA VEC CES POSLATI PACIJENTA KOJEG CES DOBITI IZ getPatientByUsername(string username)
                 // ima nalog
                 if (userController.userService.IsUsernameExist(usernameTextBox.Text)) // napravi metodu
                 {

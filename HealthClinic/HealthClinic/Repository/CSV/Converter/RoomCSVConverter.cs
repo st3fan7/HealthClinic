@@ -3,6 +3,8 @@
 // Created: ponedeljak, 25. maj 2020. 01:41:55
 // Purpose: Definition of Class RoomCSVConverter
 
+using HealthClinic.Model.Manager;
+using HealthClinic.Repository.RoomsRepository;
 using Model.Manager;
 using Model.Term;
 using Repository.RoomsRepository;
@@ -24,7 +26,7 @@ namespace Repository.Csv.Converter
         public string ConvertEntityToCSVFormat(Room entity)
         {
             String equipmentCSV = "";
-            foreach (Equipment equipment in entity.Equipment)
+            foreach (InventaryRoom equipment in entity.Equipment)
             {
                 equipmentCSV += string.Join(delimiter, equipment.GetId());
                 equipmentCSV += delimiter;
@@ -35,18 +37,18 @@ namespace Repository.Csv.Converter
         public Room ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             string[] tokens = entityCSVFormat.Split(delimiter.ToCharArray());
-            List<Equipment> equipments = new List<Equipment>();
+            List<InventaryRoom> equipments = new List<InventaryRoom>();
             FillList(equipments, tokens);
             return new Room(int.Parse(tokens[0]), tokens[1], new TypeOfRoom(tokens[2]), DateTime.Parse(tokens[3]), DateTime.Parse(tokens[4]), equipments);
         }
 
-        private void FillList(List<Equipment> equipment, string[] tokens)
+        private void FillList(List<InventaryRoom> equipment, string[] tokens)
         {
             int i = 5;
             while (i < tokens.Length - 1)
             {
                 int id = int.Parse(tokens[i]);
-                equipment.Add(EquipmentRepository.Instance().GetEntity(id)); 
+                equipment.Add(InventaryRoomRepository.Instance().GetEntity(id)); 
                 i++;
             }
         }

@@ -28,11 +28,11 @@ namespace HealthClinic.View
 
         //Termin terminKojiSeZakazuje = new Termin();
 
-        Model.AllActors.Patient patient = new Model.AllActors.Patient();
+        Patient patient = new Patient();
         ViewTerm termForSchedule = new ViewTerm();
         ObservableCollection<User> doctorsFromCmbx = new ObservableCollection<User>();
         
-        public ConfirmPatientIdentity(string selectedDate, Model.AllActors.Patient patient, ViewTerm term)
+        public ConfirmPatientIdentity(string selectedDate, Patient patient, ViewTerm term)
         {
             InitializeComponent();
             termForSchedule = term;
@@ -71,7 +71,7 @@ namespace HealthClinic.View
         private void patienstBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridPatientValidation.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridPatientValidation.Children.Add(usc);
         }
 

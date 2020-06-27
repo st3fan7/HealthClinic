@@ -31,7 +31,7 @@ namespace HealthClinic.View
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
             GridTransformationGuestAccount.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridTransformationGuestAccount.Children.Add(usc);
         }
 
@@ -54,7 +54,7 @@ namespace HealthClinic.View
         private void patientsBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridTransformationGuestAccount.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridTransformationGuestAccount.Children.Add(usc);
         }
 

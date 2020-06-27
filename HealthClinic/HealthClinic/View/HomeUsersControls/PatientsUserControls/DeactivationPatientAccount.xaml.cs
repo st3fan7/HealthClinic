@@ -60,7 +60,7 @@ namespace HealthClinic.View
         private void patienstBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridDeactivationPatientAccount.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridDeactivationPatientAccount.Children.Add(usc);
         }
 
@@ -93,7 +93,7 @@ namespace HealthClinic.View
             //Loading.pacijenti.Remove(pacijentZaBrisanje);
 
             GridDeactivationPatientAccount.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridDeactivationPatientAccount.Children.Add(usc);
         }
 

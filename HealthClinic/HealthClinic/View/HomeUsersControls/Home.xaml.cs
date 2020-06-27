@@ -44,7 +44,7 @@ namespace HealthClinic.View
         private void patientsBtn_Click(object sender, RoutedEventArgs e)
         {
             GridHome.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridHome.Children.Add(usc);
         }
 
@@ -52,7 +52,7 @@ namespace HealthClinic.View
         {
 
             GridHome.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridHome.Children.Add(usc);
         }
 

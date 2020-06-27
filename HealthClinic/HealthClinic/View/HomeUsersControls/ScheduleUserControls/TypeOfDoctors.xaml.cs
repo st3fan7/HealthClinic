@@ -72,7 +72,7 @@ namespace HealthClinic.View.HomeUsersControls.ScheduleUserControls
         private void patienstBtn2_Click(object sender, RoutedEventArgs e)
         {
             GridTypeOfRoom.Children.Clear();
-            UserControl usc = new Patient();
+            UserControl usc = new PatientView();
             GridTypeOfRoom.Children.Add(usc);
         }
 
