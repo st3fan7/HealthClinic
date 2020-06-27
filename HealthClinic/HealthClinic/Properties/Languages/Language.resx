@@ -534,6 +534,9 @@
   <data name="state" xml:space="preserve">
     <value>Država:</value>
   </data>
+  <data name="successfullyCanceling" xml:space="preserve">
+    <value>Uspešno ste otkazali termin!</value>
+  </data>
   <data name="successfullySchedule" xml:space="preserve">
     <value>Uspešno ste zakazali pregled!</value>
   </data>

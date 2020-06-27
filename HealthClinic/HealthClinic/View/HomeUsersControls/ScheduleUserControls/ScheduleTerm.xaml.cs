@@ -27,20 +27,13 @@ namespace HealthClinic.View
     /// </summary>
     public partial class ScheduleTerm : UserControl
     {
-        //Termin terminKojiSeZakazuje = new Termin();
-        //Pacijent pacijentKomeSeZakazujeTermin = new Pacijent();
-        //private List<Lekar> lekari = new List<Lekar>();
-        //private List<Sobe> sobe = new List<Sobe>();
-        //private static List<String> doctorsFromCmbx = new List<String>();
 
-        //public static ObservableCollection<User> doctorsFromCmbx = new ObservableCollection<User>();
         Patient patient = new Patient();
 
         ViewTerm termForSchedule = new ViewTerm();
 
         private readonly IController<MedicalExamination, int> medicalExaminationController;
         public static ObservableCollection<User> Doctors{ get; set; }
-        //private readonly UserController userController;
 
         public ScheduleTerm(string selectedDate, ViewTerm term, Patient patient)
         {
@@ -190,35 +183,6 @@ namespace HealthClinic.View
 
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
         {
-            // UPIS TERMINA U FAJL I NA VIEW
-
-
-            //Console.WriteLine("Termin pre izmene: Datum: " + terminKojiSeZakazuje.Datum + " Vreme: " + terminKojiSeZakazuje.Vreme + " Sala: " + terminKojiSeZakazuje.Sala + " Lekar: " + terminKojiSeZakazuje.Lekar + " Pacijent: " + terminKojiSeZakazuje.Pacijent + " Status: " + terminKojiSeZakazuje.Status + " Zadatak: " + terminKojiSeZakazuje.Zadatak);
-            //foreach (Termin term in Loading.termini)
-            //{
-            //    if (term == terminKojiSeZakazuje)
-            //    {
-            //        Console.WriteLine("Isti je");
-            //        if (!terminKojiSeZakazuje.Sala.Equals(""))
-            //        {
-            //            term.Sala = terminKojiSeZakazuje.Sala;
-            //            term.Status = "Zauzet";
-            //            term.Pacijent = pacijentKomeSeZakazujeTermin.Name + " " + pacijentKomeSeZakazujeTermin.Surname;
-            //            term.Lekar = cmbxDoctor.Text;
-            //        }
-            //        else
-            //        {
-            //            term.Lekar = terminKojiSeZakazuje.Lekar;
-            //            term.Status = "Zauzet";
-            //            term.Pacijent = pacijentKomeSeZakazujeTermin.Name + " " + pacijentKomeSeZakazujeTermin.Surname;
-            //            term.Sala = cmbxRoom.Text;
-            //        }
-
-
-            //        (this.Parent as Panel).Children.RemoveRange(1, 6);
-            //        return;
-            //    }
-            //}
 
             MedicalExamination medicalExamination = new MedicalExamination();
             medicalExamination.Urgency = false;
@@ -235,8 +199,6 @@ namespace HealthClinic.View
             medicalExamination.Patient = patient;
             medicalExaminationController.AddEntity(medicalExamination);
 
-
-            //(this.Parent as Panel).Children.RemoveRange(1, 6);
             GridScheduleTerm.Children.Clear();
             UserControl usc = new SuccessfulySchedule();
             GridScheduleTerm.Children.Add(usc);
@@ -246,18 +208,15 @@ namespace HealthClinic.View
         private void cmbxDoctor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(cmbxDoctor.Text != null)
-            {
                 confirmBtn.IsEnabled = true;
-            }
+
             
         }
 
         private void cmbxRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cmbxRoom.Text != null)
-            {
                 confirmBtn.IsEnabled = true;
-            }
         }
     }
 }

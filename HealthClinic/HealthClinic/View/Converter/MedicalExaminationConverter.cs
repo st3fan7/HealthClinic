@@ -13,9 +13,10 @@ namespace HealthClinic.View.Converter
         public static ViewTerm ConvertMedicalExaminationToMedicalExaminationView(MedicalExamination medicalExamination)
         {
             String[] dateTimeParts = medicalExamination.FromDateTime.ToString().Split(' ');
-            // treba i vreme
+        
             return new ViewTerm
             {
+                Id = medicalExamination.GetId(),
                 Date = dateTimeParts[0],
                 Time = medicalExamination.FromDateTime.ToString().Remove(medicalExamination.FromDateTime.ToString().Length - 3) + " - " + medicalExamination.ToDateTime.ToString().Remove(medicalExamination.ToDateTime.ToString().Length - 3),
                 Room = medicalExamination.Room.RoomID,

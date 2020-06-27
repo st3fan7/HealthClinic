@@ -210,7 +210,7 @@ namespace HealthClinic.View
             //    return;
             //fillTermWithDataFromSelectedRow(term);
 
-            UserControl usc = new CancelingTerm(dateLabel.Content.ToString());
+            UserControl usc = new CancelingTerm(dateLabel.Content.ToString(), null);
             dgTerms.UnselectAllCells();
             btnRelocate.IsEnabled = false;
             btnCanceling.IsEnabled = false;

@@ -534,6 +534,9 @@
   <data name="state" xml:space="preserve">
     <value>State:</value>
   </data>
+  <data name="successfullyCanceling" xml:space="preserve">
+    <value>You have successfully cancel an examination!</value>
+  </data>
   <data name="successfullySchedule" xml:space="preserve">
     <value>You have successfully scheduled an examination!</value>
   </data>

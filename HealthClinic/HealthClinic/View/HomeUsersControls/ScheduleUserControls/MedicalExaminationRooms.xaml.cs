@@ -53,7 +53,7 @@ namespace HealthClinic.View
 
             var app = Application.Current as App;
             roomController = app.RoomController;
-            RoomsComboBox = new ObservableCollection<Room>(roomController.GetAllRoomForMedicalExamination().ToList()); //GetAllRoomForMedicalExamination
+            RoomsComboBox = new ObservableCollection<Room>(roomController.GetAllRoomForMedicalExamination().ToList()); 
 
             userController = app.UserController;
             DoctorsForMedicalExamination = new ObservableCollection<User>(userController.GetAllDoctors().ToList()); // treba opste prakse
@@ -68,20 +68,22 @@ namespace HealthClinic.View
             btnRelocate.IsEnabled = false;
             btnSchedule.IsEnabled = false;
 
-
+            
             medicalExaminationController = app.MedicalExaminationController;
             TermsView = new ObservableCollection<ViewTerm>(MedicalExaminationConverter.ConvertMedicalExaminationListToSurgeryViewList(medicalExaminationController.GetAllEntities().ToList()));
             currentTerms = TermsView;
 
             foreach (ViewTerm vt in TermsView)
-            {
-                Console.WriteLine(vt.Time);
-                Loading.currentMedicalExaminationTerms.Add(vt);
-            }
+                if (Loading.currentMedicalExaminationTerms.Any(p => p.Id == vt.Id) == false)
+                    Loading.currentMedicalExaminationTerms.Add(vt);
+
+
+            Console.WriteLine("--------------------------ISPIS-------------------------");
             foreach (ViewTerm vt in Loading.currentMedicalExaminationTerms)
             {
-                Console.WriteLine("Datum: " + vt.Date + " Doktor: " + vt.Doctor + " Pacijent: " + vt.Patient + " Sala: " + vt.Room + " Zadatak: " + vt.Task + " Vreme: " + vt.Time + " Status: " + vt.Status);
+                Console.WriteLine("Datum: " + vt.Date + " Doktor: " + vt.Doctor + " Pacijent: " + vt.Patient + " Sala: " + vt.Room + " Zadatak: " + vt.Task + " Vreme: " + vt.Time + " Status: " + vt.Status + " ID: " + vt.Id);
             }
+            Console.WriteLine("---------------------------------------------------------");
             fillData(DisplayType.date);
         }
 
@@ -103,8 +105,9 @@ namespace HealthClinic.View
                 {
                     addNewTermsInDatagrid(room.RoomID);
 
-                    foreach (ViewTerm term in currentTerms)
-                        Loading.currentMedicalExaminationTerms.Add(term);
+                    foreach (ViewTerm vt in currentTerms)
+                        if (Loading.currentMedicalExaminationTerms.Any(p => p.Id == vt.Id) == false)
+                            Loading.currentMedicalExaminationTerms.Add(vt);
 
                 }
                 else
@@ -124,6 +127,7 @@ namespace HealthClinic.View
                                     vt.Patient = viewTerm.Patient;
                                     vt.Status = "Zauzet";
                                     vt.Task = "Pregled";
+                                    vt.Id = viewTerm.Id;
                                     break;
                                 }
                             }
@@ -157,7 +161,7 @@ namespace HealthClinic.View
                 String[] toDateTimeParts = toDateTime.ToString().Split(' ');
                 String toTimeCut = toDateTimeParts[1].Remove(toDateTimeParts[1].Length - 3);
 
-                terms.Add(new ViewTerm() { Date = dateLabel.Content.ToString(), Time = fromDateTimeParts[0] + " " + fromTimeCut + " - " + toDateTimeParts[0] + " " + toTimeCut, Room = room, Doctor = "", Patient = "", Status = "Slobodan", Task = "Pregled", MakeInDoctor = false });
+                terms.Add(new ViewTerm() { Date = dateLabel.Content.ToString(), Time = fromDateTimeParts[0] + " " + fromTimeCut + " - " + toDateTimeParts[0] + " " + toTimeCut, Room = room, Doctor = "", Patient = "", Status = "Slobodan", Task = "Pregled", MakeInDoctor = false, Id = 0 });
             }
             return terms;
         }
@@ -180,7 +184,7 @@ namespace HealthClinic.View
                 String[] toDateTimeParts = toDateTime.ToString().Split(' ');
                 String toTimeCut = toDateTimeParts[1].Remove(toDateTimeParts[1].Length - 3);
 
-                currentTerms.Add(new ViewTerm() { Date = dateLabel.Content.ToString(), Time = fromDateTimeParts[0] + " " + fromTimeCut + " - " + toDateTimeParts[0] + " " + toTimeCut, Room = room, Doctor = "", Patient = "", Status = "Slobodan", Task = "Pregled", MakeInDoctor = false });
+                currentTerms.Add(new ViewTerm() { Date = dateLabel.Content.ToString(), Time = fromDateTimeParts[0] + " " + fromTimeCut + " - " + toDateTimeParts[0] + " " + toTimeCut, Room = room, Doctor = "", Patient = "", Status = "Slobodan", Task = "Pregled", MakeInDoctor = false, Id = 0 });
             }
 
         }
@@ -237,13 +241,7 @@ namespace HealthClinic.View
                 return;
             fillTermWithDataFromSelectedRow(term);
 
-            // NABAVI SVE OBICNE DOKTORE jesam
-
-            //List<String> doctors = new List<String>();
-            //foreach (Lekar l in Loading.lekari)
-            //{
-            //    doctors.Add(l.Doktor);
-            //}
+            // NABAVI SVE OBICNE DOKTORE
 
             UserControl usc = new PatientValidation(dateLabel.Content.ToString(), term);
             dgTerms.UnselectAllCells();
@@ -284,6 +282,7 @@ namespace HealthClinic.View
             term.Status = Convert.ToString(term.Status);
             term.Date = Convert.ToString(term.Date);
             term.Task = Convert.ToString(term.Task);
+            term.Id = Convert.ToInt32(term.Id);
             //term.MakeInDoctor = Convert.ToBoolean(term.MakeInDoctor);
         }
 
@@ -294,7 +293,7 @@ namespace HealthClinic.View
                 return;
             fillTermWithDataFromSelectedRow(term);
 
-            UserControl usc = new CancelingTerm(dateLabel.Content.ToString());
+            UserControl usc = new CancelingTerm(dateLabel.Content.ToString(), term);
             dgTerms.UnselectAllCells();
             btnRelocate.IsEnabled = false;
             btnCanceling.IsEnabled = false;
@@ -372,7 +371,7 @@ namespace HealthClinic.View
                                     termInCurrentTerms.Status = viewTerm.Status;
                                     termInCurrentTerms.Doctor = viewTerm.Doctor;
                                     termInCurrentTerms.MakeInDoctor = viewTerm.MakeInDoctor;
-                                    
+                                    termInCurrentTerms.Id = viewTerm.Id;
                                    
                                 }
                             }
@@ -398,8 +397,9 @@ namespace HealthClinic.View
                     {
                         addNewTermsInDatagrid(room.RoomID);
 
-                        foreach (ViewTerm term in currentTerms)
-                            Loading.currentMedicalExaminationTerms.Add(term);
+                        foreach (ViewTerm vt in currentTerms)
+                            if (Loading.currentMedicalExaminationTerms.Any(p => p.Id == vt.Id) == false)
+                                Loading.currentMedicalExaminationTerms.Add(vt);
 
                     }
                     else
@@ -419,6 +419,7 @@ namespace HealthClinic.View
                                         vt.Patient = viewTerm.Patient;
                                         vt.Status = "Zauzet";
                                         vt.Task = "Pregled";
+                                        vt.Id = viewTerm.Id;
                                         break;
                                     }
                                 }

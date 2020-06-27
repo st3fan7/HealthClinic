@@ -1,4 +1,8 @@
-﻿using HealthClinic.View.Dialogues;
+﻿using Controller;
+using Controller.ExaminationSurgeryControlers;
+using HealthClinic.View.Dialogues;
+using HealthClinic.View.ViewModel;
+using Model.Term;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,16 +25,21 @@ namespace HealthClinic.View
     /// </summary>
     public partial class CancelingTerm : UserControl
     {
-        //public static Termin termForCanceling = new Termin();
-        public CancelingTerm(string selectedDate)
+        private readonly MedicalExaminationController medicalExaminationController;
+
+        public static ViewTerm termForCanceling = new ViewTerm();
+        public CancelingTerm(string selectedDate, ViewTerm term)
         {
             InitializeComponent();
             dateLabel.Content = selectedDate;
-            //timeLabel.Content = term.Vreme;
-            //roomLabel.Content = term.Sala;
-            //doctorLabel.Content = term.Lekar;
-            //patientLabel.Content = term.Pacijent;
-            //termForCanceling = term;
+            timeLabel.Content = term.Time;
+            roomLabel.Content = term.Room;
+            doctorLabel.Content = term.Doctor;
+            patientLabel.Content = term.Patient;
+            termForCanceling = term;
+
+            var app = Application.Current as App;
+            medicalExaminationController = app.MedicalExaminationController;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -76,22 +85,31 @@ namespace HealthClinic.View
 
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
         {
+            
+            if (termForCanceling.Status.Equals("Zauzet"))
+            {
+                Console.WriteLine("ID: " + termForCanceling.Id);
+                medicalExaminationController.DeleteEntity(medicalExaminationController.GetEntity(termForCanceling.Id));
 
-            //foreach (Termin term in Loading.termini)
-            //{
-            //    if (term == termForCanceling)
-            //    {
-            //        term.Status = "Slobodan";
-            //        term.Pacijent = "";
-            //        if (term.StvaraSeKodDoktora == false)
-            //            term.Lekar = "";
-            //        else
-            //            term.Sala = "";
+                ViewTerm termSearch = new ViewTerm();
 
-                    (this.Parent as Panel).Children.RemoveRange(1, 6);
-            //        return;
-            //    }
-            //}
+                foreach(ViewTerm viewTerm in Loading.currentMedicalExaminationTerms)
+                {
+                    if(viewTerm.Id == termForCanceling.Id)
+                    {
+                        termSearch = viewTerm;
+                        break;
+                    }
+                }
+
+                Loading.currentMedicalExaminationTerms.Remove(termSearch);
+            }
+
+
+            GridScheduleTerm.Children.Clear();
+            UserControl usc = new SuccessfullyCanceling();
+            GridScheduleTerm.Children.Add(usc);
+
         }
 
         private void giveUpBtn_Click(object sender, RoutedEventArgs e)

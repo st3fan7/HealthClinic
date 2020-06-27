@@ -16,6 +16,7 @@ namespace HealthClinic.View.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        private int id;
         private string _date;
         private string _time;
         private string _room;
@@ -24,6 +25,22 @@ namespace HealthClinic.View.ViewModel
         private string _status; // SLOBODAN ILI ZAUZET
         private string _task;
         private bool _makeInDoctor;
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                if (value != id)
+                {
+                    id = value;
+                    OnPropertyChanged("MakeInDoctor");
+                }
+            }
+        }
 
         public bool MakeInDoctor
         {
