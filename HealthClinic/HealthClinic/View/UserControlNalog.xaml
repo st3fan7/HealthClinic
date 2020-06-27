@@ -31,12 +31,12 @@
             <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="JMBG:" FontSize="18" Margin="0,200,120,0"/>
             <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="Datum rođenja:" FontSize="18" Margin="0,300,50,0"/>
 
-            <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Margin="350,0,0,200" FontSize="18" Width="260"/>
-            <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Margin="350,0,0,100" FontSize="18" Width="260"/>
-            <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Margin="350,0,0,0" FontSize="18" Width="260"/>
-            <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Margin="350,100,0,0" FontSize="18" Width="260"/>
-            <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Margin="350,200,0,0" FontSize="18" Width="260"/>
-            <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Margin="350,300,0,0" FontSize="18" Width="260"/>
+            <TextBox x:Name="Username" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="350,0,0,200" FontSize="18" Width="260"/>
+            <TextBox x:Name="Pass" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="350,0,0,100" FontSize="18" Width="260"/>
+            <TextBox x:Name="Ime" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="350,0,0,0" FontSize="18" Width="260"/>
+            <TextBox x:Name="Prezime" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="350,100,0,0" FontSize="18" Width="260"/>
+            <TextBox x:Name="JMBG" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="350,200,0,0" FontSize="18" Width="260"/>
+            <TextBox x:Name="Datum" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="350,300,0,0" FontSize="18" Width="260"/>
             
            
         </Grid>
@@ -50,12 +50,12 @@
             <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="E-mail:" FontSize="18" Margin="0,200,420,0"/>
             <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="Zvanje:" FontSize="18" Margin="0,300,420,0"/>
 
-            <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,200" FontSize="18" Width="260"/>
-            <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,100" FontSize="18" Width="260"/>
-            <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" FontSize="18" Width="260"/>
-            <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,100,0,0" FontSize="18" Width="260"/>
-            <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,200,0,0" FontSize="18" Width="260"/>
-            <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,300,0,0" FontSize="18" Width="260"/>
+            <TextBox x:Name="Adresa" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,200" FontSize="18" Width="260"/>
+            <TextBox x:Name="Mesto" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,100" FontSize="18" Width="260"/>
+            <TextBox x:Name="Drzava" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" FontSize="18" Width="260"/>
+            <TextBox x:Name="Kontakt" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,100,0,0" FontSize="18" Width="260"/>
+            <TextBox x:Name="Mail" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,200,0,0" FontSize="18" Width="260"/>
+            <TextBox x:Name="Zvanje" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,300,0,0" FontSize="18" Width="260"/>
 
             <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Sačuvaj" FontSize="20" Width="200" Height="40" BorderBrush="Black" BorderThickness="2" Background="{x:Null}" Margin="0,420,170,0"/>
         </Grid>

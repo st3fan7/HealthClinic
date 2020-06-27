@@ -15,7 +15,7 @@ namespace HealthClinic.Model.Manager
 
         public string Name { get => name; set => name = value; }
         public int Quantity { get => quantity; set => quantity = value; }
-
+        
         private InventaryRoom() { }
 
         public InventaryRoom(string name, int quantity)

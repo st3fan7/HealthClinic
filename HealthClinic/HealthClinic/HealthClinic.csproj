@@ -65,14 +65,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-<<<<<<< HEAD
+    <Compile Include="Controller\RoomsControlers\InventaryRoomController.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-=======
-    <Compile Include="Controller\RoomsControlers\InventaryRoomController.cs" />
     <Compile Include="Model\Manager\InventaryRoom.cs" />
->>>>>>> develop
     <Compile Include="Repository\BlogNotificationRepository\ArticleRepository.cs" />
     <Compile Include="Repository\BlogNotificationRepository\IArticleRepository.cs" />
     <Compile Include="Repository\BlogNotificationRepository\INotificationRepository.cs" />

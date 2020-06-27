@@ -4,12 +4,13 @@
  * Purpose: Definition of the Class Term.Soba
  ***********************************************************************/
 
-using HealthClinic.Model.Manager;
+using Model.Manager;
 using HealthClinic.Repository;
 using Model.Manager;
 using System;
 using System.Collections.Generic;
 using System.Windows.Documents;
+using HealthClinic.Model.Manager;
 
 namespace Model.Term
 {

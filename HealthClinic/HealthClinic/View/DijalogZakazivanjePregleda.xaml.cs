@@ -27,7 +27,7 @@ namespace HealthClinic
 
 
         private bool hitnost = false;
-        private Model.Term.Room room = null;
+        private Room room = null;
         private readonly RoomController roomController;
         
         public DijalogZakazivanjePregleda()
@@ -80,7 +80,7 @@ namespace HealthClinic
 
             var app = App.Current as App;
             roomController = app.RoomController;
-            foreach(Model.Term.Room room in roomController.GetAllEntities())
+            foreach(Room room in roomController.GetAllEntities())
             {
                
                 if(room.TypeOfRoom.NameOfType.Equals("Soba za preglede"))
@@ -135,6 +135,11 @@ namespace HealthClinic
                         ListVremena.Items.Add(i + ":" + j);
                         ListVremenaKraj.Items.Add(i + ":" + j);
                     }
+                    
+                    /*
+                    ListVremena.Items.Add(i + ":" + j);
+                    ListVremenaKraj.Items.Add(i + ":" + j);
+                    */
 
 
                 }
@@ -161,13 +166,29 @@ namespace HealthClinic
                         //break;
                     }
 
+                    
+                    //Console.WriteLine(ListVremena.Items.GetItemAt(i) + " " + i);
+
+                    
 
                 }
-                
-
-               
+             
             }
 
+            /*
+            for(int a = pocetni+1; a <= krajnji; a++)
+            {
+                Console.WriteLine(ListVremena.Items.GetItemAt(a));
+                ListVremena.Items.Remove(ListVremena.Items.GetItemAt(a));
+            }
+            */
+            /*
+            for (int a = pocetni; a <= krajnji; a++)
+            {
+                Console.WriteLine(ListVremena.Items.GetItemAt(a));
+                ListVremena.Items.RemoveAt(a);
+            }
+            */
 
         }
 

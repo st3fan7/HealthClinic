@@ -1,4 +1,6 @@
-﻿using HealthClinic.Entiteti;
+﻿using Controller.MedicamentControlers;
+using HealthClinic.Entiteti;
+using Model.DoctorMenager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +23,13 @@ namespace HealthClinic
     /// </summary>
     public partial class UserControlValidacijaLeka : UserControl
     {
-       // public static Lek selectedLek = null;
+        // public static Lek selectedLek = null;
         //public static Lek selectedLekUklinici = null;
+
+        public static MedicamentController medicamentController;
+        public static ValidationMedicamentController validationMedicamentController;
+        public static ValidationOfMedicament validationOfMedicament = null;
+        public static Medicament selectedMedicament = null;
 
         public UserControlValidacijaLeka()
         {
@@ -44,6 +51,41 @@ namespace HealthClinic
 
             }
 
+            var app = Application.Current as App;
+
+            medicamentController = app.MedicamentController;
+            validationMedicamentController = app.ValidationOfMedicamentController;
+
+           foreach(Medicament m in medicamentController.GetComfirmedMedicaments())
+           {
+               // lekoviUklinici.Items
+           }
+
+            lekoviUklinici.ItemsSource = medicamentController.GetComfirmedMedicaments();
+            lekoviUklinici.DisplayMemberPath = "Name";
+            
+
+            
+
+            foreach(Medicament m in medicamentController.GetAllEntities())
+            {
+                
+                foreach(ValidationOfMedicament v in validationMedicamentController.validationMedicamentService.validationOfMedicamentRepository.GetMedicamentsOnValidationForDoctor(Window1.ulogovaniDoctor))
+                {
+                    
+
+                    if ((m.StateOfValidation == State.OnValidation) && (v.Medicament.GetId() == m.GetId()))
+                    {
+                        LekoviValidacija.Items.Add(v.Medicament);
+                        LekoviValidacija.DisplayMemberPath = "Name";
+                    }
+                }           
+            }
+
+
+
+
+
         }
 
         public static UserControlValidacijaLeka userControlValidacijaLeka = new UserControlValidacijaLeka();
@@ -51,18 +93,29 @@ namespace HealthClinic
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            //selectedLek = (Lek)LekoviValidacija.SelectedItem;
+            selectedMedicament = (Medicament)LekoviValidacija.SelectedItem;
+            foreach(ValidationOfMedicament v in validationMedicamentController.GetAllEntities())
+            {
+                if(v.Medicament.GetId() == selectedMedicament.GetId())
+                {
+                    validationOfMedicament = v;
+                }
+            }
+
+           // Console.WriteLine(validationOfMedicament.GetId() + " " + validationOfMedicament.FeedbackOfValidation.Comment + " " + validationOfMedicament.Medicament.Name);
+            
+
+            
+            
             Sastav.Items.Clear();
 
-            /*
-            if (selectedLek != null)
+            
+            if (selectedMedicament != null)
             {
-                Proizvodjac.Text = selectedLek.Proizvodjac;
+                Proizvodjac.Text = selectedMedicament.Producer;
+                               
+                    Sastav.Items.Add(selectedMedicament.Ingredients);
                 
-                foreach(String sastav in selectedLek.Sastav)
-                {
-                    Sastav.Items.Add(sastav);
-                }
                 
             }
             else
@@ -70,11 +123,7 @@ namespace HealthClinic
                 Proizvodjac.Text = "";
                 Sastav.Items.Clear();
             }
-            */
-           
-
-
-
+  
         }
 
         private void ListViewLekoviUKlinici_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -159,6 +208,26 @@ namespace HealthClinic
               
             }
             */
+
+            if(result == MessageBoxResult.Yes)
+            {
+                validationOfMedicament.FeedbackOfValidation.Comment = Izvestaj.Text;
+
+                if(DaChecked.IsChecked == true)
+                {
+                    validationOfMedicament.Approved = true;
+                    validationOfMedicament.Medicament.StateOfValidation = State.Confirmed;
+                    medicamentController.UpdateEntity(validationOfMedicament.Medicament);
+                    validationMedicamentController.UpdateEntity(validationOfMedicament);
+                }
+                else if(NeChecked.IsChecked == true)
+                {
+                    validationOfMedicament.Approved = false;
+                    validationOfMedicament.Medicament.StateOfValidation = State.Rejected;
+                    medicamentController.UpdateEntity(validationOfMedicament.Medicament);
+                    validationMedicamentController.UpdateEntity(validationOfMedicament);
+                }
+            }
 
 
 

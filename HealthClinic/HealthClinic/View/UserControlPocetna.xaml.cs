@@ -45,8 +45,8 @@ namespace HealthClinic
         private readonly UserController userController;
         public static UserControlPocetna userControlPocetna = new UserControlPocetna();
         public static ViewMedicalExamination viewMedicalExamination = null;
-        public static Model.AllActors.Patient staticPatient = new Model.AllActors.Patient();
-        public static Model.Term.MedicalExamination MedicalExamination = null;
+        public static Patient staticPatient = new Patient();
+        public static MedicalExamination MedicalExamination = null;
 
 
         public UserControlPocetna()
