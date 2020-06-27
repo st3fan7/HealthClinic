@@ -74,7 +74,7 @@ namespace HealthClinic.View
             {
                 userController.DeleteEntity(doctor);
                 DoctorsView.Remove(selectedDoctor);
-                MessageBox.Show("Uspešno ste obrisali lek", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Uspešno ste obrisali nalog lekaru", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

@@ -15,11 +15,11 @@
         </Grid.RowDefinitions>
 
         <TextBlock VerticalAlignment="Center" FontSize="24" Margin="10,0,0,0">Dani u kojima je sala zauzeta</TextBlock>
-        <DataGrid x:Name="dataGridZauzecaSale" Grid.Row="1" ItemsSource="{Binding }" AutoGenerateColumns="False" 
+        <DataGrid x:Name="dataGridZauzecaSale" Grid.Row="1" ItemsSource="{Binding RoomOccupancyView}" AutoGenerateColumns="False" 
                   SelectionMode="Single" IsReadOnly="True" BorderThickness="1" Margin="10,0">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Broj sale" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Datum" Binding="{Binding }"/>
+                <DataGridTextColumn Header="Broj sale" Binding="{Binding RoomID}"/>
+                <DataGridTextColumn Header="Datum" Binding="{Binding Date}"/>
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock Grid.Row="2" VerticalAlignment="Center" FontSize="18" Margin="10,0,0,0">Za zatvaranje prozora pritisnite ESC</TextBlock>

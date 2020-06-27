@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,15 +20,17 @@ namespace HealthClinic.View
     /// </summary>
     public partial class Notifications : Window
     {
-        public static RoutedCommand closeSchortcut = new RoutedCommand();
+        public static RoutedCommand closeSchortcut = new RoutedCommand();        
 
         public Notifications()
         {
             InitializeComponent();
+            this.DataContext = this;
             closeSchortcut.InputGestures.Add(new KeyGesture(Key.Escape));
             CommandBindings.Add(new CommandBinding(closeSchortcut, ShortKey_Click));
             InputSearch.Focus();
             InputSearch.SelectAll();
+
         }
 
         private void ShortKey_Click(object sender, ExecutedRoutedEventArgs e)

@@ -29,12 +29,12 @@ namespace HealthClinic.View.WorkPeople
         public UpdateDoctorAccount(ViewDoctor doctor)
         {
             InitializeComponent();
+            InputName.Focus();
+            InputName.SelectAll();
 
             var app = Application.Current as App;
             userController = app.UserController;
 
-            InputName.Focus();
-            InputName.SelectAll();
             InputName.Text = doctor.Name;
             InputSurname.Text = doctor.Surname;
             InputJmbg.Text = doctor.Jmbg;
@@ -73,13 +73,8 @@ namespace HealthClinic.View.WorkPeople
             doctorAccount.UserName = InputUsername.Text;
             doctorAccount.Password = InputPassword.Text;
 
-            userController.UpdateEntity(doctorAccount); // Dodaj da se izmeni i View
-            /*foreach(ViewDoctor doctor in DoctorAccounts.DoctorsView)
-            {
-                if (doctor.Id == doctorAccount.Id)
-                    doctor = DoctorConverter.ConvertDoctorToDoctorView(doctorAccount);
-            }*/
-                
+            userController.UpdateEntity(doctorAccount); 
+            // Dodaj da se izmeni i View
 
             this.Close();
             MessageBox.Show("Uspešno ste izmenili nalog lekaru", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);

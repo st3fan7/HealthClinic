@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HealthClinic.View.Converter;
+using HealthClinic.View.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +32,8 @@ namespace HealthClinic.View
             helpSchortcut.InputGestures.Add(new KeyGesture(Key.H, ModifierKeys.Control));
             CommandBindings.Add(new CommandBinding(helpSchortcut, ShortKey_Click));
             buttonLogOut = false;
+
+            NameAndSurrname.Text = MainWindow.viewManager.Name + " " + MainWindow.viewManager.Surname;
         }
 
         private void ShortKey_Click(object sender, ExecutedRoutedEventArgs e)

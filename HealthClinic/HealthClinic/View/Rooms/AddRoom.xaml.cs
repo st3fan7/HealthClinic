@@ -44,7 +44,7 @@ namespace HealthClinic.View
                 return;
             }
 
-            if (RoomWithRoomIDExist(InputNubmerOfRoom.Text)) // Pozovi iz kontrolera
+            if (roomController.RoomWithRoomIDExist(InputNubmerOfRoom.Text))
             {
                 MessageBox.Show("Broj sale koji ste uneli već postoji", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -55,14 +55,6 @@ namespace HealthClinic.View
                 new List<InventaryRoom>()))));
             this.Close();
             MessageBox.Show("Uspešno ste dodali novu sobu", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-        private bool RoomWithRoomIDExist(String roomID) // Dodaj u servis
-        {
-            foreach (Room room in roomController.GetAllEntities())
-                if (room.RoomID.Equals(roomID))
-                    return true;
-            return false;
         }
 
         private void Button_Click_Odustani(object sender, RoutedEventArgs e)

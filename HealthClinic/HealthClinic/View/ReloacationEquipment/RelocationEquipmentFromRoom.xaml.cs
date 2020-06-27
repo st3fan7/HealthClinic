@@ -46,20 +46,14 @@ namespace HealthClinic.View
             inRoom = (Room)ComboBoxInRoom.SelectedItem;
             fromRoom = (Room)ComboBoxfromRoom.SelectedItem;
 
-            inRoom = GetFirstRoom(roomController.GetAllEntities().ToList());
-            fromRoom = GetFirstRoom(roomController.GetAllEntities().ToList());
+            inRoom = roomController.GetFirstRoom(roomController.GetAllEntities().ToList());
+            fromRoom = roomController.GetFirstRoom(roomController.GetAllEntities().ToList());
 
             RoomsView = new ObservableCollection<Room>(roomController.GetAllEntities().ToList());
             InRoomView = new ObservableCollection<ViewInventaryRoom>(InventaryRoomConverter.ConvertInventaryRoomListToInventaryRoomViewList(inRoom.Equipment));
             FromRoomView = new ObservableCollection<ViewInventaryRoom>(InventaryRoomConverter.ConvertInventaryRoomListToInventaryRoomViewList(fromRoom.Equipment));
         }
 
-        private Room GetFirstRoom(List<Room> rooms) // Dodaj u Service
-        {
-            foreach (Room room in rooms)
-                return room;
-            return null;
-        }
         /*private List<InventaryRoom> GetInventaryForRoom(Room room) // napisi u controleru
         {
             foreach (Room oneRoom in roomController.GetAllEntities())

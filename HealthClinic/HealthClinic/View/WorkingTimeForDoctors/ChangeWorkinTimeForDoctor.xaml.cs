@@ -58,64 +58,39 @@ namespace HealthClinic.View
 
             if (selectedDay.Equals("Ponedeljak"))
             {
-                workingTimeForDoctorForOneDay = GetWorkTimeForDoctorByDoctorAndDay(selectedDoctor, DayOfWeek.Monday); // iz cont
+                workingTimeForDoctorForOneDay = workingTimeForDoctorController.GetWorkTimeForDoctorByDoctorAndDay(selectedDoctor, DayOfWeek.Monday); 
                 ChangeWorkTime(workingTimeForDoctorForOneDay, doctorDoesntWork, startWorkingTime, endWorkingTime);               
             }
             else if (selectedDay.Equals("Utorak"))
             {
-                workingTimeForDoctorForOneDay = GetWorkTimeForDoctorByDoctorAndDay(selectedDoctor, DayOfWeek.Tuesday); // iz cont
+                workingTimeForDoctorForOneDay = workingTimeForDoctorController.GetWorkTimeForDoctorByDoctorAndDay(selectedDoctor, DayOfWeek.Tuesday); 
                 ChangeWorkTime(workingTimeForDoctorForOneDay, doctorDoesntWork, startWorkingTime, endWorkingTime);
             }
             else if (selectedDay.Equals("Sreda"))
             {
-                workingTimeForDoctorForOneDay = GetWorkTimeForDoctorByDoctorAndDay(selectedDoctor, DayOfWeek.Wednesday); // iz cont
+                workingTimeForDoctorForOneDay = workingTimeForDoctorController.GetWorkTimeForDoctorByDoctorAndDay(selectedDoctor, DayOfWeek.Wednesday); 
                 ChangeWorkTime(workingTimeForDoctorForOneDay, doctorDoesntWork, startWorkingTime, endWorkingTime);
             }
             else if (selectedDay.Equals("Četvrtak"))
             {
-                workingTimeForDoctorForOneDay = GetWorkTimeForDoctorByDoctorAndDay(selectedDoctor, DayOfWeek.Thursday); // iz cont
+                workingTimeForDoctorForOneDay = workingTimeForDoctorController.GetWorkTimeForDoctorByDoctorAndDay(selectedDoctor, DayOfWeek.Thursday);
                 ChangeWorkTime(workingTimeForDoctorForOneDay, doctorDoesntWork, startWorkingTime, endWorkingTime);
             }
             else if (selectedDay.Equals("Petak"))
             {
-                workingTimeForDoctorForOneDay = GetWorkTimeForDoctorByDoctorAndDay(selectedDoctor, DayOfWeek.Friday); // iz cont
+                workingTimeForDoctorForOneDay = workingTimeForDoctorController.GetWorkTimeForDoctorByDoctorAndDay(selectedDoctor, DayOfWeek.Friday);
                 ChangeWorkTime(workingTimeForDoctorForOneDay, doctorDoesntWork, startWorkingTime, endWorkingTime);
             }
             else if (selectedDay.Equals("Subota"))
             {
-                workingTimeForDoctorForOneDay = GetWorkTimeForDoctorByDoctorAndDay(selectedDoctor, DayOfWeek.Saturday); // iz cont
+                workingTimeForDoctorForOneDay = workingTimeForDoctorController.GetWorkTimeForDoctorByDoctorAndDay(selectedDoctor, DayOfWeek.Saturday);
                 ChangeWorkTime(workingTimeForDoctorForOneDay, doctorDoesntWork, startWorkingTime, endWorkingTime);
             }
             else if (selectedDay.Equals("Nedelja"))
             {
-                workingTimeForDoctorForOneDay = GetWorkTimeForDoctorByDoctorAndDay(selectedDoctor, DayOfWeek.Sunday); // iz cont
+                workingTimeForDoctorForOneDay = workingTimeForDoctorController.GetWorkTimeForDoctorByDoctorAndDay(selectedDoctor, DayOfWeek.Sunday);
                 ChangeWorkTime(workingTimeForDoctorForOneDay, doctorDoesntWork, startWorkingTime, endWorkingTime);
             }           
-        }
-
-        private List<WorkingTimeForDoctor> GetWorkTimeForDoctor(Doctor doctor) // Napisi u servisu
-        {
-            List<WorkingTimeForDoctor> workingTimeForDoctor = new List<WorkingTimeForDoctor>();
-            foreach (WorkingTimeForDoctor workingTime in workingTimeForDoctorController.GetAllEntities())
-                if (workingTime.Doctor.GetId() == doctor.GetId())
-                    workingTimeForDoctor.Add(workingTime);
-            return workingTimeForDoctor;
-        }
-
-        private WorkingTimeForDoctor GetWorkTimeForDoctorByDay(DayOfWeek day) // Napisi u servisu
-        {
-            foreach (WorkingTimeForDoctor workingTime in workingTimeForDoctorController.GetAllEntities())
-                if (workingTime.Day.Equals(day))
-                    return workingTime;
-            return null;
-        }
-
-        private WorkingTimeForDoctor GetWorkTimeForDoctorByDoctorAndDay(Doctor doctor, DayOfWeek day) // Napisi u servisu
-        {
-            foreach (WorkingTimeForDoctor workingTime in workingTimeForDoctorController.GetAllEntities())
-                if (workingTime.Doctor.Id == doctor.Id && workingTime.Day.ToString().Equals(day.ToString()))
-                    return workingTime;
-            return null;
         }
 
         private void ChangeWorkTime(WorkingTimeForDoctor workingTimeForDoctorForOneDay,bool doctorDoesntWork,

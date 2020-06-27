@@ -49,11 +49,16 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBlock VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Izaberite lekara:</TextBlock>
-            <ComboBox x:Name="ComboBoxDoctors" Grid.Column="1" >
-                <ComboBoxItem IsSelected="True">Milan Petrović</ComboBoxItem>
-                <ComboBoxItem>Milica Jovanović</ComboBoxItem>
-                <ComboBoxItem>Petar Simić</ComboBoxItem>
-                <ComboBoxItem>Jovan Mihajlović</ComboBoxItem>
+            <ComboBox x:Name="ComboBoxDoctors" ItemsSource="{Binding Path= DoctorsView}" Grid.Column="1" Margin="0,3,6,3" SelectedIndex="0">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path= Name}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding Path= Surname}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
             </ComboBox>
         </Grid>
 
@@ -64,15 +69,14 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBlock VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0">Izaberite salu:</TextBlock>
-            <ComboBox  x:Name="ComboBoxNumbersOfRooms" Grid.Column="1" >
-                <ComboBoxItem IsSelected="True" Content="101a"/>
-                <ComboBoxItem Content="102a"/>
-                <ComboBoxItem Content="103a"/>
-                <ComboBoxItem Content="108a"/>
-                <ComboBoxItem Content="108b"/>
-                <ComboBoxItem Content="201a"/>
-                <ComboBoxItem Content="207a"/>
-                <ComboBoxItem Content="301a"/>
+            <ComboBox x:Name="ComboBoxRooms" ItemsSource="{Binding Path=RoomsView}" Grid.Column="1" Margin="0,3,6,3" SelectedIndex="0">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=RoomID}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
             </ComboBox>
         </Grid>
 
@@ -129,7 +133,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="170"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Margin="10,0,0,0" >
+            <Button Grid.Column="0" Margin="10,0,0,0" Click="Button_Click_GenerisiIzvestaj" >
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="ClipboardTextOutline" Margin="0,2,6,0"/>
                     <TextBlock Text="Generiši izveštaj"/>
