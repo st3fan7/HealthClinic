@@ -844,11 +844,29 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Primer forme za adresu: Ruma,Iriska 1,Srbija.
+        /// </summary>
+        public static string invalidAddress {
+            get {
+                return ResourceManager.GetString("invalidAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to JMBG:.
         /// </summary>
         public static string jmbg {
             get {
                 return ResourceManager.GetString("jmbg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JMBG već postoji!.
+        /// </summary>
+        public static string jmbgAleadyExsist {
+            get {
+                return ResourceManager.GetString("jmbgAleadyExsist", resourceCulture);
             }
         }
         
@@ -1290,6 +1308,15 @@ namespace HealthClinic.Properties.Languages {
         public static string state {
             get {
                 return ResourceManager.GetString("state", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uspešno ste zakazali pregled!.
+        /// </summary>
+        public static string successfullySchedule {
+            get {
+                return ResourceManager.GetString("successfullySchedule", resourceCulture);
             }
         }
         

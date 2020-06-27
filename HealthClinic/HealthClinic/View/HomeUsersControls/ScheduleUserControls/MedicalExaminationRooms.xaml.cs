@@ -42,10 +42,12 @@ namespace HealthClinic.View
         public static ObservableCollection<ViewTerm> currentTerms { get; set; }
         public static ObservableCollection<ViewTerm> termsForDatagrid { get; set; }
 
-        public MedicalExaminationRooms(string selectedDate)
+        public static MedicalExaminationRooms medicalExaminationRooms = new MedicalExaminationRooms();
+
+        public MedicalExaminationRooms()
         {
             InitializeComponent();
-            dateLabel.Content = selectedDate;
+            dateLabel.Content = DisplayType.date;
             this.DataContext = this;
             counter = 0;
 
@@ -83,7 +85,7 @@ namespace HealthClinic.View
             fillData(DisplayType.date);
         }
 
-        private void fillData(String date)
+        public void fillData(String date)
         {
             currentTerms.Clear();
 
@@ -96,6 +98,7 @@ namespace HealthClinic.View
 
             if (currentTerms.Count < 14)
             {
+                
                 if (currentTerms.Count == 0)
                 {
                     addNewTermsInDatagrid(room.RoomID);
@@ -147,9 +150,14 @@ namespace HealthClinic.View
             {
                 DateTime fromDateTime = new DateTime(int.Parse(dateParts[2]), int.Parse(dateParts[1]), int.Parse(dateParts[0]), j++, 0, 0);
                 DateTime toDateTime = fromDateTime.AddHours(1);
-                //String[] fromDateTimeParts = fromDateTime.ToString().Split(' ');
-                //String[] toDateTimeParts = toDateTime.ToString().Split(' ');
-                terms.Add(new ViewTerm() { Date = dateLabel.Content.ToString(), Time = fromDateTime + " - " + toDateTime, Room = room, Doctor = "", Patient = "", Status = "Slobodan", Task = "Pregled", MakeInDoctor = false });
+
+                String[] fromDateTimeParts = fromDateTime.ToString().Split(' ');
+                String fromTimeCut = fromDateTimeParts[1].Remove(fromDateTimeParts[1].Length - 3);
+
+                String[] toDateTimeParts = toDateTime.ToString().Split(' ');
+                String toTimeCut = toDateTimeParts[1].Remove(toDateTimeParts[1].Length - 3);
+
+                terms.Add(new ViewTerm() { Date = dateLabel.Content.ToString(), Time = fromDateTimeParts[0] + " " + fromTimeCut + " - " + toDateTimeParts[0] + " " + toTimeCut, Room = room, Doctor = "", Patient = "", Status = "Slobodan", Task = "Pregled", MakeInDoctor = false });
             }
             return terms;
         }
@@ -165,9 +173,14 @@ namespace HealthClinic.View
             {
                 DateTime fromDateTime = new DateTime(int.Parse(dateParts[2]), int.Parse(dateParts[1]), int.Parse(dateParts[0]), j++, 0, 0);
                 DateTime toDateTime = fromDateTime.AddHours(1);
-                //String[] fromDateTimeParts = fromDateTime.ToString().Split(' ');
-                //String[] toDateTimeParts = toDateTime.ToString().Split(' ');
-                currentTerms.Add(new ViewTerm() { Date = dateLabel.Content.ToString(), Time = fromDateTime + " - " + toDateTime, Room = room, Doctor = "", Patient = "", Status = "Slobodan", Task = "Pregled", MakeInDoctor = false });
+                
+                String[] fromDateTimeParts = fromDateTime.ToString().Split(' ');
+                String fromTimeCut = fromDateTimeParts[1].Remove(fromDateTimeParts[1].Length - 3);
+
+                String[] toDateTimeParts = toDateTime.ToString().Split(' ');
+                String toTimeCut = toDateTimeParts[1].Remove(toDateTimeParts[1].Length - 3);
+
+                currentTerms.Add(new ViewTerm() { Date = dateLabel.Content.ToString(), Time = fromDateTimeParts[0] + " " + fromTimeCut + " - " + toDateTimeParts[0] + " " + toTimeCut, Room = room, Doctor = "", Patient = "", Status = "Slobodan", Task = "Pregled", MakeInDoctor = false });
             }
 
         }
@@ -336,15 +349,51 @@ namespace HealthClinic.View
             {
                 currentTerms.Clear();
                 Room room = (Room)roomCmbx.SelectedItem;
+                if(room == null)
+                    room = RoomsComboBox.First();
+
                 Console.WriteLine("Soba prikaz: " + room.RoomID);
                 counter += 1;
+
+                ObservableCollection<ViewTerm> terms = currentTerms;
+                ObservableCollection<ViewTerm> termsNew = new ObservableCollection<ViewTerm>();
+
                 foreach (ViewTerm viewTerm in Loading.currentMedicalExaminationTerms)
+                {
                     if (dateLabel.Content.Equals(viewTerm.Date) && room.RoomID.Equals(viewTerm.Room) && viewTerm.Task.Equals("Pregled"))
-                        currentTerms.Add(viewTerm);
+                    {
+                        if (currentTerms.Count == 13)
+                        {
+                            foreach (ViewTerm termInCurrentTerms in terms)
+                            {
+                                if (viewTerm.Time.Equals(termInCurrentTerms.Time) && viewTerm.Status.Equals("Zauzet"))
+                                {
+                                    // treba da refreshujem samo taj iz current terms
+                                    termInCurrentTerms.Status = viewTerm.Status;
+                                    termInCurrentTerms.Doctor = viewTerm.Doctor;
+                                    termInCurrentTerms.MakeInDoctor = viewTerm.MakeInDoctor;
+                                    
+                                   
+                                }
+                            }
+
+                            currentTerms.Clear();
+                            currentTerms = terms;
+                        } else
+                        {
+                            currentTerms.Add(viewTerm);
+                        }
+
+                        
+                    }
+                        
+                }
+                    
 
 
                 if (currentTerms.Count < 14)
                 {
+                    Console.WriteLine("Usao u uslov manje od 14");
                     if (currentTerms.Count == 0)
                     {
                         addNewTermsInDatagrid(room.RoomID);
@@ -384,9 +433,8 @@ namespace HealthClinic.View
                 dgTerms.ItemsSource = currentTerms;
                 btnRelocate.IsEnabled = false;
                 btnCanceling.IsEnabled = false;
-                btnSchedule.IsEnabled = false;
+                btnSchedule.IsEnabled = false;        
                 dgTerms.UnselectAllCells();
-
             }
 
 

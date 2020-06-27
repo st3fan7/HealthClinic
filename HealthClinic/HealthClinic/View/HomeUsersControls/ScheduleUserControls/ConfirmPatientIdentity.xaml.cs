@@ -39,7 +39,7 @@ namespace HealthClinic.View
             dateLabel.Content = selectedDate;
             nameLabel2.Content = patient.Name;
             lastNameLabel2.Content = patient.Surname;
-            jmbgLabel2.Content = patient.Id;
+            jmbgLabel2.Content = patient.Jmbg;
 
             if (!patient.UserName.Equals(""))
             {

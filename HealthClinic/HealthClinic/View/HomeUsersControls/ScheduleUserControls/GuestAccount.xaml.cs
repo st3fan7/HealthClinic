@@ -1,5 +1,9 @@
-﻿using HealthClinic.View.Dialogues;
+﻿using Controller;
+using Controller.UsersControlers;
+using HealthClinic.View.Dialogues;
+using HealthClinic.View.ViewModel;
 using Model.AllActors;
+using Model.PatientDoctor;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,17 +31,28 @@ namespace HealthClinic.View
         //Termin terminKojiSeZakazuje = new Termin();
         //private static List<String> doctorsFromCmbx = new List<String>();
         ObservableCollection<User> doctorsFromCmbx = new ObservableCollection<User>();
-        public GuestAccount(string selectedDate, string enteredData)
+        ViewTerm termForSchedule = new ViewTerm();
+
+        private readonly UserController userController;
+        public GuestAccount(string selectedDate, string enteredData, ViewTerm term)
         {
+
             InitializeComponent();
             textWarning.Visibility = textWarningHidden;
             textWarning2.Visibility = Visibility.Hidden;
             textWarning3.Visibility = Visibility.Hidden;
             textWarning4.Visibility = Visibility.Hidden;
+            textWarning5.Visibility = Visibility.Hidden;
+            textWarning6.Visibility = Visibility.Hidden;
             //terminKojiSeZakazuje = term;
             dateLabel.Content = selectedDate;
             inputLabel.Content = enteredData;
             doctorsFromCmbx = MedicalExaminationRooms.DoctorsForMedicalExamination;
+
+            termForSchedule = term;
+
+            var app = Application.Current as App;
+            userController = app.UserController;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -90,9 +105,11 @@ namespace HealthClinic.View
                 String nameRegex = @"[A-Z]+[a-z]+";
                 String mobileRegex = @"([+][0-9]{3})?[0-9]{2,3}/[0-9]{3}-[0-9]{3,4}";
                 String idRegex = @"[0-9]{13}";
+                String addressRegex = @"[A-Z][A-Za-z]+,[A-Z][A-Za-z0-9 ]+,[A-Z][A-Za-z0-9 ]+";
                 Regex rg = new Regex(nameRegex);
                 Regex rg2 = new Regex(mobileRegex);
                 Regex rg3 = new Regex(idRegex);
+                Regex rg4 = new Regex(addressRegex);
 
                 if (!rg.Match(nameInput.Text).Success)
                 {
@@ -124,6 +141,16 @@ namespace HealthClinic.View
                     return;
                 }
 
+                if (!rg4.Match(addressInput.Text).Success)
+                {
+                    textWarning5.Visibility = Visibility.Visible;
+                    addressInput.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    addressInput.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                    createBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    createBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                    return;
+                }
+
                 if (!rg2.Match(mobileInput.Text).Success)
                 {
                     textWarning3.Visibility = Visibility.Visible;
@@ -135,6 +162,8 @@ namespace HealthClinic.View
                 }
 
 
+                textWarning6.Visibility = Visibility.Hidden;
+                textWarning5.Visibility = Visibility.Hidden;
                 textWarning4.Visibility = Visibility.Hidden;
                 textWarning3.Visibility = Visibility.Hidden;
                 textWarning2.Visibility = Visibility.Hidden;
@@ -142,20 +171,71 @@ namespace HealthClinic.View
                 idInput.BorderThickness = (Thickness)thic.ConvertFrom("1");
                 mobileInput.BorderBrush = Brushes.Black;
                 mobileInput.BorderThickness = (Thickness)thic.ConvertFrom("1");
+                addressInput.BorderBrush = Brushes.Black;
+                addressInput.BorderThickness = (Thickness)thic.ConvertFrom("1");
                 nameInput.BorderBrush = Brushes.Black;
                 nameInput.BorderThickness = (Thickness)thic.ConvertFrom("1");
                 surnameInput.BorderBrush = Brushes.Black;
                 surnameInput.BorderThickness = (Thickness)thic.ConvertFrom("1");
                 createBtn.BorderBrush = Brushes.Black;
                 createBtn.BorderThickness = (Thickness)thic.ConvertFrom("1");
+                
 
+                Patient patient = new Patient();
+                patient.UserName = "";
+                patient.Password = "";
+                patient.Name = nameInput.Text;
+                patient.Surname = surnameInput.Text;
 
-                //Pacijent pacijent = new Pacijent("", "", nameInput.Text, surnameInput.Text, idInput.Text, "", "", "", addressInput.Text, mobileInput.Text, "", true);
+                Patient patientForCheck = (Patient)userController.GetUserByJMBG(idInput.Text);
+                if (patientForCheck != null)
+                {
+                    textWarning6.Visibility = Visibility.Visible;
+                    idInput.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    idInput.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                    createBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    createBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                    return;
+                }
 
+                patient.Jmbg = idInput.Text;
 
-                //Loading.pacijenti.Add(pacijent);
+                String dateOfBirth = idInput.Text.Remove(idInput.Text.Length - 5);
 
-                UserControl usc = new ScheduleTerm(dateLabel.Content.ToString(), null, null); // STAVI TERMIN I PACIJENTA
+                String day = dateOfBirth.Substring(0, 2);
+
+                String month = dateOfBirth.Substring(2, 2);
+
+                String year = dateOfBirth.Substring(4, 3);
+
+                String dateOfBirthForParse = day + "/" + month + "/1" + year;
+                try
+                {
+                    patient.DateOfBirth = DateTime.Parse(dateOfBirthForParse);
+
+                } catch
+                {
+                    Console.WriteLine("Nevalidan format za datum");
+                    idInput.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    idInput.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                    createBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    createBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                    return;
+                    
+                }
+                
+                patient.ContactNumber = mobileInput.Text;
+                patient.EMail = "";
+
+                String[] addressPart = addressInput.Text.Split(',');
+
+                patient.City = new City(addressPart[0], addressPart[1], new Country(addressPart[2]));
+                patient.GuestAccount = true;
+                patient.MedicalRecord = new MedicalRecord();
+
+                userController.AddEntity(patient);
+
+                UserControl usc = new ScheduleTerm(dateLabel.Content.ToString(), termForSchedule, patient);
                 (this.Parent as Panel).Children.Add(usc);
             }
             else
@@ -218,6 +298,8 @@ namespace HealthClinic.View
 
         private void nameInput_TextChanged(object sender, TextChangedEventArgs e)
         {
+            textWarning6.Visibility = Visibility.Hidden;
+            textWarning5.Visibility = Visibility.Hidden;
             textWarning4.Visibility = Visibility.Hidden;
             textWarning2.Visibility = Visibility.Hidden;
             textWarning3.Visibility = Visibility.Hidden;
@@ -235,6 +317,8 @@ namespace HealthClinic.View
 
         private void surnameInput_TextChanged(object sender, TextChangedEventArgs e)
         {
+            textWarning6.Visibility = Visibility.Hidden;
+            textWarning5.Visibility = Visibility.Hidden;
             textWarning4.Visibility = Visibility.Hidden;
             textWarning2.Visibility = Visibility.Hidden;
             textWarning3.Visibility = Visibility.Hidden;
@@ -254,6 +338,8 @@ namespace HealthClinic.View
 
         private void idInput_TextChanged(object sender, TextChangedEventArgs e)
         {
+            textWarning6.Visibility = Visibility.Hidden;
+            textWarning5.Visibility = Visibility.Hidden;
             textWarning4.Visibility = Visibility.Hidden;
             textWarning2.Visibility = Visibility.Hidden;
             textWarning3.Visibility = Visibility.Hidden;
@@ -271,6 +357,8 @@ namespace HealthClinic.View
 
         private void addressInput_TextChanged(object sender, TextChangedEventArgs e)
         {
+            textWarning6.Visibility = Visibility.Hidden;
+            textWarning5.Visibility = Visibility.Hidden;
             textWarning4.Visibility = Visibility.Hidden;
             textWarning2.Visibility = Visibility.Hidden;
             textWarning3.Visibility = Visibility.Hidden;
@@ -288,6 +376,8 @@ namespace HealthClinic.View
 
         private void mobileInput_TextChanged(object sender, TextChangedEventArgs e)
         {
+            textWarning6.Visibility = Visibility.Hidden;
+            textWarning5.Visibility = Visibility.Hidden;
             textWarning4.Visibility = Visibility.Hidden;
             textWarning2.Visibility = Visibility.Hidden;
             textWarning3.Visibility = Visibility.Hidden;

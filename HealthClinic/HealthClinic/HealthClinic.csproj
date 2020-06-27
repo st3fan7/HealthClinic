@@ -47,6 +47,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -197,12 +199,16 @@
     <Compile Include="Controller\UsersControlers\WorkingTimeForDoctorController.cs" />
     <Compile Include="View\Converter\AbstractConverter.cs" />
     <Compile Include="View\Converter\MedicalExaminationConverter.cs" />
+    <Compile Include="View\Converter\PatientConverter.cs" />
     <Compile Include="View\Converter\SurgeryConverter.cs" />
     <Compile Include="View\Dialogues\Loading.xaml.cs">
       <DependentUpon>Loading.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Dialogues\LogoutDialog.xaml.cs">
       <DependentUpon>LogoutDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialogues\SuccessfulySchedule.xaml.cs">
+      <DependentUpon>SuccessfulySchedule.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HomeUsersControls\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
@@ -342,6 +348,7 @@
     <Compile Include="View\Login\UserControlForgotPassword.xaml.cs">
       <DependentUpon>UserControlForgotPassword.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewModel\ViewPatient.cs" />
     <Compile Include="View\ViewModel\ViewTerm.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -461,6 +468,10 @@
     <Page Include="View\Dialogues\LogoutDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Dialogues\SuccessfulySchedule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HomeUsersControls\Home.xaml">
       <Generator>MSBuild:Compile</Generator>

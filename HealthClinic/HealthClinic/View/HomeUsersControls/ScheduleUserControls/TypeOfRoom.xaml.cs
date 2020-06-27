@@ -51,7 +51,7 @@ namespace HealthClinic.View
             }
             else if (secondRadioButton.IsChecked == true)
             {
-                return usc = new MedicalExaminationRooms(dateLabel.Content.ToString());
+                return usc = new MedicalExaminationRooms();
             }
             else
             {

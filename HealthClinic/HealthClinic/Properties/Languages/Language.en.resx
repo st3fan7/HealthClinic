@@ -378,8 +378,14 @@
   <data name="inputUsernameInMainW" xml:space="preserve">
     <value>Enter username</value>
   </data>
+  <data name="invalidAddress" xml:space="preserve">
+    <value>Example address form: Ruma,Iriska 1,Srbija</value>
+  </data>
   <data name="jmbg" xml:space="preserve">
     <value>ID:</value>
+  </data>
+  <data name="jmbgAleadyExsist" xml:space="preserve">
+    <value>ID already exsist!</value>
   </data>
   <data name="lightTheme" xml:space="preserve">
     <value>Light</value>
@@ -527,6 +533,9 @@
   </data>
   <data name="state" xml:space="preserve">
     <value>State:</value>
+  </data>
+  <data name="successfullySchedule" xml:space="preserve">
+    <value>You have successfully scheduled an examination!</value>
   </data>
   <data name="surname" xml:space="preserve">
     <value>Surname:</value>

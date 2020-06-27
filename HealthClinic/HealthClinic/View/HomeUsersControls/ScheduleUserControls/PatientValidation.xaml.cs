@@ -100,51 +100,24 @@ namespace HealthClinic.View
                 confirmBtn.BorderThickness = (Thickness)thic.ConvertFrom("1");
 
                 UserControl usc = null;
-               Patient patient = new Patient(); // OVO NE TREBA VEC CES POSLATI PACIJENTA KOJEG CES DOBITI IZ getPatientByUsername(string username)
+                Patient patient = (Patient)userController.GetUserByUsername(usernameTextBox.Text);
                 // ima nalog
-                if (userController.userService.IsUsernameExist(usernameTextBox.Text)) // napravi metodu
+                if (patient != null) 
                 {
                     usc = new ConfirmPatientIdentity(dateLabel.Content.ToString(), patient, termForSchedule); // datum ne moras ovako vec datum od termina uzmi
                     (this.Parent as Panel).Children.Add(usc);
                     return;
                 }
+                patient = (Patient)userController.GetUserByJMBG(usernameTextBox.Text);
                 // ima guest account
-                if (userController.userService.IsUsernameExist(usernameTextBox.Text)) // napravi metodu
+                if (patient != null) // napravi metodu
                 {
                     usc = new ConfirmPatientIdentity(dateLabel.Content.ToString(), patient, termForSchedule);
                     (this.Parent as Panel).Children.Add(usc);
                     return;
                 }
-
-
-                //{
-                //    // ima nalog
-                //    if (!pacijent.Username.Equals(""))
-                //    {
-                //        if (pacijent.Username.Equals(usernameTextBox.Text))
-                //        {
-
-
-
-                //            usc = new ConfirmPatientIdentity(dateLabel.Content.ToString(), pacijent, terminKojiSeZakazuje, doctorsFromCmbx); // datum ne moras ovako vec datum od termina uzmi
-                //            (this.Parent as Panel).Children.Add(usc);
-                //            return;
-                //        }
-                //    }
-
-
-                //    // ima guest account
-                //    if (pacijent.Id.Equals(usernameTextBox.Text))
-                //    {
-                //        usc = new ConfirmPatientIdentity(dateLabel.Content.ToString(), pacijent, terminKojiSeZakazuje, doctorsFromCmbx);
-                //        (this.Parent as Panel).Children.Add(usc);
-                //        return;
-                //    }
-                //}
-
-
                 // nema nalog
-                usc = new GuestAccount(dateLabel.Content.ToString(), usernameTextBox.Text);
+                usc = new GuestAccount(dateLabel.Content.ToString(), usernameTextBox.Text, termForSchedule);
                 (this.Parent as Panel).Children.Add(usc);
             } else
             {

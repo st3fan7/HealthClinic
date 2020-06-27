@@ -1,7 +1,9 @@
-﻿using Controller.UsersControlers;
+﻿using Controller;
+using Controller.UsersControlers;
 using HealthClinic.View.Dialogues;
 using HealthClinic.View.ViewModel;
 using Model.AllActors;
+using Model.Term;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -33,14 +35,17 @@ namespace HealthClinic.View
 
         //public static ObservableCollection<User> doctorsFromCmbx = new ObservableCollection<User>();
         Patient patient = new Patient();
+
         ViewTerm termForSchedule = new ViewTerm();
 
+        private readonly IController<MedicalExamination, int> medicalExaminationController;
         public static ObservableCollection<User> Doctors{ get; set; }
         //private readonly UserController userController;
 
         public ScheduleTerm(string selectedDate, ViewTerm term, Patient patient)
         {
             InitializeComponent();
+            this.DataContext = this;
             dateLabel.Content = selectedDate;
             termForSchedule = term;
             l11.Content = term.Time;
@@ -48,9 +53,9 @@ namespace HealthClinic.View
             l33.Content = patient.Name + " " + patient.Surname; 
             this.patient = patient;
             confirmBtn.IsEnabled = false;
-            
 
-
+            var app = Application.Current as App;
+            medicalExaminationController = app.MedicalExaminationController;
 
 
             l4.Visibility = Visibility.Hidden;
@@ -85,33 +90,17 @@ namespace HealthClinic.View
                     //NABAVI SVE LEKARE SPECIJALISTE
                     // Doctors = MedicalExaminationRooms.DoctorsForMedicalExamination; // MORA DA SE PROSLEDJUJE ILI NEKAKO DA VIDIS DA LI JE OPERACIJA ILI PREGLED
 
-                    //foreach (Lekar d in Loading.lekariSpecijaliste)
-                    //{
-                    //    lekariKojePunim.Add(d.Doktor);
-                    //}
                 }
                 else
                 {
                     // NABAVI SVE LEKARE OPSTE PRAKSE
-                    Doctors = MedicalExaminationRooms.DoctorsForMedicalExamination; // MORA DA SE PROSLEDJUJE ILI NEKAKO DA VIDIS DA LI JE OPERACIJA ILI PREGLED
-                    //foreach (Lekar d in Loading.lekari)
-                    //{
-                    //    lekariKojePunim.Add(d.Doktor);
-                    //}
+                    Doctors = MedicalExaminationRooms.DoctorsForMedicalExamination; // KAKO ZNAM KOJI SU DOKTORI?
+                    foreach(Doctor d in Doctors)
+                    {
+                        Console.WriteLine(d.Name);
+                    }
                 }
 
-                //lekari.Clear();
-                //foreach (String d in lekariKojePunim)
-                //{
-                //    Console.WriteLine("Doktor: " + d);
-                //    lekari.Add(new Lekar() { Doktor = d });
-                //}
-
-
-                //cmbxDoctor.ItemsSource = lekari;
-                //cmbxDoctor.DisplayMemberPath = "Doktor";
-
-                //Console.WriteLine("Poslao sam doktora: " + lekari.Count);
 
             }
             //else
@@ -224,15 +213,34 @@ namespace HealthClinic.View
             //            term.Pacijent = pacijentKomeSeZakazujeTermin.Name + " " + pacijentKomeSeZakazujeTermin.Surname;
             //            term.Sala = cmbxRoom.Text;
             //        }
-                    
-                    
+
+
             //        (this.Parent as Panel).Children.RemoveRange(1, 6);
             //        return;
             //    }
             //}
 
+            MedicalExamination medicalExamination = new MedicalExamination();
+            medicalExamination.Urgency = false;
+            medicalExamination.ShortDescription = "Upala grla";
+            
+            foreach(Room room in MedicalExaminationRooms.RoomsComboBox)
+                if (room.RoomID.Equals(termForSchedule.Room))
+                    medicalExamination.Room = room;
 
-           
+            String[] fromDateTimeParts = termForSchedule.Time.Split(' ');
+            medicalExamination.FromDateTime = DateTime.Parse(fromDateTimeParts[0] + " " + fromDateTimeParts[1]);
+            medicalExamination.ToDateTime = DateTime.Parse(fromDateTimeParts[3] + " " + fromDateTimeParts[4]);
+            medicalExamination.Doctor = (Doctor)cmbxDoctor.SelectedItem;
+            medicalExamination.Patient = patient;
+            medicalExaminationController.AddEntity(medicalExamination);
+
+
+            //(this.Parent as Panel).Children.RemoveRange(1, 6);
+            GridScheduleTerm.Children.Clear();
+            UserControl usc = new SuccessfulySchedule();
+            GridScheduleTerm.Children.Add(usc);
+            return;
         }
 
         private void cmbxDoctor_SelectionChanged(object sender, SelectionChangedEventArgs e)

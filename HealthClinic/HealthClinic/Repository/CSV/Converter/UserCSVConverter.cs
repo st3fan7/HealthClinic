@@ -32,7 +32,7 @@ namespace Repository.Csv.Converter
             }else if(entity.GetType() == typeof(Patient))
             {
                 Patient patient = (Patient)entity;
-                return string.Join(delimiter, patient.GetId(), patient.GetType(), patient.UserName, patient.Password, patient.Name, patient.Surname, patient.Jmbg, patient.DateOfBirth,
+                return string.Join(delimiter, patient.GetId(), patient.GetType(), patient.UserName, patient.Password, patient.Name, patient.Surname, patient.Jmbg, patient.DateOfBirth.ToString("dd/MM/yyyy"),
                     patient.ContactNumber, patient.EMail, patient.City.Name, patient.City.Adress, patient.City.Country.Name, patient.GuestAccount, patient.MedicalRecord.GetId());
 
             }else if(entity.GetType() == typeof(Secretary))

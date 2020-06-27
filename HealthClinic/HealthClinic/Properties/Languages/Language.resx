@@ -378,8 +378,14 @@
   <data name="inputUsernameInMainW" xml:space="preserve">
     <value>Unesite korisničko ime</value>
   </data>
+  <data name="invalidAddress" xml:space="preserve">
+    <value>Primer forme za adresu: Ruma,Iriska 1,Srbija</value>
+  </data>
   <data name="jmbg" xml:space="preserve">
     <value>JMBG:</value>
+  </data>
+  <data name="jmbgAleadyExsist" xml:space="preserve">
+    <value>JMBG već postoji!</value>
   </data>
   <data name="lightTheme" xml:space="preserve">
     <value>Svetla</value>
@@ -527,6 +533,9 @@
   </data>
   <data name="state" xml:space="preserve">
     <value>Država:</value>
+  </data>
+  <data name="successfullySchedule" xml:space="preserve">
+    <value>Uspešno ste zakazali pregled!</value>
   </data>
   <data name="surname" xml:space="preserve">
     <value>Prezime:</value>
