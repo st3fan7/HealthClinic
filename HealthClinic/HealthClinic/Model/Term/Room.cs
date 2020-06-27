@@ -4,9 +4,8 @@
  * Purpose: Definition of the Class Term.Soba
  ***********************************************************************/
 
-using HealthClinic.Model.Manager;
-using HealthClinic.Repository;
 using Model.Manager;
+using HealthClinic.Repository;
 using System;
 using System.Collections.Generic;
 using System.Windows.Documents;

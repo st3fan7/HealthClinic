@@ -1,5 +1,5 @@
-﻿using HealthClinic.Model.Manager;
-using HealthClinic.Repository.RoomsRepository;
+﻿using Model.Manager;
+using Repository.RoomsRepository;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthClinic.Service.RoomsServices
+namespace Service.RoomsServices
 {
     public class InventaryRoomService : IService<InventaryRoom, int>
     {

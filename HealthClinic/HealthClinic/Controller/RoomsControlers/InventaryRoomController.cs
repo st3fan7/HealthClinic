@@ -1,13 +1,13 @@
 ﻿using Controller;
-using HealthClinic.Model.Manager;
-using HealthClinic.Service.RoomsServices;
+using Model.Manager;
+using Service.RoomsServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthClinic.Controller.RoomsControlers
+namespace Controller.RoomsControlers
 {
     public class InventaryRoomController : IController<InventaryRoom, int>
     {
