@@ -23,35 +23,29 @@ namespace Service.RoomsServices
             this.roomService = roomService;
         }
 
-        public Renovation SeparateOnTwoParts(Renovation renovation)
+        public Room[] SeparateOnTwoParts(Room roomForRenovation) 
         {
-            foreach(Room room in roomService.GetAllEntities())
-                if (room.RoomID.Equals(renovation.Room.RoomID))
-                {
-                    Room secondPartOfRoom = renovation.Room;
-                    secondPartOfRoom.RoomID.Replace("a", "b");
-                    secondPartOfRoom.Equipment.Clear();
-                    roomService.AddEntity(secondPartOfRoom);
-                    return renovationRepository.AddEntity(new Renovation(renovation.DescriptionOfRenovation, secondPartOfRoom,
-                        renovation.FromDateTime, renovation.ToDateTime));                   
-                }
-            return null;
+            Room[] rooms = new Room[2];
+            rooms[0] = roomForRenovation;
+            rooms[1] = new Room(roomForRenovation.RoomID.Replace("a", "b"),
+                new TypeOfRoom(roomForRenovation.TypeOfRoom.ToString()), new List<InventaryRoom>());
+            return rooms;
         }
 
-        public Renovation ConnectTwoParts(Renovation renovation)
+        public void ConnectTwoParts(Room firstPartOfRoom, Room secondPartOfRoom) 
         {
-            foreach (Room room in roomService.GetAllEntities())
-                if (room.RoomID.Equals(renovation.Room.RoomID))
-                {
-                    Room connectedRoom = roomService.GetRoomByRoomID(renovation.Room.RoomID);
-                    Room secondPartOfRoom = roomService.GetRoomByRoomID(renovation.Room.RoomID.Replace("a","b"));
-                    foreach(InventaryRoom equipment in roomService.GetEquipmentForRoom(secondPartOfRoom))
-                        roomService.AddEquipmentInRoom(equipment, connectedRoom.RoomID);
-                    roomService.DeleteEntity(secondPartOfRoom);
-                    renovation.Room = connectedRoom;
-                    return renovation;
-                }
-            return null;
+            List<InventaryRoom> equipmentForRelocate = secondPartOfRoom.Equipment;
+            foreach (InventaryRoom equipment in equipmentForRelocate)
+                roomService.AddEquipmentInRoom(equipment, firstPartOfRoom.RoomID);
+            roomService.DeleteEntity(secondPartOfRoom);
+        }
+
+        public bool ExistRenovation(Room roomForRenovation)  
+        {
+            foreach (Renovation oneRenovation in renovationRepository.GetAllEntities())
+                if (oneRenovation.Room.GetId() == roomForRenovation.GetId())
+                    return true;
+            return false;
         }
 
         public bool IsRoomFreeForRenovation(Room room, DateTime term)

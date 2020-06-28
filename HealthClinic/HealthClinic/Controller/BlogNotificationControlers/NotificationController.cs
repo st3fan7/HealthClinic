@@ -31,9 +31,9 @@ namespace Controller.BlogNotificationControlers
             return notificationService.ReadNotification(notification);
         }
 
-        public List<Notification> GetAllNotificationsForUser(string username)
+        public List<Notification> GetAllNotificationsForUser(int userID)
         {
-            return notificationService.GetAllNotificationsForUser(username);
+            return notificationService.GetAllNotificationsForUser(userID);
         }
 
         public Notification GetEntity(int id)

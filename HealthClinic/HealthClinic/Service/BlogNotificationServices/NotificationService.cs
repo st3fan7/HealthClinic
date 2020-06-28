@@ -4,6 +4,7 @@
  * Purpose: Definition of the Class Service.NotificationService
  ***********************************************************************/
 
+using Model.AllActors;
 using Model.BlogAndNotification;
 using Repository.BlogNotificationRepository;
 using System;
@@ -20,17 +21,22 @@ namespace Service.BlogNotificationServices
             this.notificationRepository = notificationRepository;
         }
 
+        public List<Notification> GetAllNotificationsForUser(int userID)
+        {
+            List<Notification> notifications = new List<Notification>();
+            foreach (Notification notification in notificationRepository.GetAllEntities())
+                foreach (User user in notification.ReceiveNotifications)
+                    if (user.GetId() == userID)
+                        notifications.Add(notification);
+            return notifications;
+        }
+
         public Notification SendNotification(Notification notification)
         {
             throw new NotImplementedException();
         }
 
         public Notification ReadNotification(Notification notification)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Notification> GetAllNotificationsForUser(string username)
         {
             throw new NotImplementedException();
         }
