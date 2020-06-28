@@ -48,11 +48,6 @@ namespace HealthClinic.View
             DoctorsView = new ObservableCollection<Doctor>(userController.GetAllDoctors());
         }
 
-        private void AddValidMedicament(ValidationOfMedicament medicamentOnValidation) // Napraviti u servisu
-        {
-            medicamentController.AddEntity(medicamentOnValidation.Medicament);
-        }
-
         private void Button_Click_PosaljiLekaru(object sender, RoutedEventArgs e)
         {
             if (InputNameOfMedicament.Text.Equals("") || InputProducerOfMedicament.Text.Equals("") ||

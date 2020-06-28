@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Controller.BlogNotificationControlers;
+using HealthClinic.View.Converter;
+using HealthClinic.View.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -20,7 +23,11 @@ namespace HealthClinic.View
     /// </summary>
     public partial class Notifications : Window
     {
-        public static RoutedCommand closeSchortcut = new RoutedCommand();        
+        public static RoutedCommand closeSchortcut = new RoutedCommand();
+
+        private readonly NotificationController notificationController;
+
+        public static ObservableCollection<ViewNotification> NotificationView { get; set; }
 
         public Notifications()
         {
@@ -31,6 +38,11 @@ namespace HealthClinic.View
             InputSearch.Focus();
             InputSearch.SelectAll();
 
+            var app = Application.Current as App;
+            notificationController = app.NotificationController;
+
+            NotificationView = new ObservableCollection<ViewNotification>(NotificationConverter.ConvertNotificationListToNotificationViewList(
+                notificationController.GetAllNotificationsForUser(MainWindow.loggedInManager.Id).ToList()));
         }
 
         private void ShortKey_Click(object sender, ExecutedRoutedEventArgs e)

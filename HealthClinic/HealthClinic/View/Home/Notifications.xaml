@@ -41,12 +41,12 @@
             </Grid>
         </Grid>
 
-        <DataGrid x:Name="DataGridNotifications" Grid.Row="1" ItemsSource="{Binding }" AutoGenerateColumns="False" 
+        <DataGrid x:Name="DataGridNotifications" Grid.Row="1" ItemsSource="{Binding NotificationView}" AutoGenerateColumns="False" 
                   SelectionMode="Single" IsReadOnly="True" BorderThickness="1" Margin="10,0">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Datum objave" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Poslao obaveštenje" Binding="{Binding }"/>
-                <DataGridTextColumn Header="Naslov" Binding="{Binding }" Width="*"/>
+                <DataGridTextColumn Header="Naslov" Binding="{Binding Title}" />
+                <DataGridTextColumn Header="Poslao obaveštenje" Binding="{Binding Sent}"/>
+                <DataGridTextColumn Header="Datum objave" Binding="{Binding Date}" Width="*"/>
                 <DataGridTemplateColumn Header="Sadržaj obaveštenja" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

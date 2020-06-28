@@ -192,6 +192,7 @@
     <Compile Include="View\Converter\ManagerConverter.cs" />
     <Compile Include="View\Converter\MedicamentConverter.cs" />
     <Compile Include="View\Converter\MedicamentOnValidationConverter.cs" />
+    <Compile Include="View\Converter\NotificationConverter.cs" />
     <Compile Include="View\Converter\RenovationConverter.cs" />
     <Compile Include="View\Converter\RoomConverter.cs" />
     <Compile Include="View\Converter\SecretaryConverter.cs" />
@@ -259,6 +260,7 @@
     <Compile Include="View\ViewModel\ViewManager.cs" />
     <Compile Include="View\ViewModel\ViewMedicament.cs" />
     <Compile Include="View\ViewModel\ViewMedicamentOnValidation.cs" />
+    <Compile Include="View\ViewModel\ViewNotification.cs" />
     <Compile Include="View\ViewModel\ViewRenovation.cs" />
     <Compile Include="View\ViewModel\ViewRoom.cs" />
     <Compile Include="View\ViewModel\ViewRoomOccupancy.cs" />

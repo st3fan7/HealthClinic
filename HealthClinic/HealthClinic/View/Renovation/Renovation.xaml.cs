@@ -38,7 +38,7 @@ namespace HealthClinic.View
             InitializeComponent();
             this.DataContext = this;
             DataPickerFromDataTime.SelectedDate = DateTime.Now.Date;
-            DataPickerToDataTime.SelectedDate = DateTime.Now.Date; // Izmeni
+            DataPickerToDataTime.SelectedDate = DateTime.Now.Date;
 
             var app = Application.Current as App;
             renovationController = app.RenovationController;
@@ -51,15 +51,7 @@ namespace HealthClinic.View
                 renovationController.GetAllEntities().ToList()));
         }
 
-        private bool ExistTwoParts(Room roomForRenovation)
-        {
-            foreach (Room room in roomController.GetAllEntities())
-                if (room.RoomID.Equals(roomForRenovation.RoomID.Replace("a", "b")))
-                    return true;
-            return false;
-        }
-
-        private Room[] separateOnTwoParts(Room roomForRenovation) // Napravi u servisu
+        /*private Room[] separateOnTwoParts(Room roomForRenovation) // Napravi u servisu
         {
             Room[] rooms = new Room[2];
             rooms[0] = roomForRenovation;
@@ -74,12 +66,20 @@ namespace HealthClinic.View
             foreach (InventaryRoom equipment in equipmentForRelocate)
                 roomController.AddEquipmentInRoom(equipment, firstPartOfRoom.RoomID);
             roomController.DeleteEntity(secondPartOfRoom);
-        }
+        }*/
 
-        private bool ExistRenovation(Room roomForRenovation)    // Napravi u servisu za renoviranje
+        private bool ExistRenovation(Room roomForRenovation)    // Staviti u controleru public
         {
             foreach (Model.Term.Renovation oneRenovation in renovationController.GetAllEntities())
                 if (oneRenovation.Room.GetId() == roomForRenovation.GetId())
+                    return true;
+            return false;
+        }
+
+        private bool ExistTwoParts(Room roomForRenovation)
+        {
+            foreach (Room room in roomController.GetAllEntities())
+                if (room.RoomID.Equals(roomForRenovation.RoomID.Replace("a", "b")))
                     return true;
             return false;
         }
@@ -92,7 +92,7 @@ namespace HealthClinic.View
                 MessageBox.Show("Sala je zauzeta za period koji ste uneli", "Neuspešno renoviranje", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (ExistRenovation(roomForRenovation)) // Pozovi iz kontrolera
+            if (ExistRenovation(roomForRenovation)) // Pozovi iz kontrolera i stavi u kontroler public
             {
                 MessageBox.Show("Već je zakazano renoviranje za izabranu salu", "Neuspešno renoviranje", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -112,7 +112,7 @@ namespace HealthClinic.View
                 roomForRenovation.TypeOfRoom.NameOfType = ComboBoxTypeOfRoom.SelectedItem.ToString().Substring(38); // Izmena tipa sale
                 roomForRenovation.FromDateTime = (DateTime)DataPickerFromDataTime.SelectedDate; // Izmena perioda zauzetosti sale
                 roomForRenovation.ToDateTime = (DateTime)DataPickerToDataTime.SelectedDate;
-                Room[] twoPartsOfRoom = separateOnTwoParts(roomForRenovation);
+                Room[] twoPartsOfRoom = renovationController.SeparateOnTwoParts(roomForRenovation);
                 RenovationView.Add(RenovationConverter.ConvertRenovationToRenovationView(
                     renovationController.AddEntity(new Model.Term.Renovation(InputTextDescription.Text, twoPartsOfRoom[0],
                     (DateTime)DataPickerFromDataTime.SelectedDate, (DateTime)DataPickerToDataTime.SelectedDate))));
@@ -141,7 +141,7 @@ namespace HealthClinic.View
                     secondPartOfRoom.RoomID = roomForRenovation.RoomID.Replace("a", "b");
                 else if (roomForRenovation.RoomID.Contains("b"))
                     secondPartOfRoom.RoomID = roomForRenovation.RoomID.Replace("b", "a");
-                ConnectTwoParts(roomForRenovation, secondPartOfRoom); // Pozovi iz kontrolera
+                renovationController.ConnectTwoParts(roomForRenovation, secondPartOfRoom);
                 roomController.UpdateEntity(roomForRenovation); // Zbog menjanja tipa sale i zauzetosti sale
                 MessageBox.Show("Uspešno ste zakazali renoviranje sale", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
