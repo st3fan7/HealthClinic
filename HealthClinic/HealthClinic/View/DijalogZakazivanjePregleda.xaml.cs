@@ -329,12 +329,12 @@ namespace HealthClinic
         }
         */
 
-        private List<MedicalExamination> getAllMedExByDate(DayOfWeek day, Doctor doctor)
+        private List<MedicalExamination> getAllMedExByDate(DateTime date, Doctor doctor)
         {
             List<MedicalExamination> lista = new List<MedicalExamination>();
             foreach (MedicalExamination m in UserControlPocetna.medicalExaminationController.GetAllEntities())
             {
-                if (m.FromDateTime.DayOfWeek.ToString().Equals(day.ToString()) && (m.Doctor.GetId() == doctor.GetId()))
+                if (m.FromDateTime.Date.ToString().Equals(date.ToString()) && (m.Doctor.GetId() == doctor.GetId()))
                 {
                     lista.Add(m);
                 }
@@ -345,38 +345,41 @@ namespace HealthClinic
 
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            workingTimeForDoctor = workingTimeForDoctorController.GetWorkTimeForDoctorByDoctorAndDay(Window1.ulogovaniDoctor, datePicker.SelectedDate.Value.DayOfWeek);
-            //Console.WriteLine(workingTimeForDoctor.FromDateTime + " " + workingTimeForDoctor.Doctor.Name);
-            List<MedicalExamination> medicalExaminations = this.getAllMedExByDate(workingTimeForDoctor.FromDateTime.DayOfWeek, Window1.ulogovaniDoctor);
-           
-            List<int> timesStart = new List<int>();
+            workingTimeForDoctor = workingTimeForDoctorController.GetWorkTimeForDoctorByDoctorAndDay(Window1.ulogovaniDoctor, datePicker.SelectedDate.Value.DayOfWeek);        
+            List<MedicalExamination> medicalExaminations = new List<MedicalExamination>();           
+            medicalExaminations = this.getAllMedExByDate(datePicker.SelectedDate.Value, Window1.ulogovaniDoctor);
 
-            foreach(MedicalExamination m in medicalExaminations)
+            List<int> timesStart = new List<int>();
+            int starts = -1;
+            foreach (MedicalExamination m in medicalExaminations)
             {
                
-               // Console.WriteLine(m.FromDateTime.DayOfWeek.ToString() + " " + m.Patient.Name);
+                //Console.WriteLine(m.FromDateTime.ToString() + " " + m.Patient.Name);
                 String[] partss = m.FromDateTime.ToString().Split(' ');
                 //Console.WriteLine(parts[1]);
                 String[] starTimePartss = partss[1].Split(':'); //08
-                int starts;
+                
                 starts = int.Parse(starTimePartss[0]);
+                //Console.WriteLine(starts);
                 timesStart.Add(starts);
             }
+            //Console.WriteLine(starts + " posle");
 
             List<int> timesEnd = new List<int>();
-
+            int ends = -1; ;
             foreach (MedicalExamination m in medicalExaminations)
             {
                 //Console.WriteLine(m.FromDateTime + " " + m.Patient.Name);
                 String[] partss = m.ToDateTime.ToString().Split(' ');
                 //Console.WriteLine(parts[1]);
                 String[] starTimePartss = partss[1].Split(':'); //08
-                int starts;
-                starts = int.Parse(starTimePartss[0]);
-                timesEnd.Add(starts);
+
+                ends = int.Parse(starTimePartss[0]);
+                //Console.WriteLine(starts);
+                timesEnd.Add(ends);
             }
 
-         
+            
 
             String[] parts = workingTimeForDoctor.FromDateTime.ToString().Split(' ');
             //Console.WriteLine(parts[1]);
@@ -392,77 +395,167 @@ namespace HealthClinic
             ListVremena.Items.Clear();
             ListVremenaKraj.Items.Clear();
 
+
             
 
             if (start < end) 
             {
                 for (int i = start; i < end; i++)
                 {
-                    //foreach (int startE in timesStart)
-                    //{
-                      //  foreach(int endE in timesEnd)
-                       // {
-                         //   if (i < startE || i > endE)
-                           // {
-                                for (int j = 0; j < 60; j += 30)
-                                {
+                    if(starts != -1)
+                    {
+                        foreach (int startE in timesStart)
+                        {
+                            foreach (int endE in timesEnd)
+                            {
 
-                                    if (i < 10 && j < 10)
+                                if (i < startE || i > endE)
+                                {
+                                    for (int j = 0; j < 60; j += 30)
                                     {
-                                        ListVremena.Items.Add("0" + i + ":0" + j);
-                                        ListVremenaKraj.Items.Add("0" + i + ":0" + j);
-                                    }
-                                    else if (i < 10 && j > 10)
-                                    {
-                                        ListVremena.Items.Add("0" + i + ":" + j);
-                                        ListVremenaKraj.Items.Add("0" + i + ":" + j);
-                                    }
-                                    else if (i >= 10 && j < 10)
-                                    {
-                                        ListVremena.Items.Add(i + ":0" + j);
-                                        ListVremenaKraj.Items.Add(i + ":0" + j);
-                                    }
-                                    else if (i >= 10 && j > 10)
-                                    {
-                                        ListVremena.Items.Add(i + ":" + j);
-                                        ListVremenaKraj.Items.Add(i + ":" + j);
+
+                                        if (i < 10 && j < 10)
+                                        {
+                                            ListVremena.Items.Add("0" + i + ":0" + j);
+                                            ListVremenaKraj.Items.Add("0" + i + ":0" + j);
+                                        }
+                                        else if (i < 10 && j > 10)
+                                        {
+                                            ListVremena.Items.Add("0" + i + ":" + j);
+                                            ListVremenaKraj.Items.Add("0" + i + ":" + j);
+                                        }
+                                        else if (i >= 10 && j < 10)
+                                        {
+                                            ListVremena.Items.Add(i + ":0" + j);
+                                            ListVremenaKraj.Items.Add(i + ":0" + j);
+                                        }
+                                        else if (i >= 10 && j > 10)
+                                        {
+                                            ListVremena.Items.Add(i + ":" + j);
+                                            ListVremenaKraj.Items.Add(i + ":" + j);
+                                        }
                                     }
                                 }
-                            //}
-                        //}
-                        
-                    //}
+
+
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        for (int j = 0; j < 60; j += 30)
+                        {
+
+                            if (i < 10 && j < 10)
+                            {
+                                ListVremena.Items.Add("0" + i + ":0" + j);
+                                ListVremenaKraj.Items.Add("0" + i + ":0" + j);
+                            }
+                            else if (i < 10 && j > 10)
+                            {
+                                ListVremena.Items.Add("0" + i + ":" + j);
+                                ListVremenaKraj.Items.Add("0" + i + ":" + j);
+                            }
+                            else if (i >= 10 && j < 10)
+                            {
+                                ListVremena.Items.Add(i + ":0" + j);
+                                ListVremenaKraj.Items.Add(i + ":0" + j);
+                            }
+                            else if (i >= 10 && j > 10)
+                            {
+                                ListVremena.Items.Add(i + ":" + j);
+                                ListVremenaKraj.Items.Add(i + ":" + j);
+                            }
+                        }
+                    }
+
+                    
                     
                 }
             }else if(start > end)
             {
-
-                for (int i = start; i > end; i--)
+               
+                //23  8  
+                int kraj = 24;
+                for (int i = start; i <= kraj; i++)
                 {
-                    for (int j = 0; j < 60; j += 30)
+                    if(i == 24)
                     {
+                        i = 0;
+                        kraj = end-1;
+                    }
 
-                        if (i < 10 && j < 10)
+                    if (starts != -1)
+                    {
+                        foreach (int startE in timesStart)
                         {
-                            ListVremena.Items.Add("0" + i + ":0" + j);
-                            ListVremenaKraj.Items.Add("0" + i + ":0" + j);
-                        }
-                        else if (i < 10 && j > 10)
-                        {
-                            ListVremena.Items.Add("0" + i + ":" + j);
-                            ListVremenaKraj.Items.Add("0" + i + ":" + j);
-                        }
-                        else if (i >= 10 && j < 10)
-                        {
-                            ListVremena.Items.Add(i + ":0" + j);
-                            ListVremenaKraj.Items.Add(i + ":0" + j);
-                        }
-                        else if (i >= 10 && j > 10)
-                        {
-                            ListVremena.Items.Add(i + ":" + j);
-                            ListVremenaKraj.Items.Add(i + ":" + j);
+                            foreach (int endE in timesEnd)
+                            {
+
+                                if (i < startE || i > endE)
+                                {
+                                    for (int j = 0; j < 60; j += 30)
+                                    {
+
+                                        if (i < 10 && j < 10)
+                                        {
+                                            ListVremena.Items.Add("0" + i + ":0" + j);
+                                            ListVremenaKraj.Items.Add("0" + i + ":0" + j);
+                                        }
+                                        else if (i < 10 && j > 10)
+                                        {
+                                            ListVremena.Items.Add("0" + i + ":" + j);
+                                            ListVremenaKraj.Items.Add("0" + i + ":" + j);
+                                        }
+                                        else if (i >= 10 && j < 10)
+                                        {
+                                            ListVremena.Items.Add(i + ":0" + j);
+                                            ListVremenaKraj.Items.Add(i + ":0" + j);
+                                        }
+                                        else if (i >= 10 && j > 10)
+                                        {
+                                            ListVremena.Items.Add(i + ":" + j);
+                                            ListVremenaKraj.Items.Add(i + ":" + j);
+                                        }
+                                    }
+                                }
+
+
+                            }
+
                         }
                     }
+                    else
+                    {
+                        for (int j = 0; j < 60; j += 30)
+                        {
+
+                            if (i < 10 && j < 10)
+                            {
+                                ListVremena.Items.Add("0" + i + ":0" + j);
+                                ListVremenaKraj.Items.Add("0" + i + ":0" + j);
+                            }
+                            else if (i < 10 && j > 10)
+                            {
+                                ListVremena.Items.Add("0" + i + ":" + j);
+                                ListVremenaKraj.Items.Add("0" + i + ":" + j);
+                            }
+                            else if (i >= 10 && j < 10)
+                            {
+                                ListVremena.Items.Add(i + ":0" + j);
+                                ListVremenaKraj.Items.Add(i + ":0" + j);
+                            }
+                            else if (i >= 10 && j > 10)
+                            {
+                                ListVremena.Items.Add(i + ":" + j);
+                                ListVremenaKraj.Items.Add(i + ":" + j);
+                            }
+                        }
+                    }
+
+
+                    
                 }
 
             }
