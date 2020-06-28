@@ -6,6 +6,7 @@
 
 using HealthClinic.Repository;
 using Model.Doctor;
+using Model.AllActors;
 using System;
 
 namespace Model.Term
@@ -16,13 +17,13 @@ namespace Model.Term
         private String shortDescription;
         private int id;
         private Room room;
-        private DoctorSpecialist doctorSpecialist;
+        private AllActors.Doctor doctorSpecialist;
         public AllActors.Patient patient;
 
         public bool Urgency { get => urgency; set => urgency = value; }
         public string ShortDescription { get => shortDescription; set => shortDescription = value; }
         public Room Room { get => room; set => room = value; }
-        public DoctorSpecialist DoctorSpecialist { get => doctorSpecialist; set => doctorSpecialist = value; }
+        public Model.AllActors.Doctor DoctorSpecialist { get => doctorSpecialist; set => doctorSpecialist = value; }
 
         public Surgery(int id)
         {
@@ -33,7 +34,7 @@ namespace Model.Term
         {
         }
 
-        public Surgery(int id, bool urgency, string shortDescription, Room room, DoctorSpecialist doctorSpecialist, AllActors.Patient patient, DateTime fromDateTime, DateTime toDateTime)
+        public Surgery(int id, bool urgency, string shortDescription, Room room, Model.AllActors.Doctor doctorSpecialist, AllActors.Patient patient, DateTime fromDateTime, DateTime toDateTime)
             : base(fromDateTime, toDateTime)
         {
             this.Urgency = urgency;
@@ -44,7 +45,7 @@ namespace Model.Term
             this.patient = patient;
         }
 
-        public Surgery(bool urgency, string shortDescription, Room room, DoctorSpecialist doctorSpecialist, AllActors.Patient patient, DateTime fromDateTime, DateTime toDateTime)
+        public Surgery(bool urgency, string shortDescription, Room room, Model.AllActors.Doctor doctorSpecialist, AllActors.Patient patient, DateTime fromDateTime, DateTime toDateTime)
             : base(fromDateTime, toDateTime)
         {
             this.Urgency = urgency;

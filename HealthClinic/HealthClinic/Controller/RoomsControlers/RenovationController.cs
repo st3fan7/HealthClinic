@@ -20,14 +20,19 @@ namespace Controller.RoomsControlers
             this.renovationService = renovationService;
         }
 
-        public Renovation SeparateOnTwoParts(Renovation renovation)
+        private bool ExistRenovation(Room roomForRenovation)
         {
-            return renovationService.SeparateOnTwoParts(renovation);
+            return renovationService.ExistRenovation(roomForRenovation);
         }
 
-        public Renovation ConnectTwoParts(Renovation renovation)
+        public Room[] SeparateOnTwoParts(Room roomForRenovation)
         {
-            return renovationService.ConnectTwoParts(renovation);
+            return renovationService.SeparateOnTwoParts(roomForRenovation);
+        }
+
+        public void ConnectTwoParts(Room firstPartOfRoom, Room secondPartOfRoom)
+        {
+            renovationService.ConnectTwoParts(firstPartOfRoom, secondPartOfRoom);
         }
 
         public bool IsRoomFreeForRenovation(Room room, DateTime term)

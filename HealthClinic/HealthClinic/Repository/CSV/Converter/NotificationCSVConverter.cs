@@ -29,7 +29,7 @@ namespace Repository.Csv.Converter
                 receiveNotificationsCSV += delimiter;
             }
 
-            return string.Join(delimiter, entity.GetId(), entity.Title, entity.SendNotificationByUser, receiveNotificationsCSV);
+            return string.Join(delimiter, entity.GetId(), entity.Title, entity.SendNotificationByUser.GetId(), receiveNotificationsCSV);
         }
 
         public Notification ConvertCSVFormatToEntity(string entityCSVFormat)

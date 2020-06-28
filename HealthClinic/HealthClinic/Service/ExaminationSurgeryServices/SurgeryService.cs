@@ -28,17 +28,17 @@ namespace Service.ExaminationSurgeryServices
 
         public List<Surgery> GetAllSurgeryByDoctor(Doctor doctor)
         {
-            throw new NotImplementedException();
+            return surgeryRepository.GetAllSurgeryByDoctor(doctor);
         }
 
         public List<Surgery> GetAllSurgeryByPatient(Patient patient)
         {
-            throw new NotImplementedException();
+            return surgeryRepository.GetAllSurgeryByPatient(patient);
         }
 
         public List<Surgery> GetAllMedicalExaminationsByPatient(Room room)
         {
-            throw new NotImplementedException();
+            return surgeryRepository.GetAllSurgeryByRoom(room);
         }
 
         public List<Surgery> GetAllMedicalExaminationsByPatient2(DateTime time)

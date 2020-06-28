@@ -61,6 +61,11 @@ namespace Controller.UsersControlers
             return userService.GetUserByUsername(username);
         }
 
+        public bool IsUsernameExist(String username)
+        {
+            return userService.IsUsernameExist(username);
+        }
+
         public User GetUserByJMBG(String jmbg)
         {
             return userService.GetUserByJMBG(jmbg);
