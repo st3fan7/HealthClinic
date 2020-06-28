@@ -33,10 +33,11 @@ namespace HealthClinic.View
     {
         public static ObservableCollection<Room> RoomsComboBox { get; set; }
 
-        public static ObservableCollection<User> DoctorsForMedicalExamination { get; set; }
+        public static ObservableCollection<User> Doctors { get; set; }
         private readonly UserController userController;
 
         private readonly MedicalExaminationController medicalExaminationController;
+        private readonly SurgeryController surgeryController;
 
         ViewTerm termForRelocation = new ViewTerm();
         ViewTerm oldTerm = new ViewTerm();
@@ -61,15 +62,13 @@ namespace HealthClinic.View
             var app = Application.Current as App;
             userController = app.UserController;
             if (oldTerm.Task.Equals("Pregled"))
-            {
-                DoctorsForMedicalExamination = new ObservableCollection<User>(userController.GetAllDoctors().ToList()); // treba opste prakse
-            } else
-            {
-                // nabavi doktore specijaliste
-            }
+                Doctors = MedicalExaminationRooms.DoctorsForMedicalExamination;
+            else
+                Doctors = SurgeryRooms.DoctorsForSurgery;
+
 
             medicalExaminationController = app.MedicalExaminationController;
-
+            surgeryController = app.SurgeryController;
 
 
         }
@@ -120,6 +119,8 @@ namespace HealthClinic.View
         {
 
             MedicalExamination medicalExamination = new MedicalExamination();
+            Surgery surgery = new Surgery();
+
             if (oldTerm.Task.Equals("Pregled"))
             {
 
@@ -137,7 +138,7 @@ namespace HealthClinic.View
                 medicalExamination.Doctor = (Doctor)cmbx2.SelectedItem;
 
                 Patient patient = (Patient)userController.GetUserByJMBG(termForRelocation.PatientJMBG);
-                Console.WriteLine(patient.Jmbg);
+              
                 medicalExamination.Patient = patient;
 
                 // provera da li je taj termin vec postoji
@@ -174,25 +175,86 @@ namespace HealthClinic.View
             }
             else
             {
-                // za operaciju
+                surgery.Urgency = false;
+                surgery.ShortDescription = "";
+
+
+                surgery.Room = (Room)cmbx1.SelectedItem;
+
+
+
+                String[] fromDateTimeParts = termForRelocation.Time.Split(' ');
+                surgery.FromDateTime = DateTime.Parse(fromDateTimeParts[0] + " " + fromDateTimeParts[1]);
+                surgery.ToDateTime = DateTime.Parse(fromDateTimeParts[3] + " " + fromDateTimeParts[4]);
+                surgery.DoctorSpecialist = (Doctor)cmbx2.SelectedItem;
+
+                Patient patient = (Patient)userController.GetUserByJMBG(termForRelocation.PatientJMBG);
+               
+                surgery.Patient = patient;
+
+                // provera da li je taj termin vec postoji
+
+                foreach (Surgery surg in surgeryController.GetAllEntities())
+                {
+                    if (surg.ToDateTime.ToString() == surgery.ToDateTime.ToString() && surg.FromDateTime.ToString() == surgery.FromDateTime.ToString() && surg.Room.RoomID == surgery.Room.RoomID &&
+                        surg.DoctorSpecialist.GetId() == surgery.DoctorSpecialist.GetId() && surg.Patient.GetId() == surgery.Patient.GetId())
+                    {
+                        MessageBox.Show("Termin sa ovim podacima je vec popunjen! Izmenite neke podatke za premestanje!");
+                        return;
+                    }
+
+                }
+
+                Surgery surgeryForRel = new Surgery();
+                foreach (Surgery sur in surgeryController.GetAllEntities())
+                {
+                    if (sur.GetId() == oldTerm.Id)
+                    {
+                        surgeryForRel = sur;
+                        break;
+                    }
+
+                }
+
+                surgeryForRel.ToDateTime = surgery.ToDateTime;
+                surgeryForRel.FromDateTime = surgery.FromDateTime;
+                surgeryForRel.DoctorSpecialist = surgery.DoctorSpecialist;
+                surgeryForRel.Room = surgery.Room;
+                surgeryForRel.Patient = surgery.Patient;
+
+                surgeryController.UpdateEntity(surgeryForRel);
             }
 
 
             if (oldTerm.Status.Equals("Zauzet"))
             {
-
                 ViewTerm termSearch = new ViewTerm();
 
-                foreach (ViewTerm viewTerm in Loading.currentMedicalExaminationTerms)
+                if (oldTerm.Task.Equals("Pregled"))
                 {
-                    if (viewTerm.Id == oldTerm.Id)
+                    foreach (ViewTerm viewTerm in Loading.currentMedicalExaminationTerms)
                     {
-                        termSearch = viewTerm;
-                        break;
+                        if (viewTerm.Id == oldTerm.Id)
+                        {
+                            termSearch = viewTerm;
+                            break;
+                        }
                     }
-                }
 
-                Loading.currentMedicalExaminationTerms.Remove(termSearch);
+                    Loading.currentMedicalExaminationTerms.Remove(termSearch);
+                } else
+                {
+                    foreach (ViewTerm viewTerm in Loading.currentSurgeryTerms)
+                    {
+                        if (viewTerm.Id == oldTerm.Id)
+                        {
+                            termSearch = viewTerm;
+                            break;
+                        }
+                    }
+
+                    Loading.currentSurgeryTerms.Remove(termSearch);
+                }
             }
 
 

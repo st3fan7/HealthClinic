@@ -31,6 +31,7 @@ namespace HealthClinic.View.Dialogues
         //public static readonly List<Sobe> sobeZaOporavak = new List<Sobe>();
 
         public static ObservableCollection<ViewTerm> currentMedicalExaminationTerms = new ObservableCollection<ViewTerm>();
+        public static ObservableCollection<ViewTerm> currentSurgeryTerms = new ObservableCollection<ViewTerm>();
 
         System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
         public Loading()

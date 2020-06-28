@@ -45,10 +45,17 @@ namespace HealthClinic.View
             textWarning5.Visibility = Visibility.Hidden;
             textWarning6.Visibility = Visibility.Hidden;
             datePickerSchedule.DisplayDateEnd = DateTime.Now;
-            //terminKojiSeZakazuje = term;
+
             dateLabel.Content = selectedDate;
             inputLabel.Content = enteredData;
-            doctorsFromCmbx = MedicalExaminationRooms.DoctorsForMedicalExamination;
+
+            doctorsFromCmbx.Clear();
+            if (term.Task.Equals("Pregled"))
+                doctorsFromCmbx = MedicalExaminationRooms.DoctorsForMedicalExamination;
+
+            else
+                doctorsFromCmbx = SurgeryRooms.DoctorsForSurgery;
+
 
             termForSchedule = term;
 

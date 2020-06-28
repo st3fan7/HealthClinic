@@ -272,7 +272,7 @@
                     Background="#FF8CA8BF" 
                     OpacityMask="#FFC5D4E3"
                       Height="42" 
-                          ItemsSource="{Binding Path=DoctorsForMedicalExamination}"
+                          ItemsSource="{Binding Path=Doctors}"
                           SelectionChanged="cmbx2_SelectionChanged" SelectedIndex="0">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>

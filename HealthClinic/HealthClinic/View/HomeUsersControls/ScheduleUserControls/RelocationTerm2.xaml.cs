@@ -45,7 +45,6 @@ namespace HealthClinic.View
             textWarning.Visibility = textWarningHidden;
             counter = 0;
             roomsFromCmbx = rooms;
-            textWarning.Visibility = textWarningHidden;
             
         }
 
@@ -92,17 +91,24 @@ namespace HealthClinic.View
 
         private void nextBtn_Click(object sender, RoutedEventArgs e)
         {
-            String[] cmbxParts = cmbx.SelectedItem.ToString().Split(' ');
-            String[] timeParts = cmbxParts[1].Split('-');
+            if(cmbx.SelectedItem != null)
+            {
+                String[] cmbxParts = cmbx.SelectedItem.ToString().Split(' ');
+                String[] timeParts = cmbxParts[1].Split('-');
 
-            String timeStart = timeParts[0];
-            String timeEnd = timeParts[1];
+                String timeStart = timeParts[0];
+                String timeEnd = timeParts[1];
 
-            termForRelocation.Time = termForRelocation.Date + " " + timeStart + " - " + termForRelocation.Date + " " + timeEnd;
-            //Console.WriteLine("Vreme termina: " + termForRelocation.Time);
+                termForRelocation.Time = termForRelocation.Date + " " + timeStart + " - " + termForRelocation.Date + " " + timeEnd;
 
-            UserControl usc = new RelocationTerm3(odlTerm, termForRelocation, roomsFromCmbx);
-            (this.Parent as Panel).Children.Add(usc);
+
+                UserControl usc = new RelocationTerm3(odlTerm, termForRelocation, roomsFromCmbx);
+                (this.Parent as Panel).Children.Add(usc);
+            } else
+            {
+                MessageBox.Show("Morate izabrati vreme!");
+            }
+
 
         }
 

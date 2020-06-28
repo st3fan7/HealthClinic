@@ -49,6 +49,11 @@ namespace Controller.RoomsControlers
             return roomService.GetAllRoomForMedicalExamination();
         }
 
+        public List<Room> GetAllRoomForSurgery()
+        {
+            return roomService.GetAllRoomForSurgery();
+        }
+
         public System.Collections.Generic.IEnumerable<Room> GetAllEntities()
         {
             return roomService.GetAllEntities();

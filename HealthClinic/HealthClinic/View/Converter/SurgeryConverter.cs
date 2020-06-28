@@ -12,15 +12,20 @@ namespace HealthClinic.View.Converter
     {
         public static ViewTerm ConvertSurgeryToSurgeryView(Surgery surgery)
         {
+            String[] dateTimeParts = surgery.FromDateTime.ToString().Split(' ');
+
             return new ViewTerm
             {
-                Time = surgery.FromDateTime.ToString() + " - " + surgery.ToDateTime.ToString(),
-                Room = surgery.Room.ToString(),
-                Doctor = surgery.DoctorSpecialist.ToString(),
-                Patient = surgery.Patient.ToString(),
+                Id = surgery.GetId(),
+                Date = dateTimeParts[0],
+                Time = surgery.FromDateTime.ToString().Remove(surgery.FromDateTime.ToString().Length - 3) + " - " + surgery.ToDateTime.ToString().Remove(surgery.ToDateTime.ToString().Length - 3),
+                Room = surgery.Room.RoomID,
+                Doctor = surgery.DoctorSpecialist.Name + " " + surgery.DoctorSpecialist.Surname,
+                Patient = surgery.Patient.Name + " " + surgery.Patient.Surname,
                 Status = "Zauzet",
                 Task = "Operacija",
-                MakeInDoctor = false
+                MakeInDoctor = false,
+                PatientJMBG = surgery.Patient.Jmbg
             };
 
         }
@@ -28,15 +33,6 @@ namespace HealthClinic.View.Converter
         public static IList<ViewTerm> ConvertSurgeryListToSurgeryViewList(IList<Surgery> surgeries)
             => ConvertEntityListToViewList(surgeries, ConvertSurgeryToSurgeryView);
 
-        //private static String IngredientsToView(Surgery surgery)
-        //{
-        //    String ret = "";
-        //    foreach (Ingredient ingredient in medicament.Ingredients)
-        //    {
-        //        ret += ingredient.Name + ", ";
-        //    }
-        //    return ret.Substring(0, ret.Length - 2);
-        //}
 
     }
 }

@@ -70,6 +70,15 @@ namespace Service.RoomsServices
             return medicalExaminationRooms;
         }
 
+        public List<Room> GetAllRoomForSurgery()
+        {
+            List<Room> surgeryRooms = new List<Room>();
+            foreach (Room room in GetAllEntities())
+                if (room.TypeOfRoom.NameOfType.Equals("Soba za operacije"))
+                    surgeryRooms.Add(room);
+            return surgeryRooms;
+        }
+
         public Room AddEntity(Room entity)
         {
             return roomRepository.AddEntity(entity);

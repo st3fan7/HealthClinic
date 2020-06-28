@@ -172,7 +172,7 @@
                 <ComboBox BorderThickness="1"
                     materialDesign:ComboBoxAssist.ShowSelectedItem="{Binding ElementName=DisplaySelectedItemCheckBox, Path=IsChecked}"
                     Margin="140,-30,140,0"
-                          x:Name="cmbx"
+                          x:Name="roomCmbx"
                     Width="150"
                     FontSize="28"
                     FontFamily="Helvatic"
@@ -181,16 +181,16 @@
                     BorderBrush="#FF020207" 
                     Background="#FF8CA8BF" 
                     OpacityMask="#FFC5D4E3"  Height="42"
-                          SelectionChanged="cmbx_SelectionChanged">
-                    <ComboBoxItem IsSelected="True" 
-                              HorizontalContentAlignment="Center"
-                              x:Name="O1">
-                        O1
-                    </ComboBoxItem>
-                    <ComboBoxItem HorizontalContentAlignment="Center"
-                              x:Name="O2">
-                        O2
-                    </ComboBoxItem>
+                          SelectionChanged="cmbx_SelectionChanged"                      
+                          ItemsSource="{Binding Path= RoomsComboBox}" 
+                      SelectedIndex="0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path= RoomID}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
                 </ComboBox>
 
             </StackPanel>
@@ -234,14 +234,15 @@
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
 
+
                                     <TextBlock Text="{x:Static language:Language.time}"   FontWeight="Bold" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0" />
-                                    <TextBlock Text="{Binding Vreme}" Grid.Column="1" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0" />
+                                    <TextBlock Text="{Binding Time}" Grid.Column="1" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
                                     <TextBlock Text="{x:Static language:Language.room}"   FontWeight="Bold" Grid.Row="1" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0"/>
-                                    <TextBlock Text="{Binding Sala}" Grid.Column="1" Grid.Row="1" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
-                                    <TextBlock Text="{x:Static language:Language.doctor}"   FontWeight="Bold" Grid.Row="2" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0"/>
-                                    <TextBlock Text="{Binding Lekar}" Grid.Column="1" Grid.Row="2" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
-                                    <TextBlock Text="{x:Static language:Language.patient}"   FontWeight="Bold" Grid.Row="3" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0"/>
-                                    <TextBlock Text="{Binding Pacijent}" Grid.Column="1" Grid.Row="3" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
+                                    <TextBlock Text="{Binding Room}" Grid.Column="1" Grid.Row="1" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
+                                    <TextBlock Text="{x:Static language:Language.doctor}"  FontWeight="Bold" Grid.Row="2" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0"/>
+                                    <TextBlock Text="{Binding Doctor}" Grid.Column="1" Grid.Row="2" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
+                                    <TextBlock Text="{x:Static language:Language.patient}"  FontWeight="Bold" Grid.Row="3" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0"/>
+                                    <TextBlock Text="{Binding Patient}" Grid.Column="1" Grid.Row="3" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
                                     <TextBlock Text="Status: " FontWeight="Bold" Grid.Row="4" FontSize="20" FontFamily="Helvatic" Margin="35,0,0,0"/>
                                     <TextBlock Text="{Binding Status}" Grid.Column="1" Grid.Row="4" FontSize="20" FontFamily="Helvatic" Margin="5,0,0,0"/>
                                 </Grid>

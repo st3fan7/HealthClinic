@@ -46,7 +46,14 @@ namespace HealthClinic.View
                 usernameLabel2.Content = patient.UserName;
             }
             this.patient = patient;
-            doctorsFromCmbx = MedicalExaminationRooms.DoctorsForMedicalExamination;
+
+            doctorsFromCmbx.Clear();
+            if (term.Task.Equals("Pregled"))
+                doctorsFromCmbx = MedicalExaminationRooms.DoctorsForMedicalExamination;
+
+            else
+                doctorsFromCmbx = SurgeryRooms.DoctorsForSurgery;
+
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)

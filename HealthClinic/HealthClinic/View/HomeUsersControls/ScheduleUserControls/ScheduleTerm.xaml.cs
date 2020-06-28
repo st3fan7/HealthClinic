@@ -33,6 +33,7 @@ namespace HealthClinic.View
         ViewTerm termForSchedule = new ViewTerm();
 
         private readonly IController<MedicalExamination, int> medicalExaminationController;
+        private readonly IController<Surgery, int> surgeryController;
         public static ObservableCollection<User> Doctors{ get; set; }
 
         public ScheduleTerm(string selectedDate, ViewTerm term, Patient patient)
@@ -49,6 +50,8 @@ namespace HealthClinic.View
 
             var app = Application.Current as App;
             medicalExaminationController = app.MedicalExaminationController;
+
+            surgeryController = app.SurgeryController;
 
 
             l4.Visibility = Visibility.Hidden;
@@ -71,29 +74,15 @@ namespace HealthClinic.View
                 l44.Content = term.Room;
                 l4.Visibility = Visibility.Visible;
 
-                // ako sala postoji treba doktor da se bira
                 cmbxDoctor.Visibility = Visibility.Visible;
                 cmbxDoctor.IsHitTestVisible = true;
                 cmbxDoctor.Focusable = true;
                 label3.Visibility = Visibility.Visible;
 
-                List<String> lekariKojePunim = new List<String>();
-                if (term.Task == "Operacija")
-                {
-                    //NABAVI SVE LEKARE SPECIJALISTE
-                    // Doctors = MedicalExaminationRooms.DoctorsForMedicalExamination; // MORA DA SE PROSLEDJUJE ILI NEKAKO DA VIDIS DA LI JE OPERACIJA ILI PREGLED
-
-                }
+                if (term.Task.Equals("Operacija"))
+                     Doctors = SurgeryRooms.DoctorsForSurgery; 
                 else
-                {
-                    // NABAVI SVE LEKARE OPSTE PRAKSE
-                    Doctors = MedicalExaminationRooms.DoctorsForMedicalExamination; // KAKO ZNAM KOJI SU DOKTORI?
-                    foreach(Doctor d in Doctors)
-                    {
-                        Console.WriteLine(d.Name);
-                    }
-                }
-
+                    Doctors = MedicalExaminationRooms.DoctorsForMedicalExamination; 
 
             }
             //else
@@ -183,21 +172,40 @@ namespace HealthClinic.View
 
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (termForSchedule.Task.Equals("Operacija"))
+            {
+                Surgery surgery = new Surgery();
+                surgery.Urgency = false;
+                surgery.ShortDescription = "";
 
-            MedicalExamination medicalExamination = new MedicalExamination();
-            medicalExamination.Urgency = false;
-            medicalExamination.ShortDescription = "";
-            
-            foreach(Room room in MedicalExaminationRooms.RoomsComboBox)
-                if (room.RoomID.Equals(termForSchedule.Room))
-                    medicalExamination.Room = room;
+                foreach (Room room in SurgeryRooms.RoomsComboBox)
+                    if (room.RoomID.Equals(termForSchedule.Room))
+                        surgery.Room = room;
 
-            String[] fromDateTimeParts = termForSchedule.Time.Split(' ');
-            medicalExamination.FromDateTime = DateTime.Parse(fromDateTimeParts[0] + " " + fromDateTimeParts[1]);
-            medicalExamination.ToDateTime = DateTime.Parse(fromDateTimeParts[3] + " " + fromDateTimeParts[4]);
-            medicalExamination.Doctor = (Doctor)cmbxDoctor.SelectedItem;
-            medicalExamination.Patient = patient;
-            medicalExaminationController.AddEntity(medicalExamination);
+                String[] fromDateTimeParts = termForSchedule.Time.Split(' ');
+                surgery.FromDateTime = DateTime.Parse(fromDateTimeParts[0] + " " + fromDateTimeParts[1]);
+                surgery.ToDateTime = DateTime.Parse(fromDateTimeParts[3] + " " + fromDateTimeParts[4]);
+                surgery.DoctorSpecialist = (Doctor)cmbxDoctor.SelectedItem;
+                surgery.Patient = patient;
+                surgeryController.AddEntity(surgery);
+            } else
+            {
+                MedicalExamination medicalExamination = new MedicalExamination();
+                medicalExamination.Urgency = false;
+                medicalExamination.ShortDescription = "";
+
+                foreach (Room room in MedicalExaminationRooms.RoomsComboBox)
+                    if (room.RoomID.Equals(termForSchedule.Room))
+                        medicalExamination.Room = room;
+
+                String[] fromDateTimeParts = termForSchedule.Time.Split(' ');
+                medicalExamination.FromDateTime = DateTime.Parse(fromDateTimeParts[0] + " " + fromDateTimeParts[1]);
+                medicalExamination.ToDateTime = DateTime.Parse(fromDateTimeParts[3] + " " + fromDateTimeParts[4]);
+                medicalExamination.Doctor = (Doctor)cmbxDoctor.SelectedItem;
+                medicalExamination.Patient = patient;
+                medicalExaminationController.AddEntity(medicalExamination);
+            }
+
 
             GridScheduleTerm.Children.Clear();
             UserControl usc = new SuccessfulySchedule();
@@ -208,9 +216,7 @@ namespace HealthClinic.View
         private void cmbxDoctor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(cmbxDoctor.Text != null)
-                confirmBtn.IsEnabled = true;
-
-            
+                confirmBtn.IsEnabled = true;        
         }
 
         private void cmbxRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -27,6 +27,7 @@ namespace HealthClinic.View
     public partial class CancelingTerm : UserControl
     {
         private readonly MedicalExaminationController medicalExaminationController;
+        private readonly SurgeryController surgeryController;
 
         public static ViewTerm termForCanceling = new ViewTerm();
         public CancelingTerm(string selectedDate, ViewTerm term)
@@ -41,6 +42,7 @@ namespace HealthClinic.View
 
             var app = Application.Current as App;
             medicalExaminationController = app.MedicalExaminationController;
+            surgeryController = app.SurgeryController;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -86,41 +88,75 @@ namespace HealthClinic.View
 
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+
             if (termForCanceling.Status.Equals("Zauzet"))
             {
-                Console.WriteLine("ID: " + termForCanceling.Id);
-                medicalExaminationController.DeleteEntity(medicalExaminationController.GetEntity(termForCanceling.Id));
+
 
                 ViewTerm termSearch = new ViewTerm();
 
-
-                foreach(ViewTerm viewTerm in Loading.currentMedicalExaminationTerms)
+                if (termForCanceling.Task.Equals("Pregled"))
                 {
-                    if(viewTerm.Id == termForCanceling.Id)
+                    medicalExaminationController.DeleteEntity(medicalExaminationController.GetEntity(termForCanceling.Id));
+
+                    foreach (ViewTerm viewTerm in Loading.currentMedicalExaminationTerms)
                     {
-                        termSearch = viewTerm;
-                        break;
+                        if (viewTerm.Id == termForCanceling.Id)
+                        {
+                            Console.WriteLine("Nasao");
+                            termSearch = viewTerm;
+                            break;
+                        }
                     }
-                }
 
-                Loading.currentMedicalExaminationTerms.Remove(termSearch);
+                    Loading.currentMedicalExaminationTerms.Remove(termSearch);
 
-                ObservableCollection<ViewTerm> viewTermsFree = new ObservableCollection<ViewTerm>();
-                foreach (ViewTerm viewTerm in Loading.currentMedicalExaminationTerms)
-                {
-                    if (viewTerm.Status.Equals("Slobodan"))
+                    ObservableCollection<ViewTerm> viewTermsFree = new ObservableCollection<ViewTerm>();
+                    foreach (ViewTerm viewTerm in Loading.currentMedicalExaminationTerms)
                     {
-                        viewTermsFree.Add(viewTerm);
+                        if (viewTerm.Status.Equals("Slobodan"))
+                        {
+                            viewTermsFree.Add(viewTerm);
+                        }
                     }
-                }
 
-                foreach (ViewTerm viewTerm in viewTermsFree)
+                    foreach (ViewTerm viewTerm in viewTermsFree)
+                    {
+                        Loading.currentMedicalExaminationTerms.Remove(viewTerm);
+                    }
+
+                    
+                }
+                else
                 {
-                    Loading.currentMedicalExaminationTerms.Remove(viewTerm);
+                    surgeryController.DeleteEntity(surgeryController.GetEntity(termForCanceling.Id));
+
+                    foreach (ViewTerm viewTerm in Loading.currentSurgeryTerms)
+                    {
+                        if (viewTerm.Id == termForCanceling.Id)
+                        {
+                            termSearch = viewTerm;
+                            break;
+                        }
+                    }
+
+                    Loading.currentSurgeryTerms.Remove(termSearch);
+
+                    ObservableCollection<ViewTerm> viewTermsFree = new ObservableCollection<ViewTerm>();
+                    foreach (ViewTerm viewTerm in Loading.currentSurgeryTerms)
+                    {
+                        if (viewTerm.Status.Equals("Slobodan"))
+                        {
+                            viewTermsFree.Add(viewTerm);
+                        }
+                    }
+
+                    foreach (ViewTerm viewTerm in viewTermsFree)
+                    {
+                        Loading.currentSurgeryTerms.Remove(viewTerm);
+                    }
                 }
             }
-
 
             GridScheduleTerm.Children.Clear();
             UserControl usc = new SuccessfullyCanceling();

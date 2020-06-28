@@ -5,6 +5,7 @@ using HealthClinic.View.Converter;
 using HealthClinic.View.Dialogues;
 using HealthClinic.View.ViewModel;
 using Model.AllActors;
+using Model.Doctor;
 using Model.Term;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,9 @@ namespace HealthClinic.View
         public static ObservableCollection<User> DoctorsForMedicalExamination { get; set; }
         private readonly UserController userController;
 
+        public static ObservableCollection<Specialitation> specialitations { get; set; }
+        private readonly SpetialitationController spetialitationController;
+
         private readonly IController<MedicalExamination, int> medicalExaminationController;
         public static ObservableCollection<ViewTerm> TermsView { get; set; }
         public static ObservableCollection<ViewTerm> currentTerms { get; set; }
@@ -53,12 +57,19 @@ namespace HealthClinic.View
 
             var app = Application.Current as App;
             roomController = app.RoomController;
-            RoomsComboBox = new ObservableCollection<Room>(roomController.GetAllRoomForMedicalExamination().ToList()); 
+            RoomsComboBox = new ObservableCollection<Room>(roomController.GetAllRoomForMedicalExamination().ToList());
+
+            spetialitationController = app.SpetialitationController;
 
             userController = app.UserController;
-            DoctorsForMedicalExamination = new ObservableCollection<User>(userController.GetAllDoctors().ToList()); // treba opste prakse
 
+            ObservableCollection<User> doctors = new ObservableCollection<User>();
+            foreach (Doctor d in userController.GetAllDoctors())
+                foreach (Specialitation s in spetialitationController.GetAllEntities())
+                    if (s.SpecialitationForDoctor.Equals("Opšta praksa") && s.GetId() == d.Specialitation.GetId())
+                        doctors.Add(d);
 
+            DoctorsForMedicalExamination = doctors; // svi lekari opste prakse
 
             searchTextBox.Visibility = Visibility.Hidden;
             btnSearch.Visibility = Visibility.Visible;
