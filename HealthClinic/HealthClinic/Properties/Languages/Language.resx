@@ -745,7 +745,7 @@
     <value>Nevalidna mejl adresa!</value>
   </data>
   <data name="warningForPassword" xml:space="preserve">
-    <value>Šifra mora da sadrži najmanje 8 karaktera!</value>
+    <value>Šifra mora da sadrži najmanje 3 karaktera!</value>
   </data>
   <data name="warningJMBG" xml:space="preserve">
     <value>JMBG mora sadržati 13 brojeva!</value>

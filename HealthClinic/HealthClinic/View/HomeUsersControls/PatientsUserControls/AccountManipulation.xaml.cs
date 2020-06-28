@@ -102,7 +102,7 @@ namespace HealthClinic.View
                 }
                 patient = (Patient)userController.GetUserByJMBG(usernameTextBox.Text);
                 // ima guest account
-                if (patient != null) // napravi metodu
+                if (patient != null) 
                 {
                     usc = new ConfirmPatientIdentityInManipulation(patient);
                     (this.Parent as Panel).Children.Add(usc);

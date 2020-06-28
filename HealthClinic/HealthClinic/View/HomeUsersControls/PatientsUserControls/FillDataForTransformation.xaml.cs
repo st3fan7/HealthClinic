@@ -1,4 +1,6 @@
-﻿using HealthClinic.View.Dialogues;
+﻿using Controller.UsersControlers;
+using HealthClinic.View.Dialogues;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,17 +24,23 @@ namespace HealthClinic.View
     /// </summary>
     public partial class FillDataForTransformation : UserControl
     {
-        public FillDataForTransformation()
+        Patient patient = new Patient();
+
+        private readonly UserController userController;
+
+        public FillDataForTransformation(Patient p)
         {
             InitializeComponent();
-           // pacijent = p;
-            datePickerSchedule.DisplayDateEnd = DateTime.Now;
+            patient = p;
             textWarning.Visibility = Visibility.Hidden;
             warningUserName.Visibility = Visibility.Hidden;
             warningForPassword.Visibility = Visibility.Hidden;
             textWarningAddressStatePlaceOfBirth.Visibility = Visibility.Hidden;
             textWarningEmail.Visibility = Visibility.Hidden;
             textWarning9.Visibility = Visibility.Hidden;
+
+            var app = Application.Current as App;
+            userController = app.UserController;
         }
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -84,12 +92,12 @@ namespace HealthClinic.View
             var bc = new BrushConverter();
             var thic = new ThicknessConverter();
 
-            if (!datePickerSchedule.Text.Equals("") && !i2.Text.Equals("") && !i1.Text.Equals("") && !i4.Text.Equals("") && !i5.Text.Equals("") && !i6.Text.Equals("") )
+            if (!i1.Text.Equals("") && !i2.Text.Equals("") && !i3.Text.Equals("") && !i4.Text.Equals("") && !i5.Text.Equals("") && !i6.Text.Equals("") )
             {
                 String textWarningAddressStatePlaceOfBirthRegex = @"[A-Z][a-zA-Z,]{1,}";
                 String emailRegex = @"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$";
                 String usernameRegex = @"[a-zA-Z]{1,}";
-                String passRegex = @"\S{8,22}";
+                String passRegex = @"\S{3,22}";
 
 
                 Regex rg = new Regex(textWarningAddressStatePlaceOfBirthRegex);
@@ -112,6 +120,16 @@ namespace HealthClinic.View
                     warningForPassword.Visibility = Visibility.Visible;
                     i2.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
                     i2.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                    trasnformBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    trasnformBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                    return;
+                }
+
+                if (!rg.Match(i3.Text).Success)
+                {
+                    textWarningAddressStatePlaceOfBirth.Visibility = Visibility.Visible;
+                    i3.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    i3.BorderThickness = (Thickness)thic.ConvertFrom("3");
                     trasnformBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
                     trasnformBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
                     return;
@@ -157,8 +175,8 @@ namespace HealthClinic.View
                 i1.BorderThickness = (Thickness)thic.ConvertFrom("1");
                 i2.BorderBrush = Brushes.Black;
                 i2.BorderThickness = (Thickness)thic.ConvertFrom("1");
-                datePickerSchedule.BorderBrush = Brushes.Black;
-                datePickerSchedule.BorderThickness = (Thickness)thic.ConvertFrom("1");
+                i3.BorderBrush = Brushes.Black;
+                i3.BorderThickness = (Thickness)thic.ConvertFrom("1");
                 i4.BorderBrush = Brushes.Black;
                 i4.BorderThickness = (Thickness)thic.ConvertFrom("1");
                 i5.BorderBrush = Brushes.Black;
@@ -169,27 +187,15 @@ namespace HealthClinic.View
                 trasnformBtn.BorderBrush = Brushes.Black;
                 trasnformBtn.BorderThickness = (Thickness)thic.ConvertFrom("1");
 
-                //foreach (Pacijent p in Loading.pacijenti)
-                //{
-                //    if (i1.Text.Equals(p.Username))
-                //    {
-                //        Console.WriteLine("usao");
-                //        textWarning9.Visibility = Visibility.Visible; // pacijent vec postoji
-                //        return;
-                //    }
-                //    if (p == pacijent)
-                //    {
-                //        Console.WriteLine("Isto su");
+                patient.UserName = i1.Text;
+                patient.Password = i2.Text;
+                patient.City.Name = i3.Text;
+                patient.City.Adress = i4.Text;
+                patient.City.Country.Name = i5.Text;
+                patient.EMail = i6.Text;
+                patient.GuestAccount = false;
 
-                //        p.Username = i1.Text;
-                //        p.Password = i2.Text;
-                //        p.DateOfBirth = dateOfBirthLabel.Content.ToString();
-                //        p.PlaceOfBirth = i4.Text;
-                //        p.Country = i5.Text;
-                //        p.Email = i6.Text;
-                //        p.GuestAccount = false;
-                //    }
-                //}
+                userController.UpdateEntity(patient);
 
                 GridFillDataForTransformation.Children.Clear();
                 usc = new PatientView();
@@ -219,10 +225,10 @@ namespace HealthClinic.View
                     trasnformBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
                 }
 
-                if (datePickerSchedule.Text.Equals(""))
+                if (i3.Text.Equals(""))
                 {
-                    datePickerSchedule.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
-                    datePickerSchedule.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                    i3.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    i3.BorderThickness = (Thickness)thic.ConvertFrom("3");
                     trasnformBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
                     trasnformBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
                 }
@@ -292,24 +298,24 @@ namespace HealthClinic.View
             }
         }
 
-        private void datePickerSchedule_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void i3_TextChanged(object sender, TextChangedEventArgs e)
         {
             textWarning9.Visibility = Visibility.Hidden;
             warningUserName.Visibility = Visibility.Hidden;
             warningForPassword.Visibility = Visibility.Hidden;
             textWarningAddressStatePlaceOfBirth.Visibility = Visibility.Hidden;
             textWarningEmail.Visibility = Visibility.Hidden;
-
-            if (!datePickerSchedule.Text.Equals(""))
+            if (!i3.Text.Equals(""))
             {
                 textWarning.Visibility = Visibility.Hidden;
-                datePickerSchedule.BorderBrush = Brushes.Black;
+                i3.BorderBrush = Brushes.Black;
                 var thic = new ThicknessConverter();
-                datePickerSchedule.BorderThickness = (Thickness)thic.ConvertFrom("1");
+                i3.BorderThickness = (Thickness)thic.ConvertFrom("1");
                 trasnformBtn.BorderBrush = Brushes.Black;
                 trasnformBtn.BorderThickness = (Thickness)thic.ConvertFrom("1");
             }
         }
+
 
         private void i4_TextChanged(object sender, TextChangedEventArgs e)
         {

@@ -1,4 +1,6 @@
-﻿using HealthClinic.View.Dialogues;
+﻿using Controller.UsersControlers;
+using HealthClinic.View.Dialogues;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +23,16 @@ namespace HealthClinic.View
     /// </summary>
     public partial class TransformationGuestAccount : UserControl
     {
+        private readonly UserController userController;
+
         public TransformationGuestAccount()
         {
             InitializeComponent();
             textWarning2.Visibility = textWarningHidden;
             textWarning.Visibility = textWarningHidden;
+
+            var app = Application.Current as App;
+            userController = app.UserController;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -85,20 +92,17 @@ namespace HealthClinic.View
                 confirmBtn.BorderThickness = (Thickness)thic.ConvertFrom("1");
 
                 UserControl usc = null;
-                //foreach (Pacijent pacijent in Loading.pacijenti)
-                //{
-           
 
-                //    // ima guest account
-                //    if (pacijent.Id.Equals(usernameTextBox.Text) && pacijent.GuestAccount == true)
-                //    {
-                //        GridTransformationGuestAccount.Children.Clear();
-                //        usc = new ConfirmPatientIdentityInTransformation(pacijent);
-                //        GridTransformationGuestAccount.Children.Add(usc);
-                //        return;
-                //    }
-                //}
-                // nema nalog
+                Patient patient = (Patient)userController.GetUserByJMBG(usernameTextBox.Text);
+                // ima guest account
+                if (patient != null && patient.GuestAccount == true) 
+                {
+                    GridTransformationGuestAccount.Children.Clear();
+                    usc = new ConfirmPatientIdentityInTransformation(patient);
+                    GridTransformationGuestAccount.Children.Add(usc);
+                    return;
+                }
+
                 textWarning2.Visibility = textWarningVisible;
                 textWarning.Visibility = textWarningHidden;
             }

@@ -113,8 +113,8 @@
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Left"
                        Margin="20,40,0,-30"/>
-                <Label x:Name="dateOfBirthLabel"
-                       Content="{x:Static language:Language.dateOfBirth}" 
+                <Label x:Name="cityLabel"
+                      Content="{x:Static language:Language.city}" 
                         Height="40"
                        Width="173"
                        FontSize="24"
@@ -124,8 +124,8 @@
                        HorizontalContentAlignment="Left"
                        Margin="20,40,0,-20"/>
 
-                <Label x:Name="placeOfBirthLabel"
-                       Content="{x:Static language:Language.placeOfBirth}" 
+                <Label x:Name="addressLabel"
+                       Content="{x:Static language:Language.address}" 
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -189,17 +189,22 @@
                     CaretBrush="#FF131619"
                     Background="#FFB9C8D6" 
                     TextChanged="i2_TextChanged"/>
-                <DatePicker
-                    Focusable='False'
-                 x:Name="datePickerSchedule"
-                FontSize="22"
-                FontFamily="Helvatic"
-                HorizontalContentAlignment="Center"
-                materialDesign:HintAssist.Hint="{x:Static language:Language.chooseDate}" 
-                Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
-                Background="#FFB9C8D6"
-                Margin="191,-355,14,0" Height="54"
-                    DataContextChanged="datePickerSchedule_DataContextChanged"/>
+                <TextBox  
+                    x:Name="i3"
+                    BorderThickness="2"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    Height="46"
+                    FontSize="22"
+                    materialDesign:HintAssist.Hint="{x:Static language:Language.enterCity}" 
+                    IsEnabled="{Binding Path=IsChecked, ElementName=LastNameBox}" 
+                    Margin="189,-300,13,50" 
+                    FontFamily="Helvatic"
+                    CaretBrush="#FF131619"
+                    Background="#FFB9C8D6"  
+                     TextChanged="i3_TextChanged"/>
 
 
 
@@ -212,7 +217,7 @@
                     TextWrapping="Wrap"
                     Height="46"
                     FontSize="22"
-                    materialDesign:HintAssist.Hint="{x:Static language:Language.enterPlaceOfBirth}" 
+                    materialDesign:HintAssist.Hint="{x:Static language:Language.enterAddress}" 
                     IsEnabled="{Binding Path=IsChecked, ElementName=JmbgBox}" 
                     Margin="190,-185,14,50" 
                     FontFamily="Helvatic"

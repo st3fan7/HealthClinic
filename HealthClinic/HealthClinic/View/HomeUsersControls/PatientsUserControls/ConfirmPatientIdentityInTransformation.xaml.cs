@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.AllActors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,14 @@ namespace HealthClinic.View
     /// </summary>
     public partial class ConfirmPatientIdentityInTransformation : UserControl
     {
-
-        public ConfirmPatientIdentityInTransformation()
+        Patient patient = new Patient();
+        public ConfirmPatientIdentityInTransformation(Patient p)
         {
             InitializeComponent();
-            //pacijent = p;
-            //nameLabel2.Content = pacijent.Name;
-            //lastNameLabel2.Content = pacijent.Surname;
-            //jmbgLabel2.Content = pacijent.Id;
+            patient = p;
+            nameLabel2.Content = patient.Name;
+            lastNameLabel2.Content = patient.Surname;
+            jmbgLabel2.Content = patient.Jmbg;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -77,7 +78,7 @@ namespace HealthClinic.View
         private void yesBtn_Click(object sender, RoutedEventArgs e)
         {
             GridPatientValidationInTransformation.Children.Clear();
-            UserControl usc = new FillDataForTransformation();
+            UserControl usc = new FillDataForTransformation(patient);
             GridPatientValidationInTransformation.Children.Add(usc);
         }
 

@@ -1942,7 +1942,7 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Šifra mora da sadrži najmanje 8 karaktera!.
+        ///   Looks up a localized string similar to Šifra mora da sadrži najmanje 3 karaktera!.
         /// </summary>
         public static string warningForPassword {
             get {

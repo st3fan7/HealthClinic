@@ -745,7 +745,7 @@
     <value>Invalid email!</value>
   </data>
   <data name="warningForPassword" xml:space="preserve">
-    <value>Password must contain at least 8 characters!</value>
+    <value>Password must contain at least 3 characters!</value>
   </data>
   <data name="warningJMBG" xml:space="preserve">
     <value>ID must contain 13 numbers!</value>
