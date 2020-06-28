@@ -20,9 +20,26 @@ namespace HealthClinic.Views
     /// </summary>
     public partial class Home : UserControl
     {
+        private String _username;
+
         public Home()
         {
             InitializeComponent();
+            this.DataContext = this;
+            HomeUsername = Login.currentUser.Name + " " + Login.currentUser.Surname;
+        }
+
+        public String HomeUsername
+        {
+            get { return _username; }
+            set
+            {
+                if (_username != value)
+                {
+                    _username = value;
+
+                }
+            }
         }
 
         private void Obavestenja_Click1(object sender, RoutedEventArgs e)

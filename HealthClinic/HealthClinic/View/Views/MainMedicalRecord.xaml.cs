@@ -23,8 +23,8 @@ namespace HealthClinic.Views
         public MainMedicalRecord()
         {
             InitializeComponent();
-            UserControl MedicalRecordUSC = new Layouts.MedicalRecord();
-            MainMedicalRecordFrame.Content = MedicalRecordUSC;
+            //UserControl MedicalRecordUSC = new Layouts.MedicalRecord();
+            //MainMedicalRecordFrame.Content = MedicalRecordUSC;
         }
 
         private void MedicalRecordHomeButton_Click(object sender, RoutedEventArgs e)

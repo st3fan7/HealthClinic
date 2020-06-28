@@ -41,13 +41,13 @@ namespace Repository.Csv.Converter
             {
                 Secretary secretary = (Secretary)entity;
                 return string.Join(delimiter, secretary.GetId(), secretary.GetType(), secretary.UserName, secretary.Password, secretary.Name, secretary.Surname, secretary.Jmbg, secretary.DateOfBirth.ToString(DATETIME_FORMAT),
-                    secretary.ContactNumber, secretary.EMail, secretary.City.Name, secretary.City.Adress);
+                    secretary.ContactNumber, secretary.EMail, secretary.City.Name, secretary.City.Adress, secretary.City.Country.Name);
             }
             else if (entity.GetType() == typeof(Manager))
             {
                 Manager manager = (Manager)entity;
                 return string.Join(delimiter, manager.GetId(), manager.GetType(), manager.UserName, manager.Password, manager.Name, manager.Surname, manager.Jmbg, manager.DateOfBirth.ToString(DATETIME_FORMAT),
-                    manager.ContactNumber, manager.EMail, manager.City.Name, manager.City.Adress);
+                    manager.ContactNumber, manager.EMail, manager.City.Name, manager.City.Adress, manager.City.Country.Name);
             }
             return null;
             

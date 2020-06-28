@@ -36,7 +36,7 @@
                 <!--Background="#FF423499"-->
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Account" Height="30" Width="30"/>
-                    <TextBlock VerticalAlignment="Center" Text="Ime Prezime" FontFamily="Century Gothic"/>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding HomeUsername}" FontFamily="Century Gothic"/>
                 </StackPanel>
             </Button>
 

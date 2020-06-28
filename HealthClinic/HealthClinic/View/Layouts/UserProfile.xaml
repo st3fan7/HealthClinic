@@ -46,35 +46,35 @@
             </StackPanel>
         </Button>
 
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Korisničko ime" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="/" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Korisničko ime" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ProfileUsername}" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
 
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Lozinka" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
-        <TextBlock Grid.Row="2" Grid.Column="1" Text="/" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Lozinka" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding ProfilePassword}" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
 
-        <TextBlock Grid.Row="3" Grid.Column="0" Text="Ime" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
-        <TextBlock Grid.Row="3" Grid.Column="1" Text="/" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Ime" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding ProfileName}" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
 
-        <TextBlock Grid.Row="4" Grid.Column="0" Text="Prezime" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
-        <TextBlock Grid.Row="4" Grid.Column="1" Text="/" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Prezime" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding ProfileLastname}" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
 
-        <TextBlock Grid.Row="5" Grid.Column="0" Text="JMBG" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
-        <TextBlock Grid.Row="5" Grid.Column="1" Text="/" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="JMBG" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding ProfileJmbg}" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
 
-        <TextBlock Grid.Row="6" Grid.Column="0" Text="Datum rođenja" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
-        <TextBlock Grid.Row="6" Grid.Column="1" Text="/" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="Datum rođenja" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding ProfileBirthDate}" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
 
-        <TextBlock Grid.Row="7" Grid.Column="0" Text="Mesto rođenja" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
-        <TextBlock Grid.Row="7" Grid.Column="1" Text="/" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="7" Grid.Column="0" Text="Mesto rođenja" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="7" Grid.Column="1" Text="{Binding ProfileBirthPlace}" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
 
-        <TextBlock Grid.Row="8" Grid.Column="0" Text="Adresa stanovanja" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
-        <TextBlock Grid.Row="8" Grid.Column="1" Text="/" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="8" Grid.Column="0" Text="Adresa stanovanja" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="8" Grid.Column="1" Text="{Binding ProfileAddress}" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
 
-        <TextBlock Grid.Row="9" Grid.Column="0" Text="Broj telefona" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
-        <TextBlock Grid.Row="9" Grid.Column="1" Text="/" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="9" Grid.Column="0" Text="Broj telefona" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="9" Grid.Column="1" Text="{Binding ProfilePhoneNumber}" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
 
-        <TextBlock Grid.Row="10" Grid.Column="0" Text="E-mail adresa" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
-        <TextBlock Grid.Row="10" Grid.Column="1" Text="/" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="10" Grid.Column="0" Text="E-mail adresa" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBlock Grid.Row="10" Grid.Column="1" Text="{Binding ProfileEmail}" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Century Gothic"/>
 
         </Grid>
     </Grid>

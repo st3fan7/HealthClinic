@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controller.UsersControlers;
+using Model.AllActors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -21,22 +23,68 @@ namespace HealthClinic.Views
     /// </summary>
     public partial class Login : UserControl, INotifyPropertyChanged
     {
-        // PROBAA
+        public static Patient currentUser;
         public event PropertyChangedEventHandler PropertyChanged;
+        UserController userController;
+        public String _username;
+        private String _password;
 
         public Login()
         {
             InitializeComponent();
             this.DataContext = this;
-           
+
+            var app = Application.Current as App;
+            userController = app.UserController;
+            
+            currentUser = null;
+
             usernameInput.SelectAll();
+        }
+
+        public String LoginUsername
+        {
+            get { return _username; }
+            set
+            {
+                if (_username != value)
+                {
+                    _username = value;
+
+                }
+            }
+        }
+
+        public String LoginPassword
+        {
+            get { return _password; }
+            set
+            {
+                if (_password != value)
+                {
+                    _password = value;
+
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            LoginGrid.Children.Clear();
-            UserControl usc = new Home();
-            LoginGrid.Children.Add(usc);
+            if (this.LoginUsername != null && this.LoginPassword != null)
+            {
+                currentUser = (Patient)userController.Login(this.LoginUsername, this.LoginPassword);
+            }
+
+            if (currentUser != null)
+            {
+                LoginGrid.Children.Clear();
+                UserControl usc = new Home();
+                LoginGrid.Children.Add(usc);
+            }
+            else
+            {
+
+            }
         }
 
 
@@ -46,25 +94,7 @@ namespace HealthClinic.Views
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
-        }
-
-        private double test1;
-        
-        public double Test1
-        {
-            get
-            {
-                return test1;
-            }
-            set
-            {
-                if (value != test1)
-                {
-                    test1 = value;
-                    OnPropertyChanged("Test1");
-                }
-            }
-        }
+        }       
 
         private void ZaboravljenaLozinkaButton_Click(object sender, RoutedEventArgs e)
         {
