@@ -50,6 +50,15 @@ namespace Controller.RoomsControlers
             return roomService.GetRoomByRoomID(roomID);
         }
 
+        public List<Room> GetAllRoomForHospitalitation()
+        {
+            return roomService.GetAllRoomForHospitalitation();
+        }
+
+        public List<Room> GetAllRoomForSurgery()
+        {
+            return roomService.GetAllRoomForSurgery();
+        }
 
         public Room GetEntity(int id)
         {
