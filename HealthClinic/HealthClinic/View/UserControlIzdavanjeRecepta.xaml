@@ -56,7 +56,7 @@
         <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Margin="950,0,0,100" FontSize="18"/>
         
         <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Margin="600,210,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="250" Width="360" AcceptsReturn="True" TextWrapping="Wrap" 
-             VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="Recept" FontSize="18" Panel.ZIndex="0"/>
+             VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="Recept" FontSize="18" Panel.ZIndex="0" x:Name="ReceptText"/>
         <Button x:Name="potvrda" Content="Potvrda" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1080,100,0,0" BorderBrush="Black" Background="{x:Null}" materialDesign:ShadowAssist.ShadowDepth="Depth3" Width="100" ToolTip="Pacijentu ćete izdati recept" Click="Potvrda_Click"/>
         <Button x:Name="odustani" Content="Odustani" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1080,200,0,0" BorderBrush="Black" Background="{x:Null}" materialDesign:ShadowAssist.ShadowDepth="Depth3" Width="100" ToolTip="Vratićete se na pregled pacijenta" Click="Odustani_Click"/>
 

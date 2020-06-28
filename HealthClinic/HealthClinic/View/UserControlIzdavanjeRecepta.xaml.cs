@@ -13,7 +13,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Controller.MedicamentControlers;
 using HealthClinic.Entiteti;
+using Model.Doctor;
+using Model.DoctorMenager;
+using Model.PatientDoctor;
 
 namespace HealthClinic
 {
@@ -22,11 +26,18 @@ namespace HealthClinic
     /// </summary>
     public partial class UserControlIzdavanjeRecepta : UserControl
     {
+        /*
         public ObservableCollection<Pacijent> Pacijenti
         {
             get;
             set;
         }
+        */
+
+        public static IssueOfMedicaments issueOfMedicaments = null;
+        public static IssueMedicamentsController issueMedicamentsController;
+        public static MedicamentController medicamentController;
+        public static Medicament medicament = null;
 
        
         public UserControlIzdavanjeRecepta()
@@ -56,6 +67,49 @@ namespace HealthClinic
                 
             }
             */
+
+            var app = Application.Current as App;
+            issueMedicamentsController = app.IssueOfMedicamentsController;
+            medicamentController = app.MedicamentController;
+
+
+            if (UserControlPregled.medicalRecord != null)
+            {
+                Console.WriteLine(UserControlPregled.medicalRecord.Patient.Name);
+                foreach(IssueOfMedicaments i in issueMedicamentsController.GetAllEntities())
+                {
+                    if(i.MedicalRecord.GetId() == UserControlPregled.medicalRecord.GetId())
+                    {
+                        issueOfMedicaments = issueMedicamentsController.GetEntity(i.GetId());
+                    }
+                    else
+                    {
+                        issueOfMedicaments = new IssueOfMedicaments();
+                    }
+                    
+                }
+
+                PacijentTextBox.Text = UserControlPregled.medicalRecord.Patient.Name + " " + UserControlPregled.medicalRecord.Patient.Surname;
+
+                foreach (Medicament m in UserControlPregled.medicalRecord.Medicament)
+                {
+                    LekoviPacijenta.Items.Add(m);
+                    LekoviPacijenta.DisplayMemberPath = "Name";
+                }
+
+                foreach (Allergies alergija in UserControlPregled.medicalRecord.Allergies)
+                {
+                    ListViewAlergije.Items.Add(alergija);
+                    ListViewAlergije.DisplayMemberPath = "Name";
+
+                }
+
+
+                
+
+            }
+
+
 
             if (UserControlPocetna.userControlPocetna.ToolTipButto.IsChecked == true)
             {
@@ -93,15 +147,30 @@ namespace HealthClinic
                 UserControlPregled.selectedPatient.Lekovi.Add(LekText.Text);
             }
             */
+
+            foreach(Medicament m in medicamentController.GetComfirmedMedicaments())
+            {
+                if (m.Name.Equals(LekText.Text))
+                {
+                    medicament = m;
+                }
+            }
+
+            List<Medicament> listaLekova = new List<Medicament>();
+            listaLekova.Add(medicament);
+            issueMedicamentsController.AddEntity(new IssueOfMedicaments(ReceptText.Text, UserControlPregled.medicalRecord, Window1.ulogovaniDoctor, listaLekova));
+
+
+
         }
 
 
         private void TextBox_KeyUp(object sender, KeyEventArgs e)
         {
-            /*
+            
             bool found = false;
-            var border = (resultStack.Parent as ScrollViewer).Parent as Border;
-            var data = MainWindow.Lekovi.lekovi;
+            var border = (resultStack.Parent as ScrollViewer).Parent as Border;            
+            var data = medicamentController.GetComfirmedMedicaments();
 
             string query = (sender as TextBox).Text;
             
@@ -125,10 +194,10 @@ namespace HealthClinic
             // Add the result   
             foreach (var obj in data)
             {
-                if (obj.Ime.ToLower().StartsWith(query.ToLower()))
+                if (obj.Name.ToLower().StartsWith(query.ToLower()))
                 {
                     // The word starts with this... Autocomplete must work   
-                    addItem(obj.Ime);
+                    addItem(obj.Name);
                     found = true;
                 }
             }
@@ -137,7 +206,7 @@ namespace HealthClinic
             {
                 resultStack.Children.Add(new TextBlock() { Text = "Unesite svoj" });
             }
-            */
+            
         }
 
 

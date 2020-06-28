@@ -166,6 +166,7 @@
     <Compile Include="Service\UsersServices\WorkingTimeForDoctorService.cs" />
     <Compile Include="View\Converter\AbstractConverter.cs" />
     <Compile Include="View\Converter\MedicalExaminationConverter.cs" />
+    <Compile Include="View\Converter\SurgeryConverter.cs" />
     <Compile Include="View\DijalogAnamnezaKodPregleda.xaml.cs">
       <DependentUpon>DijalogAnamnezaKodPregleda.xaml</DependentUpon>
     </Compile>
@@ -232,6 +233,7 @@
       <DependentUpon>UserControlValidacijaLeka.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewModel\ViewMedicalExamination.cs" />
+    <Compile Include="View\ViewModel\ViewSurgery.cs" />
     <Compile Include="View\WindowWizard.xaml.cs">
       <DependentUpon>WindowWizard.xaml</DependentUpon>
     </Compile>

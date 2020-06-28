@@ -47,6 +47,8 @@ namespace HealthClinic
         public static ViewMedicalExamination viewMedicalExamination = null;
         public static Patient staticPatient = new Patient();
         public static MedicalExamination MedicalExamination = null;
+        public static Surgery surgery = null;
+        public static SurgeryController surgeryController;
 
 
         public UserControlPocetna()
@@ -59,6 +61,7 @@ namespace HealthClinic
             var app = App.Current as App;
             medicalExaminationController = app.MedicalExaminationController;
             userController = app.UserController;
+            surgeryController = app.SurgeryController;
 
             MainWindow.ViewMedicalExaminations = new ObservableCollection<ViewMedicalExamination>(MedicalExaminationConverter.ConvertMEListToMEViewList(
                this.getAllMedicalExByDoctor(Window1.ulogovaniDoctor).ToList()));
@@ -68,7 +71,7 @@ namespace HealthClinic
 
             this.DataContext = MainWindow.ViewMedicalExaminations;
 
-
+            
             dgrMain.ItemsSource = MainWindow.ViewMedicalExaminations;
 
              

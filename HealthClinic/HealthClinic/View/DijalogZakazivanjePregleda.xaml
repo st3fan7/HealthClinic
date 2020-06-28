@@ -48,7 +48,7 @@
 
 
         <DatePicker Width="100"  materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Margin="0,0,10,325" x:Name="datePicker" />
+                    Margin="0,0,10,325" x:Name="datePicker" SelectedDateChanged="DatePicker_SelectedDateChanged" />
 
 
     </Grid>

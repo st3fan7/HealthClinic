@@ -21,12 +21,23 @@
         <Label Content="Hitnost:" FontSize="18" Margin="40,508,390.6,262.4" />
 
 
-        <ComboBox x:Name="Specijalizacija" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="250" materialDesign:HintAssist.Hint="Specijalizacija" Margin="130,0,0,685" FontSize="16">
+        <ComboBox x:Name="Specijalizacija" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="250" materialDesign:HintAssist.Hint="Specijalizacija" Margin="130,0,0,685" FontSize="16" SelectionChanged="Specijalizacija_SelectionChanged">
 
         </ComboBox>
 
-        <ComboBox x:Name="ListaLekara" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="250" materialDesign:HintAssist.Hint="Lekari" Margin="130,0,0,580" FontSize="16">
-
+        <ComboBox x:Name="ListaLekara" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="250" materialDesign:HintAssist.Hint="Lekari" Margin="130,0,0,580" FontSize="16" SelectionChanged="ListaLekara_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} {1}">
+                                <Binding Path="Name"/>
+                                <Binding Path="Surname"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
         </ComboBox>
 
 
@@ -51,14 +62,14 @@
 
 
 
-        <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Margin="0,480,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="160" Width="400" AcceptsReturn="True" TextWrapping="Wrap" 
+        <TextBox x:Name="Razlog" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Margin="0,480,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="160" Width="400" AcceptsReturn="True" TextWrapping="Wrap" 
              VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="Razlog operacije/Napomena" FontSize="16" TextChanged="TextBox_TextChanged"/>
-        <Button Content="Potvrda" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="250,730,0,0" BorderBrush="Black" Background="{x:Null}" materialDesign:ShadowAssist.ShadowDepth="Depth3" Width="110"/>
+        <Button Content="Potvrda" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="250,730,0,0" BorderBrush="Black" Background="{x:Null}" materialDesign:ShadowAssist.ShadowDepth="Depth3" Width="110" Click="Button_Click_1"/>
         <Button Content="Izlaz" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30,730,300,0" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderBrush="Black" Background="{x:Null}" Width="84" Click="Button_Click"/>
 
 
         <DatePicker Width="100"  materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Margin="0,0,10,250"/>
+                    Margin="0,0,10,250" x:Name="DatePicker"/>
 
 
     </Grid>

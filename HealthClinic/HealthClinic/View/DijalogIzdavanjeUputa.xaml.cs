@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Controller.RoomsControlers;
+using Controller.UsersControlers;
+using Model.AllActors;
+using Model.Term;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +23,19 @@ namespace HealthClinic
     /// </summary>
     public partial class DijalogIzdavanjeUputa : Window
     {
+        public static SpetialitationController spetialitationController;
+        public static UserController userController;
+        public static Model.Doctor.Specialitation specialitation = null;
+        public static Doctor selectedDoctor = null;
+        private bool hitnost = false;
+        private Room room = null;
+        private readonly RoomController roomController;
+
         public DijalogIzdavanjeUputa()
         {
             InitializeComponent();
             Vremena();
-
+            /*
             Specijalizacija.Items.Add("Kardiohirurg");
             Specijalizacija.Items.Add("Hirurg");
             Specijalizacija.Items.Add("Pedijatar");
@@ -32,6 +44,7 @@ namespace HealthClinic
             ListaLekara.Items.Add("dr. Nikola Nikolić");
             ListaLekara.Items.Add("dr. Stefan Stefanović");
             ListaLekara.Items.Add("dr. Predrag Kon");
+            */
             /*
             if (UserControlPregled.selectedPatient != null)
             {
@@ -39,6 +52,42 @@ namespace HealthClinic
                 Prezime.Text = UserControlPregled.selectedPatient.Prezime;
             }
             */
+
+            var app = Application.Current as App;
+            spetialitationController = app.SpetialitationController;
+            userController = app.UserController;
+
+
+            foreach(Model.Doctor.Specialitation s in spetialitationController.GetAllEntities())
+            {
+                Specijalizacija.Items.Add(s);
+                Specijalizacija.DisplayMemberPath = "SpecialitationForDoctor";
+            }
+
+            if(UserControlPocetna.MedicalExamination != null)
+            {
+                Ime.Text = UserControlPocetna.MedicalExamination.Patient.Name;
+                Prezime.Text = UserControlPocetna.MedicalExamination.Patient.Surname;
+            }
+            else
+            {
+                Ime.Text = "";
+                Prezime.Text = "";
+            }
+
+            roomController = app.RoomController;
+            foreach (Room room in roomController.GetAllEntities())
+            {
+
+                if (room.TypeOfRoom.NameOfType.Equals("Soba za preglede"))
+                {
+                    Sala.Items.Add(room.RoomID);
+                }
+
+            }
+
+
+
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -63,6 +112,7 @@ namespace HealthClinic
         {
             if (DaChecked.IsChecked == true)
             {
+                hitnost = true;
                 NeChecked.IsChecked = false;
                 NeChecked.IsEnabled = false;
             }
@@ -81,6 +131,7 @@ namespace HealthClinic
         {
             if (NeChecked.IsChecked == true)
             {
+                hitnost = false;
                 DaChecked.IsChecked = false;
                 DaChecked.IsEnabled = false;
             }
@@ -98,6 +149,86 @@ namespace HealthClinic
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Specijalizacija_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            specialitation = (Model.Doctor.Specialitation)Specijalizacija.SelectedItem;
+
+            ListaLekara.Items.Clear();
+
+            foreach(Doctor d in userController.GetAllDoctors())
+            {
+                if (d.Specialitation.GetId() == specialitation.GetId())
+                {
+                    ListaLekara.Items.Add(d);
+                    //ListaLekara.DisplayMemberPath = "Name";
+                }
+            }
+
+
+           
+
+        }
+
+        private void ListaLekara_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedDoctor = (Doctor)ListaLekara.SelectedItem;
+            Console.WriteLine(selectedDoctor.Name);
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            foreach (Room r in roomController.GetAllEntities())
+            {
+                if (Sala.SelectedItem.Equals(r.RoomID))
+                {
+                    room = roomController.GetEntity(r.GetId());
+
+                }
+            }
+
+            String datum = DatePicker.SelectedDate.Value.ToString("dd.MM.yyyy.");
+            String vremePocetka = ListVremena.SelectedItem.ToString();
+            String vremeKraja = ListVremenaKraj.SelectedItem.ToString();
+
+
+
+
+
+
+            MessageBoxResult result = MessageBox.Show("Da li ste sigurni da ste dobro uneli podatke?\nAko jeste, potvrdite.", "Zakazivanje pregleda", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                UserControlPocetna.MedicalExamination.Urgency = hitnost;
+                UserControlPocetna.MedicalExamination.ShortDescription = Razlog.Text;
+                UserControlPocetna.MedicalExamination.Room = room;
+                UserControlPocetna.MedicalExamination.FromDateTime = DateTime.Parse(datum + " " + vremePocetka);
+                UserControlPocetna.MedicalExamination.ToDateTime = DateTime.Parse(datum + " " + vremeKraja);
+                UserControlPocetna.MedicalExamination.Doctor = selectedDoctor;
+
+                UserControlPocetna.medicalExaminationController.UpdateEntity(UserControlPocetna.MedicalExamination);
+                UserControlPocetna.userControlPocetna.dgrMain.Items.Refresh();
+                UserControlPocetna.userControlPocetna.dgrMain.UpdateLayout();
+
+
+
+
+
+
+                /*
+                if (UserControlPregled.selectedPatient == null)
+                {
+                    MainWindow.Pacijenti.dodajPacijenta(pacijent);
+                }
+                else
+                {
+                    UserControlPregled.selectedPatient = pacijent;
+                }
+                */
+                this.Close();
+            }
         }
     }
 }

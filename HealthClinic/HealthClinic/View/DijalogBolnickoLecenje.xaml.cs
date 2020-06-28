@@ -1,4 +1,8 @@
-﻿using HealthClinic.Entiteti;
+﻿using Controller.ExaminationSurgeryControlers;
+using Controller.RoomsControlers;
+using HealthClinic.Entiteti;
+using Model.Doctor;
+using Model.Term;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,13 +26,17 @@ namespace HealthClinic
     public partial class DijalogBolnickoLecenje : Window
     {
         //Pacijent pacijent = new Pacijent();
+        private bool hitnost = false;
+        private Room room = null;
+        private readonly RoomController roomController;
+        private static HospitalitationController hospitalitationController;
 
         public DijalogBolnickoLecenje()
         {
             InitializeComponent();
 
-            Sala.Items.Add("S1");
-            Sala.Items.Add("S404");
+            //Sala.Items.Add("S1");
+            //Sala.Items.Add("S404");
 
             /*
             if (UserControlPregled.selectedPatient == null)
@@ -55,6 +63,33 @@ namespace HealthClinic
 
             }
             */
+
+            var app = App.Current as App;
+            roomController = app.RoomController;
+            hospitalitationController = app.HospitalitationController;
+
+            foreach (Room room in roomController.GetAllEntities())
+            {
+
+                if (room.TypeOfRoom.NameOfType.Equals("Bolnička soba"))
+                {
+                    Sala.Items.Add(room.RoomID);
+                }
+
+            }
+
+            if (UserControlPocetna.MedicalExamination != null)
+            {
+                Ime.Text = UserControlPocetna.MedicalExamination.Patient.Name;
+                Prezime.Text = UserControlPocetna.MedicalExamination.Patient.Surname;
+            }
+            else
+            {
+                Ime.Text = "";
+                Prezime.Text = "";
+            }
+
+
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -66,6 +101,7 @@ namespace HealthClinic
         {
             if (DaChecked.IsChecked == true)
             {
+                hitnost = true;
                 //pacijent.Hitnost = "Da";
                 NeChecked.IsChecked = false;
                 NeChecked.IsEnabled = false;
@@ -85,6 +121,7 @@ namespace HealthClinic
         {
             if (NeChecked.IsChecked == true)
             {
+                hitnost = false;
               //  pacijent.Hitnost = "Ne";
                 DaChecked.IsChecked = false;
                 DaChecked.IsEnabled = false;
@@ -120,6 +157,15 @@ namespace HealthClinic
            
 
     */
+            foreach (Room r in roomController.GetAllEntities())
+            {
+                if (Sala.SelectedItem.Equals(r.RoomID))
+                {
+                    room = roomController.GetEntity(r.GetId());
+
+                }
+            }
+
 
             MessageBoxResult result = MessageBox.Show("Da li ste sigurni da ste dobro uneli podatke?\nAko jeste, potvrdite.", "Otvaranje bolničkog lečenja", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result == MessageBoxResult.Yes)
@@ -134,8 +180,19 @@ namespace HealthClinic
                     UserControlPregled.selectedPatient = pacijent;
                 }
                 */
-
                 //MainWindow.Pacijenti.dodajPacijenta(pacijent);
+
+                hospitalitationController.AddEntity(new Hospitalitation(hitnost, Razlog.Text, room, Window1.ulogovaniDoctor, new Bed(), 
+                    DatePicker1.SelectedDate.Value, DatePicker2.SelectedDate.Value));
+
+             
+
+
+
+
+
+
+
                 this.Close();
             }
         }

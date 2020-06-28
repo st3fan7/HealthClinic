@@ -13,7 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Controller.RoomsControlers;
+using Controller.UsersControlers;
 using HealthClinic.Entiteti;
+using Model.AllActors;
 using Model.Term;
 
 namespace HealthClinic
@@ -29,13 +31,16 @@ namespace HealthClinic
         private bool hitnost = false;
         private Room room = null;
         private readonly RoomController roomController;
+        private static WorkingTimeForDoctor workingTimeForDoctor = null;
+        private static WorkingTimeForDoctorController workingTimeForDoctorController;
         
         public DijalogZakazivanjePregleda()
         {
             InitializeComponent();
             
 
-            Vremena();
+            //Vremena();
+            
 
             /*
             if (UserControlPregled.selectedPatient == null)
@@ -65,7 +70,7 @@ namespace HealthClinic
             }
             */
 
-            if(UserControlPocetna.MedicalExamination != null)
+            if (UserControlPocetna.MedicalExamination != null)
             {
                 Ime.Text = UserControlPocetna.MedicalExamination.Patient.Name;
                 Prezime.Text = UserControlPocetna.MedicalExamination.Patient.Surname;
@@ -80,7 +85,9 @@ namespace HealthClinic
 
             var app = App.Current as App;
             roomController = app.RoomController;
-            foreach(Room room in roomController.GetAllEntities())
+            workingTimeForDoctorController = app.WorkingTimeForDoctorController;
+
+            foreach (Room room in roomController.GetAllEntities())
             {
                
                 if(room.TypeOfRoom.NameOfType.Equals("Soba za preglede"))
@@ -303,6 +310,167 @@ namespace HealthClinic
                 */
                 this.Close();
             }
+        }
+
+        /*
+        private List<String> terminiLekara()
+        {
+            if(workingTimeForDoctor != null)
+            {
+                String[] parts = workingTimeForDoctor.FromDateTime.ToString().Split(' ');
+                Console.WriteLine(parts[1]);
+            }
+            else
+            {
+                
+            }
+            
+            return null;
+        }
+        */
+
+        private List<MedicalExamination> getAllMedExByDate(DayOfWeek day, Doctor doctor)
+        {
+            List<MedicalExamination> lista = new List<MedicalExamination>();
+            foreach (MedicalExamination m in UserControlPocetna.medicalExaminationController.GetAllEntities())
+            {
+                if (m.FromDateTime.DayOfWeek.ToString().Equals(day.ToString()) && (m.Doctor.GetId() == doctor.GetId()))
+                {
+                    lista.Add(m);
+                }
+            }
+            return lista;
+        }
+        
+
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            workingTimeForDoctor = workingTimeForDoctorController.GetWorkTimeForDoctorByDoctorAndDay(Window1.ulogovaniDoctor, datePicker.SelectedDate.Value.DayOfWeek);
+            //Console.WriteLine(workingTimeForDoctor.FromDateTime + " " + workingTimeForDoctor.Doctor.Name);
+            List<MedicalExamination> medicalExaminations = this.getAllMedExByDate(workingTimeForDoctor.FromDateTime.DayOfWeek, Window1.ulogovaniDoctor);
+           
+            List<int> timesStart = new List<int>();
+
+            foreach(MedicalExamination m in medicalExaminations)
+            {
+               
+               // Console.WriteLine(m.FromDateTime.DayOfWeek.ToString() + " " + m.Patient.Name);
+                String[] partss = m.FromDateTime.ToString().Split(' ');
+                //Console.WriteLine(parts[1]);
+                String[] starTimePartss = partss[1].Split(':'); //08
+                int starts;
+                starts = int.Parse(starTimePartss[0]);
+                timesStart.Add(starts);
+            }
+
+            List<int> timesEnd = new List<int>();
+
+            foreach (MedicalExamination m in medicalExaminations)
+            {
+                //Console.WriteLine(m.FromDateTime + " " + m.Patient.Name);
+                String[] partss = m.ToDateTime.ToString().Split(' ');
+                //Console.WriteLine(parts[1]);
+                String[] starTimePartss = partss[1].Split(':'); //08
+                int starts;
+                starts = int.Parse(starTimePartss[0]);
+                timesEnd.Add(starts);
+            }
+
+         
+
+            String[] parts = workingTimeForDoctor.FromDateTime.ToString().Split(' ');
+            //Console.WriteLine(parts[1]);
+            String[] starTimeParts = parts[1].Split(':'); //08
+            int start;
+            start = int.Parse(starTimeParts[0]);
+            //Console.WriteLine(start);
+            String[] endParts = workingTimeForDoctor.ToDateTime.ToString().Split(' ');
+            String[] endTimeParts = endParts[1].Split(':');
+            int end;
+            end = int.Parse(endTimeParts[0]);
+
+            ListVremena.Items.Clear();
+            ListVremenaKraj.Items.Clear();
+
+            
+
+            if (start < end) 
+            {
+                for (int i = start; i < end; i++)
+                {
+                    //foreach (int startE in timesStart)
+                    //{
+                      //  foreach(int endE in timesEnd)
+                       // {
+                         //   if (i < startE || i > endE)
+                           // {
+                                for (int j = 0; j < 60; j += 30)
+                                {
+
+                                    if (i < 10 && j < 10)
+                                    {
+                                        ListVremena.Items.Add("0" + i + ":0" + j);
+                                        ListVremenaKraj.Items.Add("0" + i + ":0" + j);
+                                    }
+                                    else if (i < 10 && j > 10)
+                                    {
+                                        ListVremena.Items.Add("0" + i + ":" + j);
+                                        ListVremenaKraj.Items.Add("0" + i + ":" + j);
+                                    }
+                                    else if (i >= 10 && j < 10)
+                                    {
+                                        ListVremena.Items.Add(i + ":0" + j);
+                                        ListVremenaKraj.Items.Add(i + ":0" + j);
+                                    }
+                                    else if (i >= 10 && j > 10)
+                                    {
+                                        ListVremena.Items.Add(i + ":" + j);
+                                        ListVremenaKraj.Items.Add(i + ":" + j);
+                                    }
+                                }
+                            //}
+                        //}
+                        
+                    //}
+                    
+                }
+            }else if(start > end)
+            {
+
+                for (int i = start; i > end; i--)
+                {
+                    for (int j = 0; j < 60; j += 30)
+                    {
+
+                        if (i < 10 && j < 10)
+                        {
+                            ListVremena.Items.Add("0" + i + ":0" + j);
+                            ListVremenaKraj.Items.Add("0" + i + ":0" + j);
+                        }
+                        else if (i < 10 && j > 10)
+                        {
+                            ListVremena.Items.Add("0" + i + ":" + j);
+                            ListVremenaKraj.Items.Add("0" + i + ":" + j);
+                        }
+                        else if (i >= 10 && j < 10)
+                        {
+                            ListVremena.Items.Add(i + ":0" + j);
+                            ListVremenaKraj.Items.Add(i + ":0" + j);
+                        }
+                        else if (i >= 10 && j > 10)
+                        {
+                            ListVremena.Items.Add(i + ":" + j);
+                            ListVremenaKraj.Items.Add(i + ":" + j);
+                        }
+                    }
+                }
+
+            }
+
+            
+
+
+
         }
     }
 }

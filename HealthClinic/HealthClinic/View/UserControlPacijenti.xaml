@@ -32,16 +32,16 @@
 
 
 
-        <DataGrid FontSize="18" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1080" Height="350" VerticalScrollBarVisibility="Visible"  ItemsSource="{Binding Path=Pacijents}" IsReadOnly="True" AutoGenerateColumns="False">
+        <DataGrid FontSize="18" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1080" Height="350" VerticalScrollBarVisibility="Visible" x:Name="pacijentiDgr" IsReadOnly="True" AutoGenerateColumns="False" DataGridCell.Selected="PacijentiDgr_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Ime i Prezime" Binding="{Binding Path=FullName}"/>
-                <DataGridTextColumn Header="Dijagnoza" Binding="{Binding Path=Dijagnoza}"/>
+                <DataGridTextColumn Header="Ime i Prezime" Binding="{Binding Path=Patient}"/>
+                <!--DataGridTextColumn Header="Dijagnoza" Binding="{Binding Path=Dijagnoza}"/-->
                 <DataGridTextColumn Header="Prethodni pregled" Binding="{Binding Path=ProsliPregled}"/>
                 <DataGridTextColumn Header="Naredni pregled/operacija" Binding="{Binding Path=Zadatak}"/>
-                <DataGridTextColumn Header="Vreme" Binding="{Binding Path=Vreme}"/>
-                <DataGridTextColumn Header="Datum pregleda/operacije" Binding="{Binding Path=Datum}"/>
-                <DataGridTextColumn Header="Sala" Binding="{Binding Path=Sala}"/>
-                <DataGridTextColumn Header="Hitnost" Binding="{Binding Path=Hitnost}"/>
+                <DataGridTextColumn Header="Vreme" Binding="{Binding Path=Time}"/>
+                <DataGridTextColumn Header="Datum pregleda/operacije" Binding="{Binding Path=Date}"/>
+                <DataGridTextColumn Header="Sala" Binding="{Binding Path=Room}"/>
+                <DataGridTextColumn Header="Hitnost" Binding="{Binding Path=Urgency}"/>
                 <DataGridTextColumn Header="Pregled"/>
                 
             </DataGrid.Columns>
