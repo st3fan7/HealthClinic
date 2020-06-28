@@ -20,11 +20,6 @@ namespace Service.MedicalRecordService
             this.medicalRecordRepository = medicalRecordRepository;
         }
 
-        public Model.PatientDoctor.MedicalRecord OpenMedicalRecord(Model.PatientDoctor.MedicalRecord medicalRecord)
-        {
-            throw new NotImplementedException();
-        }
-
         public MedicalRecord GetMedicalRecordByPatient(Model.AllActors.Patient patient)
         {
             return medicalRecordRepository.GetMedicalRecordByPatient(patient);

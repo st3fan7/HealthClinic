@@ -35,39 +35,5 @@ namespace Repository.RoomsRepository
         {
         }
 
-        /*public Renovation AddEntity(Renovation entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteEntity(Renovation entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Term GetLastTermForRoom(Room room)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool GetOccupancyStatus(Room room, DateTime time)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateEntity(Renovation entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<Room> IRepository<Room, int>.GetAllEntities()
-        {
-            throw new NotImplementedException();
-        }
-
-        Room IRepository<Room, int>.GetEntity(int id)
-        {
-            throw new NotImplementedException();
-        }*/
     }
 }

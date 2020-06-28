@@ -36,19 +36,9 @@ namespace Controller.ExaminationSurgeryControlers
             return medicalExaminationService.GetAllMedicalExaminationsByPatient(patient);
         }
 
-        public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Room room)
+        public List<MedicalExamination> GetAllMedicalExaminationsByRoom(Room room)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<MedicalExamination> GetAllMedicalExaminationsByPatient2(DateTime time)
-        {
-            return medicalExaminationService.GetAllMedicalExaminationsByPatient2(time);
-        }
-
-        public MedicalExamination GetPreviousMedicalExemination(Patient patient)
-        {
-            return medicalExaminationService.GetPreviousMedicalExemination(patient);
+            return medicalExaminationService.GetAllMedicalExaminationsByRoom(room);
         }
 
         public MedicalExamination GetEntity(int id)

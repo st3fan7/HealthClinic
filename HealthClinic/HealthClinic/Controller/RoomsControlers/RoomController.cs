@@ -60,6 +60,11 @@ namespace Controller.RoomsControlers
             return roomService.GetAllRoomForSurgery();
         }
 
+        public DateTime GetLastTermForRoom(Room room)
+        {
+            return roomService.GetLastTermForRoom(room);
+        }
+
         public Room GetEntity(int id)
         {
             return roomService.GetEntity(id);

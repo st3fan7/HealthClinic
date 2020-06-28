@@ -36,19 +36,9 @@ namespace Controller.UsersControlers
             return userService.IsPasswordValid(password);
         }
 
-        public void DeactivateAccount(User user)
+        public bool DoesJmbgExsist(String jmbg)
         {
-            userService.DeactivateAccount(user);
-        }
-
-        public User ChangeUserData(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Patient TransformGuestAccount(Patient patient)
-        {           
-            return userService.TransformGuestAccount(patient);
+            return userService.DoesJmbgExsist(jmbg);
         }
 
         public List<Doctor> GetDoctorBySpecialitation(Specialitation specialitation)

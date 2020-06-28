@@ -20,11 +20,6 @@ namespace Controller.RoomsControlers
             this.equipmentService = equipmentService;
         }
 
-        /*public Medicament TakeMedicament(Medicament medicament)
-        {
-            return equipmentService.TakeMedicament(medicament);
-        }*/
-
         public Equipment GetEntity(int id)
         {
             return equipmentService.GetEntity(id);

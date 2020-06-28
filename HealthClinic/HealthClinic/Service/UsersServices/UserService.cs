@@ -50,17 +50,6 @@ namespace Service.UsersServices
             return false;
         }
 
-        public void DeactivateAccount(User user)
-        {
-            foreach(User oneUser in GetAllEntities())
-            {
-                if (oneUser.UserName.Equals(user.UserName))
-                {
-                    DeleteEntity(user);
-                    return;
-                }
-            }
-        }
 
         public bool DoesJmbgExsist(String jmbg)
         {
@@ -106,12 +95,6 @@ namespace Service.UsersServices
         {
             return userRepository.GetUserByJMBG(jmbg);
         }
-
-        public Patient TransformGuestAccount(Patient patient)
-        {
-            throw new NotImplementedException();
-        }
-
 
         public User GetEntity(int id)
         {

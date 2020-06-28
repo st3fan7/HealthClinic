@@ -20,11 +20,6 @@ namespace Service.BlogNotificationServices
             this.surveyRepository = surveyRepository;
         }
 
-        public Survey CompletingSurvey(Survey survey)
-        {
-            throw new NotImplementedException();
-        }
-
         public Survey GetEntity(int id)
         {
             return surveyRepository.GetEntity(id);

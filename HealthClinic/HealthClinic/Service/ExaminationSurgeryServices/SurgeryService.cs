@@ -23,7 +23,16 @@ namespace Service.ExaminationSurgeryServices
 
         public List<Surgery> GetByDate(DateTime date)
         {
-            throw new NotImplementedException();
+            List<Surgery> surgeries = new List<Surgery>();
+            foreach (Surgery m in surgeryRepository.GetAllEntities())
+            {
+                if (m.FromDateTime.Equals(date))
+                {
+                    surgeries.Add(m);
+                }
+            }
+
+            return surgeries;
         }
 
         public List<Surgery> GetAllSurgeryByDoctor(Doctor doctor)
@@ -36,20 +45,11 @@ namespace Service.ExaminationSurgeryServices
             return surgeryRepository.GetAllSurgeryByPatient(patient);
         }
 
-        public List<Surgery> GetAllMedicalExaminationsByPatient(Room room)
+        public List<Surgery> GetAllSurgeryByRoom(Room room)
         {
             return surgeryRepository.GetAllSurgeryByRoom(room);
         }
 
-        public List<Surgery> GetAllMedicalExaminationsByPatient2(DateTime time)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Surgery GetPreviousSurgery(Patient patient)
-        {
-            throw new NotImplementedException();
-        }
 
         public Surgery GetEntity(int id)
         {

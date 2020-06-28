@@ -20,11 +20,6 @@ namespace Service.ExaminationSurgeryServices
             this.hospitalitationRepository = hospitalitationRepository;
         }
 
-        public Hospitalitation DetermineHospitalitation(Hospitalitation hospitalitation)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Hospitalitation> GetAllHospitalitationsByRoom(Room room)
         {
             return hospitalitationRepository.GetAllHospitalitationsByRoom(room);

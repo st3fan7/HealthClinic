@@ -20,6 +20,16 @@ namespace Controller.ExaminationSurgeryControlers
             this.hospitalitationService = hospitalitationService;
         }
 
+        public List<Hospitalitation> GetAllHospitalitationsByRoom(Room room)
+        {
+            return hospitalitationService.GetAllHospitalitationsByRoom(room);
+        }
+
+        public List<Hospitalitation> GetByDate(DateTime date)
+        {
+            return hospitalitationService.GetByDate(date);
+        }
+
         public Hospitalitation AddEntity(Hospitalitation entity)
         {
             return hospitalitationService.AddEntity(entity);

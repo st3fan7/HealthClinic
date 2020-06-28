@@ -21,11 +21,6 @@ namespace Service.BlogNotificationServices
             this.articleRepository = articleRepository;
         }       
 
-        public Article ReadArticle(Model.BlogAndNotification.Article article)
-        {
-            throw new NotImplementedException();
-        }
-
         public Article GetEntity(int id)
         {
             return articleRepository.GetEntity(id);

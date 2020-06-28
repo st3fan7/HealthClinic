@@ -89,16 +89,6 @@ namespace Service.RoomsServices
             return null;
         }
 
-        public List<Room> GetAllFreeRoomsByDateTime(DateTime dateTime)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Boolean GetOccupancyStatus(Room room, DateTime time)
-        {
-            throw new NotImplementedException();
-        }
-
         public DateTime GetLastTermForRoom(Room room)
         {
             return room.ToDateTime;

@@ -4,6 +4,7 @@
  * Purpose: Definition of the Class Service.ValidationMedicamentService
  ***********************************************************************/
 
+using Model.AllActors;
 using Model.DoctorMenager;
 using Repository.MedicamentRepository;
 using System;
@@ -26,6 +27,11 @@ namespace Service.MedicamentService
                 if (medicamentOnValidation.Medicament.GetId() == medicamentID)
                     return medicamentOnValidation;
             return null;
+        }
+
+        public List<ValidationOfMedicament> GetMedicamentsOnValidationForDoctor(Doctor doctor)
+        {
+            return validationOfMedicamentRepository.GetMedicamentsOnValidationForDoctor(doctor);
         }
 
         public ValidationOfMedicament AddEntity(ValidationOfMedicament entity)

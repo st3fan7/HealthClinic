@@ -34,30 +34,5 @@ namespace Repository.RoomsRepository
            : base(stream, sequencer)
         {
         }
-
-        /*public Room AddEntity(Room entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteEntity(Room entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateEntity(Room entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<Renovation> IRepository<Renovation, int>.GetAllEntities()
-        {
-            throw new NotImplementedException();
-        }
-
-        Renovation IRepository<Renovation, int>.GetEntity(int id)
-        {
-            throw new NotImplementedException();
-        }*/
     }
 }

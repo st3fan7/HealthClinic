@@ -36,19 +36,9 @@ namespace Controller.ExaminationSurgeryControlers
             return surgeryService.GetAllSurgeryByPatient(patient);
         }
 
-        public List<Surgery> GetAllMedicalExaminationsByPatient(Room room)
+        public List<Surgery> GetAllSurgeryByRoom(Room room)
         {
-            return surgeryService.GetAllMedicalExaminationsByPatient(room);
-        }
-
-        public List<Surgery> GetAllMedicalExaminationsByPatient2(DateTime time)
-        {
-            return surgeryService.GetAllMedicalExaminationsByPatient2(time);
-        }
-
-        public Model.Term.Surgery GetPreviousSurgery(Patient patient)
-        {
-            return surgeryService.GetPreviousSurgery(patient);
+            return surgeryService.GetAllSurgeryByRoom(room);
         }
 
         public Surgery GetEntity(int id)

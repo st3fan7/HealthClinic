@@ -44,34 +44,9 @@ namespace Service.ExaminationSurgeryServices
             return medicalExaminationRepository.GetAllMedicalExaminationsByPatient(patient);
         }
 
-        public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Model.Term.Room room)
+        public List<MedicalExamination> GetAllMedicalExaminationsByRoom(Model.Term.Room room)
         {
             return medicalExaminationRepository.GetAllMedicalExaminationsByRoom(room);
-        }
-
-        public List<MedicalExamination> GetAllMedicalExaminationsByPatient2(DateTime time)
-        {
-            throw new NotImplementedException();
-        }
-
-        public MedicalExamination GetPreviousMedicalExemination(Model.AllActors.Patient patient)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool IsMedicalExaminationFreeForScheduling(Model.Term.MedicalExamination medicalExamination)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool IsRoomFreeForScheduling(Model.Term.Room room, DateTime time)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Boolean IsDoctorFreeForScheduling(Model.AllActors.Doctor doctor, DateTime time)
-        {
-            throw new NotImplementedException();
         }
 
         public MedicalExamination GetEntity(int id)

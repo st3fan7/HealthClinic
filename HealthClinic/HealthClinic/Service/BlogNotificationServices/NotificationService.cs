@@ -31,16 +31,6 @@ namespace Service.BlogNotificationServices
             return notifications;
         }
 
-        public Notification SendNotification(Notification notification)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Notification ReadNotification(Notification notification)
-        {
-            throw new NotImplementedException();
-        }
-
         public Notification GetEntity(int id)
         {
             return notificationRepository.GetEntity(id);

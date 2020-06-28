@@ -20,11 +20,6 @@ namespace Controller.BlogNotificationControlers
             this.surveyService = surveyService;
         }
 
-        public Survey CompletingSurvey(Survey survey)
-        {
-            return surveyService.CompletingSurvey(survey);
-        }
-
         public Survey GetEntity(int id)
         {
             return surveyService.GetEntity(id);

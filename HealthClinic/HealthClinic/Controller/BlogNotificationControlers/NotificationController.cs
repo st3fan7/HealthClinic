@@ -21,16 +21,6 @@ namespace Controller.BlogNotificationControlers
             this.notificationService = notificationService;
         }
 
-        public Notification SendNotification(Notification notification, User user)
-        {
-            return notificationService.SendNotification(notification);
-        }
-
-        public Notification ReadNotification(Notification notification)
-        {
-            return notificationService.ReadNotification(notification);
-        }
-
         public List<Notification> GetAllNotificationsForUser(int userID)
         {
             return notificationService.GetAllNotificationsForUser(userID);

@@ -21,11 +21,6 @@ namespace Controller.MedicalRecordControlers
             this.medicalRecordService = medicalRecordService;
         }
 
-        public MedicalRecord OpenMedicalRecord(MedicalRecord medicalRecord)
-        {
-            return medicalRecordService.OpenMedicalRecord(medicalRecord);
-        }
-
         public MedicalRecord GetMedicalRecordByPatient(Patient patient)
         {
             return medicalRecordService.GetMedicalRecordByPatient(patient);
