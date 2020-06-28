@@ -1,4 +1,6 @@
-﻿using HealthClinic.View.Dialogues;
+﻿using Controller.UsersControlers;
+using HealthClinic.View.Dialogues;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +23,16 @@ namespace HealthClinic.View
     /// </summary>
     public partial class AccountManipulation : UserControl
     {
+        private readonly UserController userController;
+
         public AccountManipulation()
         {
             InitializeComponent();
             textWarning2.Visibility = textWarningHidden;
             textWarning.Visibility = textWarningHidden;
+
+            var app = Application.Current as App;
+            userController = app.UserController;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -75,65 +82,48 @@ namespace HealthClinic.View
 
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
         {
-            //if (!usernameTextBox.Text.Equals(""))
-            //{
-            //    textWarning.Visibility = textWarningHidden;
-            //    textWarning2.Visibility = textWarningHidden;
-            //    usernameTextBox.BorderBrush = Brushes.Black;
-            //    var thic = new ThicknessConverter();
-            //    usernameTextBox.BorderThickness = (Thickness)thic.ConvertFrom("1");
-            //    confirmBtn.BorderBrush = Brushes.Black;
-            //    confirmBtn.BorderThickness = (Thickness)thic.ConvertFrom("1");
+            if (!usernameTextBox.Text.Equals(""))
+            {
+                textWarning.Visibility = textWarningHidden;
+                usernameTextBox.BorderBrush = Brushes.Black;
+                var thic = new ThicknessConverter();
+                usernameTextBox.BorderThickness = (Thickness)thic.ConvertFrom("1");
+                confirmBtn.BorderBrush = Brushes.Black;
+                confirmBtn.BorderThickness = (Thickness)thic.ConvertFrom("1");
 
-            //    UserControl usc = null;
-            //    foreach (Pacijent pacijent in Loading.pacijenti)
-            //    {
-            //        // ima nalog
-            //        if (pacijent.Username != null)
-            //        {
-            //            if (pacijent.Username.Equals(usernameTextBox.Text))
-            //            {
+                UserControl usc = null;
+                Patient patient = (Patient)userController.GetUserByUsername(usernameTextBox.Text);
+                // ima nalog
+                if (patient != null)
+                {
+                    usc = new ConfirmPatientIdentityInManipulation(patient); 
+                    (this.Parent as Panel).Children.Add(usc);
+                    return;
+                }
+                patient = (Patient)userController.GetUserByJMBG(usernameTextBox.Text);
+                // ima guest account
+                if (patient != null) // napravi metodu
+                {
+                    usc = new ConfirmPatientIdentityInManipulation(patient);
+                    (this.Parent as Panel).Children.Add(usc);
+                    return;
+                }
+                // nema nalog
+                textWarning2.Visibility = textWarningVisible;
+                textWarning.Visibility = textWarningHidden;
+            }
+            else
+            {
+                var bc = new BrushConverter();
+                var thic = new ThicknessConverter();
+                usernameTextBox.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                usernameTextBox.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                confirmBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                confirmBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                textWarning.Visibility = textWarningVisible;
 
+            }
 
-
-            //                GridAccountManipulation.Children.Clear();
-            //                 usc = new ConfirmPatientIdentityInManipulation(pacijent);
-            //                GridAccountManipulation.Children.Add(usc);
-            //                return;
-            //            }
-            //        }
-
-
-            //        // ima guest account
-            //        if (pacijent.Id.Equals(usernameTextBox.Text))
-            //        {
-            //            GridAccountManipulation.Children.Clear();
-            //             usc = new ConfirmPatientIdentityInManipulation(pacijent);
-            //            GridAccountManipulation.Children.Add(usc);
-            //            return;
-            //        }
-            //    }
-            //    // nema nalog
-            //    textWarning2.Visibility = textWarningVisible;
-            //    textWarning.Visibility = textWarningHidden;
-            //}
-            //else
-            //{
-            //    var bc = new BrushConverter();
-            //    var thic = new ThicknessConverter();
-            //    usernameTextBox.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
-            //    usernameTextBox.BorderThickness = (Thickness)thic.ConvertFrom("3");
-            //    confirmBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
-            //    confirmBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
-            //    textWarning.Visibility = textWarningVisible;
-            //    textWarning2.Visibility = textWarningHidden;
-            //}
-            ////
-
-            // logika je gore
-            GridAccountManipulation.Children.Clear();
-            UserControl usc = new ConfirmPatientIdentityInManipulation();
-            GridAccountManipulation.Children.Add(usc);
         }
 
         private Visibility textWarningHidden

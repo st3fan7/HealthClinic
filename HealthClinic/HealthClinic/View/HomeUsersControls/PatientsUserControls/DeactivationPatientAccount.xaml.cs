@@ -1,4 +1,6 @@
-﻿using HealthClinic.View.Dialogues;
+﻿using Controller.UsersControlers;
+using HealthClinic.View.Dialogues;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,23 +23,31 @@ namespace HealthClinic.View
     /// </summary>
     public partial class DeactivationPatientAccount : UserControl
     {
-        public DeactivationPatientAccount()
+        Patient patient = new Patient();
+
+        private readonly UserController userController;
+
+        public DeactivationPatientAccount(Patient p)
         {
             InitializeComponent();
-            //pacijent = p;
-            //nameLabel2.Content = p.Name;
-            //lastNameLabel2.Content = p.Surname;
-            //jmbgLabel2.Content = p.Id;
-            //if (p.GuestAccount == false)
-            //{
-            //    usernameLabel2.Content = p.Username;
-            //}
+
+            var app = Application.Current as App;
+            userController = app.UserController;
+
+            this.patient = p;
+            nameLabel2.Content = p.Name;
+            lastNameLabel2.Content = p.Surname;
+            jmbgLabel2.Content = p.Jmbg;
+            if (p.GuestAccount == false)
+            {
+                usernameLabel2.Content = p.UserName;
+            }
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
             GridDeactivationPatientAccount.Children.Clear();
-            UserControl usc = new ManipulationOptions();
+            UserControl usc = new ManipulationOptions(patient);
             GridDeactivationPatientAccount.Children.Add(usc);
         }
 
@@ -80,17 +90,7 @@ namespace HealthClinic.View
 
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
         {
-            //Pacijent pacijentZaBrisanje = new Pacijent();
-            //foreach(Pacijent p in Loading.pacijenti)
-            //{
-            //    if(p == pacijent)
-            //    {
-            //        pacijentZaBrisanje = p;
-            //        break;
-            //    }
-            //}
-
-            //Loading.pacijenti.Remove(pacijentZaBrisanje);
+            userController.DeleteEntity(patient);
 
             GridDeactivationPatientAccount.Children.Clear();
             UserControl usc = new PatientView();
@@ -100,7 +100,7 @@ namespace HealthClinic.View
         private void giveUpBtn_Click(object sender, RoutedEventArgs e)
         {
             GridDeactivationPatientAccount.Children.Clear();
-            UserControl usc = new ManipulationOptions();
+            UserControl usc = new ManipulationOptions(patient);
             GridDeactivationPatientAccount.Children.Add(usc);
         }
     }

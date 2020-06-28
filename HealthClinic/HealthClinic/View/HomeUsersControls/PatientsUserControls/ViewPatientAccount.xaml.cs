@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.AllActors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,33 +21,35 @@ namespace HealthClinic.View
     /// </summary>
     public partial class ViewPatientAccount : UserControl
     {
-        public ViewPatientAccount()
+        Patient patient = new Patient();
+        public ViewPatientAccount(Patient p)
         {
             InitializeComponent();
-            //pacijent = p;
-            //if (p.GuestAccount == false)
-            //{
-            //    usernameLabel.Content = p.Username;
-            //    passwordLabel.Content = p.Password;
-            //    dateOfBirthLabel.Content = p.DateOfBirth;
-            //    placeOfBirthLabel.Content = p.PlaceOfBirth;
-            //    countryLabel.Content = p.Country;
-            //}
-            
-            
-            //nameLabel.Content = p.Name;
-            //lastNameLabel.Content = p.Surname;
-            //jmbgLabel.Content = p.Id;
-            //addressLabel.Content = p.Address;
-            //phoneLabel.Content = p.MobilePhone;
-            //emailLabel.Content = p.Email;
+            this.patient = p;
+            if (p.GuestAccount == false)
+            {
+                usernameLabel.Content = p.UserName;
+                passwordLabel.Content = p.Password;
+                
+
+            }
+
+            dateOfBirthLabel.Content = p.DateOfBirth.ToString("dd.MM.yyyy.");
+            cityLabel.Content = p.City.Name;
+            countryLabel.Content = p.City.Country.Name;
+            nameLabel.Content = p.Name;
+            lastNameLabel.Content = p.Surname;
+            jmbgLabel.Content = p.Jmbg;
+            addressLabel.Content = p.City.Adress;
+            phoneLabel.Content = p.ContactNumber;
+            emailLabel.Content = p.EMail;
 
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
             GridViewPatientAccount.Children.Clear();
-            UserControl usc = new ManipulationOptions();
+            UserControl usc = new ManipulationOptions(patient);
             GridViewPatientAccount.Children.Add(usc);
         }
 
@@ -90,7 +93,7 @@ namespace HealthClinic.View
         private void okBtn_Click(object sender, RoutedEventArgs e)
         {
             GridViewPatientAccount.Children.Clear();
-            UserControl usc = new ManipulationOptions();
+            UserControl usc = new ManipulationOptions(patient);
             GridViewPatientAccount.Children.Add(usc);
         }
     }

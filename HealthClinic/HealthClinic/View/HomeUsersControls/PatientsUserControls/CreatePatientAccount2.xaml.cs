@@ -1,4 +1,8 @@
-﻿using HealthClinic.View.Dialogues;
+﻿using Controller.UsersControlers;
+using HealthClinic.View.Converter;
+using HealthClinic.View.Dialogues;
+using Model.AllActors;
+using Model.PatientDoctor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +26,16 @@ namespace HealthClinic.View
     /// </summary>
     public partial class CreatePatientAccount2 : UserControl
     {
-        public CreatePatientAccount2()
+        Patient patient = new Patient();
+        private readonly UserController userController;
+        public CreatePatientAccount2(Patient p)
         {
             InitializeComponent();
-           // pacijent = p;
+            patient = p;
+            Console.WriteLine(p.Name);
+            var app = Application.Current as App;
+            userController = app.UserController;
+
             datePickerSchedule.DisplayDateEnd = DateTime.Now;
             textWarningAddress.Visibility = Visibility.Hidden;
             textWarningAddressStatePlaceOfBirth.Visibility = Visibility.Hidden;
@@ -171,14 +181,10 @@ namespace HealthClinic.View
                 createBtn.BorderBrush = Brushes.Black;
                 createBtn.BorderThickness = (Thickness)thic.ConvertFrom("1");
 
-                //pacijent.DateOfBirth = datePickerSchedule.Text;
-                //pacijent.PlaceOfBirth = i2.Text;
-                //pacijent.Country = i3.Text;
-                //pacijent.Address = i4.Text;
-                //pacijent.MobilePhone = i5.Text;
-                //pacijent.Email = i6.Text;
+                String[] dateParts = datePickerSchedule.Text.Split(' ');
 
-                //Loading.pacijenti.Add(pacijent);
+                PatientConverter.ConvertPatientToPatientView((Patient)userController.AddEntity(new Patient(patient.UserName, patient.Password, 
+                    patient.Name, patient.Surname, patient.Jmbg, DateTime.Parse(dateParts[0]), i5.Text, i6.Text, new City(i2.Text, i4.Text, new Country(i3.Text)), false, new MedicalRecord(0))));
 
                 GridPatientAccount2.Children.Clear();
                 usc = new PatientView();

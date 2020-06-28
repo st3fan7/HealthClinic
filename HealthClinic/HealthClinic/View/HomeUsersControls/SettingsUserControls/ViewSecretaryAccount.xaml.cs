@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controller.UsersControlers;
+using Model.AllActors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,22 +22,29 @@ namespace HealthClinic.View
     /// </summary>
     public partial class ViewSecretaryAccount : UserControl
     {
+        private readonly UserController userController;
+
         public ViewSecretaryAccount()
         {
             InitializeComponent();
 
-            //Secretary secretary = MainWindow.secreatries.First();
-            //usernameLabel.Content = secretary.Username;
-            //passwordLabel.Content = secretary.Password;
-            //nameLabel.Content = secretary.Name;
-            //lastNameLabel.Content = secretary.Surname;
-            //jmbgLabel.Content = secretary.Id;
-            //dateOfBirthLabel.Content = secretary.DateOfBirth;
-            //placeOfBirthLabel.Content = secretary.PlaceOfBirth;
-            //countryLabel.Content = secretary.Country;
-            //addressLabel.Content = secretary.Address;
-            //phoneLabel.Content = secretary.MobilePhone;
-            //emailLabel.Content = secretary.Email;
+            var app = Application.Current as App;
+            userController = app.UserController;
+
+            Secretary secretary = (Secretary)userController.GetUserByUsername(MainWindow.UsernameForSecretary);
+            usernameLabel.Content = secretary.UserName;
+            passwordLabel.Content = secretary.Password;
+            nameLabel.Content = secretary.Name;
+            lastNameLabel.Content = secretary.Surname;
+            jmbgLabel.Content = secretary.Jmbg;
+            countryLabel.Content = secretary.City.Country.Name;
+            dateOfBirthLabel.Content = secretary.DateOfBirth.ToString("dd.MM.yyyy.");
+            countryLabel.Content = secretary.City.Country.Name;
+            addressLabel.Content = secretary.City.Adress;
+            phoneLabel.Content = secretary.ContactNumber;
+            emailLabel.Content = secretary.EMail;
+            cityLabel.Content = secretary.City.Name;
+
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)

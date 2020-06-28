@@ -124,55 +124,56 @@
                 <Label x:Name="nameLabel"
                        Content="{x:Static language:Language.name}"  
                         Height="40"
-                       Width="117"
+                       Width="126"
                        FontSize="24"
                        FontFamily="Helvatic"
                        HorizontalAlignment="Left"
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Left"
-                       Margin="30,7,0,-20"/>
+                       Margin="16,7,0,-20"/>
                 <Label x:Name="lastNameLabel"
                        Content="{x:Static language:Language.surname}"  
                         Height="40"
-                       Width="117"
+                       Width="126"
                        FontSize="24"
                        FontFamily="Helvatic"
                        HorizontalAlignment="Left"
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Left"
-                       Margin="30,40,0,-30"/>
+                       Margin="16,40,0,-30"/>
                 <Label x:Name="jmbgLabel"
                        Content="{x:Static language:Language.jmbg}"  
                         Height="40"
-                       Width="117"
+                       Width="126"
                        FontSize="24"
                        FontFamily="Helvatic"
                        HorizontalAlignment="Left"
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Left"
-                       Margin="30,40,0,-20"/>
+                       Margin="16,40,0,-20"/>
 
-                <Label x:Name="addressLabel"
-                       Content="{x:Static language:Language.address}"  
-                        Height="40"
-                       Width="190"
-                       FontSize="24"
-                       FontFamily="Helvatic"
-                       HorizontalAlignment="Left"
-                       VerticalContentAlignment="Center"                     
-                       HorizontalContentAlignment="Left"
-                       Margin=" 30,40,0,-20"/>
+                <Label x:Name="dateOfBirthLabel"
+                Content="{x:Static language:Language.dateOfBirth}" 
+                Height="43"
+                Width="180"
+                FontSize="24"
+                FontFamily="Helvatic"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center"                     
+                HorizontalContentAlignment="Left"
+                Margin="17,40,0,-20"/>
+
 
                 <Label x:Name="phoneLabel"
                        Content="{x:Static language:Language.phone}"  
                         Height="40"
-                       Width="190"
+                       Width="204"
                        FontSize="24"
                        FontFamily="Helvatic"
                        HorizontalAlignment="Left"
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Left"
-                       Margin=" 30,40,0,-20"/>
+                       Margin="16,40,0,-20"/>
 
                 <TextBox  
                     x:Name="nameInput"
@@ -223,22 +224,21 @@
                     CaretBrush="#FF131619"
                     Background="#FFB9C8D6" 
                     TextChanged="idInput_TextChanged"/>
-                <TextBox  
-                    x:Name="addressInput"
+                <DatePicker
+                    Focusable='False'
                     BorderThickness="2"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    AcceptsReturn="True"
-                    TextWrapping="Wrap"
-                    Height="46"
-                    FontSize="24"
-                    materialDesign:HintAssist.Hint="{x:Static language:Language.enterAddress}"  
-                    IsEnabled="{Binding Path=IsChecked, ElementName=AddressBox}" 
-                    Margin="193,-85,6,50" 
-                    FontFamily="Helvatic"
-                    CaretBrush="#FF131619"
-                    Background="#FFB9C8D6"
-                    TextChanged="addressInput_TextChanged"/>
+                 x:Name="datePickerSchedule"
+                FontSize="22"
+                FontFamily="Helvatic"
+                HorizontalContentAlignment="Center"
+                materialDesign:HintAssist.Hint="{x:Static language:Language.chooseDate}" 
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                Background="#FFB9C8D6"
+                Margin="193,-120,6,0" Height="54"
+                    DataContextChanged="datePickerSchedule_DataContextChanged"
+                    />
+
+                <Viewbox HorizontalAlignment="Center" Width="178" Margin="147,0,105,0"/>
                 <TextBox  
                     x:Name="mobileInput"
                     BorderThickness="2"
@@ -250,7 +250,7 @@
                     FontSize="24"
                     materialDesign:HintAssist.Hint="{x:Static language:Language.enterPhone}"  
                     IsEnabled="{Binding Path=IsChecked, ElementName=PhoneBox}" 
-                    Margin="193,-40,6,50" 
+                    Margin="193,-25,6,50" 
                     FontFamily="Helvatic"
                     CaretBrush="#FF131619"
                     Background="#FFB9C8D6" 

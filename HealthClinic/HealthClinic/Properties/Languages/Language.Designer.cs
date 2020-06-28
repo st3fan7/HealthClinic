@@ -412,6 +412,15 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Grad:.
+        /// </summary>
+        public static string city {
+            get {
+                return ResourceManager.GetString("city", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Potvrdi.
         /// </summary>
         public static string confirm {
@@ -579,6 +588,15 @@ namespace HealthClinic.Properties.Languages {
         public static string enterAddress {
             get {
                 return ResourceManager.GetString("enterAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unesite grad.
+        /// </summary>
+        public static string enterCity {
+            get {
+                return ResourceManager.GetString("enterCity", resourceCulture);
             }
         }
         
@@ -1573,7 +1591,7 @@ namespace HealthClinic.Properties.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dobrodošli, Ana.                      Šta želite danas da uradite?.
+        ///   Looks up a localized string similar to Šta želite danas da uradite?.
         /// </summary>
         public static string textInHome {
             get {

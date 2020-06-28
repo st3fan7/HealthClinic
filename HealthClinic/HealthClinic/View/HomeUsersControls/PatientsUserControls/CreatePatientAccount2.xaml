@@ -118,7 +118,7 @@
 
                 <Viewbox HorizontalAlignment="Center" Width="178" Margin="147,0,105,0"/>
                 <Label x:Name="Label2"
-                       Content="{x:Static language:Language.placeOfBirth}" 
+                       Content="{x:Static language:Language.city}" 
                         Height="45"
                        Width="172"
                        FontSize="24"
@@ -180,7 +180,7 @@
                     TextWrapping="Wrap"
                     Height="46"
                     FontSize="22"
-                    materialDesign:HintAssist.Hint="{x:Static language:Language.enterPlaceOfBirth}" 
+                    materialDesign:HintAssist.Hint="{x:Static language:Language.enterCity}" 
                     IsEnabled="{Binding Path=IsChecked, ElementName=NameBox}" 
                     Margin="190,-420,14,50" 
                     FontFamily="Helvatic"

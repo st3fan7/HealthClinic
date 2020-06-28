@@ -83,7 +83,7 @@
                        FontSize="28"
                        FontFamily="Helvatic"
                        HorizontalAlignment="Center"
-                       VerticalContentAlignment="Top"                     
+                       VerticalContentAlignment="Center"                     
                        TextAlignment="Center"
                        Height="80"
                        Width="390"

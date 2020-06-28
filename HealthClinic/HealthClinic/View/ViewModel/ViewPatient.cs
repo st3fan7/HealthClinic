@@ -11,23 +11,26 @@ namespace HealthClinic.View.ViewModel
     public class ViewPatient : INotifyPropertyChanged
     {
 
+
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-
         private int id;
-        private String username;
-        private String password;
         private String name;
         private String surname;
         private String jmbg;
-        private String dateOfBirth;
-        private String contactNumber;
-        private String emailAddress;
+        private DateTime dateOfBirthday;
         private String city;
+        private String address;
+        private String country;
+        private String phoneNumber;
+        private String emailAddress;
+        private String username;
+        private String password;
         private bool guestAccount;
         private String medicalRecord;
 
@@ -39,32 +42,6 @@ namespace HealthClinic.View.ViewModel
                 if (id != value)
                 {
                     id = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        public String Username
-        {
-            get { return username; }
-            set
-            {
-                if (username != value)
-                {
-                    username = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        public String Password
-        {
-            get { return password; }
-            set
-            {
-                if (password != value)
-                {
-                    password = value;
                     OnPropertyChanged();
                 }
             }
@@ -82,7 +59,6 @@ namespace HealthClinic.View.ViewModel
                 }
             }
         }
-
         public String Surname
         {
             get { return surname; }
@@ -95,7 +71,6 @@ namespace HealthClinic.View.ViewModel
                 }
             }
         }
-
         public String Jmbg
         {
             get { return jmbg; }
@@ -108,33 +83,66 @@ namespace HealthClinic.View.ViewModel
                 }
             }
         }
-
-        public String DateOfBirth
+        public DateTime DateOfBirthday
         {
-            get { return dateOfBirth; }
+            get { return dateOfBirthday; }
             set
             {
-                if (dateOfBirth != value)
+                if (dateOfBirthday != value)
                 {
-                    dateOfBirth = value;
+                    dateOfBirthday = value;
                     OnPropertyChanged();
                 }
             }
         }
-
-        public String ContactNumber
+        public String City
         {
-            get { return contactNumber; }
+            get { return city; }
             set
             {
-                if (contactNumber != value)
+                if (city != value)
                 {
-                    contactNumber = value;
+                    city = value;
                     OnPropertyChanged();
                 }
             }
         }
-
+        public String Address
+        {
+            get { return address; }
+            set
+            {
+                if (address != value)
+                {
+                    address = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public String Country
+        {
+            get { return country; }
+            set
+            {
+                if (country != value)
+                {
+                    country = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public String PhoneNumber
+        {
+            get { return phoneNumber; }
+            set
+            {
+                if (phoneNumber != value)
+                {
+                    phoneNumber = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public String EmailAddress
         {
             get { return emailAddress; }
@@ -148,14 +156,26 @@ namespace HealthClinic.View.ViewModel
             }
         }
 
-        public String City
+        public String Username
         {
-            get { return city; }
+            get { return username; }
             set
             {
-                if (city != value)
+                if (username != value)
                 {
-                    city = value;
+                    username = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public String Password
+        {
+            get { return password; }
+            set
+            {
+                if (password != value)
+                {
+                    password = value;
                     OnPropertyChanged();
                 }
             }

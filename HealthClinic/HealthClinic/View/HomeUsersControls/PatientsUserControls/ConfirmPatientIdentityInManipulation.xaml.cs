@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.AllActors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,19 +21,19 @@ namespace HealthClinic.View
     /// </summary>
     public partial class ConfirmPatientIdentityInManipulation : UserControl
     {
-        //Pacijent pac = new Pacijent();
-        public ConfirmPatientIdentityInManipulation()
+        Patient patient = new Patient();
+        public ConfirmPatientIdentityInManipulation(Patient patient)
         {
             InitializeComponent();
-            //nameLabel2.Content = pacijent.Name;
-            //lastNameLabel2.Content = pacijent.Surname;
-            //jmbgLabel2.Content = pacijent.Id;
+            nameLabel2.Content = patient.Name;
+            lastNameLabel2.Content = patient.Surname;
+            jmbgLabel2.Content = patient.Jmbg;
 
-            //if (!pacijent.Username.Equals(""))
-            //{
-            //    usernameLabel2.Content = pacijent.Username;
-            //}
-            //pac = pacijent;
+            if (!patient.UserName.Equals(""))
+            {
+                usernameLabel2.Content = patient.UserName;
+            }
+            this.patient = patient;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -83,7 +84,7 @@ namespace HealthClinic.View
         private void yesBtn_Click(object sender, RoutedEventArgs e)
         {
             GridConfirmPatientIdentityInManipulation.Children.Clear();
-            UserControl usc = new ManipulationOptions();
+            UserControl usc = new ManipulationOptions(patient);
             GridConfirmPatientIdentityInManipulation.Children.Add(usc);
         }
 

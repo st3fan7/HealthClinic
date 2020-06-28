@@ -234,6 +234,9 @@
   <data name="chooseTime" xml:space="preserve">
     <value>Choose time</value>
   </data>
+  <data name="city" xml:space="preserve">
+    <value>City:</value>
+  </data>
   <data name="confirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
@@ -290,6 +293,9 @@
   </data>
   <data name="enterAddress" xml:space="preserve">
     <value>Enter address</value>
+  </data>
+  <data name="enterCity" xml:space="preserve">
+    <value>Enter city</value>
   </data>
   <data name="enterData" xml:space="preserve">
     <value>Enter data</value>
@@ -622,7 +628,7 @@
     <value>Enter additional information to                           transform the guest account                          into a real account:</value>
   </data>
   <data name="textInHome" xml:space="preserve">
-    <value>Welcome, Ana. What do you want to do today?</value>
+    <value>What do you want to do today?</value>
   </data>
   <data name="textInLogoutDialog" xml:space="preserve">
     <value>Do you want to log out?</value>

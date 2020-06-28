@@ -186,7 +186,7 @@ namespace HealthClinic.View
 
             MedicalExamination medicalExamination = new MedicalExamination();
             medicalExamination.Urgency = false;
-            medicalExamination.ShortDescription = "Upala grla";
+            medicalExamination.ShortDescription = "";
             
             foreach(Room room in MedicalExaminationRooms.RoomsComboBox)
                 if (room.RoomID.Equals(termForSchedule.Room))

@@ -1,4 +1,6 @@
-﻿using HealthClinic.View;
+﻿using Controller.UsersControlers;
+using HealthClinic.View;
+using Model.AllActors;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -14,11 +16,18 @@ namespace HealthClinic
     public partial class MainWindow : Window
     {
         //public static ObservableCollection<Secretary> secreatries = new ObservableCollection<Secretary>();
-        
+        public static string UsernameForSecretary;
+
+        private readonly UserController userController;
+        public static Secretary secretary = null;
+
+
         public MainWindow()
         {
             InitializeComponent();
-            //secreatries.Add(new Secretary("ana", "123123123", "Ana", "Anić", "12121987435012", "12/12/1987", "Niš", "Republika Srbija", "Niš, Niška 2", "062/789-123", "ana@gmail.com"));
+            
+            var app = App.Current as App;
+            userController = app.UserController;
 
             usernameTextBox.Focus();
             usernameTextBox.SelectAll();
@@ -43,37 +52,23 @@ namespace HealthClinic
             var bc = new BrushConverter();
             var thic = new ThicknessConverter();
 
-            //foreach(Secretary secretary in secreatries)
-            //{
-            //    if (usernameTextBox.Text.Equals(secretary.Username))
-            //    {
-            //        if (passwordTextBox.Password.ToString().Equals(secretary.Password))
-            //        {
-            UserControl usc = new Home();
-            GridMain.Children.Add(usc);
-            //        }
-            //        else
-            //        {
-            //            textWarningPassword.Visibility = textWarningVisible;
-            //            passwordTextBox.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
-            //            passwordTextBox.BorderThickness = (Thickness)thic.ConvertFrom("3");
-            //            loginBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
-            //            loginBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
-            //            return;
-            //        }
+            secretary = (Secretary)userController.Login(usernameTextBox.Text, passwordTextBox.Password);
+            var mainWindow = new MainWindow();
 
-
-            //    }
-            //    else
-            //    {
-            //        textWarningUsername.Visibility = textWarningVisible;
-            //        usernameTextBox.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
-            //        usernameTextBox.BorderThickness = (Thickness)thic.ConvertFrom("3");
-            //        loginBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
-            //        loginBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
-            //        return;
-            //    }
-            //}
+            if(secretary != null)
+            {
+                UsernameForSecretary = usernameTextBox.Text;
+                UserControl usc = new Home();
+                GridMain.Children.Add(usc);
+            } else
+            {
+                loginBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                loginBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                passwordTextBox.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                passwordTextBox.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                usernameTextBox.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                usernameTextBox.BorderThickness = (Thickness)thic.ConvertFrom("3");
+            }
 
 
         }

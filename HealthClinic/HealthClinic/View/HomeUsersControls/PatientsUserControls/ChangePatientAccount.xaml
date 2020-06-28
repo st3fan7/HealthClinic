@@ -21,8 +21,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="55"/>
                 <RowDefinition Height="60"/>
-                <RowDefinition Height="54*"/>
-                <RowDefinition Height="80"/>
+                <RowDefinition/>
+                <RowDefinition Height="65"/>
                 <RowDefinition Height="55"/>
             </Grid.RowDefinitions>
 
@@ -90,7 +90,7 @@
                        TextAlignment="Center"
                        Height="48"
                        Width="430"
-                       Margin="0,20,0,70"/>
+                       Margin="0,10,0,70"/>
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.ColumnSpan="5">
@@ -103,7 +103,7 @@
                        HorizontalAlignment="Left"
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Left"
-                       Margin="30,20,0,-20"/>
+                       Margin="30,0,0,-20"/>
                 <Label x:Name="l2"
                        Content="{x:Static language:Language.name}" 
                         Height="40"
@@ -113,9 +113,19 @@
                        HorizontalAlignment="Left"
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Left"
-                       Margin="30,40,0,-20"/>
+                       Margin="30,30,0,0"/>
                 <Label x:Name="l3"
                        Content="{x:Static language:Language.surname}" 
+                        Height="42"
+                       Width="190"
+                       FontSize="24"
+                       FontFamily="Helvatic"
+                       HorizontalAlignment="Left"
+                       VerticalContentAlignment="Center"                     
+                       HorizontalContentAlignment="Left"
+                       Margin="30,20,0,-20"/>
+                <Label x:Name="l4"
+                       Content="{x:Static language:Language.state}" 
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -124,8 +134,8 @@
                        VerticalContentAlignment="Center"                     
                        HorizontalContentAlignment="Left"
                        Margin="30,40,0,-20"/>
-                <Label x:Name="l4"
-                       Content="{x:Static language:Language.state}" 
+                <Label x:Name="cityLabel"
+                       Content="{x:Static language:Language.city}" 
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -155,7 +165,7 @@
                        HorizontalContentAlignment="Left"
                        Margin="30,40,0,-20"/>
                 <Label x:Name="l7"
-                       Content="{x:Static language:Language.email}" 
+                       Content ="{x:Static language:Language.email}" 
                         Height="40"
                        Width="190"
                        FontSize="24"
@@ -176,17 +186,12 @@
                     Height="46"
                     FontSize="22"
                     IsEnabled="{Binding Path=IsChecked, ElementName=NameBox}" 
-                    Margin="204,-670,20,50" 
+                    Margin="204,-670,20,140" 
                     FontFamily="Helvatic"
                     CaretBrush="#FF131619"
                     Background="#FFB9C8D6"
                     TextChanged="i1_TextChanged">
                 </TextBox>
-                <!--<materialDesign:PackIcon Kind="Edit"
-                                             Width="33"
-                                             Height="25"
-                                             Margin="374,-252,0,50" 
-                                             HorizontalAlignment="Left"/>-->
                 <TextBox  
                     GotFocus="TextBox_GotFocus"
                     x:Name="i2"
@@ -198,7 +203,7 @@
                     Height="46"
                     FontSize="22"
                     IsEnabled="{Binding Path=IsChecked, ElementName=NameBox}" 
-                    Margin="204,-550,20,50" 
+                    Margin="204,-560,20,140" 
                     FontFamily="Helvatic"
                     CaretBrush="#FF131619"
                     Background="#FFB9C8D6"
@@ -215,7 +220,7 @@
                     Height="46"
                     FontSize="22"
                     IsEnabled="{Binding Path=IsChecked, ElementName=NameBox}" 
-                    Margin="204,-430,20,50" 
+                    Margin="204,-450,20,140" 
                     FontFamily="Helvatic"
                     CaretBrush="#FF131619"
                     Background="#FFB9C8D6"
@@ -232,11 +237,28 @@
                     Height="46"
                     FontSize="22"
                     IsEnabled="{Binding Path=IsChecked, ElementName=NameBox}" 
-                    Margin="204,-310,20,50" 
+                    Margin="204,-340,20,140" 
                     FontFamily="Helvatic"
                     CaretBrush="#FF131619"
                     Background="#FFB9C8D6"
                     TextChanged="i4_TextChanged">
+                </TextBox>
+                <TextBox  
+                    GotFocus="TextBox_GotFocus"
+                    x:Name="city"
+                    BorderThickness="2"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    Height="46"
+                    FontSize="22"
+                    IsEnabled="{Binding Path=IsChecked, ElementName=NameBox}" 
+                    Margin="204,-340,20,30" 
+                    FontFamily="Helvatic"
+                    CaretBrush="#FF131619"
+                    Background="#FFB9C8D6"
+                    TextChanged="city_TextChanged">
                 </TextBox>
                 <TextBox  
                     GotFocus="TextBox_GotFocus"
@@ -249,7 +271,7 @@
                     Height="46"
                     FontSize="22"
                     IsEnabled="{Binding Path=IsChecked, ElementName=NameBox}" 
-                    Margin="204,-190,20,50" 
+                    Margin="204,-150,20,130" 
                     FontFamily="Helvatic"
                     CaretBrush="#FF131619"
                     Background="#FFB9C8D6"
@@ -266,7 +288,7 @@
                     Height="46"
                     FontSize="22"
                     IsEnabled="{Binding Path=IsChecked, ElementName=NameBox}" 
-                    Margin="204,-80,20,50" 
+                    Margin="204,-190,20,0" 
                     FontFamily="Helvatic"
                     CaretBrush="#FF131619"
                     Background="#FFB9C8D6"
@@ -283,12 +305,13 @@
                     Height="46"
                     FontSize="20"
                     IsEnabled="{Binding Path=IsChecked, ElementName=NameBox}" 
-                    Margin="204,-35,20,50" 
+                    Margin="204,-60,20,50" 
                     FontFamily="Helvatic"
                     CaretBrush="#FF131619"
                     Background="#FFB9C8D6"
                     TextChanged="i7_TextChanged">
                 </TextBox>
+
                 <TextBox Text="{x:Static language:Language.textWarningInGuestAccount}" 
                             x:Name="textWarning"
                             Visibility="{Binding myVisibility}"
@@ -391,12 +414,13 @@
                             SelectionBrush="{x:Null}"
                             FontSize="28"
                             FontFamily="Helvatic"
-                            HorizontalAlignment="Center"
+                            HorizontalAlignment="Left"
                             VerticalContentAlignment="Top"                     
                             TextAlignment="Center"
                             Width="418"
-                            Margin="6,-80,6,0"
+                            Margin="6,-80,0,0"
                             Foreground="#FF761616" FontWeight="Bold" Height="48"/>
+
             </StackPanel>
 
             <StackPanel Grid.Row="3" Grid.ColumnSpan="5">

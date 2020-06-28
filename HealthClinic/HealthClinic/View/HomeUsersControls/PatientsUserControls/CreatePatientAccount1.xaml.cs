@@ -1,4 +1,7 @@
-﻿using HealthClinic.View.Dialogues;
+﻿using Controller.UsersControlers;
+using HealthClinic.View.Dialogues;
+using Model.AllActors;
+using Model.PatientDoctor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +25,16 @@ namespace HealthClinic.View
     /// </summary>
     public partial class CreatePatientAccount1 : UserControl
     {
+        private readonly UserController userController;
+
+
         public CreatePatientAccount1()
         {
             InitializeComponent();
+
+            var app = Application.Current as App;
+            userController = app.UserController;
+
             textWarning.Visibility = Visibility.Hidden;
             textWarning2.Visibility = Visibility.Hidden;
             textWarning3.Visibility = Visibility.Hidden;
@@ -50,7 +60,7 @@ namespace HealthClinic.View
                 String addressRegex = @"[A-Z]+[a-z0-9A-Z,]+";
                 String mobileRegex = @"([+][0-9]{3})?[0-9]{2,3}/[0-9]{3}-[0-9]{3,4}";
                 String emailRegex = @"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$";
-                String passRegex = @"\S{8,22}";
+                String passRegex = @"\S{3,22}";
                 String idRegex = @"[0-9]{13}";
                 Regex rg = new Regex(nameRegex);
                 Regex rg2 = new Regex(mobileRegex);
@@ -128,39 +138,32 @@ namespace HealthClinic.View
                 nextBtn.BorderBrush = Brushes.Black;
                 nextBtn.BorderThickness = (Thickness)thic.ConvertFrom("1");
 
-                //bool ima = false;
-                //foreach (Pacijent pacijent in Loading.pacijenti)
-                //{
-                //    if (i1.Text.Equals(pacijent.Username) || i5.Text.Equals(pacijent.Id))
-                //    {
+                bool ok = false;
+                Patient patient = (Patient)userController.GetUserByUsername(i1.Text);
+                if(patient == null)
+                {
+                    patient = (Patient)userController.GetUserByJMBG(i5.Text);
+                    if(patient != null)
+                        ok = true;
+                } else
+                    ok = true;
 
-                //        ima = true;
 
-                //    }
+                if (!ok)
+                {
+                    //(string username, string password, string name, string surname, string jmbg, DateTime dateOfBirth, string contactNumber, string emailAddress, City city,
+                    //bool guestAccount, MedicalRecord medicalRecord)
+                    Patient accountForPatient = new Patient(i1.Text, i2.Text, i3.Text, i4.Text, i5.Text, DateTime.Parse("01.02.1998."), "", "", new City("", "", new Country("")), false, new MedicalRecord(0));
 
-                //}
+                    GridPatientAccount1.Children.Clear();
+                    usc = new CreatePatientAccount2(accountForPatient);
+                    GridPatientAccount1.Children.Add(usc);
 
-                //if (!ima)
-                //{
-                //    pacijent.Username = i1.Text;
-                //    pacijent.Password = i2.Text;
-                //    pacijent.Name = i3.Text;
-                //    pacijent.Surname = i4.Text;
-                //    pacijent.Id = i5.Text;
-                //    pacijent.DateOfBirth = "";
-                //    pacijent.PlaceOfBirth = "";
-                //    pacijent.Country = "";
-                //    pacijent.Address = "";
-                //    pacijent.MobilePhone = "";
-                //    pacijent.Email = "";
-
-                GridPatientAccount1.Children.Clear();
-                usc = new CreatePatientAccount2();
-                GridPatientAccount1.Children.Add(usc);
-                //} else
-                //{
-                //    textWarning9.Visibility = Visibility.Visible;
-                //}
+                }
+                else
+                {
+                    textWarning9.Visibility = Visibility.Visible;
+                }
 
 
             }

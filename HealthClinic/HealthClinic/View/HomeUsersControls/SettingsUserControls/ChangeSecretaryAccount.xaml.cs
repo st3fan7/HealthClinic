@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controller.UsersControlers;
+using Model.AllActors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,11 +23,18 @@ namespace HealthClinic.View
     /// </summary>
     public partial class ChangeSecretaryAccount : UserControl
     {
-        //Secretary secretary = new Secretary();
+        private readonly UserController userController;
+        private Secretary secretary;
+
         public ChangeSecretaryAccount()
         {
             InitializeComponent();
             // secretary = MainWindow.secreatries.First();
+
+            var app = Application.Current as App;
+            userController = app.UserController;
+            //(string username, string password, string name, string surname, string jmbg, DateTime dateOfBirth, string contactNumber, string emailAddress, City city)
+           secretary = (Secretary)userController.GetUserByUsername(MainWindow.UsernameForSecretary);
 
             textWarning.Visibility = Visibility.Hidden;
             textWarning2.Visibility = Visibility.Hidden;
@@ -34,33 +43,38 @@ namespace HealthClinic.View
             textWarning5.Visibility = Visibility.Hidden;
             textWarning6.Visibility = Visibility.Hidden;
 
-            //i1.Text = secretary.Password;
-            //i1.CaretIndex = secretary.Password.Length;
-            //i1.ScrollToHorizontalOffset(double.MaxValue);
-         
-            //i2.Text = secretary.Name;
-            //i2.CaretIndex = secretary.Name.Length;
-            //i2.ScrollToHorizontalOffset(double.MaxValue);
+            i1.Text = secretary.Password;
+            i1.CaretIndex = secretary.Password.Length;
+            i1.ScrollToHorizontalOffset(double.MaxValue);
 
-            //i3.Text = secretary.Surname;
-            //i3.CaretIndex = secretary.Surname.Length;
-            //i3.ScrollToHorizontalOffset(double.MaxValue);
+            i2.Text = secretary.Name;
+            i2.CaretIndex = secretary.Name.Length;
+            i2.ScrollToHorizontalOffset(double.MaxValue);
 
-            //i4.Text = secretary.Country;
-            //i4.CaretIndex = secretary.Country.Length;
-            //i4.ScrollToHorizontalOffset(double.MaxValue);
+            i3.Text = secretary.Surname;
+            i3.CaretIndex = secretary.Surname.Length;
+            i3.ScrollToHorizontalOffset(double.MaxValue);
 
-            //i5.Text = secretary.Address;
-            //i5.CaretIndex = secretary.Address.Length;
-            //i5.ScrollToHorizontalOffset(double.MaxValue);
+            i4.Text = secretary.City.Country.Name;
+            i4.CaretIndex = secretary.City.Country.Name.Length;
+            i4.ScrollToHorizontalOffset(double.MaxValue);
 
-            //i6.Text = secretary.MobilePhone;
-            //i6.CaretIndex = secretary.MobilePhone.Length;
-            //i6.ScrollToHorizontalOffset(double.MaxValue);
+            city.Text = secretary.City.Name;
+            city.CaretIndex = secretary.City.Name.Length;
+            city.ScrollToHorizontalOffset(double.MaxValue);
 
-            //i7.Text = secretary.Email;
-            //i7.CaretIndex = secretary.Email.Length;
-            //i7.ScrollToHorizontalOffset(double.MaxValue);
+            String address = secretary.City.Adress;
+            i5.Text = address;
+            i5.CaretIndex = address.Length;
+            i5.ScrollToHorizontalOffset(double.MaxValue);
+
+            i6.Text = secretary.ContactNumber;
+            i6.CaretIndex = secretary.ContactNumber.Length;
+            i6.ScrollToHorizontalOffset(double.MaxValue);
+
+            i7.Text = secretary.EMail;
+            i7.CaretIndex = secretary.EMail.Length;
+            i7.ScrollToHorizontalOffset(double.MaxValue);
 
         }
 
@@ -121,13 +135,13 @@ namespace HealthClinic.View
             var bc = new BrushConverter();
             var thic = new ThicknessConverter();
 
-            if (!i1.Text.Equals("") && !i2.Text.Equals("") && !i3.Text.Equals("") && !i4.Text.Equals("") && !i5.Text.Equals("") &&  !i6.Text.Equals("") && !i7.Text.Equals(""))
+            if (!i1.Text.Equals("") && !i2.Text.Equals("") && !i3.Text.Equals("") && !i4.Text.Equals("") && !i5.Text.Equals("") &&  !i6.Text.Equals("") && !i7.Text.Equals("") && !city.Text.Equals(""))
             {
                 String nameRegex = @"[A-Z][a-zA-Z]{1,}";
                 String addressRegex = @"[A-Z]+[a-z0-9A-Z,]+";
                 String mobileRegex = @"([+][0-9]{3})?[0-9]{2,3}/[0-9]{3}-[0-9]{3,4}";
                 String emailRegex = @"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$";
-                String passRegex = @"\S{8,22}";
+                String passRegex = @"\S{3,22}";
                 Regex rg = new Regex(nameRegex);
                 Regex rg2 = new Regex(mobileRegex);
                 Regex rg3 = new Regex(addressRegex);
@@ -173,9 +187,20 @@ namespace HealthClinic.View
                     changeBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
                     return;
                 }
+
+                if (!rg3.Match(city.Text).Success)
+                {
+                    textWarning2.Visibility = Visibility.Visible;
+                    city.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    city.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                    changeBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    changeBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                    return;
+                }
+
                 if (!rg3.Match(i5.Text).Success)
                 {
-                    textWarning5.Visibility = Visibility.Visible;
+                    textWarning2.Visibility = Visibility.Visible;
                     i5.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
                     i5.BorderThickness = (Thickness)thic.ConvertFrom("3");
                     changeBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
@@ -216,6 +241,8 @@ namespace HealthClinic.View
                 i3.BorderThickness = (Thickness)thic.ConvertFrom("1");
                 i4.BorderBrush = Brushes.Black;
                 i4.BorderThickness = (Thickness)thic.ConvertFrom("1");
+                city.BorderBrush = Brushes.Black;
+                city.BorderThickness = (Thickness)thic.ConvertFrom("1");
                 i5.BorderBrush = Brushes.Black;
                 i5.BorderThickness = (Thickness)thic.ConvertFrom("1");
                 i6.BorderBrush = Brushes.Black;
@@ -228,13 +255,16 @@ namespace HealthClinic.View
 
                 GridChangeSecretaryAccount.Children.Clear();
 
-                //secretary.Password = i1.Text;
-                //secretary.Name = i2.Text;
-                //secretary.Surname = i3.Text;
-                //secretary.Country = i4.Text;
-                //secretary.Address = i5.Text;
-                //secretary.MobilePhone = i6.Text;
-                //secretary.Email = i7.Text;
+                secretary.Password = i1.Text;
+                secretary.Name = i2.Text;
+                secretary.Surname = i3.Text;
+                secretary.City.Name = city.Text;
+                secretary.City.Country.Name = i4.Text;
+                secretary.City.Adress = i5.Text;
+                secretary.ContactNumber = i6.Text;
+                secretary.EMail = i7.Text;
+
+                userController.UpdateEntity(secretary);
 
                 usc = new ManipulationOptionsForSecretaryAccount();
                 GridChangeSecretaryAccount.Children.Add(usc);
@@ -273,6 +303,14 @@ namespace HealthClinic.View
                 {
                     i4.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
                     i4.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                    changeBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    changeBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                }
+
+                if (city.Text.Equals(""))
+                {
+                    city.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    city.BorderThickness = (Thickness)thic.ConvertFrom("3");
                     changeBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
                     changeBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
                 }
@@ -432,6 +470,24 @@ namespace HealthClinic.View
                 changeBtn.BorderThickness = (Thickness)thic.ConvertFrom("1");
             }
 
+        }
+
+        private void city_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            textWarning5.Visibility = Visibility.Hidden;
+            textWarning6.Visibility = Visibility.Hidden;
+            textWarning4.Visibility = Visibility.Hidden;
+            textWarning2.Visibility = Visibility.Hidden;
+            textWarning3.Visibility = Visibility.Hidden;
+            if (!city.Text.Equals(""))
+            {
+                textWarning.Visibility = Visibility.Hidden;
+                city.BorderBrush = Brushes.Black;
+                var thic = new ThicknessConverter();
+                city.BorderThickness = (Thickness)thic.ConvertFrom("1");
+                changeBtn.BorderBrush = Brushes.Black;
+                changeBtn.BorderThickness = (Thickness)thic.ConvertFrom("1");
+            }
         }
     }
 }

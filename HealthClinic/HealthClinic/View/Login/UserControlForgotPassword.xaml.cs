@@ -1,4 +1,6 @@
-﻿using HealthClinic.View;
+﻿using Controller.UsersControlers;
+using HealthClinic.View;
+using Model.AllActors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +23,15 @@ namespace HealthClinic
     /// </summary>
     public partial class UserControlForgotPassword : UserControl
     {
+        private readonly UserController userController;
+
         public UserControlForgotPassword()
         {
             InitializeComponent();
+
+            var app = App.Current as App;
+            userController = app.UserController;
+
             textWarningUsername.Visibility = textWarningHidden;
         }
 
@@ -34,24 +42,22 @@ namespace HealthClinic
 
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
         {
-            //foreach(Secretary secretary in MainWindow.secreatries)
-            //{
-            //    if (usernameTextBox.Text.Equals(secretary.Username))
-            //    {
-            //        textWarningUsername.Visibility = textWarningHidden;
-            //        UserControl usc = new NotificationForPassword();
-            //        (this.Parent as Panel).Children.Add(usc);
-            //    } else
-            //    {
-            //        var bc = new BrushConverter();
-            //        var thic = new ThicknessConverter();
-            //        textWarningUsername.Visibility = textWarningVisible;
-            //        usernameTextBox.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
-            //        usernameTextBox.BorderThickness = (Thickness)thic.ConvertFrom("3");
-            //        confirmBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
-            //        confirmBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
-            //    }
-            //}
+            Secretary secretary = (Secretary)userController.GetUserByUsername(usernameTextBox.Text);
+            if(secretary != null)
+            {
+                textWarningUsername.Visibility = textWarningHidden;
+                UserControl usc = new NotificationForPassword();
+                (this.Parent as Panel).Children.Add(usc);
+            } else
+            {
+                var bc = new BrushConverter();
+                var thic = new ThicknessConverter();
+                textWarningUsername.Visibility = textWarningVisible;
+                usernameTextBox.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                usernameTextBox.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                confirmBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                confirmBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
+            }
         }
 
         private Visibility textWarningVisible

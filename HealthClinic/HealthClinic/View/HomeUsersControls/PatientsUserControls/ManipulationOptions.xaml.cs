@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.AllActors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,11 @@ namespace HealthClinic.View
     /// </summary>
     public partial class ManipulationOptions : UserControl
     {
-        public ManipulationOptions()
+        Patient patient = new Patient();
+        public ManipulationOptions(Patient patient)
         {
             InitializeComponent();
-            //pacijent = pac;
+            this.patient = patient;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -74,21 +76,21 @@ namespace HealthClinic.View
         private void viewBtn_Click(object sender, RoutedEventArgs e)
         {
             GridManipulationOptions.Children.Clear();
-            UserControl usc = new ViewPatientAccount();
+            UserControl usc = new ViewPatientAccount(patient);
             GridManipulationOptions.Children.Add(usc);
         }
 
         private void changeBtn_Click(object sender, RoutedEventArgs e)
         {
             GridManipulationOptions.Children.Clear();
-            UserControl usc = new ChangePatientAccount();
+            UserControl usc = new ChangePatientAccount(patient);
             GridManipulationOptions.Children.Add(usc);
         }
 
         private void deactivateBtn_Click(object sender, RoutedEventArgs e)
         {
             GridManipulationOptions.Children.Clear();
-            UserControl usc = new DeactivationPatientAccount();
+            UserControl usc = new DeactivationPatientAccount(patient);
             GridManipulationOptions.Children.Add(usc);
         }
     }

@@ -15,17 +15,20 @@ namespace HealthClinic.View.Converter
             return new ViewPatient
             {
                 Id = patient.GetId(),
-                Username = patient.UserName,
-                Password = patient.Password,
                 Name = patient.Name,
                 Surname = patient.Surname,
                 Jmbg = patient.Jmbg,
-                DateOfBirth = patient.DateOfBirth.ToString(),
-                ContactNumber = patient.ContactNumber,
+                DateOfBirthday = patient.DateOfBirth,
+                City = patient.City.Name,
+                Address = patient.City.Adress,
+                Country = patient.City.Country.Name,
+                PhoneNumber = patient.ContactNumber,
                 EmailAddress = patient.EMail,
-                City = patient.City.ToString(),
+                Username = patient.UserName,
+                Password = patient.Password,
                 GuestAccount = patient.GuestAccount,
                 MedicalRecord = patient.MedicalRecord.ToString()
+
             };
         }
         public static IList<ViewPatient> ConvertPatientListToPatientViewList(IList<Patient> patients)

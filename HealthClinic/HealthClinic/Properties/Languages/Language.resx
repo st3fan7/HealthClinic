@@ -234,6 +234,9 @@
   <data name="chooseTime" xml:space="preserve">
     <value>Izaberite vreme</value>
   </data>
+  <data name="city" xml:space="preserve">
+    <value>Grad:</value>
+  </data>
   <data name="confirm" xml:space="preserve">
     <value>Potvrdi</value>
   </data>
@@ -290,6 +293,9 @@
   </data>
   <data name="enterAddress" xml:space="preserve">
     <value>Unesite adresu</value>
+  </data>
+  <data name="enterCity" xml:space="preserve">
+    <value>Unesite grad</value>
   </data>
   <data name="enterData" xml:space="preserve">
     <value>Unos podataka</value>
@@ -622,7 +628,7 @@
     <value>Unesite dodatne podatke za                           transformaciju gostujućeg                           naloga u pravi nalog:</value>
   </data>
   <data name="textInHome" xml:space="preserve">
-    <value>Dobrodošli, Ana.                      Šta želite danas da uradite?</value>
+    <value>Šta želite danas da uradite?</value>
   </data>
   <data name="textInLogoutDialog" xml:space="preserve">
     <value>Da li želite da se odjavite?</value>
