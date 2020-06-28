@@ -198,6 +198,7 @@
     <Compile Include="Controller\UsersControlers\UserController.cs" />
     <Compile Include="Controller\UsersControlers\WorkingTimeForDoctorController.cs" />
     <Compile Include="View\Converter\AbstractConverter.cs" />
+    <Compile Include="View\Converter\HospitalitationConverter.cs" />
     <Compile Include="View\Converter\MedicalExaminationConverter.cs" />
     <Compile Include="View\Converter\PatientConverter.cs" />
     <Compile Include="View\Converter\SurgeryConverter.cs" />
@@ -355,6 +356,7 @@
       <DependentUpon>UserControlForgotPassword.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewModel\ViewPatient.cs" />
+    <Compile Include="View\ViewModel\ViewHospitalitation.cs" />
     <Compile Include="View\ViewModel\ViewTerm.cs" />
   </ItemGroup>
   <ItemGroup>

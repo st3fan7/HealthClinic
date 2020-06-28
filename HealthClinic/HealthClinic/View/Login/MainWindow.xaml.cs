@@ -51,9 +51,12 @@ namespace HealthClinic
         {
             var bc = new BrushConverter();
             var thic = new ThicknessConverter();
-
-            secretary = (Secretary)userController.Login(usernameTextBox.Text, passwordTextBox.Password);
-            var mainWindow = new MainWindow();
+            if(usernameTextBox.Text != "")
+            {
+                secretary = (Secretary)userController.Login(usernameTextBox.Text, passwordTextBox.Password);
+            }
+           
+            //var mainWindow = new MainWindow();
 
             if(secretary != null)
             {

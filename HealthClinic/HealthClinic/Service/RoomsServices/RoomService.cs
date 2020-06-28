@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  * Module:  RoomService.cs
  * Author:  Stefan
  * Purpose: Definition of the Class Service.RoomService
@@ -68,6 +68,15 @@ namespace Service.RoomsServices
                 if (room.TypeOfRoom.NameOfType.Equals("Soba za preglede"))
                     medicalExaminationRooms.Add(room);
             return medicalExaminationRooms;
+        }
+
+        public List<Room> GetAllRoomForHospitalitation()
+        {
+            List<Room> hospitalitationRooms = new List<Room>();
+            foreach (Room room in GetAllEntities())
+                if (room.TypeOfRoom.NameOfType.Equals("Bolnička soba"))
+                    hospitalitationRooms.Add(room);
+            return hospitalitationRooms;
         }
 
         public List<Room> GetAllRoomForSurgery()
