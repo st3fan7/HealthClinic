@@ -54,14 +54,6 @@ namespace HealthClinic.View
             FromRoomView = new ObservableCollection<ViewInventaryRoom>(InventaryRoomConverter.ConvertInventaryRoomListToInventaryRoomViewList(fromRoom.Equipment));
         }
 
-        /*private List<InventaryRoom> GetInventaryForRoom(Room room) // napisi u controleru
-        {
-            foreach (Room oneRoom in roomController.GetAllEntities())
-                if (oneRoom.RoomID == room.RoomID)
-                    return oneRoom.Equipment;
-            return null;
-        }*/
-
         private void Button_Click_Premesti(object sender, RoutedEventArgs e)
         {
             if (inRoom.RoomID == fromRoom.RoomID)
@@ -96,18 +88,26 @@ namespace HealthClinic.View
                         {   // Premestanje opreme koja vec postoji u sali
                             equipmentForRelocate.Quantity -= int.Parse(InputAmountOfEquipment.Text);
                             equipmentInRoom.Quantity += int.Parse(InputAmountOfEquipment.Text);
-                            inventaryRoomController.UpdateEntity(inventaryRoomController.GetEntity(equipmentForRelocate.Id));
-                            inventaryRoomController.UpdateEntity(inventaryRoomController.GetEntity(equipmentInRoom.Id));
+                            InventaryRoom equipmentForReloceate = inventaryRoomController.GetEntity(equipmentForRelocate.Id);
+                            InventaryRoom inventaryRoom = inventaryRoomController.GetEntity(equipmentInRoom.Id);
+                            equipmentForReloceate.Quantity -= int.Parse(InputAmountOfEquipment.Text);
+                            inventaryRoom.Quantity += int.Parse(InputAmountOfEquipment.Text);
+                            inventaryRoomController.UpdateEntity(equipmentForReloceate);
+                            inventaryRoomController.UpdateEntity(inventaryRoom);
                             MessageBox.Show("Uspešno ste premestili opremu", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
                             return;
                         }
                     } // Premestanje opreme koja ne postoji u prvoj sali
                     equipmentForRelocate.Quantity -= int.Parse(InputAmountOfEquipment.Text);
-                    inventaryRoomController.UpdateEntity(inventaryRoomController.GetEntity(equipmentForRelocate.Id));
+                    InventaryRoom equipment = inventaryRoomController.GetEntity(equipmentForRelocate.Id);
+                    equipment.Quantity -= int.Parse(InputAmountOfEquipment.Text);
+                    inventaryRoomController.UpdateEntity(equipment);
                     InRoomView.Add(InventaryRoomConverter.ConvertInventaryRoomToInventaryRoomView(
-                        new InventaryRoom(equipmentForRelocate.Name, int.Parse(InputAmountOfEquipment.Text))));
+                        new InventaryRoom(GetLastIDForInventaryRoom() ,equipmentForRelocate.Name, int.Parse(InputAmountOfEquipment.Text))));
+                    // Dodaje opremu u inventoryRoom.csv i u sobu
                     Room roomWithNewEquipment = roomController.GetEntity(inRoom.GetId());
-                    roomWithNewEquipment.Equipment.Add(new InventaryRoom(equipmentForRelocate.Name, int.Parse(InputAmountOfEquipment.Text)));
+                    roomWithNewEquipment.Equipment.Add(
+                        inventaryRoomController.AddEntity(new InventaryRoom(equipmentForRelocate.Name, int.Parse(InputAmountOfEquipment.Text))));
                     roomController.UpdateEntity(roomWithNewEquipment);
                     MessageBox.Show("Uspešno ste premestili opremu", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
@@ -115,6 +115,14 @@ namespace HealthClinic.View
             }
             MessageBox.Show("Ne postoji oprema koju želite da premestite", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             return;
+        }
+
+        private int GetLastIDForInventaryRoom()
+        {
+            int lastID = 0;
+            foreach (InventaryRoom inventary in inventaryRoomController.GetAllEntities())
+                lastID++;
+            return lastID;
         }
 
         private void Button_Click_PocetnaStrana(object sender, RoutedEventArgs e)
