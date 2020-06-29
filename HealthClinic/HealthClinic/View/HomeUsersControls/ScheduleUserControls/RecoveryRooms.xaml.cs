@@ -64,7 +64,7 @@ namespace HealthClinic.View
                 if (Loading.hospitalitationTerms.Any(p => p.Id == vt.Id) == false)
                     Loading.hospitalitationTerms.Add(vt);
 
-            fillData(DisplayType.date);
+            fillData(TypeOfRoom.date);
         }
 
         private void fillData(String date)

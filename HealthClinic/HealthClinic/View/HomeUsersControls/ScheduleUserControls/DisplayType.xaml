@@ -113,13 +113,13 @@
                          Content="{x:Static language:Language.byRooms}" 
                          FontFamily="Helvatic"
                          FontSize="28"  />
-                <RadioButton x:Name="secondRadioButton"
+                <!--<RadioButton x:Name="secondRadioButton"
                          GroupName="myGroup" 
                          Background="Black"
                          Margin="42,10,50,0" 
                          Content="{x:Static language:Language.byDoctors}" 
                          FontFamily="Helvatic" 
-                         FontSize="28" />
+                         FontSize="28" />-->
               <!--  <RadioButton x:Name="thirdRadioButton"  
                          GroupName="myGroup" 
                          Margin="42,10,50,0" 
@@ -154,7 +154,7 @@
                     FontSize="28" Background="#FF8CA8BF"
                     BorderBrush="#DD000000"
                     Foreground="#DD000000"
-                    Margin="0,215,0,0"
+                    Margin="0,265,0,0"
                     FontWeight="Normal"
                     FontFamily="Helvatic"
                     Click="nextBtn_Click" />

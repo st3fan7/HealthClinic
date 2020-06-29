@@ -20,16 +20,18 @@ namespace HealthClinic.View
     /// </summary>
     public partial class TypeOfRoom : UserControl
     {
+        public static string date = "";
         public TypeOfRoom(string selectedDate)
         {
             InitializeComponent();
             dateLabel.Content = selectedDate;
+            date = selectedDate;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
             GridTypeOfRoom.Children.Clear();
-            UserControl usc = new DisplayType(dateLabel.Content.ToString());
+            UserControl usc = new Schedule();
             GridTypeOfRoom.Children.Add(usc);
         }
 

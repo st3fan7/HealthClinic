@@ -31,7 +31,8 @@ namespace HealthClinic.View
         {
             if (datePickerSchedule.SelectedDate != null)
             {
-                UserControl usc = new DisplayType(datePickerSchedule.Text);
+                //UserControl usc = new DisplayType(datePickerSchedule.Text);
+                UserControl usc = new TypeOfRoom(datePickerSchedule.Text);
                 (this.Parent as Panel).Children.Add(usc);
             } else
             {

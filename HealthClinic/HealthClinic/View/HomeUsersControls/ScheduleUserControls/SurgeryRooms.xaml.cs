@@ -51,7 +51,7 @@ namespace HealthClinic.View
         public SurgeryRooms(string selectedDate)
         {
             InitializeComponent();
-            dateLabel.Content = DisplayType.date;
+            dateLabel.Content = TypeOfRoom.date;
             this.DataContext = this;
             counter = 0;
 
@@ -85,50 +85,23 @@ namespace HealthClinic.View
             TermsView = new ObservableCollection<ViewTerm>(SurgeryConverter.ConvertSurgeryListToSurgeryViewList(surgeryController.GetAllEntities().ToList()));
             currentTerms = TermsView;
 
-            Console.WriteLine("--------------------------ISPIS U KONSTRUKTORU-------------------------");
-            foreach (ViewTerm vt in currentTerms)
-            {
-                Console.WriteLine(" Datum: " + vt.Date + " Doktor: " + vt.Doctor + " Pacijent: " + vt.Patient + " Sala: " + vt.Room + " Zadatak: " + vt.Task + " Vreme: " + vt.Time + " Status: " + vt.Status + " ID: " + vt.Id + " Pacijentov jmbg" + vt.PatientJMBG);
-            }
-            Console.WriteLine("---------------------------------------------------------");
 
             foreach (ViewTerm vt in TermsView)
                 if (Loading.currentSurgeryTerms.Any(p => p.Id == vt.Id) == false)
                     Loading.currentSurgeryTerms.Add(vt);
 
-
-            Console.WriteLine("--------------------------ISPIS-------------------------");
-            foreach (ViewTerm vt in Loading.currentSurgeryTerms)
-            {
-                Console.WriteLine("Datum: " + vt.Date + " Doktor: " + vt.Doctor + " Pacijent: " + vt.Patient + " Sala: " + vt.Room + " Zadatak: " + vt.Task + " Vreme: " + vt.Time + " Status: " + vt.Status + " ID: " + vt.Id + " Pacijentov jmbg" + vt.PatientJMBG);
-            }
-            Console.WriteLine("---------------------------------------------------------");
-            fillData(DisplayType.date);
+            fillData(TypeOfRoom.date);
         }
 
         public void fillData(String date)
         {
             currentTerms.Clear();
 
-            Room room = RoomsComboBox.First();//(Room)roomCmbx.SelectedItem;
-
-            Console.WriteLine("--------------------------ISPIS U FILL DATA PRE DODAVANJA-------------------------");
-            foreach (ViewTerm vt in currentTerms)
-            {
-                Console.WriteLine(" Datum: " + vt.Date + " Doktor: " + vt.Doctor + " Pacijent: " + vt.Patient + " Sala: " + vt.Room + " Zadatak: " + vt.Task + " Vreme: " + vt.Time + " Status: " + vt.Status + " ID: " + vt.Id + " Pacijentov jmbg" + vt.PatientJMBG);
-            }
-            Console.WriteLine("---------------------------------------------------------");
+            Room room = RoomsComboBox.First();
 
             foreach (ViewTerm viewTerm in Loading.currentSurgeryTerms)
                 if (date.Equals(viewTerm.Date) && room.RoomID.Equals(viewTerm.Room) && viewTerm.Task.Equals("Operacija"))
                     currentTerms.Add(viewTerm);
-
-            Console.WriteLine("--------------------------ISPIS U FILL DATA POSLE DODAVANJA-------------------------");
-            foreach (ViewTerm vt in currentTerms)
-            {
-                Console.WriteLine(" Datum: " + vt.Date + " Doktor: " + vt.Doctor + " Pacijent: " + vt.Patient + " Sala: " + vt.Room + " Zadatak: " + vt.Task + " Vreme: " + vt.Time + " Status: " + vt.Status + " ID: " + vt.Id + " Pacijentov jmbg" + vt.PatientJMBG);
-            }
-            Console.WriteLine("---------------------------------------------------------");
 
             if (currentTerms.Count < 14)
             {
@@ -169,14 +142,10 @@ namespace HealthClinic.View
 
                     }
                     currentTerms.Clear();
+                    if (emptyTerms.First().Id == 0)
+                        emptyTerms.First().Status = "Slobodan";
                     currentTerms = emptyTerms;
 
-                    Console.WriteLine("--------------------------ISPIS U FILL DATA POSLE DODAVANJA PRAZNIH TERMINA-------------------------");
-                    foreach (ViewTerm vt in currentTerms)
-                    {
-                        Console.WriteLine(" Datum: " + vt.Date + " Doktor: " + vt.Doctor + " Pacijent: " + vt.Patient + " Sala: " + vt.Room + " Zadatak: " + vt.Task + " Vreme: " + vt.Time + " Status: " + vt.Status + " ID: " + vt.Id + " Pacijentov jmbg" + vt.PatientJMBG);
-                    }
-                    Console.WriteLine("---------------------------------------------------------");
                 }
             }
             dgTerms.ItemsSource = currentTerms;
@@ -279,7 +248,6 @@ namespace HealthClinic.View
                 return;
             fillTermWithDataFromSelectedRow(term);
 
-            // NABAVI SVE OBICNE DOKTORE
 
             UserControl usc = new PatientValidation(dateLabel.Content.ToString(), term);
             dgTerms.UnselectAllCells();
@@ -392,7 +360,6 @@ namespace HealthClinic.View
                 if (room == null)
                     room = RoomsComboBox.First();
 
-                Console.WriteLine("Soba prikaz: " + room.RoomID);
                 counter += 1;
 
                 ObservableCollection<ViewTerm> terms = currentTerms;
@@ -471,6 +438,8 @@ namespace HealthClinic.View
 
                         }
                         currentTerms.Clear();
+                        if (emptyTerms.First().Id == 0)
+                            emptyTerms.First().Status = "Slobodan";
                         currentTerms = emptyTerms;
                     }
                 }
