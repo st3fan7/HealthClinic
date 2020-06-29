@@ -47,7 +47,8 @@ namespace HealthClinic.Layouts
             foreach (MedicalExamination m in medicalExaminationsFromFile)
             {
                 Console.WriteLine(m.ToDateTime);
-                MedicalExaminations.Add(MedicalExaminationConverter.ConvertMedicalExaminationToMedicalExaminationView(m));
+                if(Views.Login.currentUser.Id == m.Patient.GetId())
+                    MedicalExaminations.Add(MedicalExaminationConverter.ConvertMedicalExaminationToMedicalExaminationView(m));
             }
            
         }
