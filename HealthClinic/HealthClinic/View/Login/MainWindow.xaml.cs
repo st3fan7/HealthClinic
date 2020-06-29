@@ -1,6 +1,7 @@
 ﻿using Controller.UsersControlers;
 using HealthClinic.View;
 using Model.AllActors;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -53,11 +54,23 @@ namespace HealthClinic
             var thic = new ThicknessConverter();
             if(usernameTextBox.Text != "")
             {
-                secretary = (Secretary)userController.Login(usernameTextBox.Text, passwordTextBox.Password);
+                try
+                {
+                    secretary = (Secretary)userController.Login(usernameTextBox.Text, passwordTextBox.Password);
+                }
+                catch (InvalidCastException e1)
+                {
+                    loginBtn.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    loginBtn.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                    passwordTextBox.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    passwordTextBox.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                    usernameTextBox.BorderBrush = (Brush)bc.ConvertFrom("#FF761616");
+                    usernameTextBox.BorderThickness = (Thickness)thic.ConvertFrom("3");
+                    Console.WriteLine(e1);
+                    return;
+                }
             }
            
-            //var mainWindow = new MainWindow();
-
             if(secretary != null)
             {
                 UsernameForSecretary = usernameTextBox.Text;

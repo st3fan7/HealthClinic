@@ -92,8 +92,18 @@ namespace HealthClinic.View
                 confirmBtn.BorderThickness = (Thickness)thic.ConvertFrom("1");
 
                 UserControl usc = null;
+                Patient patient;
+                try
+                {
+                    patient = (Patient)userController.GetUserByJMBG(usernameTextBox.Text);
+                }
+                catch (InvalidCastException e1)
+                {
+                    Console.WriteLine(e1);
+                    return;
+                }
 
-                Patient patient = (Patient)userController.GetUserByJMBG(usernameTextBox.Text);
+                
                 // ima guest account
                 if (patient != null && patient.GuestAccount == true) 
                 {
