@@ -44,7 +44,7 @@ namespace Service.ExaminationSurgeryServices
             return medicalExaminationRepository.GetAllMedicalExaminationsByPatient(patient);
         }
 
-        public List<MedicalExamination> GetAllMedicalExaminationsByPatient(Model.Term.Room room)
+        public List<MedicalExamination> GetAllMedicalExaminationsByRoom(Model.Term.Room room)
         {
             return medicalExaminationRepository.GetAllMedicalExaminationsByRoom(room);
         }

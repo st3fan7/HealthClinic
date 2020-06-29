@@ -7,3 +7,6 @@
 7,Model.AllActors.Manager,mara,123,Marija,Janković,6519245667121,06.06.1996.,063/555-333,mejl@test.com,Novi Sad,Cara Dusana,Srbija
 8,Model.AllActors.Secretary,srecko,123,Srećko,Stefanović,6019345667121,06.06.1996.,063/555-333,mejl@test.com,Novi Sad,Cara Dusana,Srbija
 9,Model.AllActors.Secretary,joca,123,Jovana,Jović,6019045167119,06.06.1996.,063/555-333,mejl@test.com,Novi Sad,Cara Lazara 1,Srbija
+10,Model.AllActors.Patient,,,Jelena,Jelic,0101997121221,01.01.1997.,065/456-456,,,,,True,0
+11,Model.AllActors.Patient,,,Marko,Maric,0202010121212,02.02.2010.,069/789-465,,,,,True,0
+12,Model.AllActors.Doctor,aleksa,123,Aleksa,Aleksić,1211965121212,12.11.1965.,063/555-333,mejl@test.com,Novi Sad,Cara Dusana,Srbija,1

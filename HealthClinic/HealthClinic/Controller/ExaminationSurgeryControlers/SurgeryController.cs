@@ -36,9 +36,9 @@ namespace Controller.ExaminationSurgeryControlers
             return surgeryService.GetAllSurgeryByPatient(patient);
         }
 
-        public List<Surgery> GetAllMedicalExaminationsByPatient(Room room)
+        public List<Surgery> GetAllSurgeryByRoom(Room room)
         {
-            return surgeryService.GetAllMedicalExaminationsByPatient(room);
+            return surgeryService.GetAllSurgeryByRoom(room);
         }
 
         public List<Surgery> GetAllMedicalExaminationsByPatient2(DateTime time)

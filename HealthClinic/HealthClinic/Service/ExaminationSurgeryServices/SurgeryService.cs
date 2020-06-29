@@ -36,7 +36,7 @@ namespace Service.ExaminationSurgeryServices
             return surgeryRepository.GetAllSurgeryByPatient(patient);
         }
 
-        public List<Surgery> GetAllMedicalExaminationsByPatient(Room room)
+        public List<Surgery> GetAllSurgeryByRoom(Room room)
         {
             return surgeryRepository.GetAllSurgeryByRoom(room);
         }

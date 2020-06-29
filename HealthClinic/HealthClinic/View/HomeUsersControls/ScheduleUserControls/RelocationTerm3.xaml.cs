@@ -141,17 +141,42 @@ namespace HealthClinic.View
               
                 medicalExamination.Patient = patient;
 
-                // provera da li je taj termin vec postoji
-
-                foreach (MedicalExamination medicalE in medicalExaminationController.GetAllEntities())
+                foreach (MedicalExamination medicalExaminationFromFile in medicalExaminationController.GetAllEntities())
                 {
-                    if (medicalE.ToDateTime.ToString() == medicalExamination.ToDateTime.ToString() && medicalE.FromDateTime.ToString() == medicalExamination.FromDateTime.ToString() && medicalE.Room.RoomID == medicalExamination.Room .RoomID &&
-                        medicalE.Doctor.GetId() == medicalExamination.Doctor.GetId() && medicalE.Patient.GetId() == medicalExamination.Patient.GetId())
-                    {
-                        MessageBox.Show("Termin sa ovim podacima je vec popunjen! Izmenite neke podatke za premestanje!");
-                        return;
-                    }
 
+                    if (medicalExaminationFromFile.FromDateTime.Equals(medicalExamination.FromDateTime))
+                    {
+
+                        foreach (MedicalExamination medicalExaminationForDoctor in medicalExaminationController.GetAllMedicalExaminationsByDoctor(medicalExamination.Doctor))
+                        {
+                            if (medicalExaminationForDoctor.FromDateTime.Equals(medicalExaminationFromFile.FromDateTime))
+                            {
+                                MessageBox.Show("Izabran doktor je već zauzet za ovaj datum i vreme!");
+                                return;
+                            }
+                        }
+
+                        foreach (MedicalExamination medicalExaminationForDoctor in medicalExaminationController.GetAllMedicalExaminationsByPatient(medicalExamination.Patient))
+                        {
+                            if (medicalExaminationForDoctor.FromDateTime.Equals(medicalExaminationFromFile.FromDateTime))
+                            {
+                                MessageBox.Show("Izabran pacijent već ima zakazan termin za ovaj datum i vreme!");
+                                return;
+                            }
+                        }
+
+                        foreach (MedicalExamination medicalExaminationForDoctor in medicalExaminationController.GetAllMedicalExaminationsByRoom(medicalExamination.Room))
+                        {
+                            if (medicalExaminationForDoctor.FromDateTime.Equals(medicalExaminationFromFile.FromDateTime))
+                            {
+                                MessageBox.Show("Izabrana sala je već zauzeta za ovaj datum i vreme!");
+                                return;
+                            }
+                        }
+
+
+                        break;
+                    }
                 }
 
                 MedicalExamination md = new MedicalExamination();
@@ -192,17 +217,43 @@ namespace HealthClinic.View
                
                 surgery.Patient = patient;
 
-                // provera da li je taj termin vec postoji
 
-                foreach (Surgery surg in surgeryController.GetAllEntities())
+                foreach (Surgery surgeryFromFile in surgeryController.GetAllEntities())
                 {
-                    if (surg.ToDateTime.ToString() == surgery.ToDateTime.ToString() && surg.FromDateTime.ToString() == surgery.FromDateTime.ToString() && surg.Room.RoomID == surgery.Room.RoomID &&
-                        surg.DoctorSpecialist.GetId() == surgery.DoctorSpecialist.GetId() && surg.Patient.GetId() == surgery.Patient.GetId())
-                    {
-                        MessageBox.Show("Termin sa ovim podacima je vec popunjen! Izmenite neke podatke za premestanje!");
-                        return;
-                    }
 
+                    if (surgeryFromFile.FromDateTime.Equals(surgery.FromDateTime))
+                    {
+
+                        foreach (Surgery surgeryForDoctor in surgeryController.GetAllSurgeryByDoctor(surgery.DoctorSpecialist))
+                        {
+                            if (surgeryForDoctor.FromDateTime.Equals(surgeryFromFile.FromDateTime))
+                            {
+                                MessageBox.Show("Izabran doktor je već zauzet za ovaj datum i vreme!");
+                                return;
+                            }
+                        }
+
+                        foreach (Surgery surgeryForDoctor in surgeryController.GetAllSurgeryByPatient(surgery.Patient))
+                        {
+                            if (surgeryForDoctor.FromDateTime.Equals(surgeryFromFile.FromDateTime))
+                            {
+                                MessageBox.Show("Izabran pacijent već ima zakazan termin za ovaj datum i vreme!");
+                                return;
+                            }
+                        }
+
+                        foreach (Surgery surgeryForDoctor in surgeryController.GetAllSurgeryByRoom(surgery.Room))
+                        {
+                            if (surgeryForDoctor.FromDateTime.Equals(surgeryFromFile.FromDateTime))
+                            {
+                                MessageBox.Show("Izabrana sala je već zauzeta za ovaj datum i vreme!");
+                                return;
+                            }
+                        }
+
+
+                        break;
+                    }
                 }
 
                 Surgery surgeryForRel = new Surgery();
