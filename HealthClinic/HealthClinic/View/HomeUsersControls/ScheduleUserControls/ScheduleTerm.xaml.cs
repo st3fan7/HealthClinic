@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Controller.ExaminationSurgeryControlers;
 using Controller.UsersControlers;
 using HealthClinic.View.Dialogues;
 using HealthClinic.View.ViewModel;
@@ -32,8 +33,8 @@ namespace HealthClinic.View
 
         ViewTerm termForSchedule = new ViewTerm();
 
-        private readonly IController<MedicalExamination, int> medicalExaminationController;
-        private readonly IController<Surgery, int> surgeryController;
+        private readonly MedicalExaminationController medicalExaminationController;
+        private readonly SurgeryController surgeryController;
         public static ObservableCollection<User> Doctors{ get; set; }
 
         public ScheduleTerm(string selectedDate, ViewTerm term, Patient patient)
@@ -85,47 +86,6 @@ namespace HealthClinic.View
                     Doctors = MedicalExaminationRooms.DoctorsForMedicalExamination; 
 
             }
-            //else
-            //{
-            //    // imamo doktora
-            //    l44.Content = term.Lekar;
-            //    l5.Visibility = Visibility.Visible;
-            //    cmbxRoom.Visibility = Visibility.Visible;
-            //    cmbxRoom.IsHitTestVisible = true;
-            //    cmbxRoom.Focusable = true;
-            //    label4.Visibility = Visibility.Visible;
-
-            //    List<String> sobeKojimaSePuni = new List<String>();
-            //    if(term.Zadatak == "Operacija")
-            //    {
-            //        foreach (Sobe s in Loading.sobeZaOperaciju)
-            //        {
-            //            sobeKojimaSePuni.Add(s.Soba);
-            //        }
-            //    } else
-            //    {
-            //        foreach (Sobe s in Loading.sobeZaPregled)
-            //        {
-            //            sobeKojimaSePuni.Add(s.Soba);
-            //        }
-            //    }
-
-
-            //    sobe.Clear();
-            //    foreach (String r in sobeKojimaSePuni)
-            //    {
-            //        sobe.Add(new Sobe() { Soba = r });
-            //    }
-
-
-            //    cmbxRoom.ItemsSource = sobe;
-            //    cmbxRoom.DisplayMemberPath = "Soba";
-
-
-
-            //    Console.WriteLine("Poslao sam soba: " + sobe.Count);
-
-            //}
 
 
         }
@@ -187,6 +147,35 @@ namespace HealthClinic.View
                 surgery.ToDateTime = DateTime.Parse(fromDateTimeParts[3] + " " + fromDateTimeParts[4]);
                 surgery.DoctorSpecialist = (Doctor)cmbxDoctor.SelectedItem;
                 surgery.Patient = patient;
+                foreach (Surgery surgeryFromFile in surgeryController.GetAllEntities())
+                {
+                    
+                    if (surgeryFromFile.FromDateTime.Equals(surgery.FromDateTime))
+                    {
+                        
+                        foreach (Surgery surgeryForDoctor in surgeryController.GetAllSurgeryByDoctor(surgery.DoctorSpecialist))
+                        {
+                            if (surgeryForDoctor.FromDateTime.Equals(surgeryFromFile.FromDateTime))
+                            {
+                                MessageBox.Show("Izabran doktor je već zauzet za ovaj datum i vreme!");
+                                return;
+                            }
+                        }
+
+                        foreach (Surgery surgeryForDoctor in surgeryController.GetAllSurgeryByPatient(surgery.patient))
+                        {
+                            if (surgeryForDoctor.FromDateTime.Equals(surgeryFromFile.FromDateTime))
+                            {
+                                MessageBox.Show("Izabran pacijent već ima zakazan termin za ovaj datum i vreme!");
+                                return;
+                            }
+                        }
+
+
+                        break;
+                    }
+                }
+
                 surgeryController.AddEntity(surgery);
             } else
             {
@@ -203,6 +192,36 @@ namespace HealthClinic.View
                 medicalExamination.ToDateTime = DateTime.Parse(fromDateTimeParts[3] + " " + fromDateTimeParts[4]);
                 medicalExamination.Doctor = (Doctor)cmbxDoctor.SelectedItem;
                 medicalExamination.Patient = patient;
+
+                foreach (MedicalExamination medicalExaminationFromFile in medicalExaminationController.GetAllEntities())
+                {
+
+                    if (medicalExaminationFromFile.FromDateTime.Equals(medicalExamination.FromDateTime))
+                    {
+
+                        foreach (MedicalExamination medicalExaminationForDoctor in medicalExaminationController.GetAllMedicalExaminationsByDoctor(medicalExamination.Doctor))
+                        {
+                            if (medicalExaminationForDoctor.FromDateTime.Equals(medicalExaminationFromFile.FromDateTime))
+                            {
+                                MessageBox.Show("Izabran doktor je već zauzet za ovaj datum i vreme!");
+                                return;
+                            }
+                        }
+
+                        foreach (MedicalExamination medicalExaminationForDoctor in medicalExaminationController.GetAllMedicalExaminationsByPatient(medicalExamination.Patient))
+                        {
+                            if (medicalExaminationForDoctor.FromDateTime.Equals(medicalExaminationFromFile.FromDateTime))
+                            {
+                                MessageBox.Show("Izabran pacijent već ima zakazan termin za ovaj datum i vreme!");
+                                return;
+                            }
+                        }
+
+
+                        break;
+                    }
+                }
+
                 medicalExaminationController.AddEntity(medicalExamination);
             }
 
